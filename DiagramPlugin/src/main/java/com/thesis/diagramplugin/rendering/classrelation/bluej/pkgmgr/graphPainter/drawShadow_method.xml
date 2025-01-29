@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<method name="drawShadow" return_type="void">
+  <parameters>
+    <parameter name="g" type="java.awt.Graphics2D"/>
+    <parameter name="width" type="int"/>
+    <parameter name="height" type="int"/>
+  </parameters>
+  <body>
+    <declaration>int[] shadowAlphas = {20, 15, 10, 5, 5}</declaration>
+    <for condition="i &lt; 5" init="int i = 0;" update="i++">
+      <block>
+        <expression>g.setColor(new Color(0, 0, 0, shadowAlphas[i]));</expression>
+        <expression>g.fillRoundRect(2 - i, 4 - i, width + (2 * i) - 1, height + (2 * i) - 1, 8, 8);</expression>
+      </block>
+    </for>
+  </body>
+</method>

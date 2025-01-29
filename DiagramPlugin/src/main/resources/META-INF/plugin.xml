@@ -1,0 +1,19 @@
+<idea-plugin>
+    <id>com.thesis.DiagramPlugin</id>
+    <name>DiagramPlugin</name>
+    <vendor email="bryo00@vse.cz" url="www.vse.cz">University of economics in Prague</vendor>
+
+    <description>Plugin for generating and displaying class diagrams and kopenograms of source code written in Java or Python</description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends optional="true" config-file="java-plugin.xml">com.intellij.modules.java</depends>
+    <depends optional="true" config-file="python-plugin.xml">com.intellij.modules.python</depends>
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+        <fileEditorProvider implementation="com.thesis.diagramplugin.plugin.providers.ClassDiagramViewProvider"/>
+        <fileEditorProvider implementation="com.thesis.diagramplugin.plugin.providers.KopenogramViewProvider"/>
+    </extensions>
+
+</idea-plugin>

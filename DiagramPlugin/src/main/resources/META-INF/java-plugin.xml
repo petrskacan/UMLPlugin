@@ -1,0 +1,12 @@
+<idea-plugin>
+    <actions>
+        <action id="GenerateClassDiagramJava" class="com.thesis.diagramplugin.plugin.actions.java.GenerateClassDiagramAction"
+                text="Generate Class Diagram of Java sources">
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
+        </action>
+        <action id="GenerateKopenogramJava" class="com.thesis.diagramplugin.plugin.actions.java.GenerateKopenogramAction"
+                text="Generate Kopenogram of Java method">
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>
