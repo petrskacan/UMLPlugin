@@ -1,7 +1,7 @@
 import org.jetbrains.intellij.intellijPlugin
 
 group = "com.thesis"
-version = "1.0-SNAPSHOT"
+version = "1.0.2-beta"
 
 plugins {
     id("java")

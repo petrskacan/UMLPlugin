@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<method name="buildView" return_type="javax.swing.JComponent">
+  <parameters>
+    <parameter name="diagramXml" type="java.lang.String"/>
+  </parameters>
+  <body>
+    <declaration>com.thesis.diagramplugin.rendering.kopenogram.treepainter.PainterConfig config = new PainterConfig()</declaration>
+    <expression>config.font = new Font("Arial", Font.PLAIN, Integer.parseInt(Settings.Property.FONT_SIZE.getValue()));</expression>
+    <expression>config.verticalGap = Integer.parseInt(Settings.Property.VERTICAL_GAP.getValue());</expression>
+    <expression>config.horizontalGap = Integer.parseInt(Settings.Property.HORIZONTAL_GAP.getValue());</expression>
+    <expression>config.textMaxChars = Integer.parseInt(Settings.Property.NUMBER_OF_SYMBOLS_IN_EXPRESSION.getValue());</expression>
+    <try>
+      <try_block>
+        <declaration>org.dom4j.Document document = DocumentHelper.parseText(diagramXml)</declaration>
+        <declaration>org.dom4j.Element rootElement = document.getRootElement()</declaration>
+        <if condition="rootElement.getName() == METHOD_TAG">
+          <then>
+            <block>
+              <if condition="rootElement.attribute(NAME_ATTRIBUTE) != null">
+                <then>
+                  <block>
+                    <expression>this.name = rootElement.attribute(NAME_ATTRIBUTE).getValue();</expression>
+                  </block>
+                </then>
+              </if>
+              <expression>root.setRoot(processElement(rootElement));</expression>
+              <declaration>java.awt.Dimension dim = root.getDimension(config, new Point(0, 0))</declaration>
+              <declaration>java.awt.image.BufferedImage img = new BufferedImage(dim.width + 1, dim.height + 1, BufferedImage.TYPE_3BYTE_BGR)</declaration>
+              <declaration>java.awt.Graphics g = img.createGraphics()</declaration>
+              <expression>root.paint(g, config, new Point(0, 0), dim);</expression>
+              <declaration>javax.swing.JComponent kopenogramPane = new JBScrollPane(new Surface(img, new Dimension(dim.width, dim.height)))</declaration>
+              <return>kopenogramPane</return>
+            </block>
+          </then>
+        </if>
+      </try_block>
+      <catch exceptions="org.dom4j.DocumentException">
+        <catch_block>
+          <throw>new RuntimeException(e)</throw>
+        </catch_block>
+      </catch>
+    </try>
+    <expression>config.textMaxChars = Integer.parseInt(Settings.Property.NUMBER_OF_SYMBOLS_IN_EXPRESSION.getValue());</expression>
+    <return>new JBScrollPane()</return>
+  </body>
+</method>

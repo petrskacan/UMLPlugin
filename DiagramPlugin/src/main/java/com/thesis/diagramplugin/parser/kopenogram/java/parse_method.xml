@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<method name="parse" return_type="java.io.File">
+  <parameters>
+    <parameter name="method" type="com.intellij.psi.PsiMethod"/>
+  </parameters>
+  <body>
+    <declaration>java.lang.String classFileName = method.getContainingClass().getContainingFile().getName()</declaration>
+    <declaration>java.lang.String dir = method.getContainingFile().getContainingDirectory().getVirtualFile().getPath()</declaration>
+    <declaration>java.lang.String methodName = method.getName()</declaration>
+    <declaration>org.dom4j.Document document = DocumentHelper.createDocument()</declaration>
+    <declaration>org.dom4j.Element methodElement = document.addElement(METHOD_TAG)</declaration>
+    <expression>methodElement.addAttribute(NAME_ATTRIBUTE, methodName);</expression>
+    <expression>methodElement.addAttribute(RETURN_TYPE, Optional.ofNullable(method.getReturnType()).map(PsiType::getCanonicalText).orElseGet(()-&gt;"null"));</expression>
+    <expression>parseMethodParameters(method, methodElement);</expression>
+    <expression>parseMethodBody(method, methodElement);</expression>
+    <declaration>java.lang.String fileName = dir + "/" + methodName + XML_FILE_NAME_POSTFIX_KOPENOGRAM</declaration>
+    <declaration>java.io.File file = new File(fileName)</declaration>
+    <try>
+      <try_block>
+        <declaration>java.io.FileOutputStream fileOS = new FileOutputStream(file)</declaration>
+        <declaration>org.dom4j.io.XMLWriter writer = new XMLWriter(fileOS, OutputFormat.createPrettyPrint())</declaration>
+        <expression>writer.write(document);</expression>
+        <expression>writer.flush();</expression>
+        <expression>fileOS.close();</expression>
+      </try_block>
+      <catch exceptions="java.io.IOException">
+        <catch_block>
+          <expression>System.out.println("IO ERROR during creation of " + fileName);</expression>
+        </catch_block>
+      </catch>
+    </try>
+    <return>file</return>
+  </body>
+</method>

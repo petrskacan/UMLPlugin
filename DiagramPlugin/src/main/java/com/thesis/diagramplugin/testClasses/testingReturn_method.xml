@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<method name="testingReturn" return_type="int">
+  <parameters>
+    <parameter name="a" type="int"/>
+  </parameters>
+  <body>
+    <return>a</return>
+  </body>
+</method>
