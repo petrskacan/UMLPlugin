@@ -69,11 +69,14 @@ public class Settings {
 
         private final String identifier;
         private final String displayName;
-        private final String value;
+        private String value;
         private final PropertyType propertyType;
 
         private static enum PropertyType {
             NUMBER, COLOR;
+        }
+        public void setValue(String newValue) {
+                this.value = newValue;
         }
     }
 }

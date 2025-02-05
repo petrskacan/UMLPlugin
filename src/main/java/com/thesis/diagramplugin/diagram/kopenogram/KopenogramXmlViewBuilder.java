@@ -54,7 +54,6 @@ public class KopenogramXmlViewBuilder {
                 if (rootElement.attribute(NAME_ATTRIBUTE) != null) {
                     this.name = rootElement.attribute(NAME_ATTRIBUTE).getValue();
                 }
-
                 // painting tree
                 root.setRoot(processElement(rootElement));
                 // serialize to file
@@ -76,7 +75,7 @@ public class KopenogramXmlViewBuilder {
         } catch (DocumentException e) {
             throw new RuntimeException(e);
         }
-
+        config.textMaxChars = Integer.parseInt(Settings.Property.NUMBER_OF_SYMBOLS_IN_EXPRESSION.getValue());
         return new JBScrollPane();
     }
 
@@ -94,6 +93,11 @@ public class KopenogramXmlViewBuilder {
             root.addOverElement((OverPainterElement) ret);
         } else if (!(ret instanceof HorizontalContainer) && !(ret instanceof ExtendedBar)) {
             ret = new HorizontalContainer().addChild(ret);
+        }
+
+        if(element.getText().length() > Integer.parseInt(Settings.Property.NUMBER_OF_SYMBOLS_IN_EXPRESSION.getValue()))
+        {
+            Settings.Property.NUMBER_OF_SYMBOLS_IN_EXPRESSION.setValue(String.valueOf(element.getText().length()));
         }
 
         paintedNode.setElement(ret);
@@ -328,7 +332,7 @@ public class KopenogramXmlViewBuilder {
     private PainterElement buildReturnElement(Element returnElement) {
         int keyWords = Integer.parseInt(Settings.Property.KOPENOGRAM_KEY_WORDS.getValue());
         Color color = Settings.decodeColorProperty(Settings.Property.BREAK_COLOR.getValue());
-        String text = ("" + Symbols.RIGHT).repeat(3);
+        String text = ("" + Symbols.RIGHT).repeat(4);
 //        for (int i = 0; i < 2; i++) {
 //            text = text.concat(text);
 //        }
