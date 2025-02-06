@@ -10,6 +10,10 @@
         <module name="com.thesis.DiagramPlugin.main" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="19" />
+    <bytecodeTargetLevel target="19">
+      <module name="DiagramPlugin" target="18" />
+      <module name="DiagramPlugin.test" target="17" />
+      <module name="UMLPlugin.DiagramPlugin.main" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>

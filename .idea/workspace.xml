@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="50422285-6230-40a3-813e-0cbf9bef17f9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/checksums/md5-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/checksums/sha1-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/dependencies-accessors/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.3/checksums/md5-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.3/checksums/sha1-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/vcs-1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/DiagramPlugin.main.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/com.thesis.DiagramPlugin.main.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiagramPlugin.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiagramPlugin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/DiagramPlugin/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/diagram/DiagramView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/diagram/classdiagram/ClassDiagramView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/diagram/classdiagram/ClassDiagramViewBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/diagram/classdiagram/model/AClassDiagramModelClassLikeEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/diagram/classdiagram/model/AClassDiagramModelClassLikeEntityCollection.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/diagram/classdiagram/model/AClassDiagramModelElement.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/diagram/classdiagram/model/ClassDiagramModelClass.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/diagram/classdiagram/model/ClassDiagramModelEnum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/diagram/classdiagram/model/ClassDiagramModelField.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/diagram/classdiagram/model/ClassDiagramModelInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/diagram/classdiagram/model/ClassDiagramModelMethod.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/diagram/classdiagram/model/ClassDiagramModelModule.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/diagram/classdiagram/model/ClassDiagramModelPackage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/diagram/classdiagram/model/ClassDiagramModelRecord.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/diagram/classdiagram/model/ClassDiagramModelType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/diagram/classdiagram/model/com.thesis.diagramplugin.diagram.classdiagram.model_class_relations_diagram.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/diagram/kopenogram/KopenogramView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/diagram/kopenogram/KopenogramXmlViewBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/diagram/kopenogram/buildView_method.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/diagramplugin.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/parser/IDiagramParser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/parser/JavaDiagramParser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/parser/PythonDiagramParser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/parser/classdiagram/java/ClassRelationsExporter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/parser/classdiagram/java/ClassRelationsProcessor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/parser/classdiagram/java/ClassRelationsScanner.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/AElementPackageModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/ClassTypePackageModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/ElementType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/MethodPackageModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/OwnedPackageModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/PackageModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/VariablePackageModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/parser/classdiagram/python/PyClassDiagramParser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/parser/kopenogram/java/MethodParser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/parser/kopenogram/java/parse_method.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/parser/kopenogram/python/PyFunctionParser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/plugin/actions/java/ADiagramAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/plugin/actions/java/GenerateClassDiagramAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/plugin/actions/java/GenerateKopenogramAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/plugin/actions/python/GenerateClassDiagramAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/plugin/actions/python/GenerateKopenogramAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/plugin/editors/ClassDiagramEditor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/plugin/editors/DiagramEditor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/plugin/editors/KopenogramEditor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/plugin/providers/ClassDiagramViewProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/plugin/providers/KopenogramViewProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/FileListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/FileSubject.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/Config.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/MultiIterator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/PropParser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/SortedProperties.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/Utility.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/Edge.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/Graph.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/GraphEditor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/GraphElement.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/GraphListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/GraphPainter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/IExpandable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/Marquee.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/MarqueePainter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/Moveable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/RubberBand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/Selectable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/SelectableGraphElement.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/SelectionController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/SelectionSet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/TraverseStrategy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/TraverseStrategyImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/Vertex.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/BlueJPackageFile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/LayoutComparer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/Package.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/PackageEditor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/PackageEditorListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/PackageFile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/PackageFileFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/PackageLayoutGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/PackagePainter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/PackagePrintManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/PackagePrinter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/PackageSelectionController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/PkgMgrFrame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/AssociationDependency.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/ContainmentDependency.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/Dependency.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/ExtendsDependency.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/ImplementsDependency.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/Type.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/UsesDependency.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/graphPainter/AssociationDependencyPainter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/graphPainter/ClassTargetPainter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/graphPainter/ContainmentDependencyPainter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/graphPainter/DependencyPainter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/graphPainter/ExtendsDependencyPainter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/graphPainter/GraphPainterStdImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/graphPainter/ImplementsDependencyPainter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/graphPainter/PackageTargetPainter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/graphPainter/PainterManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/graphPainter/UsesDependencyPainter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/graphPainter/drawShadow_method.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/ClassTarget.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/DependentTarget.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/PackageTarget.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/Target.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/TargetCollection.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/AbstractClassRole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/ClassRole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/ClsMemberRecorderRole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/CrateClassRole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/EnumClassRole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/InterfaceClassRole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/LibraryClassRole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/ModuleRole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/PackageRole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/RecordClassRole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/RoleUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/SingletonClassRole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/StdClassRole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/UnitTestClassRole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/PaintedNode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/AbstractPainterElement.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/OverPainterElement.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/PainterConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/PainterElement.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/PainterUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/RootPainter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/Settings.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/Symbols.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/AbstractContainer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/AvoidableContainer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/Bar.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/BarWithBody.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/Container.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/Empty.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/ExtendedBar.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/ExtendedBarOver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/FootBar.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/HorizontalContainer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/Separator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/VerticalContainer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treeprinter/Surface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/testClasses/TestingKopenograms.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/testClasses/testingReturn_method.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/utils/DiagramConstants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/java-plugin.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/python-plugin.xml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation>
+            <after_sync>
+              <task name="setupDependencies" />
+            </after_sync>
+          </activation>
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="DiagramPlugin" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SET_USER_NAME_GLOBALLY" value="false" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2eFZ7ZBb5IJrfaYTlFcZE19FSkQ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.29169962",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  }
+}]]></component>
+  <component name="RunManager" selected="Gradle.DiagramPlugin [shadowJar]">
+    <configuration name="DiagramPlugin [buildPlugin]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="buildPlugin" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="DiagramPlugin [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="DiagramPlugin [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="jar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="DiagramPlugin [runIde]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="runIde" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="DiagramPlugin [shadowJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="shadowJar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.DiagramPlugin [shadowJar]" />
+        <item itemvalue="Gradle.DiagramPlugin [shadowJar]" />
+        <item itemvalue="Gradle.DiagramPlugin [runIde]" />
+        <item itemvalue="Gradle.DiagramPlugin [jar]" />
+        <item itemvalue="Gradle.DiagramPlugin [clean]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="50422285-6230-40a3-813e-0cbf9bef17f9" name="Changes" comment="" />
+      <created>1711502120937</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1711502120937</updated>
+    </task>
+    <task id="LOCAL-00001" summary="added python Protocols + support IDEA 2022.3.2">
+      <created>1711672057613</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1711672057613</updated>
+    </task>
+    <task id="LOCAL-00002" summary="final">
+      <created>1714179742112</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1714179742112</updated>
+    </task>
+    <task id="LOCAL-00003" summary="removed comments">
+      <created>1714371925338</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1714371925338</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added python Protocols + support IDEA 2022.3.2" />
+    <MESSAGE value="final" />
+    <MESSAGE value="removed comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed comments" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/parser/classdiagram/python/PyClassDiagramParser.java</url>
+          <line>114</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/parser/classdiagram/python/PyClassDiagramParser.java</url>
+          <line>104</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/parser/classdiagram/java/ClassRelationsExporter.java</url>
+          <line>70</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/parser/classdiagram/java/ClassRelationsExporter.java</url>
+          <line>66</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/Package.java</url>
+          <line>698</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/PackageEditor.java</url>
+          <line>247</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/PackageEditor.java</url>
+          <line>73</line>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/PackageEditor.java</url>
+          <line>81</line>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.PackageEditor" memberName="hidden" />
+      </pinned-members>
+    </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="GradleRunConfiguration">
+        <watch expression="((HashMap.Node)((HashMap)((ClassDiagramModelPackage)this).classLikeEntities).entrySet().toArray()[1]).getKey()" custom="com.thesis.diagramplugin.diagram.classdiagram.model.ClassDiagramModelPackage,java.util.HashMap.Node,java.util.HashMap" />
+        <watch expression="((HashMap)((ClassDiagramModelPackage)this).classLikeEntities).entrySet().toArray()[3]" custom="com.thesis.diagramplugin.diagram.classdiagram.model.ClassDiagramModelPackage,java.util.HashMap" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
