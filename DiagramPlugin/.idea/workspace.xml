@@ -17,8 +17,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/diagram/kopenogram/KopenogramXmlViewBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/diagram/kopenogram/KopenogramXmlViewBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/PainterConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/PainterConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/testClasses/testingReturnAndVeryVeryVeryExtremlyLongName_method.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/Bar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/Bar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/ExtendedBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/ExtendedBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/testClasses/TestingKopenograms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/testClasses/TestingKopenograms.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/testClasses/testingReturnAndVeryVeryVeryExtremlyLongName_method.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/testClasses/testingReturnAndVeryVeryVeryExtremlyLongName_method.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +95,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/build/libs/DiagramPlugin-1.0.6-beta-all.jar&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/build/libs/DiagramPlugin-1.0.7-beta-all.jar&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.29169962&quot;,

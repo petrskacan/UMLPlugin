@@ -483,10 +483,10 @@ public class KopenogramXmlViewBuilder {
     }
 
     private PainterElement buildContinueElement(Element continueElement) {
-        Color color = Settings.decodeColorProperty(Settings.Property.CONTINUE_COLOR.getValue());
-        String label = continueElement.attributeValue(LABEL_ATTRIBUTE);
+        Color color = Settings.decodeColorProperty(Settings.Property.BREAK_COLOR.getValue());
+        String text = ("" + Symbols.UP).repeat(4);
 
-        return new Bar("continue " + ((label != null) ? label : ""), color, Color.BLACK, Color.BLACK);
+        return new ExtendedBar(text, color, Color.BLACK, Color.BLACK, Color.WHITE);
     }
 
     private PainterElement buildBreakElement(Element breakElement) {

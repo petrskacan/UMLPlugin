@@ -5,6 +5,15 @@
     <parameter name="a" type="int"/>
   </parameters>
   <body>
+    <labeled label="Label">
+      <block>
+        <do-while condition="true">
+          <block>
+            <break label="Label"/>
+          </block>
+        </do-while>
+      </block>
+    </labeled>
     <return>a</return>
   </body>
 </method>

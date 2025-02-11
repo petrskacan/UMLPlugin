@@ -17,17 +17,22 @@ public class Bar extends AbstractPainterElement {
     protected final Color color;
     protected final Color borderColor;
     protected final Color lineColor;
+    protected final Color fontColor;
 
     public Bar(String text, Color color) {
         this(text, color, Color.BLACK, Color.BLACK);
     }
 
     public Bar(String text, Color color, Color borderColor, Color lineColor) {
-        //        cz.vse.rup.bj2nb.kopenogram.treepainter.Settings set = new cz.vse.rup.bj2nb.kopenogram.treepainter.Settings();
+        this(text, color, borderColor, lineColor, Color.BLACK);
+    }
+    public Bar(String text, Color color, Color borderColor, Color lineColor, Color fontColor)
+    {
         this.text = text;
         this.color = color;
         this.borderColor = borderColor;
         this.lineColor = lineColor;
+        this.fontColor = fontColor;
     }
 
     @Override
@@ -57,8 +62,8 @@ public class Bar extends AbstractPainterElement {
     /**
      * paint text on set position with gap and return new postion for paint
      */
-    protected static int drawText(String text, Graphics g, PainterConfig config, Point pos) {
-        g.setColor(config.fontColor);
+    protected int drawText(String text, Graphics g, PainterConfig config, Point pos) {
+        g.setColor(this.fontColor);
         g.setFont(config.font);
         g.drawString(text, pos.x + config.fontHGap, pos.y + config.fontVGapUp + config.font.getSize());
         return pos.y + config.font.getSize() + config.fontVGapDown * 2;
