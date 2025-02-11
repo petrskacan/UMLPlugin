@@ -1,7 +1,7 @@
 package com.thesis.diagramplugin.testClasses;
 
 public class TestingKopenograms {
-    private int testingReturn(int a)
+    private int testingReturnAndVeryVeryVeryExtremlyLongName(int a)
     {
         return a;
     }
