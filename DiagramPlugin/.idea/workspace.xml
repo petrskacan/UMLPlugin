@@ -12,11 +12,13 @@
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/diagram/kopenogram/KopenogramXmlViewBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/diagram/kopenogram/KopenogramXmlViewBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/PainterConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/PainterConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/testClasses/TestingKopenograms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/testClasses/TestingKopenograms.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thesis/diagramplugin/testClasses/testingReturnAndVeryVeryVeryExtremlyLongName_method.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +93,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/build/libs/DiagramPlugin-1.0.2-beta-all.jar&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/build/libs/DiagramPlugin-1.0.6-beta-all.jar&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.29169962&quot;,
@@ -207,10 +209,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.DiagramPlugin [shadowJar]" />
-        <item itemvalue="Gradle.DiagramPlugin [shadowJar]" />
-        <item itemvalue="Gradle.DiagramPlugin [runIde]" />
-        <item itemvalue="Gradle.DiagramPlugin [jar]" />
+        <item itemvalue="Gradle.DiagramPlugin [buildPlugin]" />
         <item itemvalue="Gradle.DiagramPlugin [clean]" />
+        <item itemvalue="Gradle.DiagramPlugin [runIde]" />
+        <item itemvalue="Gradle.DiagramPlugin [shadowJar]" />
       </list>
     </recent_temporary>
   </component>

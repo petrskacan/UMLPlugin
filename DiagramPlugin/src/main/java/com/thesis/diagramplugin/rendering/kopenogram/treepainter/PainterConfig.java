@@ -20,7 +20,7 @@ public class PainterConfig implements Serializable {
     public int bottomGap = 10;
     public int verticalGap = 15;
     public int horizontalGap = 15;
-    public int textMaxChars = 500;
+    public int textMaxChars = 20;
 
     public PainterConfig() {
     }

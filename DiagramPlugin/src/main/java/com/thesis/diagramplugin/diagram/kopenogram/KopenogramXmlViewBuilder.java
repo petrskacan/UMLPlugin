@@ -36,6 +36,8 @@ public class KopenogramXmlViewBuilder {
     public KopenogramXmlViewBuilder(String diagramXml) {
         this.parents = new LinkedList<>();
         this.root = new RootPainter();
+        //This works, leave it that way, nothing bad can happen
+        Settings.Property.NUMBER_OF_SYMBOLS_IN_EXPRESSION.setValue("500");
         this.view = this.buildView(diagramXml);
     }
     public JComponent buildView(String diagramXml) {
@@ -56,6 +58,7 @@ public class KopenogramXmlViewBuilder {
                 }
                 // painting tree
                 root.setRoot(processElement(rootElement));
+
                 // serialize to file
 //        PainterUtils.saveToFile(root, "painted.tree");
                 // size of picture
@@ -69,13 +72,11 @@ public class KopenogramXmlViewBuilder {
                 //
 //        //JCrollPane for kopenogram
                 JComponent kopenogramPane = new JBScrollPane(new Surface(img, new Dimension(dim.width, dim.height)));
-
                 return kopenogramPane;
             }
         } catch (DocumentException e) {
             throw new RuntimeException(e);
         }
-        config.textMaxChars = Integer.parseInt(Settings.Property.NUMBER_OF_SYMBOLS_IN_EXPRESSION.getValue());
         return new JBScrollPane();
     }
 
@@ -94,12 +95,6 @@ public class KopenogramXmlViewBuilder {
         } else if (!(ret instanceof HorizontalContainer) && !(ret instanceof ExtendedBar)) {
             ret = new HorizontalContainer().addChild(ret);
         }
-
-        if(element.getText().length() > Integer.parseInt(Settings.Property.NUMBER_OF_SYMBOLS_IN_EXPRESSION.getValue()))
-        {
-            Settings.Property.NUMBER_OF_SYMBOLS_IN_EXPRESSION.setValue(String.valueOf(element.getText().length()));
-        }
-
         paintedNode.setElement(ret);
         parents.remove(parents.size() - 1);
         return ret;
@@ -188,6 +183,7 @@ public class KopenogramXmlViewBuilder {
 
     private PainterElement buildDeclarationElement(Element declarationElement) {
         Color color = Settings.decodeColorProperty(Settings.Property.EXPRESSION_COLOR.getValue());
+        String fullText = declarationElement.getText();
         return new Bar(declarationElement.getText(), color, Color.BLACK, Color.BLACK);
     }
 
