@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<method name="breakWithLabelStatemente" return_type="void">
+  <parameters/>
+  <body>
+    <declaration>int a = 10</declaration>
+    <do-while condition="true">
+      <block>
+        <expression>System.out.println("TestingKopenograms.breakWithLabelStatemente");</expression>
+        <expression>System.out.println("TestingKopenograms.breakWithLabelStatemente");</expression>
+        <expression>System.out.println("TestingKopenograms.breakWithLabelStatemente");</expression>
+        <expression>System.out.println("TestingKopenograms.breakWithLabelStatemente");</expression>
+        <break/>
+      </block>
+    </do-while>
+  </body>
+</method>

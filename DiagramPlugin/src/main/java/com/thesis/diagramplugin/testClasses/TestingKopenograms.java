@@ -6,7 +6,7 @@ public class TestingKopenograms {
         Label:
         {
             do {
-                break Label;
+                break ;
             } while (true);
         }
         return a;
@@ -25,9 +25,26 @@ public class TestingKopenograms {
         Label:
         {
             do {
-                break Label;
+                if(true)
+                break;
             } while (true);
         }
+    }
+    public void breakWithLabelStatemente() {
+        int a = 10;
+        do {
+            System.out.println("TestingKopenograms.breakWithLabelStatemente");
+            System.out.println("TestingKopenograms.breakWithLabelStatemente");
+            System.out.println("TestingKopenograms.breakWithLabelStatemente");
+            System.out.println("TestingKopenograms.breakWithLabelStatemente");
+            break;
+        } while (true);
+
+    }
+    public void breaking()
+    {
+        while(true){
+        break;}
     }
 
 

@@ -1,7 +1,7 @@
-import org.jetbrains.intellij.intellijPlugin
+
 
 group = "com.thesis"
-version = "1.0.7-beta"
+version = "1.0.19-beta"
 
 plugins {
     id("java")
@@ -47,6 +47,10 @@ dependencies {
     implementation("org.dom4j:dom4j:2.1.4")
     compileOnly("org.projectlombok:lombok:1.18.28")
     annotationProcessor("org.projectlombok:lombok:1.18.28")
+
+    testImplementation("org.junit.jupiter:junit-jupiter:5.7.1")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
 }
 
 tasks.shadowJar {
@@ -81,5 +85,14 @@ tasks {
 
     publishPlugin {
         token.set(System.getenv("PUBLISH_TOKEN"))
+    }
+}
+
+tasks.named<Test>("test") {
+    useJUnitPlatform()
+    maxHeapSize = "1G"
+
+    testLogging {
+        events("passed")
     }
 }

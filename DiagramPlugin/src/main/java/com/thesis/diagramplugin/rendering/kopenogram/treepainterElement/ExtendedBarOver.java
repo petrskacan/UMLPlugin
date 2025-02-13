@@ -4,6 +4,7 @@ package com.thesis.diagramplugin.rendering.kopenogram.treepainterElement;
 import com.thesis.diagramplugin.rendering.kopenogram.PaintedNode;
 import com.thesis.diagramplugin.rendering.kopenogram.treepainter.OverPainterElement;
 import com.thesis.diagramplugin.rendering.kopenogram.treepainter.PainterConfig;
+import com.thesis.diagramplugin.rendering.kopenogram.treepainter.PainterElement;
 import com.thesis.diagramplugin.rendering.kopenogram.treepainter.PainterUtils;
 
 import java.awt.*;
@@ -32,7 +33,13 @@ public class ExtendedBarOver extends Bar implements OverPainterElement {
 
     @Override
     protected void paintGraphics(Graphics g, PainterConfig config, Point pos, Dimension dim) {
-        // nothing, will be painted later
+        g.setColor(color);
+        g.fillRect(pos.x, pos.y, dim.width, dim.height);
+        g.setColor(borderColor);
+        g.drawRect(pos.x, pos.y, dim.width, dim.height);
+        g.setColor(lineColor);
+        g.drawLine(pos.x, pos.y, (pos.x + dim.width), pos.y);
+        drawText(getText(config), g, config, pos);
     }
 
     @Override
@@ -48,20 +55,24 @@ public class ExtendedBarOver extends Bar implements OverPainterElement {
         return new Dimension(realDim);
     }
 
-    private Dimension computeRealDim(PainterConfig config) {
+    public Dimension computeRealDim(PainterConfig config) {
         Dimension dim = getDimension(config, getRealPosition());
         Point elemPos = elem.getElement().getLastPosition();
-        dim.width = elem.getElement().getWidth(config) + elemPos.x - getLastPosition().x;
+        dim.width = elem.getElement().getWidth(config) + elemPos.x - 5;
         return dim;
     }
 
     @Override
     public void paintOver(Graphics g, PainterConfig config) {
-        super.paintGraphics(g, config, getRealPosition(), getRealDimension(config));
+        super.paint(g, config, getRealPosition(), getRealDimension(config));
     }
 
     @Override
     public String toString() {
-        return "ExtendedBarOver: " + text + ", to: " + elem.getElement();
+        return "ExtendedBarOver: " + text + ", to: " + elem.getNode();
+    }
+    public PaintedNode getElement()
+    {
+        return elem;
     }
 }

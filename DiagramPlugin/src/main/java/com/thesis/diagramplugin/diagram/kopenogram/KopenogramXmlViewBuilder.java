@@ -8,10 +8,7 @@ import com.thesis.diagramplugin.rendering.kopenogram.treepainterElement.*;
 import com.thesis.diagramplugin.rendering.kopenogram.treepainterElement.Container;
 import com.thesis.diagramplugin.rendering.kopenogram.treeprinter.Surface;
 import lombok.Getter;
-import org.dom4j.Document;
-import org.dom4j.DocumentException;
-import org.dom4j.DocumentHelper;
-import org.dom4j.Element;
+import org.dom4j.*;
 
 import javax.swing.*;
 
@@ -32,6 +29,7 @@ public class KopenogramXmlViewBuilder {
 
     private RootPainter root;
     private final List<PaintedNode> parents;
+    private Map<String, PainterElement> paintedElements = new HashMap<>();
 
     public KopenogramXmlViewBuilder(String diagramXml) {
         this.parents = new LinkedList<>();
@@ -63,6 +61,15 @@ public class KopenogramXmlViewBuilder {
 //        PainterUtils.saveToFile(root, "painted.tree");
                 // size of picture
                 Dimension dim = root.getDimension(config, new Point(0, 0));
+                for (PainterElement element :paintedElements.values())
+                {
+                    if(element instanceof ExtendedBarOver bar)
+                    {
+                        bar.getElement().setElement(paintedElements.get(DO_WHILE_LOOP_TAG.toString()));
+                        bar.computeRealDim(config);
+                    }
+                }
+                dim = root.getDimension(config, new Point(0, 0));
                 // create img for paint
                 BufferedImage img = new BufferedImage(dim.width + 1, dim.height + 1, BufferedImage.TYPE_3BYTE_BGR);
                 // create graphics
@@ -80,6 +87,17 @@ public class KopenogramXmlViewBuilder {
         return new JBScrollPane();
     }
 
+    private void recomputeDimensionForOverElements() {
+        for (PainterElement element :paintedElements.values())
+        {
+            if(element instanceof ExtendedBarOver bar)
+            {
+                bar.getElement().setElement(paintedElements.get(DO_WHILE_LOOP_TAG.toString()));
+
+            }
+        }
+    }
+
     private PainterElement processElement(Element element) {
         PaintedNode paintedNode = new PaintedNode(element);
         parents.add(paintedNode);
@@ -90,7 +108,7 @@ public class KopenogramXmlViewBuilder {
         }
 
         ret = this.processTag(element);
-        if (ret instanceof OverPainterElement) {
+        if (ret instanceof OverPainterElement || ret instanceof  ExtendedBarOver) {
             root.addOverElement((OverPainterElement) ret);
         } else if (!(ret instanceof HorizontalContainer) && !(ret instanceof ExtendedBar)) {
             ret = new HorizontalContainer().addChild(ret);
@@ -176,7 +194,7 @@ public class KopenogramXmlViewBuilder {
                 outputElement = this.buildDeclarationElement(element);
             }
         }
-
+        paintedElements.put(element.getName(),outputElement);
         return outputElement;
     }
 
@@ -490,20 +508,28 @@ public class KopenogramXmlViewBuilder {
     }
 
     private PainterElement buildBreakElement(Element breakElement) {
-            Color breakColor = Settings.decodeColorProperty(Settings.Property.BREAK_COLOR.getValue());
-            String text = ("" + Symbols.RIGHT);
-            for (int i = 0; i < 2; i++) {
-                text = text.concat(text);
+        Color breakColor = Settings.decodeColorProperty(Settings.Property.BREAK_COLOR.getValue());
+        String text = ("" + Symbols.RIGHT).repeat(4);
+        //String label = breakElement.attributeValue(LABEL_ATTRIBUTE);
+        Element parent = breakElement.getParent();
+        while (parent != null) {
+            if (BLOCK_TAG.equals(parent.getName())) {
+                parent = parent.getParent();
+                break;
             }
-            String label = breakElement.attributeValue(LABEL_ATTRIBUTE);
-            if (label != null) {
-                PaintedNode labelParent = findLabeledParent(label);
-                if (labelParent != null) {
-                    return new ExtendedBarOver(label + " " + text, breakColor,
-                            Color.BLACK, Color.BLACK, labelParent);
-                }
+            parent = parent.getParent();
+        }
+        //XPath block = breakElement.createXPath("ancestor::block[1]/parent::*");
+        if (parent != null) {
+            PaintedNode labelParent = new PaintedNode(parent);
+            if (labelParent != null) {
+                ExtendedBarOver breakElementBar = new ExtendedBarOver(text, breakColor,
+                        Color.BLACK, Color.BLACK, labelParent);
+                root.addOverElement(breakElementBar);
+                return breakElementBar;
             }
-            return new ExtendedBar(text, breakColor, Color.BLACK, Color.BLACK);
+        }
+        return new ExtendedBar(text, breakColor, Color.BLACK, Color.BLACK, Color.WHITE);
     }
 
     private PainterElement buildBlockElement(Element blockElement) {

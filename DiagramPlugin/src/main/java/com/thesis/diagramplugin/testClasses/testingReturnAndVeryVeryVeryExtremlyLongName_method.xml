@@ -9,7 +9,7 @@
       <block>
         <do-while condition="true">
           <block>
-            <break label="Label"/>
+            <break/>
           </block>
         </do-while>
       </block>

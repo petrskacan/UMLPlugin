@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<method name="breakWithLabelStatement" return_type="void">
+  <parameters/>
+  <body>
+    <labeled label="Label">
+      <block>
+        <do-while condition="true">
+          <block>
+            <if condition="true">
+              <then>
+                <break/>
+              </then>
+            </if>
+          </block>
+        </do-while>
+      </block>
+    </labeled>
+  </body>
+</method>
