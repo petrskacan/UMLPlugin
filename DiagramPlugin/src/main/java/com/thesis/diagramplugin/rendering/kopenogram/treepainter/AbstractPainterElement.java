@@ -1,6 +1,12 @@
 package com.thesis.diagramplugin.rendering.kopenogram.treepainter;
 
+import com.thesis.diagramplugin.rendering.kopenogram.treepainterElement.Bar;
+import com.thesis.diagramplugin.rendering.kopenogram.treepainterElement.BarWithBody;
+import com.thesis.diagramplugin.rendering.kopenogram.treepainterElement.VerticalContainer;
+
 import java.awt.*;
+
+import static com.ibm.icu.impl.ValidIdentifiers.Datatype.x;
 
 public abstract class AbstractPainterElement implements PainterElement {
 
@@ -39,6 +45,10 @@ public abstract class AbstractPainterElement implements PainterElement {
         }
         lastPos = new Point(pos);
         lastConfig = new PainterConfig(config);
+        if(this instanceof VerticalContainer a && a.getPath() != "") {
+            String elementName = a.getPath();
+            RenderedElements.addElement(elementName, this, pos, dim);
+        }
         paintGraphics(g, config, pos, dim);
     }
 

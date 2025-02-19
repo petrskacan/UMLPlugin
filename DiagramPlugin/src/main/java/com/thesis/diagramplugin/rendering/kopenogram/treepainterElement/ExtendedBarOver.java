@@ -2,10 +2,7 @@ package com.thesis.diagramplugin.rendering.kopenogram.treepainterElement;
 
 
 import com.thesis.diagramplugin.rendering.kopenogram.PaintedNode;
-import com.thesis.diagramplugin.rendering.kopenogram.treepainter.OverPainterElement;
-import com.thesis.diagramplugin.rendering.kopenogram.treepainter.PainterConfig;
-import com.thesis.diagramplugin.rendering.kopenogram.treepainter.PainterElement;
-import com.thesis.diagramplugin.rendering.kopenogram.treepainter.PainterUtils;
+import com.thesis.diagramplugin.rendering.kopenogram.treepainter.*;
 
 import java.awt.*;
 
@@ -15,13 +12,14 @@ import java.awt.*;
 public class ExtendedBarOver extends Bar implements OverPainterElement {
 
     private static final long serialVersionUID = 253532453772157209L;
-    private final PaintedNode elem;
+    private PainterElement elem;
     private transient Dimension realDim;
+    private String pathElement;
+    private String pathParent;
 
-    public ExtendedBarOver(String text, Color color, Color borderColor, Color lineColor, PaintedNode elem) {
+    public ExtendedBarOver(String text, Color color, Color borderColor, Color lineColor, String parentPath) {
         super(text, color, borderColor, lineColor);
-        PainterUtils.validateNotNull(elem, "elem must not be null, use ExtendedBar instead");
-        this.elem = elem;
+        this.pathParent = parentPath;
     }
 
     @Override
@@ -57,8 +55,8 @@ public class ExtendedBarOver extends Bar implements OverPainterElement {
 
     public Dimension computeRealDim(PainterConfig config) {
         Dimension dim = getDimension(config, getRealPosition());
-        Point elemPos = elem.getElement().getLastPosition();
-        dim.width = elem.getElement().getWidth(config) + elemPos.x - 5;
+        Point elemPos = elem.getLastPosition();
+        dim.width = RenderedElements.getElement(pathParent).dimension.width - (getRealPosition().x - elemPos.x);
         return dim;
     }
 
@@ -69,10 +67,24 @@ public class ExtendedBarOver extends Bar implements OverPainterElement {
 
     @Override
     public String toString() {
-        return "ExtendedBarOver: " + text + ", to: " + elem.getNode();
+        return "ExtendedBarOver: " + text + ", to: ";
     }
-    public PaintedNode getElement()
+    public PainterElement getElement()
     {
         return elem;
+    }
+    public void setElement(PainterElement element)
+    {
+        this.elem = element;
+    }
+
+    @Override
+    public String getPath() {
+        return pathParent;
+    }
+
+    public String getPathParent()
+    {
+        return pathParent;
     }
 }

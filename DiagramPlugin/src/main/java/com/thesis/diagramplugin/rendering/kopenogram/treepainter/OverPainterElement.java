@@ -1,5 +1,7 @@
 package com.thesis.diagramplugin.rendering.kopenogram.treepainter;
 
+import com.thesis.diagramplugin.rendering.kopenogram.PaintedNode;
+
 import java.awt.*;
 
 /**
@@ -26,4 +28,6 @@ public interface OverPainterElement extends PainterElement {
      * @param config
      */
     public void paintOver(Graphics g, PainterConfig config);
+    void setElement(PainterElement element);
+    String getPath();
 }

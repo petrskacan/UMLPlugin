@@ -19,12 +19,21 @@ public class VerticalContainer extends AbstractContainer implements AvoidableCon
     private static final long serialVersionUID = 4201701983361439694L;
     private List<? extends OverPainterElement> avoidElements;
     private List<Point> cachedPositions;
+    private final String path;
 
     @Override
     public void setAvoidElements(List<? extends OverPainterElement> avoidElements) {
         this.avoidElements = avoidElements;
     }
+    public VerticalContainer(String path)
+    {
+        this.path = path;
+    }
 
+    public VerticalContainer()
+    {
+        this("");
+    }
     @Override
     protected Dimension computeDimension(final PainterConfig config, Point pos) {
         Point currPos = new Point(pos);
@@ -96,5 +105,9 @@ public class VerticalContainer extends AbstractContainer implements AvoidableCon
     @Override
     public String toString() {
         return "Vertical: " + getChildren().size();
+    }
+    public String getPath()
+    {
+        return path;
     }
 }

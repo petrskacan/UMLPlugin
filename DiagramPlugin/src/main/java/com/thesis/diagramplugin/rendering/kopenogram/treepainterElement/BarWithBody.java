@@ -20,6 +20,7 @@ public class BarWithBody extends AbstractPainterElement implements AvoidableCont
     protected final Color noBorderLineColorRight;
     protected final Bar head;
     protected final VerticalContainer container;
+    private final String path;
 
     /**
      * @param text if null, then there is no head
@@ -29,12 +30,17 @@ public class BarWithBody extends AbstractPainterElement implements AvoidableCont
      * @param noBorderLineColorRight
      */
     public BarWithBody(String text, Color headColor, Color bodyColor, Color lineColor,
-            Color noBorderLineColorRight) {
+            Color noBorderLineColorRight, String path) {
         head = new Bar(text, headColor);
         container = new VerticalContainer();
         this.bodyColor = bodyColor;
         this.lineColor = lineColor;
         this.noBorderLineColorRight = noBorderLineColorRight;
+        this.path = path;
+    }
+    public BarWithBody(String text, Color headColor, Color bodyColor, Color lineColor,
+                       Color noBorderLineColorRight) {
+        this(text, headColor, bodyColor, lineColor, noBorderLineColorRight, "");
     }
 
     @Override
@@ -122,5 +128,10 @@ public class BarWithBody extends AbstractPainterElement implements AvoidableCont
             return "BarWithBody: " + head.text + ", " + container.getChildren().size();
         }
         return "Body: " + container.getChildren().size();
+    }
+
+    public String getPath()
+    {
+        return path;
     }
 }

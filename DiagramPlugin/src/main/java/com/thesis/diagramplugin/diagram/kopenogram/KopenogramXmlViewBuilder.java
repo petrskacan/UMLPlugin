@@ -61,15 +61,6 @@ public class KopenogramXmlViewBuilder {
 //        PainterUtils.saveToFile(root, "painted.tree");
                 // size of picture
                 Dimension dim = root.getDimension(config, new Point(0, 0));
-                for (PainterElement element :paintedElements.values())
-                {
-                    if(element instanceof ExtendedBarOver bar)
-                    {
-                        bar.getElement().setElement(paintedElements.get(DO_WHILE_LOOP_TAG.toString()));
-                        bar.computeRealDim(config);
-                    }
-                }
-                dim = root.getDimension(config, new Point(0, 0));
                 // create img for paint
                 BufferedImage img = new BufferedImage(dim.width + 1, dim.height + 1, BufferedImage.TYPE_3BYTE_BGR);
                 // create graphics
@@ -87,16 +78,6 @@ public class KopenogramXmlViewBuilder {
         return new JBScrollPane();
     }
 
-    private void recomputeDimensionForOverElements() {
-        for (PainterElement element :paintedElements.values())
-        {
-            if(element instanceof ExtendedBarOver bar)
-            {
-                bar.getElement().setElement(paintedElements.get(DO_WHILE_LOOP_TAG.toString()));
-
-            }
-        }
-    }
 
     private PainterElement processElement(Element element) {
         PaintedNode paintedNode = new PaintedNode(element);
@@ -464,8 +445,8 @@ public class KopenogramXmlViewBuilder {
         int keyWords = Integer.parseInt(Settings.Property.KOPENOGRAM_KEY_WORDS.getValue());
         Color chc = Settings.decodeColorProperty(Settings.Property.CYCLE_HEAD_COLOR.getValue());
         Color cbc = Settings.decodeColorProperty(Settings.Property.CYCLE_BODY_COLOR.getValue());
-        VerticalContainer vContainer = new VerticalContainer();
-        BarWithBody doWhileLoopBody = new BarWithBody("" + Symbols.DOWN, chc, cbc, Color.BLACK, Color.BLACK);
+        VerticalContainer vContainer = new VerticalContainer(doWhileElement.getPath());
+        BarWithBody doWhileLoopBody = new BarWithBody("" + Symbols.DOWN, chc, cbc, Color.BLACK, Color.BLACK, doWhileElement.getPath());
 //        if (object.getStatement() instanceof BlockTree) {
 //            doWhileLoopBody.addChild(processBlock((BlockTree) object.getStatement(), generator));
 //        } else {
@@ -524,7 +505,7 @@ public class KopenogramXmlViewBuilder {
             PaintedNode labelParent = new PaintedNode(parent);
             if (labelParent != null) {
                 ExtendedBarOver breakElementBar = new ExtendedBarOver(text, breakColor,
-                        Color.BLACK, Color.BLACK, labelParent);
+                        Color.BLACK, Color.BLACK, parent.getPath());
                 root.addOverElement(breakElementBar);
                 return breakElementBar;
             }
