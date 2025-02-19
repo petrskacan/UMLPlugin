@@ -31,16 +31,12 @@ public class BarWithBody extends AbstractPainterElement implements AvoidableCont
      */
     public BarWithBody(String text, Color headColor, Color bodyColor, Color lineColor,
             Color noBorderLineColorRight, String path) {
-        head = new Bar(text, headColor);
-        container = new VerticalContainer();
+        head = new Bar(text, headColor, path);
+        container = new VerticalContainer(path);
         this.bodyColor = bodyColor;
         this.lineColor = lineColor;
         this.noBorderLineColorRight = noBorderLineColorRight;
         this.path = path;
-    }
-    public BarWithBody(String text, Color headColor, Color bodyColor, Color lineColor,
-                       Color noBorderLineColorRight) {
-        this(text, headColor, bodyColor, lineColor, noBorderLineColorRight, "");
     }
 
     @Override

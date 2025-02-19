@@ -13,7 +13,7 @@ public class FootBar extends ExtendedBar {
     private static final long serialVersionUID = -7355408018838414473L;
 
     public FootBar(String text, Color color, Color borderColor, Color lineColor) {
-        super(text, color, borderColor, lineColor);
+        super(text, color, borderColor, lineColor, "");
     }
 
     @Override

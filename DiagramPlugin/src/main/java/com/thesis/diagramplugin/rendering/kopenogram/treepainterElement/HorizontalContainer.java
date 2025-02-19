@@ -12,7 +12,11 @@ import java.awt.*;
 public class HorizontalContainer extends AbstractContainer {
 
     private static final long serialVersionUID = 8811281749516422579L;
-
+    private final String path;
+    public HorizontalContainer(String path)
+    {
+        this.path = path;
+    }
     @Override
     protected Dimension computeDimension(PainterConfig config, Point pos) {
         int height = 0;
@@ -32,6 +36,11 @@ public class HorizontalContainer extends AbstractContainer {
             width += element.getWidth(config);
         }
         return width;
+    }
+
+    @Override
+    public String getPath() {
+        return path;
     }
 
     @Override

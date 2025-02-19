@@ -30,10 +30,6 @@ public class VerticalContainer extends AbstractContainer implements AvoidableCon
         this.path = path;
     }
 
-    public VerticalContainer()
-    {
-        this("");
-    }
     @Override
     protected Dimension computeDimension(final PainterConfig config, Point pos) {
         Point currPos = new Point(pos);
@@ -72,6 +68,11 @@ public class VerticalContainer extends AbstractContainer implements AvoidableCon
     }
 
     @Override
+    public String getPath() {
+        return path;
+    }
+
+    @Override
     protected void paintGraphics(Graphics g, PainterConfig config, Point pos, Dimension dim) {
         int i = 0;
         for (PainterElement element : getChildren()) {
@@ -105,9 +106,5 @@ public class VerticalContainer extends AbstractContainer implements AvoidableCon
     @Override
     public String toString() {
         return "Vertical: " + getChildren().size();
-    }
-    public String getPath()
-    {
-        return path;
     }
 }

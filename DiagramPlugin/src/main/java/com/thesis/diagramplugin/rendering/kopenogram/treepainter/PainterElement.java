@@ -27,4 +27,5 @@ public interface PainterElement extends Serializable {
      * @return last painted position
      */
     public Point getLastPosition();
+    public String getPath();
 }

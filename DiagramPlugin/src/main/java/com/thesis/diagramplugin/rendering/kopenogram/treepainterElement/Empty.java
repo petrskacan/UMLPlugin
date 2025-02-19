@@ -28,6 +28,11 @@ public class Empty extends AbstractPainterElement {
     }
 
     @Override
+    public String getPath() {
+        return "";
+    }
+
+    @Override
     protected void paintGraphics(Graphics g, PainterConfig config, Point pos, Dimension dim) {
     }
 

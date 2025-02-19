@@ -18,21 +18,23 @@ public class Bar extends AbstractPainterElement {
     protected final Color borderColor;
     protected final Color lineColor;
     protected final Color fontColor;
+    protected final String path;
 
-    public Bar(String text, Color color) {
-        this(text, color, Color.BLACK, Color.BLACK);
+    public Bar(String text, Color color, String path) {
+        this(text, color, Color.BLACK, Color.BLACK, path);
     }
 
-    public Bar(String text, Color color, Color borderColor, Color lineColor) {
-        this(text, color, borderColor, lineColor, Color.BLACK);
+    public Bar(String text, Color color, Color borderColor, Color lineColor, String path) {
+        this(text, color, borderColor, lineColor, Color.BLACK, path);
     }
-    public Bar(String text, Color color, Color borderColor, Color lineColor, Color fontColor)
+    public Bar(String text, Color color, Color borderColor, Color lineColor, Color fontColor, String path)
     {
         this.text = text;
         this.color = color;
         this.borderColor = borderColor;
         this.lineColor = lineColor;
         this.fontColor = fontColor;
+        this.path = path;
     }
 
     @Override
@@ -79,5 +81,9 @@ public class Bar extends AbstractPainterElement {
     @Override
     public String toString() {
         return "Bar: " + text;
+    }
+    public String getPath()
+    {
+        return path;
     }
 }

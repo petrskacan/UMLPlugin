@@ -12,11 +12,11 @@ public class ExtendedBar extends Bar {
 
     private static final long serialVersionUID = -1376414823350500886L;
 
-    public ExtendedBar(String text, Color color, Color borderColor, Color lineColor) {
-        this(text, color, borderColor, lineColor, Color.BLACK);
+    public ExtendedBar(String text, Color color, Color borderColor, Color lineColor, String path) {
+        this(text, color, borderColor, lineColor, Color.BLACK, path);
     }
-    public ExtendedBar(String text, Color color, Color borderColor, Color lineColor, Color fontColor) {
-        super(text, color, borderColor, lineColor, fontColor);
+    public ExtendedBar(String text, Color color, Color borderColor, Color lineColor, Color fontColor, String path) {
+        super(text, color, borderColor, lineColor, fontColor, path);
     }
 
     @Override

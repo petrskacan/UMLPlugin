@@ -29,7 +29,6 @@ public class KopenogramXmlViewBuilder {
 
     private RootPainter root;
     private final List<PaintedNode> parents;
-    private Map<String, PainterElement> paintedElements = new HashMap<>();
 
     public KopenogramXmlViewBuilder(String diagramXml) {
         this.parents = new LinkedList<>();
@@ -83,16 +82,16 @@ public class KopenogramXmlViewBuilder {
         PaintedNode paintedNode = new PaintedNode(element);
         parents.add(paintedNode);
 
-        PainterElement ret = new Bar("not resolved", Color.RED);
+        PainterElement ret = new Bar("not resolved", Color.RED, element.getPath());
         if (element == null) {
             return ret;
         }
 
         ret = this.processTag(element);
-        if (ret instanceof OverPainterElement || ret instanceof  ExtendedBarOver) {
+        if (ret instanceof OverPainterElement) {
             root.addOverElement((OverPainterElement) ret);
         } else if (!(ret instanceof HorizontalContainer) && !(ret instanceof ExtendedBar)) {
-            ret = new HorizontalContainer().addChild(ret);
+            ret = new HorizontalContainer(element.getPath()).addChild(ret);
         }
         paintedNode.setElement(ret);
         parents.remove(parents.size() - 1);
@@ -175,7 +174,6 @@ public class KopenogramXmlViewBuilder {
                 outputElement = this.buildDeclarationElement(element);
             }
         }
-        paintedElements.put(element.getName(),outputElement);
         return outputElement;
     }
 
@@ -183,7 +181,7 @@ public class KopenogramXmlViewBuilder {
     private PainterElement buildDeclarationElement(Element declarationElement) {
         Color color = Settings.decodeColorProperty(Settings.Property.EXPRESSION_COLOR.getValue());
         String fullText = declarationElement.getText();
-        return new Bar(declarationElement.getText(), color, Color.BLACK, Color.BLACK);
+        return new Bar(declarationElement.getText(), color, Color.BLACK, Color.BLACK, declarationElement.getPath());
     }
 
     private PainterElement buildTryElement(Element tryElement) {
@@ -194,10 +192,10 @@ public class KopenogramXmlViewBuilder {
         Color cbc = Settings.decodeColorProperty(Settings.Property.CATCH_BODY_COLOR.getValue());
         Color fhc = Settings.decodeColorProperty(Settings.Property.FINALLY_HEAD_COLOR.getValue());
         Color fbc = Settings.decodeColorProperty(Settings.Property.FINALLY_BODY_COLOR.getValue());
-        VerticalContainer vContainer = new VerticalContainer();
+        VerticalContainer vContainer = new VerticalContainer(tryElement.getPath());
         String text = ("" + Symbols.RIGHT).repeat(3);
 
-        BarWithBody tryBody = new BarWithBody((keyWords == 1 ? "try" : "") + text, thc, tbc, Color.BLACK, Color.BLACK);
+        BarWithBody tryBody = new BarWithBody((keyWords == 1 ? "try" : "") + text, thc, tbc, Color.BLACK, Color.BLACK, tryElement.getPath());
         Optional.of(tryElement.element(TRY_BLOCK_TAG)).ifPresent(tryBlockElement -> {
             tryBody.addChild(processBlock(tryBlockElement));
         });
@@ -207,7 +205,7 @@ public class KopenogramXmlViewBuilder {
         for (Element catchElement : catchList) {
             if (catchElement != null) {
                 String catchType = catchElement.attributeValue(CATCH_TYPE_ATTRIBUTE);
-                BarWithBody catchBody = new BarWithBody("" + catchType, chc, cbc, Color.BLACK, Color.BLACK);
+                BarWithBody catchBody = new BarWithBody("" + catchType, chc, cbc, Color.BLACK, Color.BLACK, catchElement.getPath());
                 Optional.of(catchElement.element(CATCH_BLOCK)).ifPresent(catchBlockElement -> {
                     catchBody.addChild(processBlock(catchBlockElement));
                 });
@@ -216,7 +214,7 @@ public class KopenogramXmlViewBuilder {
         }
         // Finally
         Optional.ofNullable(tryElement.element(FINALLY_TAG)).ifPresent(finallyElement -> {
-            BarWithBody finallyBody = new BarWithBody("finally", fhc, fbc, Color.BLACK, Color.BLACK);
+            BarWithBody finallyBody = new BarWithBody("finally", fhc, fbc, Color.BLACK, Color.BLACK, finallyElement.getPath());
             finallyBody.addChild(processBlock(finallyElement));
             vContainer.addChild(finallyBody);
         });
@@ -227,7 +225,7 @@ public class KopenogramXmlViewBuilder {
     private PainterElement buildThrowElement(Element throwElement) {
         Color color = Settings.decodeColorProperty(Settings.Property.THROW_COLOR.getValue());
         String expression = throwElement.getText();
-        return new Bar(Symbols.UP + "throw " + expression, color, Color.BLACK, Color.BLACK);
+        return new Bar(Symbols.UP + "throw " + expression, color, Color.BLACK, Color.BLACK, throwElement.getPath());
     }
 
     private PainterElement buildSynchronizedElement(Element synchronizedElement) {
@@ -236,7 +234,7 @@ public class KopenogramXmlViewBuilder {
 
         String expression = synchronizedElement.attributeValue(EXPRESSION_ATTRIBUTE);
 
-        BarWithBody synchronizedBody = new BarWithBody("synchronized " + expression, headColor, bodyColor, Color.BLACK, Color.BLACK);
+        BarWithBody synchronizedBody = new BarWithBody("synchronized " + expression, headColor, bodyColor, Color.BLACK, Color.BLACK, synchronizedElement.getPath());
         Optional.of(synchronizedElement.element(BLOCK_TAG)).ifPresent(blockElement -> {
             synchronizedBody.addChild(processBlock(blockElement));
         });
@@ -249,14 +247,14 @@ public class KopenogramXmlViewBuilder {
         Color headColor = Settings.decodeColorProperty(Settings.Property.SWITCH_HEAD_COLOR.getValue());
         Color bodyColor = Settings.decodeColorProperty(Settings.Property.SWITCH_BODY_COLOR.getValue());
         Color lbc = Color.BLACK;
-        HorizontalContainer hContainer = new HorizontalContainer();
-        VerticalContainer vContainer = new VerticalContainer();
+        HorizontalContainer hContainer = new HorizontalContainer(switchElement.getPath());
+        VerticalContainer vContainer = new VerticalContainer(switchElement.getPath());
         String text = ("" + Symbols.RIGHT).repeat(3);
         String keyWord = "";
         String expression = switchElement.attributeValue(EXPRESSION_ATTRIBUTE);
         if (keyWords == 1) {
             keyWord = switchElement.getName().toLowerCase() + ": ";
-            Bar bar = new Bar(keyWord + expression, headColor);
+            Bar bar = new Bar(keyWord + expression, headColor, switchElement.getPath());
             vContainer.addChild(bar);
         }
         boolean firstCase = true;
@@ -271,7 +269,7 @@ public class KopenogramXmlViewBuilder {
                 if (oCaseEmpty) {
                     lbc = bodyColor;
                 }
-                BarWithBody caseBody = new BarWithBody("" + Symbols.DOWN, headColor, bodyColor, headColor, lbc);
+                BarWithBody caseBody = new BarWithBody("" + Symbols.DOWN, headColor, bodyColor, headColor, lbc, switchElement.getPath());
                 boolean first = true;
 
                 for (Element statementElement : caseElement.elements()) {
@@ -293,7 +291,7 @@ public class KopenogramXmlViewBuilder {
                 }
                 oCaseEmpty = caseElement.elements().isEmpty();
 
-                BarWithBody caseBody = new BarWithBody(keyWord + caseLabel, headColor, bodyColor, headColor, lbc);
+                BarWithBody caseBody = new BarWithBody(keyWord + caseLabel, headColor, bodyColor, headColor, lbc, caseElement.getPath());
 
                 boolean first = true;
                 int last = 0;
@@ -334,18 +332,18 @@ public class KopenogramXmlViewBuilder {
 //        String expression = returnElement.attributeValue(WHAT_ATTRIBUTE);
         String expression = returnElement.getText();
         if (expression == null) {
-            return new ExtendedBar((keyWords == 1 ? "return " : "") + text, color, Color.BLACK, Color.BLACK);
+            return new ExtendedBar((keyWords == 1 ? "return " : "") + text, color, Color.BLACK, Color.BLACK, returnElement.getPath());
         } else {
-            return new ExtendedBar((keyWords == 1 ? "return " : "") + expression + text, color, Color.BLACK, Color.BLACK);
+            return new ExtendedBar((keyWords == 1 ? "return " : "") + expression + text, color, Color.BLACK, Color.BLACK, returnElement.getPath());
         }
     }
 
     private PainterElement buildLabelElement(Element labelElement) {
         Color labelColor = Settings.decodeColorProperty(Settings.Property.LABEL_COLOR.getValue());
-        VerticalContainer vContainer = new VerticalContainer();
+        VerticalContainer vContainer = new VerticalContainer(labelElement.getPath());
 
         Optional.of(labelElement.attributeValue(LABEL_ATTRIBUTE)).ifPresent(label -> {
-            vContainer.addChild(new Bar(label, labelColor, Color.BLACK, Color.BLACK));
+            vContainer.addChild(new Bar(label, labelColor, Color.BLACK, Color.BLACK, labelElement.getPath()));
         });
         vContainer.addChild(processTag(labelElement.elements().get(0)));
         return vContainer;
@@ -354,12 +352,12 @@ public class KopenogramXmlViewBuilder {
     private PainterElement buildIfElement(Element ifElement) {
         Color headColor = Settings.decodeColorProperty(Settings.Property.SWITCH_HEAD_COLOR.getValue());
         Color bodyColor = Settings.decodeColorProperty(Settings.Property.SWITCH_BODY_COLOR.getValue());
-        HorizontalContainer hContainer = new HorizontalContainer();
+        HorizontalContainer hContainer = new HorizontalContainer(ifElement.getPath());
         int keyWords = Integer.parseInt(Settings.Property.KOPENOGRAM_KEY_WORDS.getValue());
 
         String condition = ifElement.attributeValue(CONDITION_ATTRIBUTE);
 
-        BarWithBody ifBody = new BarWithBody(keyWords == 1 ? "if (" + condition + ")" : condition, headColor, bodyColor, Color.BLACK, Color.BLACK);
+        BarWithBody ifBody = new BarWithBody(keyWords == 1 ? "if (" + condition + ")" : condition, headColor, bodyColor, Color.BLACK, Color.BLACK, ifElement.getPath());
         Optional.of(ifElement.element(THEN_TAG)).ifPresent(thenElement -> {
             for (Element statement : thenElement.elements()) {
                 ifBody.addChild(processTag(statement));
@@ -368,7 +366,7 @@ public class KopenogramXmlViewBuilder {
         hContainer.addChild(ifBody);
         Optional.ofNullable(ifElement.element(ELSE_TAG)).ifPresent(elseElement -> {
             List<OverPainterElement> overElements = new ArrayList<>(root.getOverElements());
-            BarWithBody elseBody = new BarWithBody("else ", headColor, bodyColor, Color.BLACK, Color.BLACK);
+            BarWithBody elseBody = new BarWithBody("else ", headColor, bodyColor, Color.BLACK, Color.BLACK, elseElement.getPath());
             for (Element statement : elseElement.elements()) {
                 elseBody.addChild(processTag(statement));
             }
@@ -383,7 +381,7 @@ public class KopenogramXmlViewBuilder {
         Color headColor = Settings.decodeColorProperty(Settings.Property.CYCLE_HEAD_COLOR.getValue());
         Color bodyColor = Settings.decodeColorProperty(Settings.Property.CYCLE_BODY_COLOR.getValue());
 
-        BarWithBody forLoopBody = new BarWithBody(text, headColor, bodyColor, Color.BLACK, Color.BLACK);
+        BarWithBody forLoopBody = new BarWithBody(text, headColor, bodyColor, Color.BLACK, Color.BLACK, loopElement.getPath());
 
         Optional.ofNullable(loopElement.element(BLOCK_TAG)).ifPresent(loopBodyElement -> {
             forLoopBody.addChild(processTag(loopBodyElement));
@@ -395,7 +393,7 @@ public class KopenogramXmlViewBuilder {
     private PainterElement buildForLoopElement(Element forLoopElement) {
         int keyWords = Integer.parseInt(Settings.Property.KOPENOGRAM_KEY_WORDS.getValue());
         Color headColor = Settings.decodeColorProperty(Settings.Property.CYCLE_HEAD_COLOR.getValue());
-        VerticalContainer vContainer = new VerticalContainer();
+        VerticalContainer vContainer = new VerticalContainer(forLoopElement.getPath());
 
         String forInit = forLoopElement.attributeValue(INITIALIZATION_ATTRIBUTE);
         String forCondition = forLoopElement.attributeValue(CONDITION_ATTRIBUTE);
@@ -407,14 +405,14 @@ public class KopenogramXmlViewBuilder {
         }
 
         vContainer.addChild(buildForLoopBody(forLoopElement, text));
-        vContainer.addChild(new Bar("" + Symbols.UP, headColor));
+        vContainer.addChild(new Bar("" + Symbols.UP, headColor, forLoopElement.getPath()));
         return vContainer;
     }
 
     private PainterElement buildForeachLoopElement(Element foreachElement) {
         int keyWords = Integer.parseInt(Settings.Property.KOPENOGRAM_KEY_WORDS.getValue());
         Color headColor = Settings.decodeColorProperty(Settings.Property.CYCLE_HEAD_COLOR.getValue());
-        VerticalContainer vContainer = new VerticalContainer();
+        VerticalContainer vContainer = new VerticalContainer(foreachElement.getPath());
 
         String paramType = foreachElement.attributeValue(FOREACH_ITERATION_PARAM_TYPE);
         String paramName = foreachElement.attributeValue(FOREACH_ITERATION_PARAM_NAME);
@@ -428,17 +426,17 @@ public class KopenogramXmlViewBuilder {
         }
 
         vContainer.addChild(buildForLoopBody(foreachElement, text));
-        vContainer.addChild(new Bar("" + Symbols.UP, headColor));
+        vContainer.addChild(new Bar("" + Symbols.UP, headColor, foreachElement.getPath()));
         return vContainer;
     }
 
     private PainterElement buildExpressionElement(Element expressionElement) {
         Color color = Settings.decodeColorProperty(Settings.Property.EXPRESSION_COLOR.getValue());
-        return new Bar(expressionElement.getText(), color, Color.BLACK, Color.BLACK);
+        return new Bar(expressionElement.getText(), color, Color.BLACK, Color.BLACK, expressionElement.getPath());
     }
 
     private PainterElement buildEmptyStatementElement() {
-        return new Bar("empty statement", Settings.decodeColorProperty(Settings.Property.EXPRESSION_COLOR.getValue()), Color.BLACK, Color.BLACK);
+        return new Bar("empty statement", Settings.decodeColorProperty(Settings.Property.EXPRESSION_COLOR.getValue()), Color.BLACK, Color.BLACK, "");
     }
 
     private PainterElement buildDoWhileLoopElement(Element doWhileElement) {
@@ -458,7 +456,7 @@ public class KopenogramXmlViewBuilder {
         vContainer.addChild(doWhileLoopBody);
 
         Optional.of(doWhileElement.attributeValue(CONDITION_ATTRIBUTE)).ifPresent(condition -> {
-            vContainer.addChild(new Bar(((keyWords == 1) ? "while (" + condition + ")" : condition), chc));
+            vContainer.addChild(new Bar(((keyWords == 1) ? "while (" + condition + ")" : condition), chc, doWhileElement.getPath()));
         });
         return vContainer;
     }
@@ -467,17 +465,17 @@ public class KopenogramXmlViewBuilder {
         int keyWords = Integer.parseInt(Settings.Property.KOPENOGRAM_KEY_WORDS.getValue());
         Color headColor = Settings.decodeColorProperty(Settings.Property.CYCLE_HEAD_COLOR.getValue());
         Color bodyColor = Settings.decodeColorProperty(Settings.Property.CYCLE_BODY_COLOR.getValue());
-        VerticalContainer vContainer = new VerticalContainer();
+        VerticalContainer vContainer = new VerticalContainer(whileElement.getPath());
 
         String condition = whileElement.attributeValue(CONDITION_ATTRIBUTE);
-        BarWithBody whileLoopBody = new BarWithBody((keyWords == 1 ? "while (" + condition + ")" : condition), headColor, bodyColor, Color.BLACK, Color.BLACK);
+        BarWithBody whileLoopBody = new BarWithBody((keyWords == 1 ? "while (" + condition + ")" : condition), headColor, bodyColor, Color.BLACK, Color.BLACK, whileElement.getPath());
 
         Optional.ofNullable(whileElement.element(BLOCK_TAG)).ifPresent(whileBodyElement -> {
             whileLoopBody.addChild(processTag(whileBodyElement));
         });
 
         vContainer.addChild(whileLoopBody);
-        vContainer.addChild(new Bar("" + Symbols.UP, headColor));
+        vContainer.addChild(new Bar("" + Symbols.UP, headColor, whileElement.getPath()));
         return vContainer;
     }
 
@@ -485,12 +483,13 @@ public class KopenogramXmlViewBuilder {
         Color color = Settings.decodeColorProperty(Settings.Property.BREAK_COLOR.getValue());
         String text = ("" + Symbols.UP).repeat(4);
 
-        return new ExtendedBar(text, color, Color.BLACK, Color.BLACK, Color.WHITE);
+        return new ExtendedBar(text, color, Color.BLACK, Color.BLACK, Color.WHITE, continueElement.getPath());
     }
 
     private PainterElement buildBreakElement(Element breakElement) {
         Color breakColor = Settings.decodeColorProperty(Settings.Property.BREAK_COLOR.getValue());
         String text = ("" + Symbols.RIGHT).repeat(4);
+        String breakLabel = breakElement.attributeValue("label");
         //String label = breakElement.attributeValue(LABEL_ATTRIBUTE);
         Element parent = breakElement.getParent();
         while (parent != null) {
@@ -500,22 +499,29 @@ public class KopenogramXmlViewBuilder {
             }
             parent = parent.getParent();
         }
+
+        Element extendedParent = breakElement.getParent();
+        while (extendedParent != null) {
+            if (breakLabel != null
+                    && breakLabel.equals(extendedParent.attributeValue("label"))) {
+                parent = extendedParent;
+                break;
+            }
+            extendedParent = extendedParent.getParent();
+        }
         //XPath block = breakElement.createXPath("ancestor::block[1]/parent::*");
         if (parent != null) {
-            PaintedNode labelParent = new PaintedNode(parent);
-            if (labelParent != null) {
-                ExtendedBarOver breakElementBar = new ExtendedBarOver(text, breakColor,
-                        Color.BLACK, Color.BLACK, parent.getPath());
-                root.addOverElement(breakElementBar);
-                return breakElementBar;
-            }
+            ExtendedBarOver breakElementBar = new ExtendedBarOver(text, breakColor,
+                    Color.BLACK, Color.BLACK, Color.WHITE, parent.getPath(), breakElement.getPath());
+            root.addOverElement(breakElementBar);
+            return breakElementBar;
         }
-        return new ExtendedBar(text, breakColor, Color.BLACK, Color.BLACK, Color.WHITE);
+        return new ExtendedBar(text, breakColor, Color.BLACK, Color.BLACK, Color.WHITE, breakElement.getPath());
     }
 
     private PainterElement buildBlockElement(Element blockElement) {
         Color blockBodyColor = Settings.decodeColorProperty(Settings.Property.BLOCK_BODY_COLOR.getValue());
-        BarWithBody blockBody = new BarWithBody(null, Color.BLACK, blockBodyColor, Color.BLACK, Color.BLACK);
+        BarWithBody blockBody = new BarWithBody(null, Color.BLACK, blockBodyColor, Color.BLACK, Color.BLACK, blockElement.getPath());
         boolean added = false;
         for (Element statementElement : blockElement.elements()) {
             PainterElement elem = this.processTag(statementElement);
@@ -537,7 +543,7 @@ public class KopenogramXmlViewBuilder {
         BarWithBody methodBody = new BarWithBody(methodElement.attributeValue(NAME_ATTRIBUTE),
                 Settings.decodeColorProperty(Settings.Property.METHOD_HEAD_COLOR.getValue()),
                 Settings.decodeColorProperty(Settings.Property.METHOD_BODY_COLOR.getValue()),
-                Color.BLACK, Color.BLACK);
+                Color.BLACK, Color.BLACK, methodElement.getPath());
         Optional.ofNullable(methodElement.element(BODY_TAG)).ifPresent(bodyElement -> {
             methodBody.addChild(this.processBlock(bodyElement));
         });
@@ -549,7 +555,7 @@ public class KopenogramXmlViewBuilder {
     }
 
     private PainterElement processBlock(Element blockElement) {
-        VerticalContainer vContainer = new VerticalContainer();
+        VerticalContainer vContainer = new VerticalContainer(blockElement.getPath());
         for (Element statementElement : blockElement.elements()) {
             PainterElement elem = this.processTag(statementElement);
             if (elem != null) {

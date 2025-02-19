@@ -9,7 +9,7 @@
           <block>
             <if condition="true">
               <then>
-                <break/>
+                <break label="Label"/>
               </then>
             </if>
           </block>

@@ -26,7 +26,7 @@ public class TestingKopenograms {
         {
             do {
                 if(true)
-                break;
+                break Label;
             } while (true);
         }
     }

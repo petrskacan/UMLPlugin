@@ -45,10 +45,7 @@ public abstract class AbstractPainterElement implements PainterElement {
         }
         lastPos = new Point(pos);
         lastConfig = new PainterConfig(config);
-        if(this instanceof VerticalContainer a && a.getPath() != "") {
-            String elementName = a.getPath();
-            RenderedElements.addElement(elementName, this, pos, dim);
-        }
+        RenderedElements.addElement(this.getPath(), this, pos, dim);
         paintGraphics(g, config, pos, dim);
     }
 

@@ -9,4 +9,5 @@ public interface Container extends PainterElement {
     public Container addChild(PainterElement element);
 
     public List<PainterElement> getChildren();
+
 }

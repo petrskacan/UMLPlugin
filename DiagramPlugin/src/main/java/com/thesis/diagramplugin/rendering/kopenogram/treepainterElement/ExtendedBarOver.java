@@ -14,11 +14,10 @@ public class ExtendedBarOver extends Bar implements OverPainterElement {
     private static final long serialVersionUID = 253532453772157209L;
     private PainterElement elem;
     private transient Dimension realDim;
-    private String pathElement;
     private String pathParent;
 
-    public ExtendedBarOver(String text, Color color, Color borderColor, Color lineColor, String parentPath) {
-        super(text, color, borderColor, lineColor);
+    public ExtendedBarOver(String text, Color color, Color borderColor, Color lineColor, Color fontColor, String parentPath, String elementPath) {
+        super(text, color, borderColor, lineColor, fontColor,elementPath);
         this.pathParent = parentPath;
     }
 
@@ -80,10 +79,10 @@ public class ExtendedBarOver extends Bar implements OverPainterElement {
 
     @Override
     public String getPath() {
-        return pathParent;
+        return path;
     }
-
-    public String getPathParent()
+    @Override
+    public String getParentPath()
     {
         return pathParent;
     }
