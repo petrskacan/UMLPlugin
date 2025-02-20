@@ -5,15 +5,25 @@
     <parameter name="a" type="int"/>
   </parameters>
   <body>
-    <labeled label="Label">
+    <expression>a = 2;</expression>
+    <do-while condition="true">
       <block>
-        <do-while condition="true">
-          <block>
-            <break/>
-          </block>
-        </do-while>
+        <if condition="true">
+          <then>
+            <block>
+              <break/>
+            </block>
+          </then>
+        </if>
       </block>
-    </labeled>
+    </do-while>
+    <if condition="a &gt; 3">
+      <then>
+        <block>
+          <return>a +1</return>
+        </block>
+      </then>
+    </if>
     <return>a</return>
   </body>
 </method>

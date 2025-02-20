@@ -10,7 +10,14 @@
         <expression>System.out.println("TestingKopenograms.breakWithLabelStatemente");</expression>
         <expression>System.out.println("TestingKopenograms.breakWithLabelStatemente");</expression>
         <expression>System.out.println("TestingKopenograms.breakWithLabelStatemente");</expression>
-        <break/>
+        <if condition="a &gt; 1">
+          <then>
+            <block>
+              <expression>System.out.println("");</expression>
+              <break/>
+            </block>
+          </then>
+        </if>
       </block>
     </do-while>
   </body>

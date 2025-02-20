@@ -3,11 +3,15 @@ package com.thesis.diagramplugin.testClasses;
 public class TestingKopenograms {
     private int testingReturnAndVeryVeryVeryExtremlyLongName(int a)
     {
-        Label:
-        {
+        a = 2;
             do {
-                break ;
+                if(true) {
+                    break;
+                }
             } while (true);
+        if(a > 3)
+        {
+            return a +1;
         }
         return a;
     }
@@ -37,7 +41,10 @@ public class TestingKopenograms {
             System.out.println("TestingKopenograms.breakWithLabelStatemente");
             System.out.println("TestingKopenograms.breakWithLabelStatemente");
             System.out.println("TestingKopenograms.breakWithLabelStatemente");
-            break;
+            if(a > 1) {
+                System.out.println("");
+                break;
+            }
         } while (true);
 
     }
@@ -45,6 +52,24 @@ public class TestingKopenograms {
     {
         while(true){
         break;}
+    }
+
+    public void switchTest() {
+        int number = 2;
+
+        switch (number) {
+            case 1:
+                System.out.println("Jedna");
+                break;
+            case 2:
+                System.out.println("Dva");
+                break;
+            case 3:
+                System.out.println("Tři");
+                break;
+            default:
+                System.out.println("Neznámé číslo");
+        }
     }
 
 

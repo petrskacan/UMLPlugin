@@ -4,6 +4,7 @@ package com.thesis.diagramplugin.rendering.kopenogram.treepainterElement;
 import com.thesis.diagramplugin.rendering.kopenogram.treepainter.AbstractPainterElement;
 import com.thesis.diagramplugin.rendering.kopenogram.treepainter.PainterConfig;
 import com.thesis.diagramplugin.rendering.kopenogram.treepainter.PainterUtils;
+import com.thesis.diagramplugin.rendering.kopenogram.treepainter.Settings;
 
 import java.awt.*;
 
@@ -36,6 +37,16 @@ public class Bar extends AbstractPainterElement {
         this.fontColor = fontColor;
         this.path = path;
     }
+    public Bar()
+    {
+        this("",
+                Settings.decodeColorProperty(Settings.Property.SWITCH_BODY_COLOR.getValue()),
+                Settings.decodeColorProperty(Settings.Property.SWITCH_BODY_COLOR.getValue()),
+                Settings.decodeColorProperty(Settings.Property.SWITCH_BODY_COLOR.getValue()),
+                Settings.decodeColorProperty(Settings.Property.SWITCH_BODY_COLOR.getValue()),
+                "");
+    }
+
 
     @Override
     protected Dimension computeDimension(PainterConfig config, Point pos) {

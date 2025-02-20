@@ -29,6 +29,7 @@ public class KopenogramXmlViewBuilder {
 
     private RootPainter root;
     private final List<PaintedNode> parents;
+    private final List<String> loopElements = Arrays.asList(FOR_LOOP_TAG, WHILE_LOOP_TAG, DO_WHILE_LOOP_TAG);
 
     public KopenogramXmlViewBuilder(String diagramXml) {
         this.parents = new LinkedList<>();
@@ -326,16 +327,24 @@ public class KopenogramXmlViewBuilder {
         int keyWords = Integer.parseInt(Settings.Property.KOPENOGRAM_KEY_WORDS.getValue());
         Color color = Settings.decodeColorProperty(Settings.Property.BREAK_COLOR.getValue());
         String text = ("" + Symbols.RIGHT).repeat(4);
-//        for (int i = 0; i < 2; i++) {
-//            text = text.concat(text);
-//        }
-//        String expression = returnElement.attributeValue(WHAT_ATTRIBUTE);
-        String expression = returnElement.getText();
-        if (expression == null) {
-            return new ExtendedBar((keyWords == 1 ? "return " : "") + text, color, Color.BLACK, Color.BLACK, returnElement.getPath());
-        } else {
-            return new ExtendedBar((keyWords == 1 ? "return " : "") + expression + text, color, Color.BLACK, Color.BLACK, returnElement.getPath());
+
+        Element parent = returnElement.getParent();
+        while (parent != null) {
+            if(parent.getName().equals(METHOD_TAG))
+            {
+                break;
+            }
+            parent = parent.getParent();
         }
+
+        String expression = returnElement.getText();
+        if (expression != null) {
+            text = expression + text;
+        }
+        ExtendedBarOver returnElementBar = new ExtendedBarOver((keyWords == 1 ? "return " : "") + text, color,
+                Color.BLACK, Color.BLACK, Color.WHITE, parent.getPath(), returnElement.getPath());
+        root.addOverElement(returnElementBar);
+        return returnElementBar;
     }
 
     private PainterElement buildLabelElement(Element labelElement) {
@@ -483,6 +492,39 @@ public class KopenogramXmlViewBuilder {
         Color color = Settings.decodeColorProperty(Settings.Property.BREAK_COLOR.getValue());
         String text = ("" + Symbols.UP).repeat(4);
 
+        String breakLabel = continueElement.attributeValue("label");
+        //String label = breakElement.attributeValue(LABEL_ATTRIBUTE);
+        Element parent = continueElement.getParent();
+        parentFind:
+        {
+            while (parent != null) {
+                for (String loop : loopElements) {
+                    if (loop == parent.getName()) {
+                        break parentFind;
+                    }
+                }
+                parent = parent.getParent();
+            }
+        }
+
+        Element extendedParent = continueElement.getParent();
+        while (extendedParent != null) {
+            if (breakLabel != null
+                    && breakLabel.equals(extendedParent.attributeValue("label"))) {
+                parent = extendedParent;
+                break;
+            }
+            extendedParent = extendedParent.getParent();
+        }
+        //XPath block = breakElement.createXPath("ancestor::block[1]/parent::*");
+        if (parent != null) {
+            ExtendedBarOver breakElementBar = new ExtendedBarOver(text, color,
+                    Color.BLACK, Color.BLACK, Color.WHITE, parent.getPath(), continueElement.getPath());
+            root.addOverElement(breakElementBar);
+            return breakElementBar;
+        }
+
+
         return new ExtendedBar(text, color, Color.BLACK, Color.BLACK, Color.WHITE, continueElement.getPath());
     }
 
@@ -492,12 +534,16 @@ public class KopenogramXmlViewBuilder {
         String breakLabel = breakElement.attributeValue("label");
         //String label = breakElement.attributeValue(LABEL_ATTRIBUTE);
         Element parent = breakElement.getParent();
-        while (parent != null) {
-            if (BLOCK_TAG.equals(parent.getName())) {
+        parentFind:
+        {
+            while (parent != null) {
+                for (String loop : loopElements) {
+                    if (loop == parent.getName()) {
+                        break parentFind;
+                    }
+                }
                 parent = parent.getParent();
-                break;
             }
-            parent = parent.getParent();
         }
 
         Element extendedParent = breakElement.getParent();
@@ -516,7 +562,7 @@ public class KopenogramXmlViewBuilder {
             root.addOverElement(breakElementBar);
             return breakElementBar;
         }
-        return new ExtendedBar(text, breakColor, Color.BLACK, Color.BLACK, Color.WHITE, breakElement.getPath());
+        return new Bar();
     }
 
     private PainterElement buildBlockElement(Element blockElement) {
