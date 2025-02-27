@@ -1,5 +1,6 @@
 package com.thesis.diagramplugin.rendering.kopenogram.treepainter;
-import com.thesis.diagramplugin.rendering.kopenogram.PaintedNode;
+import com.thesis.diagramplugin.rendering.kopenogram.treepainterElement.Bar;
+import lombok.Getter;
 
 import java.awt.Dimension;
 import java.awt.Point;
@@ -12,31 +13,15 @@ public class RenderedElements {
     private static final Map<String, RenderedElementInfo> elements = new HashMap<>();
 
     // Nested class to hold the rendering info
-    public static class RenderedElementInfo {
-        public final PainterElement element;
-        public final Point position;
-        public final Dimension dimension;
-
-        public RenderedElementInfo(PainterElement element, Point position, Dimension dimension) {
-            this.element = element;
-            this.position = position;
-            this.dimension = dimension;
-        }
-
-        @Override
-        public String toString() {
-            return "RenderedElementInfo{" +
-                    "element=" + element +
-                    ", position=" + position +
-                    ", dimension=" + dimension +
-                    '}';
-        }
-    }
+        public record RenderedElementInfo(PainterElement element,
+                                          Point position,
+                                          Dimension dimension){}
 
     // Method to add an element to the registry
     public static void addElement(String path, PainterElement element, Point pos, Dimension dim) {
+        if(element instanceof Bar)
         elements.put(path, new RenderedElementInfo(element, pos, dim));
-        System.out.println("Added element to registry: " + path);
+        //DANGER, DANGER, MAYBE IT BREAKS EVERYTHING, MAYBE NOT
     }
 
     // Method to retrieve an element from the registry

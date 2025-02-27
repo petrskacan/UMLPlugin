@@ -342,7 +342,7 @@ public class KopenogramXmlViewBuilder {
             text = expression + text;
         }
         ExtendedBarOver returnElementBar = new ExtendedBarOver((keyWords == 1 ? "return " : "") + text, color,
-                Color.BLACK, Color.BLACK, Color.WHITE, parent.getPath(), returnElement.getPath());
+                Color.BLACK, Color.BLACK, Color.BLACK, parent.getPath(), returnElement.getPath());
         root.addOverElement(returnElementBar);
         return returnElementBar;
     }

@@ -20,5 +20,13 @@
         </if>
       </block>
     </do-while>
+    <if condition="a &gt; 10">
+      <then>
+        <block/>
+      </then>
+      <else>
+        <block/>
+      </else>
+    </if>
   </body>
 </method>

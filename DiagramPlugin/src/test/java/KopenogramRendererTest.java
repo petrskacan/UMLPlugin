@@ -15,7 +15,7 @@ public class KopenogramRendererTest {
     @Test
     public void testBreakElementRendering() throws Exception {
         // Load test XML
-        File xmlFile = new File("src/test/resources/test-kopenogram.xml");
+        File xmlFile = new File("src/test/resources/returnNumberTwo.xml");
         SAXReader reader = new SAXReader();
         Document document = reader.read(xmlFile);
         System.out.println("Testing break element rendering...");
@@ -30,4 +30,6 @@ public class KopenogramRendererTest {
         System.out.println("Running a simple test...");
         assertTrue(true);
     }
+
+    //TODO - ELSE BROKEN, WHAT ELSE XD
 }

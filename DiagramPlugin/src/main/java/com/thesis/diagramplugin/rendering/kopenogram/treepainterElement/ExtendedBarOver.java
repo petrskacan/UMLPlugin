@@ -55,7 +55,7 @@ public class ExtendedBarOver extends Bar implements OverPainterElement {
     public Dimension computeRealDim(PainterConfig config) {
         Dimension dim = getDimension(config, getRealPosition());
         Point elemPos = elem.getLastPosition();
-        dim.width = RenderedElements.getElement(pathParent).dimension.width - (getRealPosition().x - elemPos.x);
+        dim.width = RenderedElements.getElement(pathParent).dimension().width - (getRealPosition().x - elemPos.x);
         return dim;
     }
 

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<method name="testingReturnAndVeryVeryVeryExtremlyLongName" return_type="int">
+  <parameters>
+    <parameter name="a" type="int"/>
+  </parameters>
+  <body>
+    <expression>a = 2;</expression>
+    <do-while condition="true">
+      <block>
+        <if condition="true">
+          <then>
+            <block>
+              <break/>
+            </block>
+          </then>
+        </if>
+      </block>
+    </do-while>
+    <if condition="a &gt; 3">
+      <then>
+        <block>
+          <return>a +1</return>
+        </block>
+      </then>
+    </if>
+    <return>a</return>
+  </body>
+</method>

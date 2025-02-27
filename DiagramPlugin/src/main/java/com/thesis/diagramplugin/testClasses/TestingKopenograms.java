@@ -4,16 +4,30 @@ public class TestingKopenograms {
     private int testingReturnAndVeryVeryVeryExtremlyLongName(int a)
     {
         a = 2;
+        if(a < 1){
             do {
-                if(true) {
+                for (int i = 1; i <= 10; i++) {
+                    if (i % 2 == 0) {
+                        continue;
+                    }
+                    System.out.println("Number: " + i);
+                }
+                if(a > 7)
+                {
                     break;
                 }
-            } while (true);
+            } while (true);}
+        do {
+            if(true) {
+                break;
+            }
+        } while (true);
         if(a > 3)
         {
-            return a +1;
+            return a+5;
         }
-            return a;
+        return 1;
+
     }
     private void continueTest()
     {
@@ -46,6 +60,13 @@ public class TestingKopenograms {
                 break;
             }
         } while (true);
+        if(a > 10)
+        {
+
+        }
+        else {
+
+        }
 
     }
     public void breaking()
@@ -70,6 +91,11 @@ public class TestingKopenograms {
             default:
                 System.out.println("Neznámé číslo");
         }
+    }
+
+    public int abcd()
+    {
+        return 5;
     }
 
 

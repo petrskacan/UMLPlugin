@@ -6,6 +6,35 @@
   </parameters>
   <body>
     <expression>a = 2;</expression>
+    <if condition="a &lt; 1">
+      <then>
+        <block>
+          <do-while condition="true">
+            <block>
+              <for condition="i &lt;= 10" init="int i = 1;" update="i++">
+                <block>
+                  <if condition="i % 2 == 0">
+                    <then>
+                      <block>
+                        <continue/>
+                      </block>
+                    </then>
+                  </if>
+                  <expression>System.out.println("Number: " + i);</expression>
+                </block>
+              </for>
+              <if condition="a &gt; 7">
+                <then>
+                  <block>
+                    <break/>
+                  </block>
+                </then>
+              </if>
+            </block>
+          </do-while>
+        </block>
+      </then>
+    </if>
     <do-while condition="true">
       <block>
         <if condition="true">
@@ -20,10 +49,10 @@
     <if condition="a &gt; 3">
       <then>
         <block>
-          <return>a +1</return>
+          <return>a+5</return>
         </block>
       </then>
     </if>
-    <return>a</return>
+    <return>1</return>
   </body>
 </method>
