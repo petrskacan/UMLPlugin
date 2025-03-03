@@ -1,7 +1,7 @@
 
 
 group = "com.thesis"
-version = "1.0.35-beta"
+version = "1.0.36-beta"
 
 plugins {
     id("java")
@@ -77,7 +77,7 @@ tasks {
         untilBuild.set("233.*")
         changeNotes.set("""
         <ul>
-            <li>Return should work now</li>
+            <li>Recursion now displays correctly</li>
         </ul>
     """.trimIndent())
     }

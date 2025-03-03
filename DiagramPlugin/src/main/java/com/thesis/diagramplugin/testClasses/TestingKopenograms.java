@@ -29,11 +29,11 @@ public class TestingKopenograms {
         return 1;
 
     }
-    private void continueTest()
+    private void continueTest(int a)
     {
         for (int i = 1; i <= 10; i++) {
             if (i % 2 == 0) {
-                continue;
+                continueTest(2);
             }
             System.out.println("Number: " + i);
         }

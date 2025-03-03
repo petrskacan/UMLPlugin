@@ -16,6 +16,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.*;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import static com.thesis.diagramplugin.utils.DiagramConstants.*;
 
@@ -441,6 +442,12 @@ public class KopenogramXmlViewBuilder {
 
     private PainterElement buildExpressionElement(Element expressionElement) {
         Color color = Settings.decodeColorProperty(Settings.Property.EXPRESSION_COLOR.getValue());
+        String pattern = "\\b" + Pattern.quote(name) + "\\s*\\(.*?\\)";
+        if(Pattern.compile(pattern).matcher(expressionElement.getText()).find())
+        {
+            color = Settings.decodeColorProperty(Settings.Property.METHOD_HEAD_COLOR.getValue());
+
+        }
         return new Bar(expressionElement.getText(), color, Color.BLACK, Color.BLACK, expressionElement.getPath());
     }
 

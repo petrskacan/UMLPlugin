@@ -15,7 +15,7 @@ public class KopenogramRendererTest {
     @Test
     public void testBreakElementRendering() throws Exception {
         // Load test XML
-        File xmlFile = new File("src/test/resources/returnNumberTwo.xml");
+        File xmlFile = new File("src/test/resources/recursionTest.xml");
         SAXReader reader = new SAXReader();
         Document document = reader.read(xmlFile);
         System.out.println("Testing break element rendering...");
