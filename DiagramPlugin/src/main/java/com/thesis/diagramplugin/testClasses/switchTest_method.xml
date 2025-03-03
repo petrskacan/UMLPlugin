@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<method name="switchTest" return_type="void">
+  <parameters/>
+  <body>
+    <declaration>int number = 2</declaration>
+    <switch expression="number">
+      <case label="1">
+        <expression>System.out.println("Jedna");</expression>
+        <break/>
+      </case>
+      <case label="2">
+        <expression>System.out.println("Dva");</expression>
+        <break/>
+      </case>
+      <case label="3">
+        <expression>System.out.println("Tři");</expression>
+        <break/>
+      </case>
+      <case label="default">
+        <expression>System.out.println("Neznámé číslo");</expression>
+      </case>
+    </switch>
+  </body>
+</method>

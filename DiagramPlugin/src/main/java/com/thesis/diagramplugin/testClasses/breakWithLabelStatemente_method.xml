@@ -4,28 +4,15 @@
   <parameters/>
   <body>
     <declaration>int a = 10</declaration>
-    <do-while condition="true">
-      <block>
-        <expression>System.out.println("TestingKopenograms.breakWithLabelStatemente");</expression>
-        <expression>System.out.println("TestingKopenograms.breakWithLabelStatemente");</expression>
-        <expression>System.out.println("TestingKopenograms.breakWithLabelStatemente");</expression>
-        <expression>System.out.println("TestingKopenograms.breakWithLabelStatemente");</expression>
-        <if condition="a &gt; 1">
-          <then>
-            <block>
-              <expression>System.out.println("");</expression>
-              <break/>
-            </block>
-          </then>
-        </if>
-      </block>
-    </do-while>
-    <if condition="a &gt; 10">
+    <if condition="a &gt;= 10">
       <then>
         <block/>
       </then>
       <else>
-        <block/>
+        <block>
+          <expression>a++;</expression>
+          <expression>breakWithLabelStatemente();</expression>
+        </block>
       </else>
     </if>
   </body>

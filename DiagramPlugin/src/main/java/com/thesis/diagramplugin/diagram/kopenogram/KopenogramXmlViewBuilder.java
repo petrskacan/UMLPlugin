@@ -27,7 +27,7 @@ public class KopenogramXmlViewBuilder {
     private JComponent view;
     @Getter
     private String name;
-
+    private int maxChars = 0; //TODO - EDIT MAX LENGTH OF CHARACTERS
     private RootPainter root;
     private final List<PaintedNode> parents;
     private final List<String> loopElements = Arrays.asList(FOR_LOOP_TAG, WHILE_LOOP_TAG, DO_WHILE_LOOP_TAG);
@@ -36,7 +36,7 @@ public class KopenogramXmlViewBuilder {
         this.parents = new LinkedList<>();
         this.root = new RootPainter();
         //This works, leave it that way, nothing bad can happen
-        Settings.Property.NUMBER_OF_SYMBOLS_IN_EXPRESSION.setValue("500");
+        //Settings.Property.NUMBER_OF_SYMBOLS_IN_EXPRESSION.setValue("500");
         this.view = this.buildView(diagramXml);
     }
     public JComponent buildView(String diagramXml) {
@@ -57,7 +57,6 @@ public class KopenogramXmlViewBuilder {
                 }
                 // painting tree
                 root.setRoot(processElement(rootElement));
-
                 // serialize to file
 //        PainterUtils.saveToFile(root, "painted.tree");
                 // size of picture
@@ -81,6 +80,9 @@ public class KopenogramXmlViewBuilder {
 
 
     private PainterElement processElement(Element element) {
+
+        if(maxChars < element.getText().length()) maxChars = element.getText().length(); //TODO - EDIT
+
         PaintedNode paintedNode = new PaintedNode(element);
         parents.add(paintedNode);
 
@@ -331,6 +333,14 @@ public class KopenogramXmlViewBuilder {
 
         Element parent = returnElement.getParent();
         while (parent != null) {
+            /* QUESTION - BLOCK NEBO METHOD TAG??
+            if(parent.getName().equals(BLOCK_TAG))
+            {
+                parent = parent.getParent();
+                if(parent.getName().equals("then")) parent = parent.getParent();
+                break;
+            }
+            */
             if(parent.getName().equals(METHOD_TAG))
             {
                 break;
@@ -381,7 +391,7 @@ public class KopenogramXmlViewBuilder {
                 elseBody.addChild(processTag(statement));
             }
             hContainer.addChild(elseBody);
-            setAvoidElements(elseBody, overElements);
+            //setAvoidElements(elseBody, overElements);
         });
 
         return hContainer;

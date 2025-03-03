@@ -1,34 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<method name="testingReturnAndVeryVeryVeryExtremlyLongName" return_type="int">
-  <parameters>
-    <parameter name="a" type="int"/>
-  </parameters>
+<method name="breakWithLabelStatemente" return_type="void">
+  <parameters/>
   <body>
-    <expression>a = 2;</expression>
-    <do-while condition="true">
+    <declaration>int a = 10;</declaration>
+    <for condition="i &lt; 10" init="int i = 0;" update="i++">
       <block>
-        <if condition="true">
-          <then>
-            <block>
-              <break/>
-            </block>
-          </then>
-        </if>
+        <continue/>
       </block>
-    </do-while>
-    <if condition="a &gt; 3">
+    </for>
+    <if condition="a &gt;= 10">
       <then>
         <block>
-          <return>a +1</return>
+          <return/>
         </block>
       </then>
       <else>
         <block>
           <expression>a++;</expression>
+          <expression>breakWithLabelStatemente();</expression>
         </block>
       </else>
     </if>
-    <return>a</return>
   </body>
 </method>

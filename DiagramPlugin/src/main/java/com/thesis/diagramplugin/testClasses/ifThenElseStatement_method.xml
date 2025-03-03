@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<method name="ifThenElseStatement" return_type="void">
+  <parameters/>
+  <body>
+    <expression>statement(0);</expression>
+    <if condition="condition(0)">
+      <then>
+        <block>
+          <expression>statement(1);</expression>
+        </block>
+      </then>
+      <else>
+        <if condition="condition(0)">
+          <then>
+            <block>
+              <expression>statement(2);</expression>
+              <expression>statement(3);</expression>
+            </block>
+          </then>
+          <else>
+            <block>
+              <expression>statement(5);</expression>
+            </block>
+          </else>
+        </if>
+      </else>
+    </if>
+    <expression>statement(4);</expression>
+    <expression>statement(5);</expression>
+  </body>
+</method>

@@ -1,7 +1,6 @@
 package com.thesis.diagramplugin.rendering.kopenogram.treepainterElement;
 
 
-import com.thesis.diagramplugin.rendering.kopenogram.PaintedNode;
 import com.thesis.diagramplugin.rendering.kopenogram.treepainter.*;
 
 import java.awt.*;

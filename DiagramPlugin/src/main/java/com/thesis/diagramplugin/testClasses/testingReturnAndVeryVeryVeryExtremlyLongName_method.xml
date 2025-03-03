@@ -52,7 +52,12 @@
           <return>a+5</return>
         </block>
       </then>
+      <else>
+        <block>
+          <expression>a++;</expression>
+          <return>a+2</return>
+        </block>
+      </else>
     </if>
-    <return>1</return>
   </body>
 </method>

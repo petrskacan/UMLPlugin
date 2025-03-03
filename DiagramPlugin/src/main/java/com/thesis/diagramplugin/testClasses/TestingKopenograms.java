@@ -26,7 +26,11 @@ public class TestingKopenograms {
         {
             return a+5;
         }
-        return 1;
+        else
+        {
+            a++;
+            return a+2;
+        }
 
     }
     private void continueTest(int a)
@@ -50,22 +54,13 @@ public class TestingKopenograms {
     }
     public void breakWithLabelStatemente() {
         int a = 10;
-        do {
-            System.out.println("TestingKopenograms.breakWithLabelStatemente");
-            System.out.println("TestingKopenograms.breakWithLabelStatemente");
-            System.out.println("TestingKopenograms.breakWithLabelStatemente");
-            System.out.println("TestingKopenograms.breakWithLabelStatemente");
-            if(a > 1) {
-                System.out.println("");
-                break;
-            }
-        } while (true);
-        if(a > 10)
-        {
 
+        if(a >= 10)
+        {
         }
         else {
-
+            a++;
+            breakWithLabelStatemente();
         }
 
     }
@@ -97,6 +92,5 @@ public class TestingKopenograms {
     {
         return 5;
     }
-
 
 }
