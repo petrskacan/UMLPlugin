@@ -51,14 +51,28 @@
     <if condition="a &gt; 3">
       <then>
         <block>
+          <expression>a++;</expression>
+          <expression>a++;</expression>
           <return>a+5</return>
         </block>
       </then>
       <else>
-        <block>
-          <expression>a++;</expression>
-          <return>a+2</return>
-        </block>
+        <if condition="a == 3">
+          <then>
+            <block>
+              <expression>a++;</expression>
+              <expression>a++;</expression>
+              <expression>a++;</expression>
+              <expression>a++;</expression>
+              <return>a+2</return>
+            </block>
+          </then>
+          <else>
+            <block>
+              <return>1</return>
+            </block>
+          </else>
+        </if>
       </else>
     </if>
   </body>

@@ -26,12 +26,21 @@ public class TestingKopenograms {
         }
         if(a > 3)
         {
+            a++;
+            a++;
             return a+5;
+        }
+        else if(a == 3)
+        {
+            a++;
+            a++;
+            a++;
+            a++;
+            return a+2;
         }
         else
         {
-            a++;
-            return a+2;
+            return 1;
         }
 
     }
@@ -95,5 +104,7 @@ public class TestingKopenograms {
     {
         return 5;
     }
+
+
 
 }

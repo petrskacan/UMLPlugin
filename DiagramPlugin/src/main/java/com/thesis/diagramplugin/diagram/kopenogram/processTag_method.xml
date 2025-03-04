@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<method name="processTag" return_type="com.thesis.diagramplugin.rendering.kopenogram.treepainter.PainterElement">
+  <parameters>
+    <parameter name="element" type="org.dom4j.Element"/>
+  </parameters>
+  <body>
+    <declaration>com.thesis.diagramplugin.rendering.kopenogram.treepainter.PainterElement outputElement = null</declaration>
+    <switch expression="element.getName()">
+      <case label="METHOD_TAG">
+        <block>
+          <expression>outputElement = this.buildMethodElement(element);</expression>
+        </block>
+        <break/>
+      </case>
+      <case label="BLOCK_TAG">
+        <block>
+          <expression>outputElement = this.buildBlockElement(element);</expression>
+        </block>
+        <break/>
+      </case>
+      <case label="BREAK_TAG">
+        <block>
+          <expression>outputElement = this.buildBreakElement(element);</expression>
+        </block>
+        <break/>
+      </case>
+      <case label="CONTINUE_TAG">
+        <block>
+          <expression>outputElement = this.buildContinueElement(element);</expression>
+        </block>
+        <break/>
+      </case>
+      <case label="EXPRESSION_TAG">
+        <block>
+          <expression>outputElement = this.buildExpressionElement(element);</expression>
+        </block>
+        <break/>
+      </case>
+      <case label="DO_WHILE_LOOP_TAG">
+        <block>
+          <expression>outputElement = this.buildDoWhileLoopElement(element);</expression>
+        </block>
+        <break/>
+      </case>
+      <case label="WHILE_LOOP_TAG">
+        <block>
+          <expression>outputElement = this.buildWhileLoopElement(element);</expression>
+        </block>
+        <break/>
+      </case>
+      <case label="EMPTY_STATEMENT_TAG">
+        <block>
+          <expression>outputElement = this.buildEmptyStatementElement();</expression>
+        </block>
+        <break/>
+      </case>
+      <case label="FOREACH_LOOP_TAG">
+        <block>
+          <expression>outputElement = this.buildForeachLoopElement(element);</expression>
+        </block>
+        <break/>
+      </case>
+      <case label="FOR_LOOP_TAG">
+        <block>
+          <expression>outputElement = this.buildForLoopElement(element);</expression>
+        </block>
+        <break/>
+      </case>
+      <case label="IF_TAG">
+        <block>
+          <expression>outputElement = this.buildIfElement(element);</expression>
+        </block>
+        <break/>
+      </case>
+      <case label="LABEL_TAG">
+        <block>
+          <expression>outputElement = this.buildLabelElement(element);</expression>
+        </block>
+        <break/>
+      </case>
+      <case label="RETURN_TAG">
+        <block>
+          <expression>outputElement = this.buildReturnElement(element);</expression>
+        </block>
+        <break/>
+      </case>
+      <case label="MATCH_TAG"/>
+      <case label="SWITCH_TAG">
+        <block>
+          <expression>outputElement = this.buildSwitchElement(element);</expression>
+        </block>
+        <break/>
+      </case>
+      <case label="SYNCHRONIZED_TAG">
+        <block>
+          <expression>outputElement = this.buildSynchronizedElement(element);</expression>
+        </block>
+        <break/>
+      </case>
+      <case label="THROW_TAG">
+        <block>
+          <expression>outputElement = this.buildThrowElement(element);</expression>
+        </block>
+        <break/>
+      </case>
+      <case label="TRY_TAG">
+        <block>
+          <expression>outputElement = this.buildTryElement(element);</expression>
+        </block>
+        <break/>
+      </case>
+      <case label="DECLARATION_TAG">
+        <block>
+          <expression>outputElement = this.buildDeclarationElement(element);</expression>
+        </block>
+      </case>
+    </switch>
+    <return>outputElement</return>
+  </body>
+</method>

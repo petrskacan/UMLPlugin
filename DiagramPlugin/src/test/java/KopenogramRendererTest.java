@@ -16,14 +16,7 @@ public class KopenogramRendererTest {
     public void testBreakElementRendering() throws Exception {
         // Load test XML
         File xmlFile = new File("src/test/resources/ifelseTest.xml");
-        SAXReader reader = new SAXReader();
-        Document document = reader.read(xmlFile);
-        System.out.println("Testing break element rendering...");
         // Create the Kopenogram view builder
         KopenogramXmlViewBuilder builder = new KopenogramXmlViewBuilder(new String(Files.readAllBytes(Paths.get(xmlFile.getPath()))));
-        // Debug output
-        System.out.println("Testing break element rendering...");
     }
-
-    //TODO - ELSE BROKEN, WHAT ELSE XD
 }
