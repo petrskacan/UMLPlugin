@@ -28,6 +28,5 @@ public interface OverPainterElement extends PainterElement {
      * @param config
      */
     public void paintOver(Graphics g, PainterConfig config);
-    void setElement(PainterElement element);
     String getParentPath();
 }

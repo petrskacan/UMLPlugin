@@ -32,20 +32,22 @@
               </if>
             </block>
           </do-while>
+          <labeled label="Label">
+            <block>
+              <do-while condition="true">
+                <block>
+                  <if condition="true">
+                    <then>
+                      <break label="Label"/>
+                    </then>
+                  </if>
+                </block>
+              </do-while>
+            </block>
+          </labeled>
         </block>
       </then>
     </if>
-    <do-while condition="true">
-      <block>
-        <if condition="true">
-          <then>
-            <block>
-              <break/>
-            </block>
-          </then>
-        </if>
-      </block>
-    </do-while>
     <if condition="a &gt; 3">
       <then>
         <block>

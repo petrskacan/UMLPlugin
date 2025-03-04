@@ -3,6 +3,7 @@ package com.thesis.diagramplugin.rendering.kopenogram.treepainter;
 import com.thesis.diagramplugin.rendering.kopenogram.treepainterElement.Bar;
 import com.thesis.diagramplugin.rendering.kopenogram.treepainterElement.BarWithBody;
 import com.thesis.diagramplugin.rendering.kopenogram.treepainterElement.VerticalContainer;
+import icons.PythonIcons;
 
 import java.awt.*;
 
@@ -30,7 +31,7 @@ public abstract class AbstractPainterElement implements PainterElement {
             lastPos = new Point(pos);
             lastConfig = new PainterConfig(config);
             cycled = true;
-            lastDim = computeDimension(config, pos);
+            lastDim = assignDimension(config, pos);
             cycled = false;
         }
         return new Dimension(lastDim);
@@ -45,7 +46,15 @@ public abstract class AbstractPainterElement implements PainterElement {
         }
         lastPos = new Point(pos);
         lastConfig = new PainterConfig(config);
-        RenderedElements.addElement(this.getPath(), this, pos, dim);
+        //RenderedElements.addElement(this.getPath(), this, pos, dim);
+        RenderedElementInfo info = RenderedElements.getElement(this.getPath());
+        if (info != null && dim.width > info.dimension().width) {
+            System.out.println(dim.width);
+            System.out.println(info.dimension().width);
+            //Change the max width of the element
+            // (Each element is made of some parts, this is looking for the longest part)
+            RenderedElements.addElement(this.getPath(), info.element(), info.position(), dim);
+        }
         paintGraphics(g, config, pos, dim);
     }
 
@@ -53,5 +62,11 @@ public abstract class AbstractPainterElement implements PainterElement {
 
     private boolean changed(PainterConfig config, Point pos) {
         return !config.equals(lastConfig) || !pos.equals(lastPos);
+    }
+
+    public final Dimension assignDimension(PainterConfig config, Point pos) {
+        Dimension dim = computeDimension(config, pos);
+        RenderedElements.addElement(this.getPath(), this, pos, dim);
+        return dim;
     }
 }

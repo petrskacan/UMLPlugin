@@ -51,8 +51,7 @@ public class RootPainter implements PainterElement {
     public void paint(Graphics g, PainterConfig config, Point pos, Dimension dim) {
         root.paint(g, config, pos, dim);
         for (OverPainterElement element : overElements) {
-            PainterElement ele = RenderedElements.getElement(element.getParentPath()).element();
-            element.setElement(ele);
+            element.getRealDimension(config);
             element.paintOver(g, config);
         }
     }

@@ -11,6 +11,7 @@
           <then>
             <block>
               <expression>continueTest(2);</expression>
+              <continue/>
             </block>
           </then>
         </if>

@@ -4,7 +4,7 @@ public class TestingKopenograms {
     private int testingReturnAndVeryVeryVeryExtremlyLongName(int a)
     {
         a = 2;
-        if(a < 1){
+        if(a < 1) {
             do {
                 for (int i = 1; i <= 10; i++) {
                     if (i % 2 == 0) {
@@ -12,16 +12,18 @@ public class TestingKopenograms {
                     }
                     System.out.println("Number: " + i);
                 }
-                if(a > 7)
-                {
+                if (a > 7) {
                     break;
                 }
-            } while (true);}
-        do {
-            if(true) {
-                break;
+            } while (true);
+            Label:
+            {
+                do {
+                    if (true)
+                        break Label;
+                } while (true);
             }
-        } while (true);
+        }
         if(a > 3)
         {
             return a+5;
@@ -38,6 +40,7 @@ public class TestingKopenograms {
         for (int i = 1; i <= 10; i++) {
             if (i % 2 == 0) {
                 continueTest(2);
+                continue;
             }
             System.out.println("Number: " + i);
         }

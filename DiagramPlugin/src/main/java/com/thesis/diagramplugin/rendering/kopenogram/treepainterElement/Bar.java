@@ -1,10 +1,7 @@
 package com.thesis.diagramplugin.rendering.kopenogram.treepainterElement;
 
 
-import com.thesis.diagramplugin.rendering.kopenogram.treepainter.AbstractPainterElement;
-import com.thesis.diagramplugin.rendering.kopenogram.treepainter.PainterConfig;
-import com.thesis.diagramplugin.rendering.kopenogram.treepainter.PainterUtils;
-import com.thesis.diagramplugin.rendering.kopenogram.treepainter.Settings;
+import com.thesis.diagramplugin.rendering.kopenogram.treepainter.*;
 
 import java.awt.*;
 

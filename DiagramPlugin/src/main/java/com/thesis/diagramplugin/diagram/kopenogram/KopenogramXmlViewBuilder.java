@@ -36,7 +36,7 @@ public class KopenogramXmlViewBuilder {
         this.parents = new LinkedList<>();
         this.root = new RootPainter();
         //This works, leave it that way, nothing bad can happen
-        //Settings.Property.NUMBER_OF_SYMBOLS_IN_EXPRESSION.setValue("500");
+        Settings.Property.NUMBER_OF_SYMBOLS_IN_EXPRESSION.setValue("500");
         this.view = this.buildView(diagramXml);
     }
     public JComponent buildView(String diagramXml) {
@@ -391,7 +391,7 @@ public class KopenogramXmlViewBuilder {
                 elseBody.addChild(processTag(statement));
             }
             hContainer.addChild(elseBody);
-            //setAvoidElements(elseBody, overElements);
+            setAvoidElements(elseBody, overElements);
         });
 
         return hContainer;

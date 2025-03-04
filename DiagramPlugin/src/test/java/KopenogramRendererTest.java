@@ -25,11 +25,5 @@ public class KopenogramRendererTest {
         System.out.println("Testing break element rendering...");
     }
 
-    @Test
-    void simpleTest() {
-        System.out.println("Running a simple test...");
-        assertTrue(true);
-    }
-
     //TODO - ELSE BROKEN, WHAT ELSE XD
 }

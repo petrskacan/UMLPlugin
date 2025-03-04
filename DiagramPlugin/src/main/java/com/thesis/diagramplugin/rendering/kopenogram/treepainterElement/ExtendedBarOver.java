@@ -11,9 +11,8 @@ import java.awt.*;
 public class ExtendedBarOver extends Bar implements OverPainterElement {
 
     private static final long serialVersionUID = 253532453772157209L;
-    private PainterElement elem;
     private transient Dimension realDim;
-    private String pathParent;
+    private final String pathParent;
 
     public ExtendedBarOver(String text, Color color, Color borderColor, Color lineColor, Color fontColor, String parentPath, String elementPath) {
         super(text, color, borderColor, lineColor, fontColor,elementPath);
@@ -45,16 +44,14 @@ public class ExtendedBarOver extends Bar implements OverPainterElement {
 
     @Override
     public Dimension getRealDimension(PainterConfig config) {
-        if (realDim == null) {
-            realDim = computeRealDim(config);
-        }
-        return new Dimension(realDim);
+        return computeRealDim(config);
     }
 
     public Dimension computeRealDim(PainterConfig config) {
+        RenderedElementInfo elem = RenderedElements.getElement(pathParent);
         Dimension dim = getDimension(config, getRealPosition());
-        Point elemPos = elem.getLastPosition();
-        dim.width = RenderedElements.getElement(pathParent).dimension().width - (getRealPosition().x - elemPos.x);
+        Point elemPos = elem.element().getLastPosition();
+        dim.width = elem.dimension().width - (getRealPosition().x - elemPos.x);
         return dim;
     }
 
@@ -66,14 +63,6 @@ public class ExtendedBarOver extends Bar implements OverPainterElement {
     @Override
     public String toString() {
         return "ExtendedBarOver: " + text + ", to: ";
-    }
-    public PainterElement getElement()
-    {
-        return elem;
-    }
-    public void setElement(PainterElement element)
-    {
-        this.elem = element;
     }
 
     @Override

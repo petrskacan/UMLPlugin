@@ -1,7 +1,7 @@
 
 
 group = "com.thesis"
-version = "1.0.37-beta"
+version = "1.0.39-beta"
 
 plugins {
     id("java")
@@ -77,7 +77,7 @@ tasks {
         untilBuild.set("233.*")
         changeNotes.set("""
         <ul>
-            <li>if-else now displays correctly</li>
+            <li>avoiding elements is now working</li>
             <li>KNOWN ISSUE - if-elseif is broken</li>
         </ul>
     """.trimIndent())
