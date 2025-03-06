@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<method name="testingReturnAndVeryVeryVeryExtremlyLongName" return_type="int">
+  <parameters>
+    <parameter name="a" type="int"/>
+  </parameters>
+  <body>
+    <if condition="a &gt; 3">
+      <then>
+        <block>
+          <expression>a++;</expression>
+          <expression>a++;</expression>
+          <return>a+5</return>
+        </block>
+      </then>
+      <else>
+        <if condition="a == 3">
+          <then>
+            <block>
+              <expression>a++;</expression>
+              <expression>a++;</expression>
+              <expression>a++;</expression>
+              <expression>a++;</expression>
+              <return>a+2</return>
+            </block>
+          </then>
+          <else>
+            <if condition="a == 8">
+              <then>
+                <block>
+                  <expression>a++;</expression>
+                  <expression>a++;</expression>
+                  <expression>a++;</expression>
+                  <expression>a++;</expression>
+                  <return>a+2</return>
+                </block>
+              </then>
+              <else>
+                <block>
+                  <return>1</return>
+                </block>
+              </else>
+            </if>
+          </else>
+        </if>
+      </else>
+    </if>
+  </body>
+</method>

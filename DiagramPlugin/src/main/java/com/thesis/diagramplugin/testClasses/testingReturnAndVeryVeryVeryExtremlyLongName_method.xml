@@ -5,49 +5,6 @@
     <parameter name="a" type="int"/>
   </parameters>
   <body>
-    <expression>a = 2;</expression>
-    <if condition="a &lt; 1">
-      <then>
-        <block>
-          <do-while condition="true">
-            <block>
-              <for condition="i &lt;= 10" init="int i = 1;" update="i++">
-                <block>
-                  <if condition="i % 2 == 0">
-                    <then>
-                      <block>
-                        <continue/>
-                      </block>
-                    </then>
-                  </if>
-                  <expression>System.out.println("Number: " + i);</expression>
-                </block>
-              </for>
-              <if condition="a &gt; 7">
-                <then>
-                  <block>
-                    <break/>
-                  </block>
-                </then>
-              </if>
-            </block>
-          </do-while>
-          <labeled label="Label">
-            <block>
-              <do-while condition="true">
-                <block>
-                  <if condition="true">
-                    <then>
-                      <break label="Label"/>
-                    </then>
-                  </if>
-                </block>
-              </do-while>
-            </block>
-          </labeled>
-        </block>
-      </then>
-    </if>
     <if condition="a &gt; 3">
       <then>
         <block>
@@ -68,9 +25,22 @@
             </block>
           </then>
           <else>
-            <block>
-              <return>1</return>
-            </block>
+            <if condition="a == 8">
+              <then>
+                <block>
+                  <expression>a++;</expression>
+                  <expression>a++;</expression>
+                  <expression>a++;</expression>
+                  <expression>a++;</expression>
+                  <return>a+2</return>
+                </block>
+              </then>
+              <else>
+                <block>
+                  <return>1</return>
+                </block>
+              </else>
+            </if>
           </else>
         </if>
       </else>

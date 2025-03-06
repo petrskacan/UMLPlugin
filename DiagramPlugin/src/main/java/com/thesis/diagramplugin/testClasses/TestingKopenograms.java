@@ -3,27 +3,6 @@ package com.thesis.diagramplugin.testClasses;
 public class TestingKopenograms {
     private int testingReturnAndVeryVeryVeryExtremlyLongName(int a)
     {
-        a = 2;
-        if(a < 1) {
-            do {
-                for (int i = 1; i <= 10; i++) {
-                    if (i % 2 == 0) {
-                        continue;
-                    }
-                    System.out.println("Number: " + i);
-                }
-                if (a > 7) {
-                    break;
-                }
-            } while (true);
-            Label:
-            {
-                do {
-                    if (true)
-                        break Label;
-                } while (true);
-            }
-        }
         if(a > 3)
         {
             a++;
@@ -31,6 +10,14 @@ public class TestingKopenograms {
             return a+5;
         }
         else if(a == 3)
+        {
+            a++;
+            a++;
+            a++;
+            a++;
+            return a+2;
+        }
+        else if(a == 8)
         {
             a++;
             a++;

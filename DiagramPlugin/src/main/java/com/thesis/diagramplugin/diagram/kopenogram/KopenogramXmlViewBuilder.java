@@ -68,7 +68,7 @@ public class KopenogramXmlViewBuilder {
                 // paint img
                 root.paint(g, config, new Point(0, 0), dim);
                 //
-//        //JCrollPane for kopenogram
+//          //JCrollPane for kopenogram
                 JComponent kopenogramPane = new JBScrollPane(new Surface(img, new Dimension(dim.width, dim.height)));
                 return kopenogramPane;
             }
@@ -370,32 +370,75 @@ public class KopenogramXmlViewBuilder {
     }
 
     private PainterElement buildIfElement(Element ifElement) {
+        // Define colors for the IF statement
         Color headColor = Settings.decodeColorProperty(Settings.Property.SWITCH_HEAD_COLOR.getValue());
         Color bodyColor = Settings.decodeColorProperty(Settings.Property.SWITCH_BODY_COLOR.getValue());
         HorizontalContainer hContainer = new HorizontalContainer(ifElement.getPath());
         int keyWords = Integer.parseInt(Settings.Property.KOPENOGRAM_KEY_WORDS.getValue());
 
+        // Extract the IF condition
         String condition = ifElement.attributeValue(CONDITION_ATTRIBUTE);
 
-        BarWithBody ifBody = new BarWithBody(keyWords == 1 ? "if (" + condition + ")" : condition, headColor, bodyColor, Color.BLACK, Color.BLACK, ifElement.getPath());
-        Optional.of(ifElement.element(THEN_TAG)).ifPresent(thenElement -> {
+        // Create the main IF block
+        BarWithBody ifBody = new BarWithBody(
+                keyWords == 1 ? "if (" + condition + ")" : condition,
+                headColor, bodyColor, Color.BLACK, Color.BLACK, ifElement.getPath()
+        );
+
+        // Process the THEN block
+        Optional.ofNullable(ifElement.element(THEN_TAG)).ifPresent(thenElement -> {
             for (Element statement : thenElement.elements()) {
                 ifBody.addChild(processTag(statement));
             }
         });
+
         hContainer.addChild(ifBody);
-        Optional.ofNullable(ifElement.element(ELSE_TAG)).ifPresent(elseElement -> {
+
+        // Process ELSE and ELSE IF blocks
+        Element currentElse = ifElement.element(ELSE_TAG);
+        while (currentElse != null) {
+            List<Element> children = currentElse.elements();
             List<OverPainterElement> overElements = new ArrayList<>(root.getOverElements());
-            BarWithBody elseBody = new BarWithBody("else ", headColor, bodyColor, Color.BLACK, Color.BLACK, elseElement.getPath());
-            for (Element statement : elseElement.elements()) {
-                elseBody.addChild(processTag(statement));
+            if (children.size() == 1 && IF_TAG.equals(children.get(0).getName())) {
+                // Process ELSE IF
+                Element elseIfElement = children.get(0);
+                String elseIfCondition = elseIfElement.attributeValue(CONDITION_ATTRIBUTE);
+
+                BarWithBody elseIfBody = new BarWithBody(
+                        "else if (" + elseIfCondition + ")",
+                        headColor, bodyColor, Color.BLACK, Color.BLACK, elseIfElement.getPath()
+                );
+
+                // Process THEN block of ELSE IF
+                Optional.ofNullable(elseIfElement.element(THEN_TAG)).ifPresent(thenElem -> {
+                    for (Element statement : thenElem.elements()) {
+                        elseIfBody.addChild(processTag(statement));
+                    }
+                });
+                setAvoidElements(elseIfBody, overElements);
+                hContainer.addChild(elseIfBody);
+
+                // Move to the next ELSE (if exists)
+                currentElse = elseIfElement.element(ELSE_TAG);
+            } else {
+                // Process final ELSE block
+                BarWithBody elseBody = new BarWithBody(
+                        "else", headColor, bodyColor, Color.BLACK, Color.BLACK, currentElse.getPath()
+                );
+
+                for (Element statement : currentElse.elements()) {
+                    elseBody.addChild(processTag(statement));
+                }
+                setAvoidElements(elseBody, overElements);
+                hContainer.addChild(elseBody);
+                break; // Stop processing after final ELSE
             }
-            hContainer.addChild(elseBody);
-            setAvoidElements(elseBody, overElements);
-        });
+        }
 
         return hContainer;
     }
+
+
 
     private BarWithBody buildForLoopBody(Element loopElement, String text) {
         Color headColor = Settings.decodeColorProperty(Settings.Property.CYCLE_HEAD_COLOR.getValue());

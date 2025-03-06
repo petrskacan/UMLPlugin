@@ -1,7 +1,7 @@
 
 
 group = "com.thesis"
-version = "1.0.39-beta"
+version = "1.0.40-beta"
 
 plugins {
     id("java")
@@ -74,11 +74,11 @@ tasks {
 
     patchPluginXml {
         sinceBuild.set("223")
-        untilBuild.set("233.*")
+        untilBuild.set("243.*")
         changeNotes.set("""
         <ul>
-            <li>avoiding elements is now working</li>
-            <li>KNOWN ISSUE - if-elseif is broken</li>
+            <li>Else-if is now working</li>
+            <li>KNOWN ISSUE - NO SUPPORT FOR 243</li>
         </ul>
     """.trimIndent())
     }

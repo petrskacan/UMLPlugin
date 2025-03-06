@@ -15,7 +15,7 @@ public class KopenogramRendererTest {
     @Test
     public void testBreakElementRendering() throws Exception {
         // Load test XML
-        File xmlFile = new File("src/test/resources/ifelseTest.xml");
+        File xmlFile = new File("src/test/resources/betterElseIfTest.xml");
         // Create the Kopenogram view builder
         KopenogramXmlViewBuilder builder = new KopenogramXmlViewBuilder(new String(Files.readAllBytes(Paths.get(xmlFile.getPath()))));
     }
