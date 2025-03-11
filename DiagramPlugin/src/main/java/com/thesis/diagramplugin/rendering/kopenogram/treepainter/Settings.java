@@ -53,12 +53,12 @@ public class Settings {
         PropertyType.COLOR),
         SYNCHRONIZED_BODY_COLOR("Synchronized Body Color", "Synchronized_Body_Color", "204,204,204", PropertyType.COLOR),
         THROW_COLOR("Throw Color", "Throw_Color", "248,3,0", PropertyType.COLOR),
-        TRY_HEAD_COLOR("Try Head Color", "Try_Head_Color", "255,52,255", PropertyType.COLOR),
-        TRY_BODY_COLOR("Try Body Color", "Try_Body_Color", "255,204,204", PropertyType.COLOR),
-        CATCH_HEAD_COLOR("Catch Head Color", "Catch_Head_Color", "255,52,255", PropertyType.COLOR),
-        CATCH_BODY_COLOR("Catch Body Color", "Catch_Body_Color", "255,204,204", PropertyType.COLOR),
-        FINALLY_HEAD_COLOR("Finally Head Color", "Finally_Head_Color", "255,52,255", PropertyType.COLOR),
-        FINALLY_BODY_COLOR("Finally Body Color", "Finally_Body_Color", "255,204,204", PropertyType.COLOR);
+        TRY_HEAD_COLOR("Try Head Color", "Try_Head_Color", "255,255,255", PropertyType.COLOR),
+        TRY_BODY_COLOR("Try Body Color", "Try_Body_Color", "255,52,255", PropertyType.COLOR),
+        CATCH_HEAD_COLOR("Catch Head Color", "Catch_Head_Color", "255,255,255", PropertyType.COLOR),
+        CATCH_BODY_COLOR("Catch Body Color", "Catch_Body_Color", "255,165,0", PropertyType.COLOR),
+        FINALLY_HEAD_COLOR("Finally Head Color", "Finally_Head_Color", "255,255,255", PropertyType.COLOR),
+        FINALLY_BODY_COLOR("Finally Body Color", "Finally_Body_Color", "255,165,0", PropertyType.COLOR);
 
         private Property(String displayName, String identifier, String defValue, PropertyType type) {
             this.identifier = identifier;

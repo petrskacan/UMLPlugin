@@ -197,7 +197,7 @@ public class KopenogramXmlViewBuilder {
         Color fhc = Settings.decodeColorProperty(Settings.Property.FINALLY_HEAD_COLOR.getValue());
         Color fbc = Settings.decodeColorProperty(Settings.Property.FINALLY_BODY_COLOR.getValue());
         VerticalContainer vContainer = new VerticalContainer(tryElement.getPath());
-        String text = ("" + Symbols.RIGHT).repeat(3);
+        String text = ("" + Symbols.RIGHT).repeat(4);
 
         BarWithBody tryBody = new BarWithBody((keyWords == 1 ? "try" : "") + text, thc, tbc, Color.BLACK, Color.BLACK, tryElement.getPath());
         Optional.of(tryElement.element(TRY_BLOCK_TAG)).ifPresent(tryBlockElement -> {
@@ -219,7 +219,7 @@ public class KopenogramXmlViewBuilder {
         // Finally
         Optional.ofNullable(tryElement.element(FINALLY_TAG)).ifPresent(finallyElement -> {
             BarWithBody finallyBody = new BarWithBody("finally", fhc, fbc, Color.BLACK, Color.BLACK, finallyElement.getPath());
-            finallyBody.addChild(processBlock(finallyElement));
+            finallyBody.addChild(processBlock(finallyElement.element("finally_block")));
             vContainer.addChild(finallyBody);
         });
 

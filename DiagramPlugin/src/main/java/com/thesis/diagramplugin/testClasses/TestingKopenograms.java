@@ -97,11 +97,24 @@ public class TestingKopenograms {
         }
     }
 
-    public int abcd()
-    {
+    public int abcd() {
+        int a = 5;
+        try {
+            // Nějaký riskantní kód
+            int[] pole = new int[5];
+            System.out.println(pole[10]); // Vyvolá ArrayIndexOutOfBoundsException
+        } catch (Exception e) {
+            System.out.println("Nastala chyba: " + e.getMessage());
+        }
+        finally {
+            System.out.println("ahoj");
+            a++;
+            if(a > 4)
+            {
+                a--;
+            }
+        }
         return 5;
     }
-
-
 
 }
