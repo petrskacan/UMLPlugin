@@ -56,10 +56,20 @@ public class TestingKopenograms {
 
         if(a >= 10)
         {
+            return;
         }
-        else {
-            a++;
-            breakWithLabelStatemente();
+        else if(a == 9){
+            if(a + 1== 10 )
+            {
+                breakWithLabelStatemente();
+            }
+        }
+        else
+        {
+            if(a == 0)
+            {
+                return;
+            }
         }
 
     }

@@ -1,7 +1,7 @@
 
 
 group = "com.thesis"
-version = "1.0.40-beta"
+version = "1.0.41-beta"
 
 plugins {
     id("java")
@@ -77,7 +77,7 @@ tasks {
         untilBuild.set("243.*")
         changeNotes.set("""
         <ul>
-            <li>Else-if is now working</li>
+            <li>Python kopenograms now work outside class</li>
             <li>KNOWN ISSUE - NO SUPPORT FOR 243</li>
         </ul>
     """.trimIndent())

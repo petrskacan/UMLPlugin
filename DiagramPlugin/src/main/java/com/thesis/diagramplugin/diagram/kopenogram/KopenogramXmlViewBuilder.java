@@ -68,7 +68,7 @@ public class KopenogramXmlViewBuilder {
                 // paint img
                 root.paint(g, config, new Point(0, 0), dim);
                 //
-//          //JCrollPane for kopenogram
+//              //JCrollPane for kopenogram
                 JComponent kopenogramPane = new JBScrollPane(new Surface(img, new Dimension(dim.width, dim.height)));
                 return kopenogramPane;
             }
@@ -333,14 +333,6 @@ public class KopenogramXmlViewBuilder {
 
         Element parent = returnElement.getParent();
         while (parent != null) {
-            /* QUESTION - BLOCK NEBO METHOD TAG??
-            if(parent.getName().equals(BLOCK_TAG))
-            {
-                parent = parent.getParent();
-                if(parent.getName().equals("then")) parent = parent.getParent();
-                break;
-            }
-            */
             if(parent.getName().equals(METHOD_TAG))
             {
                 break;

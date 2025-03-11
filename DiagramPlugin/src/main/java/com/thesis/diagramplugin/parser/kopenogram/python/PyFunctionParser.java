@@ -19,7 +19,6 @@ import static com.thesis.diagramplugin.utils.DiagramConstants.*;
 public class PyFunctionParser {
 
     public static File parse(PyFunction function) {
-        String classFileName = function.getContainingClass().getContainingFile().getName();
         String dir = function.getContainingFile().getContainingDirectory().getVirtualFile().getPath();
         String functionName = function.getName();
 
