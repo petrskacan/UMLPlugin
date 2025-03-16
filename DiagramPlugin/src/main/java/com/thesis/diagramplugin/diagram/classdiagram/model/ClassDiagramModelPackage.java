@@ -113,6 +113,14 @@ public class ClassDiagramModelPackage extends AClassDiagramModelClassLikeEntityC
                     }
                 }
             }
+            if (entity instanceof ClassDiagramModelInterface interfaceEntity) {
+                for (String ext : interfaceEntity.getExtIds()) {
+                    AClassDiagramModelClassLikeEntity extended = classLikeEntities.get(ext);
+                    if (extended instanceof ClassDiagramModelInterface extendedCls) {
+                        interfaceEntity.getExtensions().add(extendedCls);
+                    }
+                }
+            }
         }
     }
 

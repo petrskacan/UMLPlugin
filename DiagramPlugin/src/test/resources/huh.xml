@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<package name="com.thesis.diagramplugin.testClasses" path="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses" pos_x="30" pos_y="30" size_w="726" size_h="444" visible="true"> 
+  <class name="Vehicle" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Vehicle" abstract="false" pos_x="64" pos_y="314" size_w="100" size_h="80" visible="true"> 
+    <variable name="brand" type="String" modifiers="protected"/>  
+    <method name="honk" return_type="void" modifiers="public" constructor="false"/> 
+  </class>  
+  <class name="Car" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Car" abstract="false" pos_x="220" pos_y="104" size_w="100" size_h="80" visible="true"> 
+    <variable name="modelName" type="String" modifiers="private"/>  
+    <method name="main" return_type="void" modifiers="public;static" constructor="false"> 
+      <parameter name="args" type="String[]"/> 
+    </method>  
+    <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Vehicle</extends>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Car"/> 
+  </class>  
+  <class name="TestingKopenograms" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/TestingKopenograms" abstract="false" pos_x="454" pos_y="164" size_w="162" size_h="80" visible="true"> 
+    <method name="testingReturnAndVeryVeryVeryExtremlyLongName" return_type="int" modifiers="private" constructor="false"> 
+      <parameter name="a" type="int"/> 
+    </method>  
+    <method name="continueTest" return_type="void" modifiers="private" constructor="false"> 
+      <parameter name="a" type="int"/> 
+    </method>  
+    <method name="breakWithLabelStatement" return_type="void" modifiers="public" constructor="false"/>  
+    <method name="breakWithLabelStatemente" return_type="void" modifiers="public" constructor="false"/>  
+    <method name="breaking" return_type="void" modifiers="public" constructor="false"/>  
+    <method name="switchTest" return_type="void" modifiers="public" constructor="false"/>  
+    <method name="abcd" return_type="int" modifiers="public" constructor="false"/>  
+    <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Car</extends>  
+    <relation/>  
+    <relation/> 
+  </class>  
+  <class name="adada" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/adada" abstract="false" pos_x="70" pos_y="104" size_w="100" size_h="80" visible="true"/> 
+</package>

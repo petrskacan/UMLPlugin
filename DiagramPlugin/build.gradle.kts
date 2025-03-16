@@ -1,7 +1,7 @@
 
 
 group = "com.thesis"
-version = "1.0.42-beta"
+version = "1.0.49-beta"
 
 plugins {
     id("java")
@@ -77,8 +77,8 @@ tasks {
         untilBuild.set("243.*")
         changeNotes.set("""
         <ul>
-            <li>Try-catch-finally fixed visuals</li>
-            <li>Finally now correctly shows statements in it</li>
+            <li>XML should be automaticaly cahnged when creating new class diagram</li>            
+            <li>Interfaces now correctly display inheritance</li>
             <li>KNOWN ISSUE - NO SUPPORT FOR 243</li>
         </ul>
     """.trimIndent())

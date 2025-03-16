@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<package name="com.thesis.diagramplugin.rendering.classrelation.bluej.graph" path="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph" pos_x="30" pos_y="30" size_w="929" size_h="584" visible="true"> 
+  <class name="Vertex" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Vertex" abstract="true" pos_x="416" pos_y="494" size_w="100" size_h="80" visible="true"> 
+    <variable name="component" type="JComponent" modifiers="private;final"/>  
+    <method name="Vertex" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="x" type="int"/>  
+      <parameter name="y" type="int"/>  
+      <parameter name="width" type="int"/>  
+      <parameter name="height" type="int"/> 
+    </method>  
+    <method name="setPos" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="x" type="int"/>  
+      <parameter name="y" type="int"/> 
+    </method>  
+    <method name="contains" return_type="boolean" modifiers="public" constructor="false"> 
+      <parameter name="x" type="int"/>  
+      <parameter name="y" type="int"/> 
+    </method>  
+    <method name="doubleClick" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="evt" type="MouseEvent"/> 
+    </method>  
+    <method name="getTooltipText" return_type="String" modifiers="public" constructor="false"/>  
+    <method name="setSelected" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="selected" type="boolean"/> 
+    </method>  
+    <method name="isSelected" return_type="boolean" modifiers="public" constructor="false"/>  
+    <method name="isHandle" return_type="boolean" modifiers="public" constructor="false"> 
+      <parameter name="x" type="int"/>  
+      <parameter name="y" type="int"/> 
+    </method>  
+    <method name="isResizable" return_type="boolean" modifiers="public" constructor="false"/>  
+    <method name="getX" return_type="int" modifiers="public" constructor="false"/>  
+    <method name="getY" return_type="int" modifiers="public" constructor="false"/>  
+    <method name="getWidth" return_type="int" modifiers="public" constructor="false"/>  
+    <method name="getHeight" return_type="int" modifiers="public" constructor="false"/>  
+    <method name="isVisible" return_type="boolean" modifiers="public" constructor="false"/>  
+    <method name="setVisible" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="aFlag" type="boolean"/> 
+    </method>  
+    <method name="setSize" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="width" type="int"/>  
+      <parameter name="height" type="int"/> 
+    </method>  
+    <method name="getComponent" return_type="JComponent" modifiers="public" constructor="false"/>  
+    <method name="getBounds" return_type="Rectangle" modifiers="public" constructor="false"/>  
+    <method name="getDisplayName" return_type="String" modifiers="protected;abstract" constructor="false"/>  
+    <method name="singleSelected" return_type="void" modifiers="public" constructor="false"/>  
+    <implements>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/SelectableGraphElement</implements>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/VertexJComponent"/> 
+  </class>  
+  <class name="Marquee" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Marquee" abstract="false" pos_x="266" pos_y="494" size_w="100" size_h="80" visible="true"> 
+    <variable name="graph" type="Graph" modifiers="private"> 
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Graph"/> 
+    </variable>  
+    <variable name="drag_start_x" type="int" modifiers="private"/>  
+    <variable name="drag_start_y" type="int" modifiers="private"/>  
+    <variable name="currentRect" type="Rectangle" modifiers="private"/>  
+    <variable name="selected" type="SelectionSet" modifiers="private"> 
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/SelectionSet"/> 
+    </variable>  
+    <method name="Marquee" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="graph" type="Graph"/>  
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Graph"/> 
+    </method>  
+    <method name="start" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="x" type="int"/>  
+      <parameter name="y" type="int"/> 
+    </method>  
+    <method name="move" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="drag_x" type="int"/>  
+      <parameter name="drag_y" type="int"/> 
+    </method>  
+    <method name="findSelectedVertices" return_type="void" modifiers="private" constructor="false"> 
+      <parameter name="x" type="int"/>  
+      <parameter name="y" type="int"/>  
+      <parameter name="w" type="int"/>  
+      <parameter name="h" type="int"/> 
+    </method>  
+    <method name="stop" return_type="SelectionSet" modifiers="public" constructor="false"/>  
+    <method name="isActive" return_type="boolean" modifiers="public" constructor="false"/>  
+    <method name="getRectangle" return_type="Rectangle" modifiers="public" constructor="false"/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Vertex"/>  
+    <relation/>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/SelectionSet"/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Graph"/>  
+    <relation/> 
+  </class>  
+  <class name="SelectionSet" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/SelectionSet" abstract="false" pos_x="220" pos_y="104" size_w="101" size_h="80" visible="true"> 
+    <variable name="elements" type="Set&lt;SelectableGraphElement&gt;" modifiers="private"> 
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/SelectableGraphElement"/> 
+    </variable>  
+    <method name="SelectionSet" return_type="*NULL*" modifiers="public" constructor="true"/>  
+    <method name="add" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="element" type="SelectableGraphElement"/>  
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/SelectableGraphElement"/> 
+    </method>  
+    <method name="addExisting" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="element" type="SelectableGraphElement"/>  
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/SelectableGraphElement"/> 
+    </method>  
+    <method name="addAll" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="newSet" type="SelectionSet"/>  
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/SelectionSet"/> 
+    </method>  
+    <method name="remove" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="element" type="SelectableGraphElement"/>  
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/SelectableGraphElement"/> 
+    </method>  
+    <method name="clear" return_type="void" modifiers="public" constructor="false"/>  
+    <method name="doubleClick" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="evt" type="MouseEvent"/> 
+    </method>  
+    <method name="move" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="deltaX" type="int"/>  
+      <parameter name="deltaY" type="int"/> 
+    </method>  
+    <method name="restrictContained" return_type="Point" modifiers="private" constructor="false"> 
+      <parameter name="t" type="Moveable"/>  
+      <parameter name="delta" type="Point"/>  
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Moveable"/> 
+    </method>  
+    <method name="restrictDelta" return_type="Point" modifiers="private" constructor="false"> 
+      <parameter name="deltaX" type="int"/>  
+      <parameter name="deltaY" type="int"/> 
+    </method>  
+    <method name="moveStopped" return_type="void" modifiers="public" constructor="false"/>  
+    <method name="resize" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="deltaX" type="int"/>  
+      <parameter name="deltaY" type="int"/> 
+    </method>  
+    <method name="restrictResizeDelta" return_type="Point" modifiers="private" constructor="false"> 
+      <parameter name="packageTarget" type="PackageTarget"/>  
+      <parameter name="deltaX" type="int"/>  
+      <parameter name="deltaY" type="int"/> 
+    </method>  
+    <method name="isEmpty" return_type="boolean" modifiers="public" constructor="false"/>  
+    <method name="selectOnly" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="element" type="SelectableGraphElement"/>  
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/SelectableGraphElement"/> 
+    </method>  
+    <method name="getAnyVertex" return_type="Vertex" modifiers="public" constructor="false"/>  
+    <method name="getAnyEdge" return_type="Edge" modifiers="public" constructor="false"/>  
+    <method name="expand" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="e" type="ActionEvent"/> 
+    </method>  
+    <method name="colapse" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="e" type="ActionEvent"/> 
+    </method>  
+    <method name="hide" return_type="List&lt;ClassTarget&gt;" modifiers="public" constructor="false"> 
+      <parameter name="e" type="ActionEvent"/> 
+    </method>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/GraphElement"/>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/IExpandable"/>  
+    <relation/>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Vertex"/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/SelectionSet"/>  
+    <relation/>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Moveable"/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/SelectableGraphElement"/>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Edge"/> 
+  </class>  
+  <interface name="IExpandable" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/IExpandable" abstract="false" pos_x="361" pos_y="104" size_w="100" size_h="80" visible="true"> 
+    <method name="switchExpansion" return_type="void" modifiers="public" constructor="false"/>  
+    <method name="expand" return_type="void" modifiers="public" constructor="false"/>  
+    <method name="collapse" return_type="void" modifiers="public" constructor="false"/>  
+    <method name="isExpanded" return_type="boolean" modifiers="public" constructor="false"/>  
+    <method name="getRegWidth" return_type="int" modifiers="public" constructor="false"/>  
+    <method name="getRegHeight" return_type="int" modifiers="public" constructor="false"/> 
+  </interface>  
+  <class name="RubberBand" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/RubberBand" abstract="false" pos_x="70" pos_y="104" size_w="100" size_h="80" visible="true"> 
+    <variable name="startPt" type="Point" modifiers="public"/>  
+    <variable name="endPt" type="Point" modifiers="public"/>  
+    <method name="RubberBand" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="x1" type="int"/>  
+      <parameter name="y1" type="int"/>  
+      <parameter name="x2" type="int"/>  
+      <parameter name="y2" type="int"/> 
+    </method>  
+    <method name="setEnd" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="x" type="int"/>  
+      <parameter name="y" type="int"/> 
+    </method>  
+    <relation/>  
+    <relation/> 
+  </class>  
+  <class name="PopClickListener" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/PopClickListener" abstract="false" owner="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/GraphEditor" pos_x="771" pos_y="364" size_w="131" size_h="80" visible="true"> 
+    <method name="mouseClicked" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="e" type="MouseEvent"/> 
+    </method>  
+    <method name="mousePressed" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="e" type="MouseEvent"/> 
+    </method>  
+    <method name="mouseReleased" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="e" type="MouseEvent"/> 
+    </method>  
+    <method name="mouseEntered" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="e" type="MouseEvent"/> 
+    </method>  
+    <method name="mouseExited" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="e" type="MouseEvent"/> 
+    </method>  
+    <method name="createPopupMenu" return_type="JPopupMenu" modifiers="private" constructor="false"> 
+      <parameter name="component" type="Component"/> 
+    </method>  
+    <method name="saveImageItem" return_type="JMenuItem" modifiers="protected" constructor="false"> 
+      <parameter name="component" type="Component"/> 
+    </method>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/GraphEditor"/> 
+  </class>  
+  <class name="MarqueePainter" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/MarqueePainter" abstract="false" pos_x="566" pos_y="494" size_w="125" size_h="80" visible="true"> 
+    <variable name="tc" type="Color" modifiers="private;static;final"/>  
+    <variable name="marqRect" type="Rectangle" modifiers="private"/>  
+    <method name="paint" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="g" type="Graphics2D"/>  
+      <parameter name="marquee" type="Marquee"/>  
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Marquee"/> 
+    </method>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Marquee"/>  
+    <relation/>  
+    <relation/>  
+    <relation/> 
+  </class>  
+  <interface name="Moveable" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Moveable" abstract="false" pos_x="450" pos_y="224" size_w="100" size_h="80" visible="true"> 
+    <method name="getX" return_type="int" modifiers="public" constructor="false"/>  
+    <method name="getY" return_type="int" modifiers="public" constructor="false"/>  
+    <method name="getGhostX" return_type="int" modifiers="public" constructor="false"/>  
+    <method name="getGhostY" return_type="int" modifiers="public" constructor="false"/>  
+    <method name="setGhostPosition" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="deltaX" type="int"/>  
+      <parameter name="deltaY" type="int"/> 
+    </method>  
+    <method name="setGhostSize" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="ghostWidth" type="int"/>  
+      <parameter name="ghostHeight" type="int"/> 
+    </method>  
+    <method name="setPositionToGhost" return_type="void" modifiers="public" constructor="false"/>  
+    <method name="isDragging" return_type="boolean" modifiers="public" constructor="false"/>  
+    <method name="setDragging" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="isDragging" type="boolean"/> 
+    </method>  
+    <method name="isMoveable" return_type="boolean" modifiers="public" constructor="false"/>  
+    <method name="setIsMoveable" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="isMoveable" type="boolean"/> 
+    </method>  
+    <method name="isResizable" return_type="boolean" modifiers="public" constructor="false"/> 
+  </interface>  
+  <class name="VertexJComponent" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/VertexJComponent" abstract="false" owner="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Vertex" pos_x="104" pos_y="364" size_w="147" size_h="80" visible="true"> 
+    <method name="getAccessibleContext" return_type="AccessibleContext" modifiers="public" constructor="false"/> 
+  </class>  
+  <class name="TraverseStrategyImpl" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/TraverseStrategyImpl" abstract="false" pos_x="521" pos_y="104" size_w="162" size_h="80" visible="true"> 
+    <method name="calcDistance" return_type="double" modifiers="private" constructor="false"> 
+      <parameter name="vertex1" type="Vertex"/>  
+      <parameter name="vertex2" type="Vertex"/>  
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Vertex"/> 
+    </method>  
+    <method name="findNextVertex" return_type="Vertex" modifiers="public" constructor="false"> 
+      <parameter name="graph" type="Graph"/>  
+      <parameter name="currentVertex" type="Vertex"/>  
+      <parameter name="key" type="int"/>  
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Vertex"/>  
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Graph"/> 
+    </method>  
+    <implements>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/TraverseStrategy</implements>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Vertex"/>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Graph"/>  
+    <relation/> 
+  </class>  
+  <interface name="TraverseStrategy" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/TraverseStrategy" abstract="false" pos_x="104" pos_y="234" size_w="133" size_h="80" visible="true"> 
+    <method name="findNextVertex" return_type="Vertex" modifiers="public" constructor="false"> 
+      <parameter name="graph" type="Graph"/>  
+      <parameter name="currentVertex" type="Vertex"/>  
+      <parameter name="key" type="int"/>  
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Vertex"/>  
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Graph"/> 
+    </method>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Vertex"/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Graph"/> 
+  </interface>  
+  <interface name="GraphPainter" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/GraphPainter" abstract="false" pos_x="600" pos_y="234" size_w="105" size_h="80" visible="true"> 
+    <method name="paint" return_type="void" modifiers="" constructor="false"> 
+      <parameter name="g" type="Graphics2D"/>  
+      <parameter name="graphEditor" type="GraphEditor"/>  
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/GraphEditor"/> 
+    </method>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/GraphEditor"/> 
+  </interface>  
+  <class name="Graph" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Graph" abstract="true" pos_x="301" pos_y="364" size_w="100" size_h="80" visible="true"> 
+    <variable name="RIGHT_PLACEMENT_MIN" type="int" modifiers="private;static;final"/>  
+    <variable name="WHITESPACE_SIZE" type="int" modifiers="private;static;final"/>  
+    <variable name="listeners" type="List&lt;GraphListener&gt;" modifiers="private"> 
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/GraphListener"/> 
+    </variable>  
+    <method name="getVertices" return_type="Iterator&lt;? extends Vertex&gt;" modifiers="public;abstract" constructor="false"/>  
+    <method name="getEdges" return_type="Iterator&lt;? extends Edge&gt;" modifiers="public;abstract" constructor="false"/>  
+    <method name="getMinimumSize" return_type="Dimension" modifiers="public" constructor="false"/>  
+    <method name="findSpaceForVertex" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="t" type="Vertex"/>  
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Vertex"/> 
+    </method>  
+    <method name="findGraphElement" return_type="SelectableGraphElement" modifiers="public" constructor="false"> 
+      <parameter name="x" type="int"/>  
+      <parameter name="y" type="int"/> 
+    </method>  
+    <method name="findEdge" return_type="Edge" modifiers="private" constructor="false"> 
+      <parameter name="x" type="int"/>  
+      <parameter name="y" type="int"/> 
+    </method>  
+    <method name="findVertex" return_type="Vertex" modifiers="private" constructor="false"> 
+      <parameter name="x" type="int"/>  
+      <parameter name="y" type="int"/> 
+    </method>  
+    <method name="addListener" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="listener" type="GraphListener"/>  
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/GraphListener"/> 
+    </method>  
+    <method name="removeListener" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="listener" type="GraphListener"/>  
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/GraphListener"/> 
+    </method>  
+    <method name="removedSelectableElement" return_type="void" modifiers="protected" constructor="false"> 
+      <parameter name="vertex" type="SelectableGraphElement"/>  
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/SelectableGraphElement"/> 
+    </method>  
+    <method name="graphChanged" return_type="void" modifiers="protected" constructor="false"/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Vertex"/>  
+    <relation/>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/GraphListener"/>  
+    <relation/>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/SelectableGraphElement"/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Edge"/>  
+    <relation/> 
+  </class>  
+  <interface name="Selectable" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Selectable" abstract="false" pos_x="755" pos_y="234" size_w="100" size_h="80" visible="true"> 
+    <method name="setSelected" return_type="void" modifiers="" constructor="false"> 
+      <parameter name="selected" type="boolean"/> 
+    </method>  
+    <method name="isSelected" return_type="boolean" modifiers="" constructor="false"/>  
+    <method name="isHandle" return_type="boolean" modifiers="" constructor="false"> 
+      <parameter name="x" type="int"/>  
+      <parameter name="y" type="int"/> 
+    </method>  
+    <method name="isResizable" return_type="boolean" modifiers="" constructor="false"/> 
+  </interface>  
+  <class name="GraphEditor" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/GraphEditor" abstract="false" pos_x="601" pos_y="364" size_w="100" size_h="80" visible="true"> 
+    <variable name="handCursor" type="Cursor" modifiers="private;static;final"/>  
+    <variable name="defaultCursor" type="Cursor" modifiers="private;static;final"/>  
+    <variable name="resizeCursor" type="Cursor" modifiers="private;static;final"/>  
+    <variable name="GRID_SIZE" type="int" modifiers="public;static;final"/>  
+    <variable name="graph" type="Graph" modifiers="protected"> 
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Graph"/> 
+    </variable>  
+    <variable name="graphPainter" type="GraphPainter" modifiers="protected"> 
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/GraphPainter"/> 
+    </variable>  
+    <variable name="marqueePainter" type="MarqueePainter" modifiers="private"> 
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/MarqueePainter"/> 
+    </variable>  
+    <variable name="selectionController" type="SelectionController" modifiers="protected"> 
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/SelectionController"/> 
+    </variable>  
+    <variable name="currentCursor" type="Cursor" modifiers="private"/>  
+    <variable name="focusListener" type="FocusListener" modifiers="protected"/>  
+    <variable name="hasPermFocus" type="boolean" modifiers="private"/>  
+    <variable name="listeners" type="HashSet&lt;FileListener&gt;" modifiers="private;final"/>  
+    <method name="GraphEditor" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="graph" type="Graph"/>  
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Graph"/> 
+    </method>  
+    <method name="startMouseListening" return_type="void" modifiers="public" constructor="false"/>  
+    <method name="getPreferredSize" return_type="Dimension" modifiers="public" constructor="false"/>  
+    <method name="getMinimumSize" return_type="Dimension" modifiers="public" constructor="false"/>  
+    <method name="paintComponent" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="g" type="Graphics"/> 
+    </method>  
+    <method name="mouseDragged" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="evt" type="MouseEvent"/> 
+    </method>  
+    <method name="mouseMoved" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="evt" type="MouseEvent"/> 
+    </method>  
+    <method name="processMouseEvent" return_type="void" modifiers="protected" constructor="false"> 
+      <parameter name="evt" type="MouseEvent"/> 
+    </method>  
+    <method name="clearSelection" return_type="void" modifiers="public" constructor="false"/>  
+    <method name="removeFromSelection" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="element" type="SelectableGraphElement"/>  
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/SelectableGraphElement"/> 
+    </method>  
+    <method name="addToSelection" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="element" type="SelectableGraphElement"/>  
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/SelectableGraphElement"/> 
+    </method>  
+    <method name="getRubberBand" return_type="RubberBand" modifiers="public" constructor="false"/>  
+    <method name="getGraph" return_type="Graph" modifiers="public" constructor="false"/>  
+    <method name="popupMenu" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="x" type="int"/>  
+      <parameter name="y" type="int"/> 
+    </method>  
+    <method name="getToolTipText" return_type="String" modifiers="public" constructor="false"> 
+      <parameter name="event" type="MouseEvent"/> 
+    </method>  
+    <method name="selectableElementRemoved" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="element" type="SelectableGraphElement"/>  
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/SelectableGraphElement"/> 
+    </method>  
+    <method name="graphChanged" return_type="void" modifiers="public" constructor="false"/>  
+    <method name="graphClosed" return_type="void" modifiers="public" constructor="false"/>  
+    <method name="setPermFocus" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="focus" type="boolean"/> 
+    </method>  
+    <method name="hasPermFocus" return_type="boolean" modifiers="public" constructor="false"/>  
+    <method name="notifyListeners" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="newFilePath" type="String"/> 
+    </method>  
+    <method name="addListener" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="listener" type="FileListener"/> 
+    </method>  
+    <method name="removeListener" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="listener" type="FileListener"/> 
+    </method>  
+    <implements>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/GraphListener</implements>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/SelectionController"/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/GraphPainter"/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Graph"/>  
+    <relation/>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Vertex"/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/RubberBand"/>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/PopClickListener"/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/MarqueePainter"/>  
+    <relation/>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/SelectableGraphElement"/> 
+  </class>  
+  <interface name="SelectableGraphElement" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/SelectableGraphElement" abstract="true" pos_x="733" pos_y="104" size_w="186" size_h="80" visible="true"> 
+    <method name="singleSelected" return_type="void" modifiers="public;abstract" constructor="false"/>  
+    <implements>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/GraphElement</implements>  
+    <implements>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Selectable</implements> 
+  </interface>  
+  <interface name="GraphElement" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/GraphElement" abstract="false" pos_x="104" pos_y="494" size_w="112" size_h="80" visible="true"> 
+    <method name="contains" return_type="boolean" modifiers="public;abstract" constructor="false"> 
+      <parameter name="x" type="int"/>  
+      <parameter name="y" type="int"/> 
+    </method>  
+    <method name="doubleClick" return_type="void" modifiers="public;abstract" constructor="false"> 
+      <parameter name="evt" type="MouseEvent"/> 
+    </method>  
+    <method name="getTooltipText" return_type="String" modifiers="public;abstract" constructor="false"/>  
+    <method name="isVisible" return_type="boolean" modifiers="public;abstract" constructor="false"/>  
+    <method name="setVisible" return_type="void" modifiers="public;abstract" constructor="false"> 
+      <parameter name="visible" type="boolean"/> 
+    </method> 
+  </interface>  
+  <class name="SelectionController" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/SelectionController" abstract="false" pos_x="741" pos_y="494" size_w="149" size_h="80" visible="true"> 
+    <variable name="graphEditor" type="GraphEditor" modifiers="protected"> 
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/GraphEditor"/> 
+    </variable>  
+    <variable name="graph" type="Graph" modifiers="protected"> 
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Graph"/> 
+    </variable>  
+    <variable name="marquee" type="Marquee" modifiers="protected"> 
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Marquee"/> 
+    </variable>  
+    <variable name="selection" type="SelectionSet" modifiers="protected"> 
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/SelectionSet"/> 
+    </variable>  
+    <variable name="rubberBand" type="RubberBand" modifiers="protected"> 
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/RubberBand"/> 
+    </variable>  
+    <variable name="moving" type="boolean" modifiers="protected"/>  
+    <variable name="resizing" type="boolean" modifiers="protected"/>  
+    <variable name="dragStartX" type="int" modifiers="protected"/>  
+    <variable name="dragStartY" type="int" modifiers="protected"/>  
+    <variable name="keyDeltaX" type="int" modifiers="private"/>  
+    <variable name="keyDeltaY" type="int" modifiers="private"/>  
+    <variable name="currentDependencyIndex" type="int" modifiers="private"/>  
+    <variable name="traverseStragegiImpl" type="TraverseStrategy" modifiers="private"> 
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/TraverseStrategy"/> 
+    </variable>  
+    <method name="SelectionController" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="graphEditor" type="GraphEditor"/>  
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/GraphEditor"/> 
+    </method>  
+    <method name="hideSelected" return_type="List&lt;ClassTarget&gt;" modifiers="public" constructor="false"> 
+      <parameter name="e" type="ActionEvent"/> 
+    </method>  
+    <method name="mousePressed" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="evt" type="MouseEvent"/> 
+    </method>  
+    <method name="mouseReleased" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="evt" type="MouseEvent"/> 
+    </method>  
+    <method name="mouseClicked" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="evt" type="MouseEvent"/> 
+    </method>  
+    <method name="mouseEntered" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="e" type="MouseEvent"/> 
+    </method>  
+    <method name="mouseExited" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="e" type="MouseEvent"/> 
+    </method>  
+    <method name="mouseMoved" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="evt" type="MouseEvent"/> 
+    </method>  
+    <method name="mouseDragged" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="evt" type="MouseEvent"/> 
+    </method>  
+    <method name="isDrawingDependency" return_type="boolean" modifiers="public" constructor="false"/>  
+    <method name="isArrowKey" return_type="boolean" modifiers="private;static" constructor="false"> 
+      <parameter name="evt" type="KeyEvent"/> 
+    </method>  
+    <method name="navigate" return_type="void" modifiers="private" constructor="false"> 
+      <parameter name="evt" type="KeyEvent"/> 
+    </method>  
+    <method name="startKeyboardMove" return_type="void" modifiers="private" constructor="false"/>  
+    <method name="endMove" return_type="void" modifiers="protected" constructor="false"/>  
+    <method name="startKeyboardResize" return_type="void" modifiers="private" constructor="false"/>  
+    <method name="setKeyDelta" return_type="void" modifiers="private" constructor="false"> 
+      <parameter name="evt" type="KeyEvent"/> 
+    </method>  
+    <method name="isPlusOrMinusKey" return_type="boolean" modifiers="private" constructor="false"> 
+      <parameter name="evt" type="KeyEvent"/> 
+    </method>  
+    <method name="resizeWithFixedRatio" return_type="void" modifiers="private" constructor="false"> 
+      <parameter name="evt" type="KeyEvent"/> 
+    </method>  
+    <method name="selectDependency" return_type="void" modifiers="private" constructor="false"> 
+      <parameter name="evt" type="KeyEvent"/> 
+    </method>  
+    <method name="getMarquee" return_type="Marquee" modifiers="public" constructor="false"/>  
+    <method name="findSingleVertex" return_type="Vertex" modifiers="private" constructor="false"/>  
+    <method name="clearSelection" return_type="void" modifiers="public" constructor="false"/>  
+    <method name="selectAll" return_type="void" modifiers="private" constructor="false"/>  
+    <method name="removeFromSelection" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="element" type="SelectableGraphElement"/>  
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/SelectableGraphElement"/> 
+    </method>  
+    <method name="addToSelection" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="element" type="SelectableGraphElement"/>  
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/SelectableGraphElement"/> 
+    </method>  
+    <method name="isButtonOne" return_type="boolean" modifiers="protected" constructor="false"> 
+      <parameter name="evt" type="MouseEvent"/> 
+    </method>  
+    <method name="isMultiselectionKeyDown" return_type="boolean" modifiers="protected" constructor="false"> 
+      <parameter name="evt" type="MouseEvent"/> 
+    </method>  
+    <method name="snapToGrid" return_type="int" modifiers="protected" constructor="false"> 
+      <parameter name="x" type="int"/> 
+    </method>  
+    <method name="getRubberBand" return_type="RubberBand" modifiers="public" constructor="false"/>  
+    <method name="focusGained" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="e" type="FocusEvent"/> 
+    </method>  
+    <method name="focusLost" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="e" type="FocusEvent"/> 
+    </method>  
+    <method name="expand" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="e" type="ActionEvent"/> 
+    </method>  
+    <method name="colapse" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="e" type="ActionEvent"/> 
+    </method>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/TraverseStrategyImpl"/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Graph"/>  
+    <relation/>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/GraphEditor"/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Vertex"/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Marquee"/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/RubberBand"/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/SelectionSet"/>  
+    <relation/>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/TraverseStrategy"/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/SelectableGraphElement"/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Edge"/> 
+  </class>  
+  <class name="Edge" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Edge" abstract="true" pos_x="451" pos_y="364" size_w="100" size_h="80" visible="true"> 
+    <variable name="from" type="Vertex" modifiers="public"> 
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Vertex"/> 
+    </variable>  
+    <variable name="to" type="Vertex" modifiers="public"> 
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Vertex"/> 
+    </variable>  
+    <variable name="visible" type="boolean" modifiers="private"/>  
+    <method name="Edge" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="from" type="Vertex"/>  
+      <parameter name="to" type="Vertex"/>  
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Vertex"/> 
+    </method>  
+    <method name="isVisible" return_type="boolean" modifiers="public" constructor="false"/>  
+    <method name="setVisible" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="visible" type="boolean"/> 
+    </method>  
+    <method name="getTooltipText" return_type="String" modifiers="public" constructor="false"/>  
+    <method name="doubleClick" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="e" type="MouseEvent"/> 
+    </method>  
+    <implements>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/SelectableGraphElement</implements>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Vertex"/>  
+    <relation/>  
+    <relation/>  
+    <relation/> 
+  </class>  
+  <interface name="GraphListener" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/GraphListener" abstract="false" pos_x="287" pos_y="234" size_w="113" size_h="80" visible="true"> 
+    <method name="selectableElementRemoved" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="element" type="SelectableGraphElement"/>  
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/SelectableGraphElement"/> 
+    </method>  
+    <method name="graphChanged" return_type="void" modifiers="public" constructor="false"/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/SelectableGraphElement"/> 
+  </interface> 
+</package>

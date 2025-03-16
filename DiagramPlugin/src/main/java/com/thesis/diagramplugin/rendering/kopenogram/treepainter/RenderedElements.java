@@ -1,10 +1,8 @@
 package com.thesis.diagramplugin.rendering.kopenogram.treepainter;
-import com.thesis.diagramplugin.rendering.kopenogram.treepainterElement.AbstractContainer;
-import com.thesis.diagramplugin.rendering.kopenogram.treepainterElement.Bar;
-import lombok.Getter;
 
-import java.awt.Dimension;
-import java.awt.Point;
+import com.thesis.diagramplugin.rendering.kopenogram.treepainterElement.Bar;
+
+import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 

@@ -1,6 +1,6 @@
 package com.thesis.diagramplugin.testClasses;
 
-public class TestingKopenograms {
+public class TestingKopenograms extends Vehicle{
     private int testingReturnAndVeryVeryVeryExtremlyLongName(int a)
     {
         if(a > 3)

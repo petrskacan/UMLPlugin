@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<method name="main" return_type="void">
+  <parameters>
+    <parameter name="args" type="java.lang.String[]"/>
+  </parameters>
+  <body>
+    <declaration>com.thesis.diagramplugin.testClasses.Car myCar = new Car()</declaration>
+    <expression>myCar.honk();</expression>
+    <expression>System.out.println("honlk");</expression>
+    <expression>System.out.println(myCar.brand + " " + myCar.modelName);</expression>
+  </body>
+</method>

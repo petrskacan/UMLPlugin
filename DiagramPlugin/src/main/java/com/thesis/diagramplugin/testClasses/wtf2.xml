@@ -1,0 +1,594 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<package name="com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr" path="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr">
+  <class name="PackagePainter" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackagePainter" abstract="false">
+    <variable name="TEXT_HEIGHT" type="int" modifiers="static;final"/>
+    <variable name="TEXT_BORDER" type="int" modifiers="static;final"/>
+    <variable name="alpha" type="float" modifiers="static;final"/>
+    <variable name="alphaComposite" type="AlphaComposite" modifiers="static"/>
+    <variable name="classTargetPainter" type="ClassTargetPainter" modifiers="private;final"/>
+    <variable name="packageTargetPainter" type="PackageTargetPainter" modifiers="private;final"/>
+    <variable name="painter" type="PainterManager" modifiers="private;final"/>
+    <variable name="instance" type="PackagePainter" modifiers="private;static;final">
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackagePainter"/>
+    </variable>
+    <variable name="editor" type="GraphEditor" modifiers="private"/>
+    <method name="PackagePainter" return_type="*NULL*" modifiers="private" constructor="true"/>
+    <method name="paint" return_type="void" modifiers="public" constructor="false">
+      <parameter name="g" type="Graphics2D"/>
+      <parameter name="graphEditor" type="GraphEditor"/>
+    </method>
+    <method name="paintPackage" return_type="void" modifiers="private" constructor="false">
+      <parameter name="g" type="Graphics2D"/>
+      <parameter name="packageTarget" type="PackageTarget"/>
+    </method>
+    <method name="paintVertex" return_type="void" modifiers="private" constructor="false">
+      <parameter name="g" type="Graphics2D"/>
+      <parameter name="vertex" type="Vertex"/>
+    </method>
+    <method name="paintEdges" return_type="void" modifiers="private" constructor="false">
+      <parameter name="g" type="Graphics2D"/>
+      <parameter name="graph" type="Graph"/>
+    </method>
+    <method name="paintVertices" return_type="void" modifiers="private" constructor="false">
+      <parameter name="g" type="Graphics2D"/>
+      <parameter name="graph" type="Graph"/>
+    </method>
+    <method name="paintGhosts" return_type="void" modifiers="private" constructor="false">
+      <parameter name="g" type="Graphics2D"/>
+      <parameter name="graph" type="Graph"/>
+    </method>
+    <method name="paintEdge" return_type="void" modifiers="private" constructor="false">
+      <parameter name="g" type="Graphics2D"/>
+      <parameter name="edge" type="Edge"/>
+    </method>
+    <method name="paintGhostVertex" return_type="void" modifiers="private" constructor="false">
+      <parameter name="g" type="Graphics2D"/>
+      <parameter name="vertex" type="Moveable"/>
+    </method>
+    <method name="isPermanentFocusOwner" return_type="boolean" modifiers="private" constructor="false"/>
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageEditor"/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/Package"/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackagePainter"/>
+    <relation/>
+    <relation/>
+    <relation/>
+  </class>
+  <class name="PackageEditor" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageEditor" abstract="false">
+    <variable name="listener" type="PackageEditorListener" modifiers="private">
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageEditorListener"/>
+    </variable>
+    <variable name="hidden" type="Set&lt;ClassTarget&gt;" modifiers="private"/>
+    <method name="PackageEditor" return_type="*NULL*" modifiers="public" constructor="true">
+      <parameter name="pkg" type="Package"/>
+      <parameter name="listener" type="PackageEditorListener"/>
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageEditorListener"/>
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/Package"/>
+    </method>
+    <method name="graphChanged" return_type="void" modifiers="public" constructor="false"/>
+    <method name="setPermFocus" return_type="void" modifiers="public" constructor="false">
+      <parameter name="focus" type="boolean"/>
+    </method>
+    <method name="showHidden" return_type="void" modifiers="private" constructor="false">
+      <parameter name="ct" type="ClassTarget"/>
+    </method>
+    <method name="startMouseListening" return_type="void" modifiers="public" constructor="false"/>
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageEditor"/>
+    <relation/>
+    <relation/>
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageSelectionController"/>
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackagePainter"/>
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageEditorListener"/>
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/Package"/>
+    <relation/>
+  </class>
+  <class name="PackageFileFactory" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageFileFactory" abstract="false">
+    <method name="getPackageFile" return_type="PackageFile" modifiers="public;static" constructor="false">
+      <parameter name="dir" type="File"/>
+    </method>
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageFile"/>
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/BlueJPackageFile"/>
+    <relation/>
+  </class>
+  <class name="PkgMgrFrame" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PkgMgrFrame" abstract="false">
+    <variable name="_THIS" type="String" modifiers="public;static;final"/>
+    <variable name="THIS" type="String" modifiers="public;static;final"/>
+    <variable name="EDITOR_WIDTH" type="String" modifiers="public;static;final"/>
+    <variable name="EDITOR_HEIGHT" type="String" modifiers="public;static;final"/>
+    <variable name="EDITOR_X" type="String" modifiers="public;static;final"/>
+    <variable name="EDITOR_Y" type="String" modifiers="public;static;final"/>
+    <variable name="OBJECTBENCH_WIDTH" type="String" modifiers="public;static;final"/>
+    <variable name="OBJECTBENCH_HEIGHT" type="String" modifiers="public;static;final"/>
+    <variable name="SHOW_USES" type="String" modifiers="public;static;final"/>
+    <variable name="SHOW_EXTENDS" type="String" modifiers="public;static;final"/>
+    <variable name="PROJECT_CHARSET" type="String" modifiers="public;static;final"/>
+    <variable name="NULL_OBJECT_INFO" type="String" modifiers="public;static"/>
+    <variable name="pkgMgrFont" type="Font" modifiers="private;static"/>
+    <variable name="DEFAULT_WIDTH" type="int" modifiers="static;final"/>
+    <variable name="DEFAULT_HEIGHT" type="int" modifiers="static;final"/>
+    <variable name="classScroller" type="JScrollPane" modifiers="private"/>
+    <variable name="pkg" type="Package" modifiers="private">
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/Package"/>
+    </variable>
+    <variable name="editor" type="PackageEditor" modifiers="private">
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageEditor"/>
+    </variable>
+    <variable name="listeners" type="HashSet&lt;FileListener&gt;" modifiers="private;final"/>
+    <method name="createFrame" return_type="PkgMgrFrame" modifiers="private;static" constructor="false"/>
+    <method name="createFrame" return_type="PkgMgrFrame" modifiers="public;static" constructor="false">
+      <parameter name="pkg" type="Package"/>
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/Package"/>
+    </method>
+    <method name="openPackage" return_type="void" modifiers="public" constructor="false">
+      <parameter name="pkg" type="Package"/>
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/Package"/>
+    </method>
+    <method name="updateWindowTitle" return_type="void" modifiers="private" constructor="false"/>
+    <method name="getPackage" return_type="Package" modifiers="public" constructor="false"/>
+    <method name="updateShowUsesInPackage" return_type="void" modifiers="public" constructor="false"/>
+    <method name="updateShowExtendsInPackage" return_type="void" modifiers="public" constructor="false"/>
+    <method name="mousePressed" return_type="void" modifiers="public" constructor="false">
+      <parameter name="evt" type="MouseEvent"/>
+    </method>
+    <method name="mouseReleased" return_type="void" modifiers="public" constructor="false">
+      <parameter name="evt" type="MouseEvent"/>
+    </method>
+    <method name="mouseClicked" return_type="void" modifiers="public" constructor="false">
+      <parameter name="evt" type="MouseEvent"/>
+    </method>
+    <method name="mouseEntered" return_type="void" modifiers="public" constructor="false">
+      <parameter name="evt" type="MouseEvent"/>
+    </method>
+    <method name="mouseExited" return_type="void" modifiers="public" constructor="false">
+      <parameter name="evt" type="MouseEvent"/>
+    </method>
+    <method name="pkgEditorGotFocus" return_type="void" modifiers="public" constructor="false"/>
+    <method name="pkgEditorLostFocus" return_type="void" modifiers="public" constructor="false"/>
+    <method name="PkgMgrFrame" return_type="*NULL*" modifiers="private" constructor="true"/>
+    <method name="makeFrame" return_type="void" modifiers="private" constructor="false"/>
+    <method name="doSave" return_type="void" modifiers="public" constructor="false"/>
+    <method name="notifyListeners" return_type="void" modifiers="public" constructor="false">
+      <parameter name="newFilePath" type="String"/>
+    </method>
+    <method name="addListener" return_type="void" modifiers="public" constructor="false">
+      <parameter name="listener" type="FileListener"/>
+    </method>
+    <method name="removeListener" return_type="void" modifiers="public" constructor="false">
+      <parameter name="listener" type="FileListener"/>
+    </method>
+    <implements>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageEditorListener</implements>
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageEditor"/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PkgMgrFrame"/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/Package"/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+  </class>
+  <class name="PopClickListener" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PopClickListener" abstract="false" owner="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageEditor">
+    <method name="mouseClicked" return_type="void" modifiers="public" constructor="false">
+      <parameter name="e" type="MouseEvent"/>
+    </method>
+    <method name="mousePressed" return_type="void" modifiers="public" constructor="false">
+      <parameter name="e" type="MouseEvent"/>
+    </method>
+    <method name="mouseReleased" return_type="void" modifiers="public" constructor="false">
+      <parameter name="e" type="MouseEvent"/>
+    </method>
+    <method name="mouseEntered" return_type="void" modifiers="public" constructor="false">
+      <parameter name="e" type="MouseEvent"/>
+    </method>
+    <method name="mouseExited" return_type="void" modifiers="public" constructor="false">
+      <parameter name="e" type="MouseEvent"/>
+    </method>
+    <method name="createPopupMenu" return_type="JPopupMenu" modifiers="private" constructor="false">
+      <parameter name="component" type="Component"/>
+    </method>
+    <method name="createShowHiddenItemMenu" return_type="JMenu" modifiers="private" constructor="false"/>
+    <method name="saveImageItem" return_type="JMenuItem" modifiers="protected" constructor="false">
+      <parameter name="component" type="Component"/>
+    </method>
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageEditor"/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/Package"/>
+  </class>
+  <class name="PackagePrintManager" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackagePrintManager" abstract="false">
+    <variable name="pageFormat" type="PageFormat" modifiers="private"/>
+    <variable name="pkg" type="Package" modifiers="private">
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/Package"/>
+    </variable>
+    <method name="PackagePrintManager" return_type="*NULL*" modifiers="public" constructor="true">
+      <parameter name="pkg" type="Package"/>
+      <parameter name="pageFormat" type="PageFormat"/>
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/Package"/>
+    </method>
+    <method name="run" return_type="void" modifiers="public" constructor="false"/>
+    <method name="printClassDiagram" return_type="void" modifiers="public" constructor="false">
+      <parameter name="printJob" type="PrinterJob"/>
+    </method>
+    <relation/>
+    <relation/>
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/Package"/>
+    <relation/>
+  </class>
+  <class name="PackageLayoutGenerator" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageLayoutGenerator" abstract="false">
+    <variable name="PACKAGE_WINDOW_MARGIN" type="int" modifiers="public;static;final"/>
+    <variable name="PACKAGE_CONTENT_MARGIN" type="int" modifiers="public;static;final"/>
+    <variable name="CONTENT_MARGIN" type="int" modifiers="public;static;final"/>
+    <variable name="packages" type="Map&lt;PackageTarget, List&lt;DependentTarget&gt;&gt;" modifiers=""/>
+    <variable name="targets" type="TargetCollection" modifiers=""/>
+    <variable name="modules" type="Map&lt;ClassTarget, List&lt;DependentTarget&gt;&gt;" modifiers=""/>
+    <method name="generateLayout" return_type="void" modifiers="public" constructor="false">
+      <parameter name="packages" type="Map&lt;PackageTarget, List&lt;DependentTarget&gt;&gt;"/>
+      <parameter name="targets" type="TargetCollection"/>
+      <parameter name="modules" type="Map&lt;ClassTarget, List&lt;DependentTarget&gt;&gt;"/>
+    </method>
+    <method name="generateLayoutWithoutModules" return_type="void" modifiers="private" constructor="false">
+      <parameter name="pkgX" type="int"/>
+      <parameter name="pkgY" type="int"/>
+      <parameter name="packageTarget" type="PackageTarget"/>
+    </method>
+    <method name="placeNewClassesWithoutModules" return_type="void" modifiers="private" constructor="false">
+      <parameter name="existingPkg" type="PackageTarget"/>
+    </method>
+    <method name="placeExistingAndNewModules" return_type="void" modifiers="private" constructor="false">
+      <parameter name="existingPkg" type="PackageTarget"/>
+      <parameter name="moduleTargets" type="List&lt;ClassTarget&gt;"/>
+    </method>
+    <method name="placeNewModules" return_type="void" modifiers="private" constructor="false">
+      <parameter name="existingPkg" type="PackageTarget"/>
+      <parameter name="modulesToPlace" type="List&lt;ClassTarget&gt;"/>
+      <parameter name="existingModules" type="List&lt;ClassTarget&gt;"/>
+    </method>
+    <method name="findXForModule" return_type="int" modifiers="private" constructor="false">
+      <parameter name="existingModules" type="List&lt;ClassTarget&gt;"/>
+    </method>
+    <method name="placeNewClasses" return_type="void" modifiers="private" constructor="false">
+      <parameter name="existingPkg" type="PackageTarget"/>
+      <parameter name="existingModule" type="ClassTarget"/>
+    </method>
+    <method name="fixPackageBounds" return_type="void" modifiers="private" constructor="false">
+      <parameter name="packageTarget" type="PackageTarget"/>
+      <parameter name="rightBound" type="int"/>
+      <parameter name="lowerBound" type="int"/>
+    </method>
+    <method name="findYForNewClass" return_type="int" modifiers="private" constructor="false">
+      <parameter name="existingModule" type="ClassTarget"/>
+      <parameter name="classTargets" type="List&lt;ClassTarget&gt;"/>
+    </method>
+    <method name="findXForNewPackage" return_type="int" modifiers="private" constructor="false">
+      <parameter name="existingPackages" type="Set&lt;PackageTarget&gt;"/>
+    </method>
+    <method name="generateLayoutWithModules" return_type="int" modifiers="private" constructor="false">
+      <parameter name="pkgX" type="int"/>
+      <parameter name="pkgY" type="int"/>
+      <parameter name="packageTarget" type="PackageTarget"/>
+      <parameter name="pkgModules" type="List&lt;ClassTarget&gt;"/>
+    </method>
+    <method name="placeTargetIntoColumn" return_type="void" modifiers="private" constructor="false">
+      <parameter name="clsTarget" type="ClassTarget"/>
+      <parameter name="x" type="int"/>
+      <parameter name="y" type="int"/>
+      <parameter name="modulewidth" type="int"/>
+    </method>
+    <method name="computeColumnWidthsForModules" return_type="int" modifiers="private" constructor="false">
+      <parameter name="columnWidths" type="HashMap&lt;ClassTarget, Integer&gt;"/>
+      <parameter name="pkgModules" type="List&lt;ClassTarget&gt;"/>
+      <parameter name="packageTarget" type="PackageTarget"/>
+    </method>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+  </class>
+  <interface name="PackageEditorListener" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageEditorListener" abstract="false">
+    <method name="pkgEditorGotFocus" return_type="void" modifiers="" constructor="false"/>
+    <method name="pkgEditorLostFocus" return_type="void" modifiers="" constructor="false"/>
+  </interface>
+  <interface name="PackageFile" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageFile" abstract="false">
+    <method name="create" return_type="boolean" modifiers="public" constructor="false"/>
+    <method name="load" return_type="void" modifiers="public" constructor="false">
+      <parameter name="p" type="Properties"/>
+    </method>
+    <method name="save" return_type="void" modifiers="public" constructor="false">
+      <parameter name="p" type="Properties"/>
+    </method>
+  </interface>
+  <class name="PackagePrinter" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackagePrinter" abstract="false">
+    <variable name="pageFormat" type="PageFormat" modifiers="private"/>
+    <variable name="pkg" type="Package" modifiers="private">
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/Package"/>
+    </variable>
+    <variable name="pageColumns" type="int" modifiers="private"/>
+    <variable name="pageRows" type="int" modifiers="private"/>
+    <variable name="pages" type="int" modifiers="private"/>
+    <variable name="currentPage" type="int" modifiers="private"/>
+    <variable name="currentColumn" type="int" modifiers="private"/>
+    <variable name="currentRow" type="int" modifiers="private"/>
+    <variable name="a4Width" type="int" modifiers="static;final"/>
+    <variable name="a4Height" type="int" modifiers="static;final"/>
+    <variable name="PRINT_HMARGIN" type="int" modifiers="static;final"/>
+    <variable name="PRINT_VMARGIN" type="int" modifiers="static;final"/>
+    <variable name="printTitleFont" type="Font" modifiers="static;final"/>
+    <variable name="printInfoFont" type="Font" modifiers="static;final"/>
+    <method name="PackagePrinter" return_type="*NULL*" modifiers="public" constructor="true">
+      <parameter name="pkg" type="Package"/>
+      <parameter name="pageFormat" type="PageFormat"/>
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/Package"/>
+    </method>
+    <method name="run" return_type="void" modifiers="public" constructor="false"/>
+    <method name="printPackage" return_type="void" modifiers="private" constructor="false"/>
+    <method name="calculatePages" return_type="void" modifiers="private" constructor="false"/>
+    <method name="print" return_type="int" modifiers="public" constructor="false">
+      <parameter name="g" type="Graphics"/>
+      <parameter name="pageFormat" type="PageFormat"/>
+      <parameter name="pageIndex" type="int"/>
+    </method>
+    <method name="getPrintArea" return_type="Rectangle" modifiers="private" constructor="false">
+      <parameter name="pageFormat" type="PageFormat"/>
+    </method>
+    <method name="printTitle" return_type="void" modifiers="private" constructor="false">
+      <parameter name="g" type="Graphics"/>
+      <parameter name="pageFormat" type="PageFormat"/>
+      <parameter name="pageNum" type="int"/>
+    </method>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/Package"/>
+    <relation/>
+  </class>
+  <class name="PackageSelectionController" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageSelectionController" abstract="false">
+    <method name="PackageSelectionController" return_type="*NULL*" modifiers="public" constructor="true">
+      <parameter name="editor" type="GraphEditor"/>
+    </method>
+    <method name="mousePressed" return_type="void" modifiers="public" constructor="false">
+      <parameter name="evt" type="MouseEvent"/>
+    </method>
+    <method name="mouseReleased" return_type="void" modifiers="public" constructor="false">
+      <parameter name="evt" type="MouseEvent"/>
+    </method>
+    <method name="mouseDragged" return_type="void" modifiers="public" constructor="false">
+      <parameter name="evt" type="MouseEvent"/>
+    </method>
+    <relation/>
+  </class>
+  <class name="BlueJPackageFile" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/BlueJPackageFile" abstract="false">
+    <variable name="pkgfileName" type="String" modifiers="private;static;final"/>
+    <variable name="dir" type="File" modifiers="private"/>
+    <variable name="pkgFile" type="File" modifiers="private"/>
+    <method name="BlueJPackageFile" return_type="*NULL*" modifiers="" constructor="true">
+      <parameter name="dir" type="File"/>
+    </method>
+    <method name="toString" return_type="String" modifiers="public" constructor="false"/>
+    <method name="exists" return_type="boolean" modifiers="public;static" constructor="false">
+      <parameter name="dir" type="File"/>
+    </method>
+    <method name="load" return_type="void" modifiers="public" constructor="false">
+      <parameter name="p" type="Properties"/>
+    </method>
+    <method name="save" return_type="void" modifiers="public" constructor="false">
+      <parameter name="props" type="Properties"/>
+    </method>
+    <method name="saveToFile" return_type="void" modifiers="private" constructor="false">
+      <parameter name="props" type="Properties"/>
+      <parameter name="file" type="File"/>
+    </method>
+    <method name="isPackageFileName" return_type="boolean" modifiers="public;static" constructor="false">
+      <parameter name="name" type="String"/>
+    </method>
+    <method name="create" return_type="boolean" modifiers="public" constructor="false"/>
+    <implements>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageFile</implements>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+  </class>
+  <class name="Package" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/Package" abstract="false">
+    <variable name="FIXED_TARGET_X" type="int" modifiers="public;static;final"/>
+    <variable name="FIXED_TARGET_Y" type="int" modifiers="public;static;final"/>
+    <variable name="baseName" type="String" modifiers="private"/>
+    <variable name="targets" type="TargetCollection" modifiers="private"/>
+    <variable name="usesArrows" type="List&lt;Dependency&gt;" modifiers="private"/>
+    <variable name="extendsArrows" type="List&lt;Dependency&gt;" modifiers="private"/>
+    <variable name="showExtends" type="boolean" modifiers="private"/>
+    <variable name="showUses" type="boolean" modifiers="private"/>
+    <variable name="editor" type="PackageEditor" modifiers="private">
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageEditor"/>
+    </variable>
+    <variable name="dir" type="File" modifiers="private"/>
+    <variable name="packageFile" type="PackageFile" modifiers="private">
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageFile"/>
+    </variable>
+    <variable name="lastSavedProps" type="SortedProperties" modifiers="private"/>
+    <variable name="layoutGenerator" type="PackageLayoutGenerator" modifiers="private">
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageLayoutGenerator"/>
+    </variable>
+    <variable name="packages" type="Map&lt;PackageTarget, List&lt;DependentTarget&gt;&gt;" modifiers="private"/>
+    <variable name="modules" type="Map&lt;ClassTarget, List&lt;DependentTarget&gt;&gt;" modifiers="private"/>
+    <variable name="packageTarget" type="PackageTarget" modifiers="private"/>
+    <variable name="dependencies" type="Map&lt;ClassTarget, List&lt;Dependency&gt;&gt;" modifiers="private"/>
+    <method name="Package" return_type="*NULL*" modifiers="public" constructor="true">
+      <parameter name="baseName" type="String"/>
+      <parameter name="packageDir" type="File"/>
+    </method>
+    <method name="Package" return_type="*NULL*" modifiers="public" constructor="true"/>
+    <method name="init" return_type="void" modifiers="private" constructor="false"/>
+    <method name="getClassTargets" return_type="List&lt;ClassTarget&gt;" modifiers="public" constructor="false"/>
+    <method name="generateLayout" return_type="void" modifiers="public" constructor="false"/>
+    <method name="findSpaceForVertex" return_type="void" modifiers="public" constructor="false">
+      <parameter name="t" type="Vertex"/>
+    </method>
+    <method name="getBaseName" return_type="String" modifiers="public" constructor="false"/>
+    <method name="repaint" return_type="void" modifiers="public" constructor="false"/>
+    <method name="setEditor" return_type="void" modifiers="" constructor="false">
+      <parameter name="editor" type="PackageEditor"/>
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageEditor"/>
+    </method>
+    <method name="getEditor" return_type="PackageEditor" modifiers="public" constructor="false"/>
+    <method name="getSelectedTargets" return_type="Target[]" modifiers="public" constructor="false"/>
+    <method name="getSelectedDependency" return_type="Dependency" modifiers="public" constructor="false"/>
+    <method name="load" return_type="void" modifiers="public" constructor="false"/>
+    <method name="reReadGraphLayout" return_type="void" modifiers="public" constructor="false"/>
+    <method name="save" return_type="void" modifiers="public" constructor="false">
+      <parameter name="frameProperties" type="Properties"/>
+    </method>
+    <method name="getVertices" return_type="Iterator&lt;Target&gt;" modifiers="public" constructor="false"/>
+    <method name="getEdges" return_type="Iterator&lt;? extends Edge&gt;" modifiers="public" constructor="false"/>
+    <method name="getTestTargets" return_type="List&lt;ClassTarget&gt;" modifiers="public" constructor="false"/>
+    <method name="addTarget" return_type="void" modifiers="public" constructor="false">
+      <parameter name="t" type="DependentTarget"/>
+    </method>
+    <method name="addTarget" return_type="void" modifiers="public" constructor="false">
+      <parameter name="p" type="PackageTarget"/>
+      <parameter name="t" type="DependentTarget"/>
+    </method>
+    <method name="addDependency" return_type="void" modifiers="public" constructor="false">
+      <parameter name="d" type="Dependency"/>
+      <parameter name="recalc" type="boolean"/>
+    </method>
+    <method name="getHiddenItems" return_type="Set&lt;ClassTarget&gt;" modifiers="public" constructor="false"/>
+    <method name="recalcArrows" return_type="void" modifiers="public" constructor="false"/>
+    <method name="getTarget" return_type="Target" modifiers="public" constructor="false">
+      <parameter name="identifierName" type="String"/>
+    </method>
+    <method name="getDependentTarget" return_type="DependentTarget" modifiers="public" constructor="false">
+      <parameter name="identifierName" type="String"/>
+    </method>
+    <method name="getAllClassnames" return_type="List&lt;String&gt;" modifiers="public" constructor="false"/>
+    <method name="setShowUses" return_type="void" modifiers="public" constructor="false">
+      <parameter name="state" type="boolean"/>
+    </method>
+    <method name="setShowExtends" return_type="void" modifiers="public" constructor="false">
+      <parameter name="state" type="boolean"/>
+    </method>
+    <method name="getTargets" return_type="TargetCollection" modifiers="public" constructor="false"/>
+    <method name="getPath" return_type="File" modifiers="public" constructor="false"/>
+    <method name="getPkgFile" return_type="PackageFile" modifiers="public" constructor="false"/>
+    <method name="getLastSavedProperties" return_type="Properties" modifiers="public" constructor="false"/>
+    <method name="setBaseName" return_type="void" modifiers="public" constructor="false">
+      <parameter name="baseName" type="String"/>
+    </method>
+    <method name="clean" return_type="void" modifiers="public" constructor="false"/>
+    <method name="setPkgTarget" return_type="void" modifiers="public" constructor="false">
+      <parameter name="packageTarget" type="PackageTarget"/>
+    </method>
+    <method name="checkPackageBoundaries" return_type="void" modifiers="public" constructor="false">
+      <parameter name="classTarget" type="ClassTarget"/>
+    </method>
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageEditor"/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageFile"/>
+    <relation/>
+    <relation/>
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageFileFactory"/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageLayoutGenerator"/>
+    <relation/>
+    <relation/>
+  </class>
+  <class name="LayoutComparer" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/LayoutComparer" abstract="false">
+    <variable name="centre" type="DependentTarget" modifiers=""/>
+    <variable name="in" type="boolean" modifiers=""/>
+    <method name="LayoutComparer" return_type="*NULL*" modifiers="public" constructor="true">
+      <parameter name="centre" type="DependentTarget"/>
+      <parameter name="in" type="boolean"/>
+    </method>
+    <method name="compare" return_type="int" modifiers="public" constructor="false">
+      <parameter name="a" type="Dependency"/>
+      <parameter name="b" type="Dependency"/>
+    </method>
+    <method name="compare" return_type="int" modifiers="protected" constructor="false">
+      <parameter name="ax" type="int"/>
+      <parameter name="ay" type="int"/>
+      <parameter name="bx" type="int"/>
+      <parameter name="by" type="int"/>
+      <parameter name="cx" type="int"/>
+      <parameter name="cy" type="int"/>
+    </method>
+    <method name="compareInt" return_type="int" modifiers="private" constructor="false">
+      <parameter name="a" type="int"/>
+      <parameter name="b" type="int"/>
+    </method>
+    <relation/>
+    <relation/>
+    <relation/>
+    <relation/>
+  </class>
+</package>

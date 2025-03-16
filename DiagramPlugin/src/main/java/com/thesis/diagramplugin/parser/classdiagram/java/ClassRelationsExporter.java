@@ -1,16 +1,7 @@
 package com.thesis.diagramplugin.parser.classdiagram.java;
 
-import com.intellij.psi.PsiDirectory;
-import com.intellij.psi.PsiFile;
-import com.jetbrains.python.psi.PyClass;
-import com.thesis.diagramplugin.parser.classdiagram.model.PackageModel;
-import com.thesis.diagramplugin.parser.classdiagram.model.ClassTypePackageModel;
-import com.thesis.diagramplugin.parser.classdiagram.model.AElementPackageModel;
-import com.thesis.diagramplugin.parser.classdiagram.model.MethodPackageModel;
-import com.thesis.diagramplugin.parser.classdiagram.model.VariablePackageModel;
-import com.thesis.diagramplugin.parser.classdiagram.python.PyClassDiagramParser;
+import com.thesis.diagramplugin.parser.classdiagram.model.*;
 import org.dom4j.Document;
-import org.dom4j.DocumentException;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 import org.dom4j.io.OutputFormat;
@@ -19,10 +10,7 @@ import org.dom4j.io.XMLWriter;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.*;
-
 
 import static com.thesis.diagramplugin.utils.DiagramConstants.*;
 
@@ -56,13 +44,14 @@ public class ClassRelationsExporter {
 
         String fileName = path + "/" + pkgModel.getPackageName() + XML_FILE_NAME_POSTFIX_CLASS_DIAGRAM;
         File file = new File(fileName);
-
         try {
             // maintain placement/size of existing objects if file already exists
             if (file.exists()) {
-                Document orig = DocumentHelper.parseText(new String(Files.readAllBytes(Path.of(fileName))));
-                Element origRoot = orig.getRootElement();
-                buildSizePositionMap(origRoot, existingElements);
+                if (!file.delete()) {
+                    System.err.println("Warning: Failed to delete existing file: " + fileName);
+                } else {
+                    System.out.println("Deleted existing file: " + fileName);
+                }
             }
             String packageId = path + "/" + pkgModel.getPackageName();
 //            String packageId = getClassId(pkgModel);
@@ -73,7 +62,7 @@ public class ClassRelationsExporter {
             packageElement.addAttribute(PATH_ATTRIBUTE, path);
             packageElement.addAttribute(UNIQUE_ID_ATTRIBUTE, packageId);
 
-            copyExistingSizePosAttributes(packageId, packageElement);
+            //copyExistingSizePosAttributes(packageId, packageElement);
 
             createClassElements(packageElement);
 
@@ -84,8 +73,6 @@ public class ClassRelationsExporter {
             fileOS.close();
         } catch (IOException e) {
             System.out.println("IO ERROR during creation of " + fileName);
-        } catch (DocumentException e) {
-            System.out.println("Document exception on existing document " + fileName);
         }
 
         return file;
@@ -142,7 +129,7 @@ public class ClassRelationsExporter {
             element.addAttribute("name", elementEntry.getName());
             element.addAttribute(UNIQUE_ID_ATTRIBUTE, getClassId(elementEntry));
 
-            copyExistingSizePosAttributes(getClassId(elementEntry), element);
+            //copyExistingSizePosAttributes(getClassId(elementEntry), element);
 
             List<String> ids = new ArrayList<>();
             ids.add(getClassId(elementEntry));
@@ -164,7 +151,10 @@ public class ClassRelationsExporter {
                 for (String iface : classPackageModel.getImplementedInterfaces()) {
                     AElementPackageModel ifc = pkgModel.getElement(iface);
                     if (ifc != null) {
-                        element.addElement(IMPLEMENTATION_TAG).setText(getClassId(ifc));
+                        if(elementEntry.getType().toString().equals("interface"))
+                            element.addElement(EXTENDS_TAG).setText(getClassId(ifc));
+                        else
+                            element.addElement(IMPLEMENTATION_TAG).setText(getClassId(ifc));
                     }
                 }
                 if (classPackageModel.isTest()) {

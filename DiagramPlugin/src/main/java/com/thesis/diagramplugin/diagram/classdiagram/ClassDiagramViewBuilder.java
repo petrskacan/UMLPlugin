@@ -1,10 +1,8 @@
 package com.thesis.diagramplugin.diagram.classdiagram;
 
 import com.thesis.diagramplugin.diagram.classdiagram.model.*;
-import com.thesis.diagramplugin.parser.classdiagram.model.AElementPackageModel;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.SortedProperties;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.Package;
-import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.PackageFile;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.PkgMgrFrame;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.*;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.ClassTarget;
@@ -13,9 +11,12 @@ import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.Pack
 import lombok.Getter;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 
-import static com.thesis.diagramplugin.utils.DiagramConstants.*;
+import static com.thesis.diagramplugin.utils.DiagramConstants.UNKNOWN_TAG;
 
 public class ClassDiagramViewBuilder {
 
@@ -257,6 +258,13 @@ public class ClassDiagramViewBuilder {
 
     private void resolveExtensions(AClassDiagramModelClassLikeEntity el, Package pkg) {
         if (el instanceof ClassDiagramModelClass cls) {
+            for (AClassDiagramModelElement to : cls.getExtensions()) {
+                pkg.addDependency(new ExtendsDependency(pkg, classes.get(el), classes.get(to)), true);
+                relations.add(new Relation(el, to));
+                dependencies.add(el.getName() + " =======> " + to.getName() + " DEPENDENCY (ext)");
+            }
+        }
+        if (el instanceof ClassDiagramModelInterface cls) {
             for (AClassDiagramModelElement to : cls.getExtensions()) {
                 pkg.addDependency(new ExtendsDependency(pkg, classes.get(el), classes.get(to)), true);
                 relations.add(new Relation(el, to));
