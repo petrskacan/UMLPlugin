@@ -1,7 +1,7 @@
 
 
 group = "com.thesis"
-version = "1.0.58-beta"
+version = "1.1.0"
 
 plugins {
     id("java")
@@ -78,9 +78,33 @@ tasks {
         untilBuild.set("243.*")
         changeNotes.set("""
         <ul>
-            <li>XML should be automaticaly cahnged when creating new class diagram</li>            
-            <li>Customization for color in settings</li>
-            <li>KNOWN ISSUE - NO SUPPORT FOR 243</li>
+        Changes for Class Diagrams
+            <li>Interface now correctly shows inheritance of other intefraces</li>            
+            <li>Added custom color settings for every package</li>
+        Changes for Kopenograms
+        
+             <li>Text display limit increased to show full content (was 35 characters).</li>
+             <li>Added zoom functionality for diagrams.</li>
+             <li>Fixed <code>continue</code> statement visualization (now correctly appears as a red rectangle with four white triangles).</li>
+             <li>Corrected <code>return</code> statement (now displays all three black triangles).</li>
+             <li>Fixed <code>break</code> statement (now correctly displays white triangles instead of black).</li>
+             <li>Recursive calls now appear in yellow instead of red.</li>
+             <li>Improved <code>if – elseif – else</code> rendering (no longer nests <code>elseif</code> branches incorrectly).</li>
+             <li><code>break</code> statements no longer appear inside <code>switch</code> case branches.</li>
+             <li>Exception blocks now have the correct colors:</li>
+             <ul>
+                 <li>Expected exception block: purple with a white header.</li>
+                <li>Thrown exception text: yellow.</li>
+                <li>Caught exception block: white header with an orange body.</li>
+             </ul>
+             <li><code>return</code>, <code>break</code>, and <code>continue</code> statements now extend to the end of their respective blocks.</li>
+             <li>Kopenogram generation now works correctly for Python methods inside classes.</li>
+             
+             KNOWN ISSUES
+             <li>Dependency relationships are not displayed.</li>
+             <li>Diagram does not reflect code changes automatically (requires deleting the generated XML file and reloading the diagram).</li>
+             <li>In some cases, the diagram does not generate at all. (tbh, no idea when and why)</li>
+             <li>NO SUPPORT FOR THE NEWEST VERSION OF PYCHARM</li>
         </ul>
     """.trimIndent())
     }
