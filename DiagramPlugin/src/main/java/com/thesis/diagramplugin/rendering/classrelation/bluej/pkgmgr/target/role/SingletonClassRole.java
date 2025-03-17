@@ -21,7 +21,10 @@
  */
 package com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role;
 
-import java.awt.Paint;
+import com.intellij.openapi.application.ApplicationManager;
+import com.thesis.diagramplugin.settings.PluginSettingsService;
+
+import java.awt.*;
 
 /**
  * A role object to represent the behaviour of a singleton class.
@@ -48,6 +51,8 @@ public class SingletonClassRole extends StdClassRole {
      */
     public Paint getBackgroundPaint(int width, int height)
     {
-            return super.getBackgroundPaint(width, height);
+        PluginSettingsService settingsService = ApplicationManager.getApplication().getService(PluginSettingsService.class);
+        return (settingsService != null) ? settingsService.getColor(RoleColor.SINGLETON_CLASS_ROLE) : RoleColor.SINGLETON_CLASS_ROLE.getColor();
+
     }
 }

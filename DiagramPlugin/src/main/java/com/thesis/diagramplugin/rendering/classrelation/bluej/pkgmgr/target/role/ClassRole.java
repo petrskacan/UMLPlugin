@@ -21,10 +21,11 @@
  */
 package com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role;
 
+import com.intellij.openapi.application.ApplicationManager;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.ClassTarget;
+import com.thesis.diagramplugin.settings.PluginSettingsService;
 
-import java.awt.Color;
-import java.awt.Paint;
+import java.awt.*;
 
 /**
  * A class role in a class target, providing behaviour specific to particular
@@ -52,7 +53,9 @@ public abstract class ClassRole {
      * @param height Height of total area to paint
      */
     public Paint getBackgroundPaint(int width, int height) {
-        return bg;
+        PluginSettingsService settingsService = ApplicationManager.getApplication().getService(PluginSettingsService.class);
+        return (settingsService != null) ? settingsService.getColor(RoleColor.CLASS_ROLE) : RoleColor.CLASS_ROLE.getColor();
+
     }
 
     /**

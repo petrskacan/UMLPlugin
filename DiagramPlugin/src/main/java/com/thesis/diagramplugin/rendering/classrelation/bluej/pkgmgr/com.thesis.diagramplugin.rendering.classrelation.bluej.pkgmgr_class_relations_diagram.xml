@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<package name="com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr" path="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr" pos_x="30" pos_y="30" size_w="815" size_h="584" visible="true"> 
-  <class name="PackagePainter" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackagePainter" abstract="false" pos_x="104" pos_y="364" size_w="121" size_h="80" visible="true"> 
+<package name="com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr" path="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr" pos_x="30" pos_y="40" size_w="875" size_h="684" visible="true"> 
+  <class name="PackagePainter" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackagePainter" abstract="false" pos_x="54" pos_y="414" size_w="121" size_h="80" visible="true"> 
     <variable name="TEXT_HEIGHT" type="int" modifiers="static;final"/>  
     <variable name="TEXT_BORDER" type="int" modifiers="static;final"/>  
     <variable name="alpha" type="float" modifiers="static;final"/>  
@@ -63,7 +63,7 @@
     <relation/>  
     <relation/> 
   </class>  
-  <class name="PackageEditor" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageEditor" abstract="false" pos_x="683" pos_y="364" size_w="113" size_h="80" visible="true"> 
+  <class name="PackageEditor" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageEditor" abstract="false" pos_x="683" pos_y="394" size_w="113" size_h="80" visible="true"> 
     <variable name="listener" type="PackageEditorListener" modifiers="private"> 
       <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageEditorListener"/> 
     </variable>  
@@ -91,7 +91,7 @@
     <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/Package"/>  
     <relation/> 
   </class>  
-  <class name="PackageFileFactory" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageFileFactory" abstract="false" pos_x="656" pos_y="234" size_w="149" size_h="80" visible="true"> 
+  <class name="PackageFileFactory" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageFileFactory" abstract="false" pos_x="656" pos_y="244" size_w="149" size_h="80" visible="true"> 
     <method name="getPackageFile" return_type="PackageFile" modifiers="public;static" constructor="false"> 
       <parameter name="dir" type="File"/> 
     </method>  
@@ -99,7 +99,7 @@
     <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/BlueJPackageFile"/>  
     <relation/> 
   </class>  
-  <class name="PkgMgrFrame" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PkgMgrFrame" abstract="false" pos_x="104" pos_y="494" size_w="110" size_h="80" visible="true"> 
+  <class name="PkgMgrFrame" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PkgMgrFrame" abstract="false" pos_x="144" pos_y="544" size_w="110" size_h="80" visible="true"> 
     <variable name="_THIS" type="String" modifiers="public;static;final"/>  
     <variable name="THIS" type="String" modifiers="public;static;final"/>  
     <variable name="EDITOR_WIDTH" type="String" modifiers="public;static;final"/>  
@@ -194,7 +194,7 @@
     <relation/>  
     <relation/> 
   </class>  
-  <class name="PopClickListener" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PopClickListener" abstract="false" owner="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageEditor" pos_x="325" pos_y="234" size_w="131" size_h="80" visible="true"> 
+  <class name="PopClickListener" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PopClickListener" abstract="false" owner="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageEditor" pos_x="445" pos_y="354" size_w="131" size_h="80" visible="true"> 
     <method name="mouseClicked" return_type="void" modifiers="public" constructor="false"> 
       <parameter name="e" type="MouseEvent"/> 
     </method>  
@@ -225,7 +225,7 @@
     <relation/>  
     <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/Package"/> 
   </class>  
-  <class name="PackagePrintManager" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackagePrintManager" abstract="false" pos_x="264" pos_y="494" size_w="166" size_h="80" visible="true"> 
+  <class name="PackagePrintManager" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackagePrintManager" abstract="false" pos_x="264" pos_y="504" size_w="166" size_h="80" visible="true"> 
     <variable name="pageFormat" type="PageFormat" modifiers="private"/>  
     <variable name="pkg" type="Package" modifiers="private"> 
       <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/Package"/> 
@@ -244,7 +244,7 @@
     <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/Package"/>  
     <relation/> 
   </class>  
-  <class name="PackageLayoutGenerator" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageLayoutGenerator" abstract="false" pos_x="603" pos_y="104" size_w="189" size_h="80" visible="true"> 
+  <class name="PackageLayoutGenerator" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageLayoutGenerator" abstract="false" pos_x="603" pos_y="114" size_w="189" size_h="80" visible="true"> 
     <variable name="PACKAGE_WINDOW_MARGIN" type="int" modifiers="public;static;final"/>  
     <variable name="PACKAGE_CONTENT_MARGIN" type="int" modifiers="public;static;final"/>  
     <variable name="CONTENT_MARGIN" type="int" modifiers="public;static;final"/>  
@@ -328,11 +328,11 @@
     <relation/>  
     <relation/> 
   </class>  
-  <interface name="PackageEditorListener" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageEditorListener" abstract="false" pos_x="104" pos_y="234" size_w="171" size_h="80" visible="true"> 
+  <interface name="PackageEditorListener" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageEditorListener" abstract="false" pos_x="104" pos_y="244" size_w="171" size_h="80" visible="true"> 
     <method name="pkgEditorGotFocus" return_type="void" modifiers="" constructor="false"/>  
     <method name="pkgEditorLostFocus" return_type="void" modifiers="" constructor="false"/> 
   </interface>  
-  <interface name="PackageFile" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageFile" abstract="false" pos_x="275" pos_y="364" size_w="100" size_h="80" visible="true"> 
+  <interface name="PackageFile" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageFile" abstract="false" pos_x="265" pos_y="384" size_w="100" size_h="80" visible="true"> 
     <method name="create" return_type="boolean" modifiers="public" constructor="false"/>  
     <method name="load" return_type="void" modifiers="public" constructor="false"> 
       <parameter name="p" type="Properties"/> 
@@ -341,7 +341,7 @@
       <parameter name="p" type="Properties"/> 
     </method> 
   </interface>  
-  <class name="PackagePrinter" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackagePrinter" abstract="false" pos_x="70" pos_y="104" size_w="119" size_h="80" visible="true"> 
+  <class name="PackagePrinter" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackagePrinter" abstract="false" pos_x="70" pos_y="114" size_w="119" size_h="80" visible="true"> 
     <variable name="pageFormat" type="PageFormat" modifiers="private"/>  
     <variable name="pkg" type="Package" modifiers="private"> 
       <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/Package"/> 
@@ -396,7 +396,7 @@
     <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/Package"/>  
     <relation/> 
   </class>  
-  <class name="PackageSelectionController" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageSelectionController" abstract="false" pos_x="425" pos_y="364" size_w="208" size_h="80" visible="true"> 
+  <class name="PackageSelectionController" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/PackageSelectionController" abstract="false" pos_x="465" pos_y="494" size_w="208" size_h="80" visible="true"> 
     <method name="PackageSelectionController" return_type="*NULL*" modifiers="public" constructor="true"> 
       <parameter name="editor" type="GraphEditor"/> 
     </method>  
@@ -411,7 +411,7 @@
     </method>  
     <relation/> 
   </class>  
-  <class name="BlueJPackageFile" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/BlueJPackageFile" abstract="false" pos_x="239" pos_y="104" size_w="137" size_h="80" visible="true"> 
+  <class name="BlueJPackageFile" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/BlueJPackageFile" abstract="false" pos_x="239" pos_y="114" size_w="137" size_h="80" visible="true"> 
     <variable name="pkgfileName" type="String" modifiers="private;static;final"/>  
     <variable name="dir" type="File" modifiers="private"/>  
     <variable name="pkgFile" type="File" modifiers="private"/>  
@@ -443,7 +443,7 @@
     <relation/>  
     <relation/> 
   </class>  
-  <class name="Package" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/Package" abstract="false" pos_x="506" pos_y="234" size_w="100" size_h="80" visible="true"> 
+  <class name="Package" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/Package" abstract="false" pos_x="506" pos_y="244" size_w="100" size_h="80" visible="true"> 
     <variable name="FIXED_TARGET_X" type="int" modifiers="public;static;final"/>  
     <variable name="FIXED_TARGET_Y" type="int" modifiers="public;static;final"/>  
     <variable name="baseName" type="String" modifiers="private"/>  
@@ -563,7 +563,7 @@
     <relation/>  
     <relation/> 
   </class>  
-  <class name="LayoutComparer" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/LayoutComparer" abstract="false" pos_x="426" pos_y="104" size_w="127" size_h="80" visible="true"> 
+  <class name="LayoutComparer" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr/LayoutComparer" abstract="false" pos_x="426" pos_y="114" size_w="127" size_h="80" visible="true"> 
     <variable name="centre" type="DependentTarget" modifiers=""/>  
     <variable name="in" type="boolean" modifiers=""/>  
     <method name="LayoutComparer" return_type="*NULL*" modifiers="public" constructor="true"> 

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<package name="com.thesis.diagramplugin.settings" path="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/settings" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/settings/com.thesis.diagramplugin.settings" pos_x="30" pos_y="30" size_w="645" size_h="474" visible="true"> 
+  <class name="PluginSettingsPanel" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/settings/com.thesis.diagramplugin.settings/PluginSettingsPanel" abstract="false" pos_x="332" pos_y="294" size_w="153" size_h="80" visible="true"> 
+    <variable name="panel" type="JPanel" modifiers="private"/>  
+    <variable name="colorButtons" type="Map&lt;RoleColor, JButton&gt;" modifiers="private"/>  
+    <variable name="settingsService" type="PluginSettingsService" modifiers="private"> 
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/settings/com.thesis.diagramplugin.settings/PluginSettingsService"/> 
+    </variable>  
+    <method name="PluginSettingsPanel" return_type="*NULL*" modifiers="public" constructor="true"/>  
+    <method name="getPanel" return_type="JPanel" modifiers="public" constructor="false"/>  
+    <method name="isModified" return_type="boolean" modifiers="public" constructor="false"/>  
+    <method name="saveSettings" return_type="void" modifiers="public" constructor="false"/>  
+    <method name="loadSettings" return_type="void" modifiers="public" constructor="false"/>  
+    <method name="resetToDefault" return_type="void" modifiers="public" constructor="false"/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/settings/com.thesis.diagramplugin.settings/PluginSettingsService"/>  
+    <relation/> 
+  </class>  
+  <class name="State" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/settings/com.thesis.diagramplugin.settings/State" abstract="false" owner="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/settings/com.thesis.diagramplugin.settings/PluginSettingsService" pos_x="325" pos_y="104" size_w="100" size_h="80" visible="true"> 
+    <variable name="colorValues" type="Map&lt;String, String&gt;" modifiers="public"/>  
+    <method name="State" return_type="*NULL*" modifiers="public" constructor="true"/> 
+  </class>  
+  <class name="PluginSettingsService" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/settings/com.thesis.diagramplugin.settings/PluginSettingsService" abstract="false" pos_x="104" pos_y="234" size_w="168" size_h="80" visible="true"> 
+    <variable name="colorMap" type="Map&lt;String, String&gt;" modifiers="private;final"/>  
+    <variable name="defaultColorMap" type="Map&lt;RoleColor, Color&gt;" modifiers="private;static;final"/>  
+    <method name="PluginSettingsService" return_type="*NULL*" modifiers="public" constructor="true"/>  
+    <method name="getState" return_type="State" modifiers="public" constructor="false"/>  
+    <method name="loadState" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="state" type="State"/>  
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/settings/com.thesis.diagramplugin.settings/State"/> 
+    </method>  
+    <method name="getColor" return_type="Color" modifiers="public" constructor="false"> 
+      <parameter name="role" type="RoleColor"/> 
+    </method>  
+    <method name="setColor" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="role" type="RoleColor"/>  
+      <parameter name="color" type="Color"/> 
+    </method>  
+    <method name="getInstance" return_type="PluginSettingsService" modifiers="public;static" constructor="false"/>  
+    <method name="getDefaultColor" return_type="Color" modifiers="public" constructor="false"> 
+      <parameter name="role" type="RoleColor"/> 
+    </method>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/settings/com.thesis.diagramplugin.settings/State"/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/settings/com.thesis.diagramplugin.settings/PluginSettingsService"/>  
+    <relation/> 
+  </class>  
+  <class name="PluginSettingsConfigurable" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/settings/com.thesis.diagramplugin.settings/PluginSettingsConfigurable" abstract="false" pos_x="70" pos_y="104" size_w="205" size_h="80" visible="true"> 
+    <variable name="settingsPanel" type="PluginSettingsPanel" modifiers="private"> 
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/settings/com.thesis.diagramplugin.settings/PluginSettingsPanel"/> 
+    </variable>  
+    <method name="getDisplayName" return_type="String" modifiers="public" constructor="false"/>  
+    <method name="createComponent" return_type="JComponent" modifiers="public" constructor="false"/>  
+    <method name="isModified" return_type="boolean" modifiers="public" constructor="false"/>  
+    <method name="apply" return_type="void" modifiers="public" constructor="false"/>  
+    <method name="reset" return_type="void" modifiers="public" constructor="false"/>  
+    <method name="disposeUIResources" return_type="void" modifiers="public" constructor="false"/>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/settings/com.thesis.diagramplugin.settings/PluginSettingsPanel"/> 
+  </class> 
+</package>

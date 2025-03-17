@@ -22,6 +22,9 @@
 package com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role;
 
 
+import com.intellij.openapi.application.ApplicationManager;
+import com.thesis.diagramplugin.settings.PluginSettingsService;
+
 import java.awt.*;
 //import java.util.*;
 //import java.util.List;
@@ -71,6 +74,8 @@ public class InterfaceClassRole extends ClsMemberRecorderRole
      */
     public Paint getBackgroundPaint(int width, int height)
     {
-        return bg;
+        PluginSettingsService settingsService = ApplicationManager.getApplication().getService(PluginSettingsService.class);
+        return (settingsService != null) ? settingsService.getColor(RoleColor.INTERFACE_CLASS_ROLE) : RoleColor.INTERFACE_CLASS_ROLE.getColor();
+
     }
 }

@@ -22,7 +22,10 @@
 package com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role;
 
 
-import java.awt.Paint;
+import com.intellij.openapi.application.ApplicationManager;
+import com.thesis.diagramplugin.settings.PluginSettingsService;
+
+import java.awt.*;
 
 /**
  * A role object to represent the behaviour of a crate class. Crate class is
@@ -47,6 +50,8 @@ public class CrateClassRole extends StdClassRole {
      * Return the intended background colour for this type of target.
      */
     public Paint getBackgroundPaint(int width, int height) {
-        return super.getBackgroundPaint(width, height);
+        PluginSettingsService settingsService = ApplicationManager.getApplication().getService(PluginSettingsService.class);
+        return (settingsService != null) ? settingsService.getColor(RoleColor.CRATE_CLASS_ROLE) : RoleColor.CRATE_CLASS_ROLE.getColor();
+
     }
 }

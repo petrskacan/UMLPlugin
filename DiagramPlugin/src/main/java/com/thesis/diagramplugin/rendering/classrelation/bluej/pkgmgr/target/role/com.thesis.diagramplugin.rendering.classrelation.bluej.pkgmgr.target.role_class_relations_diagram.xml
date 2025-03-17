@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<package name="com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role" path="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role" pos_x="30" pos_y="30" size_w="818" size_h="584" visible="true"> 
+  <class name="EnumClassRole" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/EnumClassRole" abstract="false" pos_x="370" pos_y="104" size_w="121" size_h="80" visible="true"> 
+    <variable name="ENUM_ROLE_NAME" type="String" modifiers="public;static;final"/>  
+    <variable name="bg" type="Color" modifiers="private;static;final"/>  
+    <method name="EnumClassRole" return_type="*NULL*" modifiers="public" constructor="true"/>  
+    <method name="getRoleName" return_type="String" modifiers="public" constructor="false"/>  
+    <method name="getStereotypeLabel" return_type="String" modifiers="public" constructor="false"/>  
+    <method name="getBackgroundPaint" return_type="Paint" modifiers="public" constructor="false"> 
+      <parameter name="width" type="int"/>  
+      <parameter name="height" type="int"/> 
+    </method>  
+    <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/ClsMemberRecorderRole</extends>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/RoleColor"/>  
+    <relation/> 
+  </class>  
+  <enum name="RoleColor" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/RoleColor" abstract="false" pos_x="647" pos_y="454" size_w="100" size_h="80" visible="true"> 
+    <variable name="CLASS_ROLE" type="RoleColor" modifiers="public;static;final"/>  
+    <variable name="ABSTRACT_CLASS_ROLE" type="RoleColor" modifiers="public;static;final"/>  
+    <variable name="ENUM_CLASS_ROLE" type="RoleColor" modifiers="public;static;final"/>  
+    <variable name="INTERFACE_CLASS_ROLE" type="RoleColor" modifiers="public;static;final"/>  
+    <variable name="MODULE_ROLE" type="RoleColor" modifiers="public;static;final"/>  
+    <variable name="RECORD_CLASS_ROLE" type="RoleColor" modifiers="public;static;final"/>  
+    <variable name="UNIT_TEST_CLASS_ROLE" type="RoleColor" modifiers="public;static;final"/>  
+    <variable name="PACKAGE_ROLE" type="RoleColor" modifiers="public;static;final"/>  
+    <variable name="SINGLETON_CLASS_ROLE" type="RoleColor" modifiers="public;static;final"/>  
+    <variable name="CRATE_CLASS_ROLE" type="RoleColor" modifiers="public;static;final"/>  
+    <variable name="LIBRARY_CLASS_ROLE" type="RoleColor" modifiers="public;static;final"/>  
+    <variable name="color" type="Color" modifiers="private"/>  
+    <method name="RoleColor" return_type="*NULL*" modifiers="" constructor="true"> 
+      <parameter name="color" type="Color"/> 
+    </method>  
+    <method name="getColor" return_type="Color" modifiers="public" constructor="false"/>  
+    <method name="setColor" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="color" type="Color"/> 
+    </method>  
+    <relation/> 
+  </enum>  
+  <class name="RecordClassRole" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/RecordClassRole" abstract="false" pos_x="104" pos_y="364" size_w="133" size_h="80" visible="true"> 
+    <variable name="RECORD_ROLE_NAME" type="String" modifiers="public;static;final"/>  
+    <variable name="bg" type="Color" modifiers="private;static;final"/>  
+    <method name="RecordClassRole" return_type="*NULL*" modifiers="public" constructor="true"/>  
+    <method name="getRoleName" return_type="String" modifiers="public" constructor="false"/>  
+    <method name="getStereotypeLabel" return_type="String" modifiers="public" constructor="false"/>  
+    <method name="getBackgroundPaint" return_type="Paint" modifiers="public" constructor="false"> 
+      <parameter name="width" type="int"/>  
+      <parameter name="height" type="int"/> 
+    </method>  
+    <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/ClsMemberRecorderRole</extends>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/RoleColor"/>  
+    <relation/> 
+  </class>  
+  <class name="InterfaceClassRole" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/InterfaceClassRole" abstract="false" pos_x="623" pos_y="354" size_w="145" size_h="80" visible="true"> 
+    <variable name="INTERFACE_ROLE_NAME" type="String" modifiers="public;static;final"/>  
+    <variable name="bg" type="Color" modifiers="private;static;final"/>  
+    <method name="InterfaceClassRole" return_type="*NULL*" modifiers="public" constructor="true"/>  
+    <method name="getRoleName" return_type="String" modifiers="public" constructor="false"/>  
+    <method name="getStereotypeLabel" return_type="String" modifiers="public" constructor="false"/>  
+    <method name="getBackgroundPaint" return_type="Paint" modifiers="public" constructor="false"> 
+      <parameter name="width" type="int"/>  
+      <parameter name="height" type="int"/> 
+    </method>  
+    <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/ClsMemberRecorderRole</extends>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/RoleColor"/>  
+    <relation/> 
+  </class>  
+  <class name="CrateClassRole" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/CrateClassRole" abstract="false" pos_x="688" pos_y="234" size_w="120" size_h="80" visible="true"> 
+    <variable name="CRATE_ROLE_NAME" type="String" modifiers="public;static;final"/>  
+    <method name="getRoleName" return_type="String" modifiers="public" constructor="false"/>  
+    <method name="getStereotypeLabel" return_type="String" modifiers="public" constructor="false"/>  
+    <method name="getBackgroundPaint" return_type="Paint" modifiers="public" constructor="false"> 
+      <parameter name="width" type="int"/>  
+      <parameter name="height" type="int"/> 
+    </method>  
+    <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/StdClassRole</extends>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/RoleColor"/>  
+    <relation/> 
+  </class>  
+  <class name="SingletonClassRole" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/SingletonClassRole" abstract="false" pos_x="104" pos_y="234" size_w="149" size_h="80" visible="true"> 
+    <variable name="SINGLETON_ROLE_NAME" type="String" modifiers="public;static;final"/>  
+    <method name="getRoleName" return_type="String" modifiers="public" constructor="false"/>  
+    <method name="getStereotypeLabel" return_type="String" modifiers="public" constructor="false"/>  
+    <method name="getBackgroundPaint" return_type="Paint" modifiers="public" constructor="false"> 
+      <parameter name="width" type="int"/>  
+      <parameter name="height" type="int"/> 
+    </method>  
+    <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/StdClassRole</extends>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/RoleColor"/>  
+    <relation/> 
+  </class>  
+  <class name="AbstractClassRole" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/AbstractClassRole" abstract="false" pos_x="437" pos_y="364" size_w="140" size_h="80" visible="true"> 
+    <variable name="ABSTRACT_ROLE_NAME" type="String" modifiers="public;static;final"/>  
+    <variable name="bg" type="Color" modifiers="private;static;final"/>  
+    <method name="AbstractClassRole" return_type="*NULL*" modifiers="public" constructor="true"/>  
+    <method name="getRoleName" return_type="String" modifiers="public" constructor="false"/>  
+    <method name="getStereotypeLabel" return_type="String" modifiers="public" constructor="false"/>  
+    <method name="getBackgroundPaint" return_type="Paint" modifiers="public" constructor="false"> 
+      <parameter name="width" type="int"/>  
+      <parameter name="height" type="int"/> 
+    </method>  
+    <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/ClsMemberRecorderRole</extends>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/RoleColor"/>  
+    <relation/> 
+  </class>  
+  <class name="PackageRole" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/PackageRole" abstract="false" pos_x="259" pos_y="494" size_w="103" size_h="80" visible="true"> 
+    <variable name="CLASS_ROLE_NAME" type="String" modifiers="public;static;final"/>  
+    <method name="getStereotypeLabel" return_type="String" modifiers="public" constructor="false"/>  
+    <method name="getBackgroundPaint" return_type="Paint" modifiers="public" constructor="false"> 
+      <parameter name="width" type="int"/>  
+      <parameter name="height" type="int"/> 
+    </method>  
+    <method name="getRoleName" return_type="String" modifiers="public" constructor="false"/>  
+    <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/ClassRole</extends>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/RoleColor"/>  
+    <relation/> 
+  </class>  
+  <class name="StdClassRole" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/StdClassRole" abstract="false" pos_x="104" pos_y="494" size_w="105" size_h="80" visible="true"> 
+    <method name="StdClassRole" return_type="*NULL*" modifiers="public" constructor="true"/>  
+    <method name="getRoleName" return_type="String" modifiers="public" constructor="false"/>  
+    <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/ClsMemberRecorderRole</extends> 
+  </class>  
+  <class name="ModuleRole" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/ModuleRole" abstract="false" pos_x="287" pos_y="364" size_w="100" size_h="80" visible="true"> 
+    <variable name="CLASS_ROLE_NAME" type="String" modifiers="public;static;final"/>  
+    <variable name="bg" type="Color" modifiers="private;static;final"/>  
+    <method name="getStereotypeLabel" return_type="String" modifiers="public" constructor="false"/>  
+    <method name="getBackgroundPaint" return_type="Paint" modifiers="public" constructor="false"> 
+      <parameter name="width" type="int"/>  
+      <parameter name="height" type="int"/> 
+    </method>  
+    <method name="getRoleName" return_type="String" modifiers="public" constructor="false"/>  
+    <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/ClassRole</extends>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/RoleColor"/>  
+    <relation/> 
+  </class>  
+  <class name="ClassRole" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/ClassRole" abstract="true" pos_x="220" pos_y="104" size_w="100" size_h="80" visible="true"> 
+    <variable name="CLASS_ROLE_NAME" type="String" modifiers="public;static;final"/>  
+    <variable name="ct" type="ClassTarget" modifiers="private"/>  
+    <variable name="bg" type="Color" modifiers="private;static;final"/>  
+    <method name="getRoleName" return_type="String" modifiers="public" constructor="false"/>  
+    <method name="getBackgroundPaint" return_type="Paint" modifiers="public" constructor="false"> 
+      <parameter name="width" type="int"/>  
+      <parameter name="height" type="int"/> 
+    </method>  
+    <method name="getStereotypeLabel" return_type="String" modifiers="public" constructor="false"/>  
+    <method name="setClassTarget" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="ct" type="ClassTarget"/> 
+    </method>  
+    <method name="getClassTarget" return_type="ClassTarget" modifiers="public" constructor="false"/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/RoleColor"/>  
+    <relation/>  
+    <relation/> 
+  </class>  
+  <class name="LibraryClassRole" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/LibraryClassRole" abstract="false" pos_x="412" pos_y="494" size_w="130" size_h="80" visible="true"> 
+    <variable name="LIBRARY_ROLE_NAME" type="String" modifiers="public;static;final"/>  
+    <method name="getRoleName" return_type="String" modifiers="public" constructor="false"/>  
+    <method name="getStereotypeLabel" return_type="String" modifiers="public" constructor="false"/>  
+    <method name="getBackgroundPaint" return_type="Paint" modifiers="public" constructor="false"> 
+      <parameter name="width" type="int"/>  
+      <parameter name="height" type="int"/> 
+    </method>  
+    <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/StdClassRole</extends>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/RoleColor"/> 
+  </class>  
+  <class name="RoleUtils" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/RoleUtils" abstract="false" pos_x="70" pos_y="104" size_w="100" size_h="80" visible="true"> 
+    <variable name="spaces" type="String" modifiers="private;static;final"/>  
+    <method name="RoleUtils" return_type="*NULL*" modifiers="private" constructor="true"/>  
+    <method name="getIndentString" return_type="String" modifiers="public;static" constructor="false"/>  
+    <relation/> 
+  </class>  
+  <class name="ClsMemberRecorderRole" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/ClsMemberRecorderRole" abstract="true" pos_x="541" pos_y="104" size_w="190" size_h="80" visible="true"> 
+    <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/ClassRole</extends> 
+  </class>  
+  <class name="UnitTestClassRole" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/UnitTestClassRole" abstract="false" pos_x="303" pos_y="234" size_w="140" size_h="80" visible="true"> 
+    <variable name="UNITTEST_ROLE_NAME" type="String" modifiers="public;static;final"/>  
+    <variable name="UNITTEST_ROLE_NAME_JUNIT4" type="String" modifiers="public;static;final"/>  
+    <variable name="bg" type="Color" modifiers="private;static;final"/>  
+    <variable name="isJunit4" type="boolean" modifiers="private"/>  
+    <method name="UnitTestClassRole" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="isJunit4" type="boolean"/> 
+    </method>  
+    <method name="getRoleName" return_type="String" modifiers="public" constructor="false"/>  
+    <method name="getStereotypeLabel" return_type="String" modifiers="public" constructor="false"/>  
+    <method name="getBackgroundPaint" return_type="Paint" modifiers="public" constructor="false"> 
+      <parameter name="width" type="int"/>  
+      <parameter name="height" type="int"/> 
+    </method>  
+    <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/ClsMemberRecorderRole</extends>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/RoleColor"/>  
+    <relation/>  
+    <relation/>  
+    <relation/> 
+  </class> 
+</package>

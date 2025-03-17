@@ -1,6 +1,6 @@
 package com.thesis.diagramplugin.testClasses;
 
-public class TestingKopenograms extends Vehicle{
+public class TestingKopenograms extends Vehicle implements Iface{
     private int testingReturnAndVeryVeryVeryExtremlyLongName(int a)
     {
         if(a > 3)
@@ -117,4 +117,8 @@ public class TestingKopenograms extends Vehicle{
         return 5;
     }
 
+    @Override
+    public void hi() {
+
+    }
 }

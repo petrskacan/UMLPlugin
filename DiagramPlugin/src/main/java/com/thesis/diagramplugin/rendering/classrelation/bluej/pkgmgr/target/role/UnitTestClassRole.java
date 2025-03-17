@@ -21,8 +21,10 @@
  */
 package com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role;
 
-import java.awt.Color;
-import java.awt.Paint;
+import com.intellij.openapi.application.ApplicationManager;
+import com.thesis.diagramplugin.settings.PluginSettingsService;
+
+import java.awt.*;
 
 /**
  * A role object for Junit unit tests.
@@ -68,6 +70,8 @@ public class UnitTestClassRole extends ClsMemberRecorderRole {
      */
     @Override
     public Paint getBackgroundPaint(int width, int height) {
-        return bg;
+        PluginSettingsService settingsService = ApplicationManager.getApplication().getService(PluginSettingsService.class);
+        return (settingsService != null) ? settingsService.getColor(RoleColor.UNIT_TEST_CLASS_ROLE) : RoleColor.UNIT_TEST_CLASS_ROLE.getColor();
+
     }
 }

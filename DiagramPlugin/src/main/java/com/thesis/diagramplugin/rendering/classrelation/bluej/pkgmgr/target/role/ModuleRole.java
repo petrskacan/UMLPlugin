@@ -1,6 +1,7 @@
 package com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role;
 
-import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.ClassTarget;
+import com.intellij.openapi.application.ApplicationManager;
+import com.thesis.diagramplugin.settings.PluginSettingsService;
 
 import java.awt.*;
 
@@ -17,7 +18,9 @@ public class ModuleRole extends ClassRole {
 
     @Override
     public Paint getBackgroundPaint(int width, int height) {
-        return new Color(153, 254, 255);
+        PluginSettingsService settingsService = ApplicationManager.getApplication().getService(PluginSettingsService.class);
+        return (settingsService != null) ? settingsService.getColor(RoleColor.MODULE_ROLE) : RoleColor.MODULE_ROLE.getColor();
+
     }
 
     @Override

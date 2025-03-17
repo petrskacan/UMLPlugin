@@ -1,7 +1,7 @@
 
 
 group = "com.thesis"
-version = "1.0.49-beta"
+version = "1.0.58-beta"
 
 plugins {
     id("java")
@@ -28,6 +28,7 @@ intellij {
     type.set(ideType)
     version.set(ideaVersion)
     pluginName.set("DiagramPlugin")
+    updateSinceUntilBuild.set(false)
 
     if (ideType == "PC") {
         plugins.add("python-ce")
@@ -78,7 +79,7 @@ tasks {
         changeNotes.set("""
         <ul>
             <li>XML should be automaticaly cahnged when creating new class diagram</li>            
-            <li>Interfaces now correctly display inheritance</li>
+            <li>Customization for color in settings</li>
             <li>KNOWN ISSUE - NO SUPPORT FOR 243</li>
         </ul>
     """.trimIndent())
