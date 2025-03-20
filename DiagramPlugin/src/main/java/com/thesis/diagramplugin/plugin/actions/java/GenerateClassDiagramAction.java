@@ -8,9 +8,11 @@ import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.vfs.VfsUtil;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.vfs.VirtualFileManager;
-import com.intellij.psi.*;
-import com.thesis.diagramplugin.plugin.editors.ClassDiagramEditor;
+import com.intellij.psi.PsiDirectory;
+import com.intellij.psi.PsiElement;
+import com.intellij.psi.PsiManager;
 import com.thesis.diagramplugin.parser.JavaDiagramParser;
+import com.thesis.diagramplugin.plugin.editors.ClassDiagramEditor;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;

@@ -10,8 +10,8 @@ import com.intellij.openapi.vfs.VirtualFileManager;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiMethod;
 import com.intellij.testFramework.LightVirtualFile;
-import com.thesis.diagramplugin.plugin.editors.KopenogramEditor;
 import com.thesis.diagramplugin.parser.JavaDiagramParser;
+import com.thesis.diagramplugin.plugin.editors.KopenogramEditor;
 
 import java.io.File;
 

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<package name="com.thesis.diagramplugin.plugin.editors" path="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/plugin/editors" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/plugin/editors/com.thesis.diagramplugin.plugin.editors" pos_x="30" pos_y="30" size_w="390" size_h="324" visible="true"> 
+  <class name="DiagramEditor" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/plugin/editors/com.thesis.diagramplugin.plugin.editors/DiagramEditor" abstract="true" pos_x="70" pos_y="104" size_w="111" size_h="80" visible="true"> 
+    <variable name="TITLE" type="Key&lt;String&gt;" modifiers="public;static;final"/>  
+    <variable name="xmlFile" type="VirtualFile" modifiers="protected;final"/>  
+    <variable name="name" type="String" modifiers="protected"/>  
+    <method name="DiagramEditor" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="xmlFile" type="VirtualFile"/> 
+    </method>  
+    <method name="init" return_type="void" modifiers="public;abstract" constructor="false"/>  
+    <method name="getPreferredFocusedComponent" return_type="JComponent" modifiers="public" constructor="false"/>  
+    <method name="getName" return_type="String" modifiers="public" constructor="false"/>  
+    <method name="setState" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="state" type="FileEditorState"/> 
+    </method>  
+    <method name="isModified" return_type="boolean" modifiers="public" constructor="false"/>  
+    <method name="isValid" return_type="boolean" modifiers="public" constructor="false"/>  
+    <method name="addPropertyChangeListener" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="listener" type="PropertyChangeListener"/> 
+    </method>  
+    <method name="removePropertyChangeListener" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="listener" type="PropertyChangeListener"/> 
+    </method>  
+    <method name="getFile" return_type="VirtualFile" modifiers="public" constructor="false"/>  
+    <relation/> 
+  </class>  
+  <class name="ClassDiagramEditor" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/plugin/editors/com.thesis.diagramplugin.plugin.editors/ClassDiagramEditor" abstract="false" pos_x="231" pos_y="104" size_w="149" size_h="80" visible="true"> 
+    <variable name="diagramView" type="ClassDiagramView" modifiers="private"/>  
+    <variable name="diagramModel" type="ClassDiagramModelPackage" modifiers="private"/>  
+    <variable name="document" type="Document" modifiers="private"/>  
+    <method name="ClassDiagramEditor" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="xmlFile" type="VirtualFile"/> 
+    </method>  
+    <method name="init" return_type="void" modifiers="public" constructor="false"/>  
+    <method name="save" return_type="void" modifiers="private" constructor="false"/>  
+    <method name="buildElementIdMap" return_type="void" modifiers="private" constructor="false"> 
+      <parameter name="element" type="Element"/>  
+      <parameter name="idMap" type="Map&lt;String, Element&gt;"/> 
+    </method>  
+    <method name="dispose" return_type="void" modifiers="public" constructor="false"/>  
+    <method name="update" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="newFile" type="String"/> 
+    </method>  
+    <method name="getComponent" return_type="JComponent" modifiers="public" constructor="false"/>  
+    <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/plugin/editors/com.thesis.diagramplugin.plugin.editors/DiagramEditor</extends>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/> 
+  </class>  
+  <class name="KopenogramEditor" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/plugin/editors/com.thesis.diagramplugin.plugin.editors/KopenogramEditor" abstract="false" pos_x="104" pos_y="234" size_w="144" size_h="80" visible="true"> 
+    <variable name="diagramView" type="KopenogramView" modifiers="private"/>  
+    <method name="KopenogramEditor" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="xmlFile" type="VirtualFile"/> 
+    </method>  
+    <method name="init" return_type="void" modifiers="public" constructor="false"/>  
+    <method name="dispose" return_type="void" modifiers="public" constructor="false"/>  
+    <method name="getComponent" return_type="JComponent" modifiers="public" constructor="false"/>  
+    <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/plugin/editors/com.thesis.diagramplugin.plugin.editors/DiagramEditor</extends>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/> 
+  </class> 
+</package>

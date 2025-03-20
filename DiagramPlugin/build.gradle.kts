@@ -1,4 +1,4 @@
-val ver = "1.1.1-beta"
+val ver = "1.1.7-beta"
 group = "com.thesis"
 version = ver
 
@@ -41,8 +41,8 @@ dependencies {
 
     implementation("com.github.javaparser:javaparser-symbol-solver-core:3.26.3")
     implementation("org.dom4j:dom4j:2.1.4")
-    compileOnly("org.projectlombok:lombok:1.18.28")
-    annotationProcessor("org.projectlombok:lombok:1.18.28")
+    compileOnly("org.projectlombok:lombok:1.18.36")
+    annotationProcessor("org.projectlombok:lombok:1.18.36")
 
     testImplementation("org.junit.jupiter:junit-jupiter:5.7.1")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
@@ -104,11 +104,7 @@ intellijPlatform {
     }
 }
 
-java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17)) // IntelliJ 2024.3 requires Java 21
-    }
-}
+
 
 tasks.named<Test>("test") {
     useJUnitPlatform()
@@ -130,4 +126,3 @@ tasks.clean {
         file("build").deleteRecursively()
     }
 }
-

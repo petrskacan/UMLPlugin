@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<method name="update" return_type="void">
+  <parameters>
+    <parameter name="anActionEvent" type="com.intellij.openapi.actionSystem.AnActionEvent"/>
+  </parameters>
+  <body>
+    <declaration>com.intellij.openapi.project.Project project = anActionEvent.getProject()</declaration>
+    <declaration>com.intellij.openapi.vfs.VirtualFile virtualFile = anActionEvent.getDataContext().getData(CommonDataKeys.VIRTUAL_FILE)</declaration>
+    <if condition="virtualFile != null &amp;&amp; project != null">
+      <then>
+        <block>
+          <declaration>com.intellij.psi.PsiDirectory psiDirectory = Optional.of(PsiManager.getInstance(project)).map(fm -&gt; fm.findDirectory(virtualFile)).orElse(null)</declaration>
+          <if condition="psiDirectory != null">
+            <then>
+              <block>
+                <declaration>boolean isJavaProject = Arrays.stream(psiDirectory.getFiles()).anyMatch(file -&gt; file.getName().endsWith(".java"))</declaration>
+                <expression>anActionEvent.getPresentation().setEnabledAndVisible(isJavaProject);</expression>
+                <return/>
+              </block>
+            </then>
+          </if>
+        </block>
+      </then>
+    </if>
+    <expression>anActionEvent.getPresentation().setEnabledAndVisible(false);</expression>
+  </body>
+</method>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <package name="com.thesis.diagramplugin.testClasses" path="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses" pos_x="30" pos_y="30" size_w="576" size_h="324" visible="true"> 
-  <interface name="Iface2" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Iface2" abstract="false" pos_x="466" pos_y="234" size_w="100" size_h="80" visible="true"> 
+  <interface name="Iface2" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Iface2" abstract="false" pos_x="476" pos_y="234" size_w="100" size_h="80" visible="true"> 
     <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Iface</extends> 
   </interface>  
   <class name="Vehicle" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Vehicle" abstract="false" pos_x="104" pos_y="234" size_w="100" size_h="80" visible="true"> 

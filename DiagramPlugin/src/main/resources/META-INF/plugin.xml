@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>com.thesis.DiagramPlugin</id>
     <name>DiagramPlugin</name>
-    <vendor email="skap04@vse.cz" url="www.vse.cz">University of economics in Prague</vendor>
+    <vendor email="skap04@vse.cz" url="https://www.vse.cz">University of economics in Prague</vendor>
 
     <description>Plugin for generating and displaying class diagrams and kopenograms of source code written in Java or Python</description>
 

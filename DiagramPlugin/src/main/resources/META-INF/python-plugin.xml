@@ -1,12 +1,20 @@
 <idea-plugin>
     <actions>
-        <action id="GenerateClassDiagramPython" class="com.thesis.diagramplugin.plugin.actions.python.GenerateClassDiagramAction"
-                text="Generate Class Diagram of Python sources">
-            <add-to-group group-id="ProjectViewPopupMenu" anchor="first"/>
-        </action>
-        <action id="GenerateKopenogramPython" class="com.thesis.diagramplugin.plugin.actions.python.GenerateKopenogramAction"
-                text="Generate Kopenogram of Python function">
-            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
-        </action>
+        <group>
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
+            <separator/>
+            <action id="GenerateClassDiagramPython"
+                    class="com.thesis.diagramplugin.plugin.actions.python.GenerateClassDiagramAction"
+                    text="Generate Class Diagram of Python sources">
+            </action>
+        </group>
+        <group>
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+            <separator/>
+            <action id="GenerateKopenogramPython"
+                    class="com.thesis.diagramplugin.plugin.actions.python.GenerateKopenogramAction"
+                    text="Generate Kopenogram of Python function">
+            </action>
+        </group>
     </actions>
 </idea-plugin>
