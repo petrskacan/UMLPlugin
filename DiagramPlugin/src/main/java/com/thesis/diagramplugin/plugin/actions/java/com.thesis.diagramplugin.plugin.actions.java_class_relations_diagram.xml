@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<package name="com.thesis.diagramplugin.plugin.actions.java" path="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/plugin/actions/java" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/plugin/actions/java/com.thesis.diagramplugin.plugin.actions.java" pos_x="30" pos_y="30" size_w="544" size_h="414" visible="true"> 
+  <class name="GenerateClassDiagramAction" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/plugin/actions/java/com.thesis.diagramplugin.plugin.actions.java/GenerateClassDiagramAction" abstract="false" pos_x="104" pos_y="234" size_w="217" size_h="80" visible="true"> 
+    <method name="actionPerformed" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="anActionEvent" type="AnActionEvent"/> 
+    </method>  
+    <method name="update" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="anActionEvent" type="AnActionEvent"/> 
+    </method>  
+    <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/plugin/actions/java/com.thesis.diagramplugin.plugin.actions.java/ADiagramAction</extends>  
+    <relation/> 
+  </class>  
+  <class name="GenerateKopenogramAction" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/plugin/actions/java/com.thesis.diagramplugin.plugin.actions.java/GenerateKopenogramAction" abstract="false" pos_x="70" pos_y="104" size_w="212" size_h="80" visible="true"> 
+    <method name="actionPerformed" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="e" type="AnActionEvent"/> 
+    </method>  
+    <method name="update" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="e" type="AnActionEvent"/> 
+    </method>  
+    <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/plugin/actions/java/com.thesis.diagramplugin.plugin.actions.java/ADiagramAction</extends>  
+    <relation/> 
+  </class>  
+  <class name="ADiagramAction" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/plugin/actions/java/com.thesis.diagramplugin.plugin.actions.java/ADiagramAction" abstract="true" pos_x="332" pos_y="104" size_w="122" size_h="80" visible="true"> 
+    <method name="getDirectory" return_type="PsiDirectory" modifiers="protected" constructor="false"> 
+      <parameter name="element" type="PsiElement"/> 
+    </method>  
+    <method name="openDiagramWindow" return_type="FileEditor[]" modifiers="public" constructor="false"> 
+      <parameter name="editorCls" type="Class&lt;? extends DiagramEditor&gt;"/>  
+      <parameter name="project" type="Project"/>  
+      <parameter name="virtualFile" type="VirtualFile"/>  
+      <parameter name="b" type="boolean"/> 
+    </method>  
+    <method name="getActionUpdateThread" return_type="ActionUpdateThread" modifiers="public" constructor="false"/> 
+  </class> 
+</package>

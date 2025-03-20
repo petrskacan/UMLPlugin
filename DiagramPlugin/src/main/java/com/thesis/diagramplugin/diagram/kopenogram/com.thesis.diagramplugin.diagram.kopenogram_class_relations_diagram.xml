@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<package name="com.thesis.diagramplugin.diagram.kopenogram" path="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/diagram/kopenogram" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/diagram/kopenogram/com.thesis.diagramplugin.diagram.kopenogram" pos_x="30" pos_y="30" size_w="476" size_h="194" visible="true"> 
+  <class name="KopenogramView" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/diagram/kopenogram/com.thesis.diagramplugin.diagram.kopenogram/KopenogramView" abstract="false" pos_x="331" pos_y="104" size_w="135" size_h="80" visible="true"> 
+    <variable name="frame" type="JComponent" modifiers="private;final"/>  
+    <variable name="name" type="String" modifiers="private;final"/>  
+    <variable name="builder" type="KopenogramXmlViewBuilder" modifiers="private;final"> 
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/diagram/kopenogram/com.thesis.diagramplugin.diagram.kopenogram/KopenogramXmlViewBuilder"/> 
+    </variable>  
+    <method name="KopenogramView" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="diagramXml" type="String"/> 
+    </method>  
+    <method name="getView" return_type="JComponent" modifiers="public" constructor="false"/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/diagram/kopenogram/com.thesis.diagramplugin.diagram.kopenogram/KopenogramXmlViewBuilder"/>  
+    <relation/> 
+  </class>  
+  <class name="KopenogramXmlViewBuilder" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/diagram/kopenogram/com.thesis.diagramplugin.diagram.kopenogram/KopenogramXmlViewBuilder" abstract="false" pos_x="70" pos_y="104" size_w="211" size_h="80" visible="true"> 
+    <variable name="view" type="JComponent" modifiers="private"/>  
+    <variable name="name" type="String" modifiers="private"/>  
+    <variable name="maxChars" type="int" modifiers="private"/>  
+    <variable name="root" type="RootPainter" modifiers="private"/>  
+    <variable name="parents" type="List&lt;PaintedNode&gt;" modifiers="private;final"/>  
+    <variable name="loopElements" type="List&lt;String&gt;" modifiers="private;final"/>  
+    <method name="KopenogramXmlViewBuilder" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="diagramXml" type="String"/> 
+    </method>  
+    <method name="buildView" return_type="JComponent" modifiers="public" constructor="false"> 
+      <parameter name="diagramXml" type="String"/> 
+    </method>  
+    <method name="processElement" return_type="PainterElement" modifiers="private" constructor="false"> 
+      <parameter name="element" type="Element"/> 
+    </method>  
+    <method name="processTag" return_type="PainterElement" modifiers="private" constructor="false"> 
+      <parameter name="element" type="Element"/> 
+    </method>  
+    <method name="buildDeclarationElement" return_type="PainterElement" modifiers="private" constructor="false"> 
+      <parameter name="declarationElement" type="Element"/> 
+    </method>  
+    <method name="buildTryElement" return_type="PainterElement" modifiers="private" constructor="false"> 
+      <parameter name="tryElement" type="Element"/> 
+    </method>  
+    <method name="buildThrowElement" return_type="PainterElement" modifiers="private" constructor="false"> 
+      <parameter name="throwElement" type="Element"/> 
+    </method>  
+    <method name="buildSynchronizedElement" return_type="PainterElement" modifiers="private" constructor="false"> 
+      <parameter name="synchronizedElement" type="Element"/> 
+    </method>  
+    <method name="buildSwitchElement" return_type="PainterElement" modifiers="private" constructor="false"> 
+      <parameter name="switchElement" type="Element"/> 
+    </method>  
+    <method name="buildReturnElement" return_type="PainterElement" modifiers="private" constructor="false"> 
+      <parameter name="returnElement" type="Element"/> 
+    </method>  
+    <method name="buildLabelElement" return_type="PainterElement" modifiers="private" constructor="false"> 
+      <parameter name="labelElement" type="Element"/> 
+    </method>  
+    <method name="buildIfElement" return_type="PainterElement" modifiers="private" constructor="false"> 
+      <parameter name="ifElement" type="Element"/> 
+    </method>  
+    <method name="buildForLoopBody" return_type="BarWithBody" modifiers="private" constructor="false"> 
+      <parameter name="loopElement" type="Element"/>  
+      <parameter name="text" type="String"/> 
+    </method>  
+    <method name="buildForLoopElement" return_type="PainterElement" modifiers="private" constructor="false"> 
+      <parameter name="forLoopElement" type="Element"/> 
+    </method>  
+    <method name="buildForeachLoopElement" return_type="PainterElement" modifiers="private" constructor="false"> 
+      <parameter name="foreachElement" type="Element"/> 
+    </method>  
+    <method name="buildExpressionElement" return_type="PainterElement" modifiers="private" constructor="false"> 
+      <parameter name="expressionElement" type="Element"/> 
+    </method>  
+    <method name="buildEmptyStatementElement" return_type="PainterElement" modifiers="private" constructor="false"/>  
+    <method name="buildDoWhileLoopElement" return_type="PainterElement" modifiers="private" constructor="false"> 
+      <parameter name="doWhileElement" type="Element"/> 
+    </method>  
+    <method name="buildWhileLoopElement" return_type="PainterElement" modifiers="private" constructor="false"> 
+      <parameter name="whileElement" type="Element"/> 
+    </method>  
+    <method name="buildContinueElement" return_type="PainterElement" modifiers="private" constructor="false"> 
+      <parameter name="continueElement" type="Element"/> 
+    </method>  
+    <method name="buildBreakElement" return_type="PainterElement" modifiers="private" constructor="false"> 
+      <parameter name="breakElement" type="Element"/> 
+    </method>  
+    <method name="buildBlockElement" return_type="PainterElement" modifiers="private" constructor="false"> 
+      <parameter name="blockElement" type="Element"/> 
+    </method>  
+    <method name="buildMethodElement" return_type="PainterElement" modifiers="private" constructor="false"> 
+      <parameter name="methodElement" type="Element"/> 
+    </method>  
+    <method name="processBlock" return_type="PainterElement" modifiers="private" constructor="false"> 
+      <parameter name="blockElement" type="Element"/> 
+    </method>  
+    <method name="findLabeledParent" return_type="PaintedNode" modifiers="protected" constructor="false"> 
+      <parameter name="label" type="String"/> 
+    </method>  
+    <method name="setAvoidElements" return_type="void" modifiers="protected" constructor="false"> 
+      <parameter name="elem" type="AvoidableContainer"/>  
+      <parameter name="avoid" type="List&lt;? extends OverPainterElement&gt;"/> 
+    </method>  
+    <method name="save" return_type="void" modifiers="public" constructor="false"/>  
+    <method name="open" return_type="void" modifiers="public" constructor="false"/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/> 
+  </class> 
+</package>

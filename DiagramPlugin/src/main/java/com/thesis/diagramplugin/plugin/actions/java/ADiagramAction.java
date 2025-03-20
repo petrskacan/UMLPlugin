@@ -1,5 +1,6 @@
 package com.thesis.diagramplugin.plugin.actions.java;
 
+import com.intellij.openapi.actionSystem.ActionUpdateThread;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.fileEditor.FileEditor;
 import com.intellij.openapi.fileEditor.FileEditorManager;
@@ -32,5 +33,9 @@ public abstract class ADiagramAction extends AnAction {
         virtualFile.refresh(false, true);
         FileEditorManager.getInstance(project).closeFile(virtualFile);
         return FileEditorManager.getInstance(project).openFile(virtualFile, b);
+    }
+    @Override
+    public ActionUpdateThread getActionUpdateThread() {
+        return ActionUpdateThread.BGT;
     }
 }

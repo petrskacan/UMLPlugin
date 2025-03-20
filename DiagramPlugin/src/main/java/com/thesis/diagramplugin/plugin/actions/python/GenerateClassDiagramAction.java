@@ -5,13 +5,11 @@ import com.intellij.ide.plugins.PluginManager;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
 import com.intellij.openapi.actionSystem.PlatformDataKeys;
-import com.intellij.openapi.application.Application;
 import com.intellij.openapi.application.ApplicationInfo;
-import com.intellij.openapi.application.ApplicationManager;
+import com.intellij.openapi.module.Module;
+import com.intellij.openapi.module.ModuleManager;
 import com.intellij.openapi.project.Project;
-
 import com.intellij.openapi.projectRoots.Sdk;
-import com.intellij.openapi.roots.ProjectRootManager;
 import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.vfs.VfsUtil;
 import com.intellij.openapi.vfs.VirtualFile;
@@ -20,6 +18,7 @@ import com.intellij.psi.PsiDirectory;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiManager;
 import com.jetbrains.python.sdk.PythonSdkType;
+import com.jetbrains.python.sdk.PythonSdkUtil;
 import com.thesis.diagramplugin.parser.PythonDiagramParser;
 import com.thesis.diagramplugin.plugin.actions.java.ADiagramAction;
 import com.thesis.diagramplugin.plugin.editors.ClassDiagramEditor;
@@ -91,7 +90,8 @@ public class GenerateClassDiagramAction extends ADiagramAction {
 
         // Check if the SDK is a Python SDK
         PythonSdkType pythonSdkType = PythonSdkType.getInstance();
-        Sdk projectSdk = ProjectRootManager.getInstance(project).getProjectSdk();
+        Module module = ModuleManager.getInstance(project).getModules()[0];
+        Sdk projectSdk = PythonSdkUtil.findPythonSdk(module);
 
         if (projectSdk == null || !pythonSdkType.equals(projectSdk.getSdkType())) {
             // Python interpreter is not set up for the project

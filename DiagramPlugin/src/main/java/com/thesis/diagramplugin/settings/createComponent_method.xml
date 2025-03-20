@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<method name="createComponent" return_type="javax.swing.JComponent">
+  <parameters/>
+  <body>
+    <expression>settingsPanel = new PluginSettingsPanel();</expression>
+    <return>settingsPanel.getPanel()</return>
+  </body>
+</method>

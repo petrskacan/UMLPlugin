@@ -1,5 +1,7 @@
 package com.thesis.diagramplugin.plugin.providers;
 
+import com.intellij.openapi.application.ApplicationManager;
+import com.intellij.openapi.application.ModalityState;
 import com.intellij.openapi.fileEditor.FileEditor;
 import com.intellij.openapi.fileEditor.FileEditorManager;
 import com.intellij.openapi.fileEditor.FileEditorPolicy;
@@ -8,7 +10,6 @@ import com.intellij.openapi.project.DumbAware;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.thesis.diagramplugin.plugin.editors.ClassDiagramEditor;
-import com.thesis.diagramplugin.plugin.editors.DiagramEditor;
 import com.thesis.diagramplugin.utils.DiagramConstants;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
@@ -35,7 +36,11 @@ public class ClassDiagramViewProvider implements FileEditorProvider, DumbAware {
             editor = Arrays.stream(openedEditors).filter(ClassDiagramEditor.class::isInstance).findFirst().map(ClassDiagramEditor.class::cast)
                     .orElse(new ClassDiagramEditor(file));
 
-                file.refresh(false, true);
+            ApplicationManager.getApplication().invokeLater(() -> {
+                if (file != null) {
+                    file.refresh(false, false); // Safe refresh
+                }
+            }, ModalityState.defaultModalityState()); // Ensures correct modality
             editor.init();
             return editor;
         } catch (IOException e) {

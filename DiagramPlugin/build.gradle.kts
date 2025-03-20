@@ -1,7 +1,7 @@
 
 
 group = "com.thesis"
-version = "1.1.0"
+version = "1.1.17-beta"
 
 plugins {
     id("java")
@@ -33,7 +33,10 @@ intellij {
     if (ideType == "PC") {
         plugins.add("python-ce")
     } else if (ideType == "PY") {
+        plugins.add("PythonCore:223.8617.56")
+        plugins.add("Pythonid:231.8770.65")
         plugins.add("python")
+        plugins.add("python-ce")
     } else if (ideType == "IC") {
         plugins.add("java")
         plugins.add("PythonCore:223.8617.56")
