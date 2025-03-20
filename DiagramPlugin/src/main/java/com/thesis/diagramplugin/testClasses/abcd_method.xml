@@ -7,7 +7,7 @@
     <try>
       <try_block>
         <declaration>int[] pole = new int[5]</declaration>
-        <expression>System.out.println(pole[10]); // Vyvolá ArrayIndexOutOfBoundsException</expression>
+        <expression>System.out.println(pole[10]);</expression>
       </try_block>
       <catch exceptions="java.lang.Exception">
         <catch_block>
@@ -28,6 +28,6 @@
         </finally_block>
       </finally>
     </try>
-    <return>5</return>
+    <return>a</return>
   </body>
 </method>

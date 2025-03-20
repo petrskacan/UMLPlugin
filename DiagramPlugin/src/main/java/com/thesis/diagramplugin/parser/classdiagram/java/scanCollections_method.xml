@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<method name="scanCollections" return_type="java.util.HashSet&lt;com.sun.source.tree.Tree&gt;">
+  <parameters>
+    <parameter name="fieldType" type="com.sun.source.tree.Tree"/>
+  </parameters>
+  <body>
+    <declaration>java.util.HashSet&lt;com.sun.source.tree.Tree&gt; pointers = new HashSet&lt;&gt;()</declaration>
+    <if condition="fieldType == null">
+      <then>
+        <return>pointers</return>
+      </then>
+    </if>
+    <if condition="fieldType.getKind().equals(Tree.Kind.PARAMETERIZED_TYPE)">
+      <then>
+        <block>
+          <declaration>com.sun.source.tree.ParameterizedTypeTree parametrizedReturnType = (ParameterizedTypeTree) fieldType</declaration>
+          <foreach iter_param="argument" iter_type="com.sun.source.tree.Tree" iter_value="parametrizedReturnType.getTypeArguments()">
+            <block>
+              <expression>pointers.add(argument);</expression>
+              <expression>pointers.addAll(scanCollections(argument));</expression>
+            </block>
+          </foreach>
+          <expression>pointers.add(parametrizedReturnType.getType());</expression>
+        </block>
+      </then>
+      <else>
+        <if condition="fieldType.getKind().equals(Tree.Kind.ARRAY_TYPE)">
+          <then>
+            <block>
+              <declaration>com.sun.source.tree.ArrayTypeTree arrayReturnType = (ArrayTypeTree) fieldType</declaration>
+              <expression>pointers.add(arrayReturnType.getType());</expression>
+            </block>
+          </then>
+          <else>
+            <block>
+              <expression>pointers.add(fieldType);</expression>
+            </block>
+          </else>
+        </if>
+      </else>
+    </if>
+    <return>pointers</return>
+  </body>
+</method>

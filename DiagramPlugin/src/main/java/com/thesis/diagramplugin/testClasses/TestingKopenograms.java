@@ -100,9 +100,8 @@ public class TestingKopenograms extends Vehicle implements Iface{
     public int abcd() {
         int a = 5;
         try {
-            // Nějaký riskantní kód
             int[] pole = new int[5];
-            System.out.println(pole[10]); // Vyvolá ArrayIndexOutOfBoundsException
+            System.out.println(pole[10]);
         } catch (Exception e) {
             System.out.println("Nastala chyba: " + e.getMessage());
         }
@@ -114,7 +113,7 @@ public class TestingKopenograms extends Vehicle implements Iface{
                 a--;
             }
         }
-        return 5;
+        return a;
     }
 
     @Override

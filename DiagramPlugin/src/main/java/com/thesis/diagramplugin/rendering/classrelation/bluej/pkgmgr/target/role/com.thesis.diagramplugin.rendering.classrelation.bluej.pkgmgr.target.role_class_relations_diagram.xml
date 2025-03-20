@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<package name="com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role" path="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role" pos_x="30" pos_y="30" size_w="818" size_h="584" visible="true"> 
-  <class name="EnumClassRole" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/EnumClassRole" abstract="false" pos_x="370" pos_y="104" size_w="121" size_h="80" visible="true"> 
+<package name="com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role" path="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role" pos_x="50" pos_y="0" size_w="928" size_h="784" visible="true"> 
+  <class name="EnumClassRole" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/EnumClassRole" abstract="false" pos_x="390" pos_y="74" size_w="121" size_h="80" visible="true"> 
     <variable name="ENUM_ROLE_NAME" type="String" modifiers="public;static;final"/>  
     <variable name="bg" type="Color" modifiers="private;static;final"/>  
     <method name="EnumClassRole" return_type="*NULL*" modifiers="public" constructor="true"/>  
@@ -15,7 +15,7 @@
     <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/RoleColor"/>  
     <relation/> 
   </class>  
-  <enum name="RoleColor" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/RoleColor" abstract="false" pos_x="647" pos_y="454" size_w="100" size_h="80" visible="true"> 
+  <enum name="RoleColor" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/RoleColor" abstract="false" pos_x="647" pos_y="334" size_w="100" size_h="80" visible="true"> 
     <variable name="CLASS_ROLE" type="RoleColor" modifiers="public;static;final"/>  
     <variable name="ABSTRACT_CLASS_ROLE" type="RoleColor" modifiers="public;static;final"/>  
     <variable name="ENUM_CLASS_ROLE" type="RoleColor" modifiers="public;static;final"/>  
@@ -37,7 +37,7 @@
     </method>  
     <relation/> 
   </enum>  
-  <class name="RecordClassRole" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/RecordClassRole" abstract="false" pos_x="104" pos_y="364" size_w="133" size_h="80" visible="true"> 
+  <class name="RecordClassRole" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/RecordClassRole" abstract="false" pos_x="454" pos_y="564" size_w="133" size_h="155" visible="true"> 
     <variable name="RECORD_ROLE_NAME" type="String" modifiers="public;static;final"/>  
     <variable name="bg" type="Color" modifiers="private;static;final"/>  
     <method name="RecordClassRole" return_type="*NULL*" modifiers="public" constructor="true"/>  
@@ -51,7 +51,7 @@
     <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/RoleColor"/>  
     <relation/> 
   </class>  
-  <class name="InterfaceClassRole" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/InterfaceClassRole" abstract="false" pos_x="623" pos_y="354" size_w="145" size_h="80" visible="true"> 
+  <class name="InterfaceClassRole" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/InterfaceClassRole" abstract="false" pos_x="513" pos_y="204" size_w="145" size_h="80" visible="true"> 
     <variable name="INTERFACE_ROLE_NAME" type="String" modifiers="public;static;final"/>  
     <variable name="bg" type="Color" modifiers="private;static;final"/>  
     <method name="InterfaceClassRole" return_type="*NULL*" modifiers="public" constructor="true"/>  
@@ -65,7 +65,7 @@
     <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/RoleColor"/>  
     <relation/> 
   </class>  
-  <class name="CrateClassRole" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/CrateClassRole" abstract="false" pos_x="688" pos_y="234" size_w="120" size_h="80" visible="true"> 
+  <class name="CrateClassRole" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/CrateClassRole" abstract="false" pos_x="708" pos_y="204" size_w="120" size_h="80" visible="true"> 
     <variable name="CRATE_ROLE_NAME" type="String" modifiers="public;static;final"/>  
     <method name="getRoleName" return_type="String" modifiers="public" constructor="false"/>  
     <method name="getStereotypeLabel" return_type="String" modifiers="public" constructor="false"/>  
@@ -77,7 +77,7 @@
     <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/RoleColor"/>  
     <relation/> 
   </class>  
-  <class name="SingletonClassRole" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/SingletonClassRole" abstract="false" pos_x="104" pos_y="234" size_w="149" size_h="80" visible="true"> 
+  <class name="SingletonClassRole" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/SingletonClassRole" abstract="false" pos_x="124" pos_y="204" size_w="149" size_h="80" visible="true"> 
     <variable name="SINGLETON_ROLE_NAME" type="String" modifiers="public;static;final"/>  
     <method name="getRoleName" return_type="String" modifiers="public" constructor="false"/>  
     <method name="getStereotypeLabel" return_type="String" modifiers="public" constructor="false"/>  
@@ -89,7 +89,7 @@
     <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/RoleColor"/>  
     <relation/> 
   </class>  
-  <class name="AbstractClassRole" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/AbstractClassRole" abstract="false" pos_x="437" pos_y="364" size_w="140" size_h="80" visible="true"> 
+  <class name="AbstractClassRole" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/AbstractClassRole" abstract="false" pos_x="457" pos_y="334" size_w="140" size_h="80" visible="true"> 
     <variable name="ABSTRACT_ROLE_NAME" type="String" modifiers="public;static;final"/>  
     <variable name="bg" type="Color" modifiers="private;static;final"/>  
     <method name="AbstractClassRole" return_type="*NULL*" modifiers="public" constructor="true"/>  
@@ -103,7 +103,7 @@
     <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/RoleColor"/>  
     <relation/> 
   </class>  
-  <class name="PackageRole" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/PackageRole" abstract="false" pos_x="259" pos_y="494" size_w="103" size_h="80" visible="true"> 
+  <class name="PackageRole" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/PackageRole" abstract="false" pos_x="649" pos_y="444" size_w="103" size_h="80" visible="true"> 
     <variable name="CLASS_ROLE_NAME" type="String" modifiers="public;static;final"/>  
     <method name="getStereotypeLabel" return_type="String" modifiers="public" constructor="false"/>  
     <method name="getBackgroundPaint" return_type="Paint" modifiers="public" constructor="false"> 
@@ -115,12 +115,12 @@
     <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/RoleColor"/>  
     <relation/> 
   </class>  
-  <class name="StdClassRole" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/StdClassRole" abstract="false" pos_x="104" pos_y="494" size_w="105" size_h="80" visible="true"> 
+  <class name="StdClassRole" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/StdClassRole" abstract="false" pos_x="124" pos_y="464" size_w="105" size_h="80" visible="true"> 
     <method name="StdClassRole" return_type="*NULL*" modifiers="public" constructor="true"/>  
     <method name="getRoleName" return_type="String" modifiers="public" constructor="false"/>  
     <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/ClsMemberRecorderRole</extends> 
   </class>  
-  <class name="ModuleRole" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/ModuleRole" abstract="false" pos_x="287" pos_y="364" size_w="100" size_h="80" visible="true"> 
+  <class name="ModuleRole" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/ModuleRole" abstract="false" pos_x="307" pos_y="334" size_w="100" size_h="80" visible="true"> 
     <variable name="CLASS_ROLE_NAME" type="String" modifiers="public;static;final"/>  
     <variable name="bg" type="Color" modifiers="private;static;final"/>  
     <method name="getStereotypeLabel" return_type="String" modifiers="public" constructor="false"/>  
@@ -133,7 +133,7 @@
     <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/RoleColor"/>  
     <relation/> 
   </class>  
-  <class name="ClassRole" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/ClassRole" abstract="true" pos_x="220" pos_y="104" size_w="100" size_h="80" visible="true"> 
+  <class name="ClassRole" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/ClassRole" abstract="true" pos_x="240" pos_y="74" size_w="100" size_h="80" visible="true"> 
     <variable name="CLASS_ROLE_NAME" type="String" modifiers="public;static;final"/>  
     <variable name="ct" type="ClassTarget" modifiers="private"/>  
     <variable name="bg" type="Color" modifiers="private;static;final"/>  
@@ -151,7 +151,7 @@
     <relation/>  
     <relation/> 
   </class>  
-  <class name="LibraryClassRole" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/LibraryClassRole" abstract="false" pos_x="412" pos_y="494" size_w="130" size_h="80" visible="true"> 
+  <class name="LibraryClassRole" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/LibraryClassRole" abstract="false" pos_x="392" pos_y="464" size_w="130" size_h="80" visible="true"> 
     <variable name="LIBRARY_ROLE_NAME" type="String" modifiers="public;static;final"/>  
     <method name="getRoleName" return_type="String" modifiers="public" constructor="false"/>  
     <method name="getStereotypeLabel" return_type="String" modifiers="public" constructor="false"/>  
@@ -163,16 +163,16 @@
     <relation/>  
     <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/RoleColor"/> 
   </class>  
-  <class name="RoleUtils" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/RoleUtils" abstract="false" pos_x="70" pos_y="104" size_w="100" size_h="80" visible="true"> 
+  <class name="RoleUtils" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/RoleUtils" abstract="false" pos_x="90" pos_y="74" size_w="100" size_h="80" visible="true"> 
     <variable name="spaces" type="String" modifiers="private;static;final"/>  
     <method name="RoleUtils" return_type="*NULL*" modifiers="private" constructor="true"/>  
     <method name="getIndentString" return_type="String" modifiers="public;static" constructor="false"/>  
     <relation/> 
   </class>  
-  <class name="ClsMemberRecorderRole" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/ClsMemberRecorderRole" abstract="true" pos_x="541" pos_y="104" size_w="190" size_h="80" visible="true"> 
+  <class name="ClsMemberRecorderRole" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/ClsMemberRecorderRole" abstract="true" pos_x="561" pos_y="74" size_w="190" size_h="80" visible="true"> 
     <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/ClassRole</extends> 
   </class>  
-  <class name="UnitTestClassRole" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/UnitTestClassRole" abstract="false" pos_x="303" pos_y="234" size_w="140" size_h="80" visible="true"> 
+  <class name="UnitTestClassRole" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/target/role/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role/UnitTestClassRole" abstract="false" pos_x="323" pos_y="204" size_w="140" size_h="80" visible="true"> 
     <variable name="UNITTEST_ROLE_NAME" type="String" modifiers="public;static;final"/>  
     <variable name="UNITTEST_ROLE_NAME_JUNIT4" type="String" modifiers="public;static;final"/>  
     <variable name="bg" type="Color" modifiers="private;static;final"/>  

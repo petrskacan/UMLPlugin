@@ -41,7 +41,6 @@
         </catch_block>
       </catch>
     </try>
-    <expression>config.textMaxChars = Integer.parseInt(Settings.Property.NUMBER_OF_SYMBOLS_IN_EXPRESSION.getValue());</expression>
     <return>new JBScrollPane()</return>
   </body>
 </method>

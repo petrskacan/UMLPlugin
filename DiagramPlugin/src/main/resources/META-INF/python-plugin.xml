@@ -2,11 +2,11 @@
     <actions>
         <action id="GenerateClassDiagramPython" class="com.thesis.diagramplugin.plugin.actions.python.GenerateClassDiagramAction"
                 text="Generate Class Diagram of Python sources">
-            <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="first"/>
         </action>
         <action id="GenerateKopenogramPython" class="com.thesis.diagramplugin.plugin.actions.python.GenerateKopenogramAction"
                 text="Generate Kopenogram of Python function">
-            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
         </action>
     </actions>
 </idea-plugin>

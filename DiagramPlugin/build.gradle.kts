@@ -1,60 +1,56 @@
-
-
+val ver = "1.1.1-beta"
 group = "com.thesis"
-version = "1.1.0"
+version = ver
 
 plugins {
     id("java")
-    id("org.jetbrains.intellij") version "1.13.0"
-    id("com.github.johnrengelman.shadow") version "7.0.0"
+    id("org.jetbrains.intellij.platform") version "2.3.0" // Migrated to 2.x
+    id("com.github.johnrengelman.shadow") version "8.1.1"
 }
 
 repositories {
-    mavenLocal()
     mavenCentral()
-    maven {
-        url = uri("https://cache-redirector.jetbrains.com/intellij-dependencies")
+    intellijPlatform {
+        defaultRepositories()
     }
 }
-
-// Configure Gradle IntelliJ Plugin
-// Read more: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
-
-val intellijVersion = "2022.3.2"
-val ideType = "IC" //
-val ideaVersion = "223.8617.56"
-
-intellij {
-    type.set(ideType)
-    version.set(ideaVersion)
-    pluginName.set("DiagramPlugin")
-    updateSinceUntilBuild.set(false)
-
-    if (ideType == "PC") {
-        plugins.add("python-ce")
-    } else if (ideType == "PY") {
-        plugins.add("python")
-    } else if (ideType == "IC") {
-        plugins.add("java")
-        plugins.add("PythonCore:223.8617.56")
-    } else {
-        plugins.add("java")
-        plugins.add("Pythonid:231.8770.65")
-    }
-}
-
+val intellijVersion = "2024.3"
+val ideType = "IU" //
 dependencies {
-    implementation("com.github.javaparser:javaparser-symbol-solver-core:3.25.3")
+    intellijPlatform {
+
+        create(ideType, intellijVersion)
+        when (ideType) {
+            "PC" -> {
+                plugin("PythonCore", "243.24978.46")
+            }
+            "PY" -> {
+                plugin("Pythonid", "243.26053.27")
+            }
+            "IC" -> {
+                bundledPlugin("com.intellij.java")
+                plugin("PythonCore", "243.24978.46")
+            }
+            else -> {
+                bundledPlugin("com.intellij.java")
+                plugin("PythonCore", "243.24978.46")
+                plugin("Pythonid", "243.26053.27")
+            }
+        }
+    }
+
+    implementation("com.github.javaparser:javaparser-symbol-solver-core:3.26.3")
     implementation("org.dom4j:dom4j:2.1.4")
     compileOnly("org.projectlombok:lombok:1.18.28")
     annotationProcessor("org.projectlombok:lombok:1.18.28")
 
     testImplementation("org.junit.jupiter:junit-jupiter:5.7.1")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-
 }
 
 tasks.shadowJar {
+    dependsOn(tasks.named("jar")) // Ensure the JAR task runs first
+    archiveClassifier.set("all")
     mergeServiceFiles()
     dependencies {
         include(dependency("com.github.javaparser:javaparser-core:3.25.3"))
@@ -66,57 +62,51 @@ tasks.named("buildPlugin") {
     dependsOn(tasks.named("shadowJar"))
 }
 
-tasks {
-    // Set the JVM compatibility versions
-    withType<JavaCompile> {
-        sourceCompatibility = "17"
-        targetCompatibility = "17"
+intellijPlatform {
+    buildSearchableOptions = true
+    instrumentCode = true
+    projectName = project.name
+
+    pluginConfiguration {
+        id = "com.thesis.diagramplugin"
+        name = "DiagramPlugin"
+        version = ver
+        description = "A plugin for generating class diagrams and kopenograms."
+        changeNotes = """
+            <ul>
+                <li>Fixed compatibility issues with newer IntelliJ versions.</li>
+                <li>Enhanced diagram rendering.</li>
+            </ul>
+        """.trimIndent()
+
+        ideaVersion {
+            sinceBuild = "223"
+            untilBuild = "243.*"
+        }
+
+
+        vendor {
+            name = "Prague University of Economics and Business"
+            email = "skap04@vse.cz"
+            url = "https://github.com/petrskacan/UMLPlugin"
+        }
     }
 
-    patchPluginXml {
-        sinceBuild.set("223")
-        untilBuild.set("243.*")
-        changeNotes.set("""
-        <ul>
-        Changes for Class Diagrams
-            <li>Interface now correctly shows inheritance of other intefraces</li>            
-            <li>Added custom color settings for every package</li>
-        Changes for Kopenograms
-        
-             <li>Text display limit increased to show full content (was 35 characters).</li>
-             <li>Added zoom functionality for diagrams.</li>
-             <li>Fixed <code>continue</code> statement visualization (now correctly appears as a red rectangle with four white triangles).</li>
-             <li>Corrected <code>return</code> statement (now displays all three black triangles).</li>
-             <li>Fixed <code>break</code> statement (now correctly displays white triangles instead of black).</li>
-             <li>Recursive calls now appear in yellow instead of red.</li>
-             <li>Improved <code>if – elseif – else</code> rendering (no longer nests <code>elseif</code> branches incorrectly).</li>
-             <li><code>break</code> statements no longer appear inside <code>switch</code> case branches.</li>
-             <li>Exception blocks now have the correct colors:</li>
-             <ul>
-                 <li>Expected exception block: purple with a white header.</li>
-                <li>Thrown exception text: yellow.</li>
-                <li>Caught exception block: white header with an orange body.</li>
-             </ul>
-             <li><code>return</code>, <code>break</code>, and <code>continue</code> statements now extend to the end of their respective blocks.</li>
-             <li>Kopenogram generation now works correctly for Python methods inside classes.</li>
-             
-             KNOWN ISSUES
-             <li>Dependency relationships are not displayed.</li>
-             <li>Diagram does not reflect code changes automatically (requires deleting the generated XML file and reloading the diagram).</li>
-             <li>In some cases, the diagram does not generate at all. (tbh, no idea when and why)</li>
-             <li>NO SUPPORT FOR THE NEWEST VERSION OF PYCHARM</li>
-        </ul>
-    """.trimIndent())
+    publishing {
+        token.set(System.getenv("PUBLISH_TOKEN"))
+        channels.set(listOf("default"))
     }
 
-    signPlugin {
+    signing {
         certificateChain.set(System.getenv("CERTIFICATE_CHAIN"))
         privateKey.set(System.getenv("PRIVATE_KEY"))
         password.set(System.getenv("PRIVATE_KEY_PASSWORD"))
     }
+}
 
-    publishPlugin {
-        token.set(System.getenv("PUBLISH_TOKEN"))
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17)) // IntelliJ 2024.3 requires Java 21
     }
 }
 
@@ -128,3 +118,16 @@ tasks.named<Test>("test") {
         events("passed")
     }
 }
+tasks.withType<Jar> {
+    manifest {
+        attributes["Implementation-Title"] = "DiagramPlugin"
+        attributes["Implementation-Version"] = version
+    }
+}
+
+tasks.clean {
+    doFirst {
+        file("build").deleteRecursively()
+    }
+}
+

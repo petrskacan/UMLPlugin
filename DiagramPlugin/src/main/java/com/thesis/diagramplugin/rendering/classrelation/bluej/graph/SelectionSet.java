@@ -21,18 +21,17 @@
  */
 package com.thesis.diagramplugin.rendering.classrelation.bluej.graph;
 
-import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.Package;
-import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.Dependency;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.ClassTarget;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.DependentTarget;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.PackageTarget;
-import org.apache.tools.ant.taskdefs.Move;
 
-import java.awt.Point;
-import java.awt.event.MouseEvent;
-import java.util.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.util.stream.Collectors;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * SelectionSet holds a set of selected graph elements. By inserting an
@@ -47,7 +46,7 @@ public final class SelectionSet
 
     /**
      * 
-     * @param graphEditor
+     *
      */
     public SelectionSet()
     {}
@@ -87,7 +86,7 @@ public final class SelectionSet
     /**
      * Remove the graphElement and set it's 'selected' flag false.
      * 
-     * @param graphElement
+     *
      */
     public void remove(SelectableGraphElement element)
     {

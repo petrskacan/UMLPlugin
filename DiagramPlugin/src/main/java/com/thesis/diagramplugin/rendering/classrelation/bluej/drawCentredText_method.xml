@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<method name="drawCentredText" return_type="void">
+  <parameters>
+    <parameter name="g" type="java.awt.Graphics"/>
+    <parameter name="str" type="java.lang.String"/>
+    <parameter name="x" type="int"/>
+    <parameter name="y" type="int"/>
+    <parameter name="width" type="int"/>
+    <parameter name="height" type="int"/>
+  </parameters>
+  <body>
+    <declaration>java.awt.FontMetrics fm = g.getFontMetrics()</declaration>
+    <declaration>java.awt.Shape oldClip = g.getClip()</declaration>
+    <expression>g.clipRect(x, y, width, height);</expression>
+    <declaration>int xOffset = (width - fm.stringWidth(str)) / 2</declaration>
+    <if condition="xOffset &lt; 0">
+      <then>
+        <block>
+          <expression>xOffset = 0;</expression>
+        </block>
+      </then>
+    </if>
+    <declaration>int yOffset = fm.getAscent() + ((height - fm.getAscent() - fm.getDescent()) / 2)</declaration>
+    <expression>g.drawString(str, x + xOffset, y + yOffset);</expression>
+    <expression>g.setClip(oldClip);</expression>
+  </body>
+</method>
