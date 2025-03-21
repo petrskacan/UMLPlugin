@@ -23,11 +23,8 @@ jobs:
           java-version: 17
           cache: gradle
 
-      - name: Make gradlew executable
-        run: chmod +x gradlew
-
       - name: Build Plugin using Gradle Wrapper
-        run: ./gradlew clean buildPlugin
+        run: gradle wraper clean buildPlugin
 
       - name: Archive Plugin Artifact
         uses: actions/upload-artifact@v4
