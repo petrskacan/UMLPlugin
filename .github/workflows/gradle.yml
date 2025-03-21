@@ -25,7 +25,7 @@ jobs:
 
       - name: Build Plugin using Gradle Wrapper
         working-directory: DiagramPlugin
-        run: gradle wraper clean buildPlugin
+        run: ./gradlwq clean buildPlugin
 
       - name: Archive Plugin Artifact
         uses: actions/upload-artifact@v4
