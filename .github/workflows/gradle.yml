@@ -14,11 +14,20 @@ jobs:
       - name: Checkout kódu
         uses: actions/checkout@v2
 
+      - name: Nastavení exekučních práv pro gradlew
+        run: chmod +x gradlew
+
       - name: Nastavení JDK
         uses: actions/setup-java@v2
         with:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Build Plugin
-        run: ./gradlew buildPlugin
+      - name: Build shadowJar pomocí volby -p
+        run: ./gradlew -p DiagramPlugin shadowJar
+
+      - name: Upload jar as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: plugin-jar
+          path: DiagramPlugin/build/distributions/*.jar
