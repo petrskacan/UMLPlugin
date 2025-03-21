@@ -23,8 +23,10 @@ jobs:
           java-version: 17
           cache: gradle
 
+      - name: Make gradlew executable
+        run: chmod +x gradlew
+
       - name: Build Plugin using Gradle Wrapper
-        working-directory: DiagramPlugin
         run: ./gradlew clean buildPlugin
 
       - name: Archive Plugin Artifact
@@ -32,5 +34,5 @@ jobs:
         with:
           name: plugin-artifact
           path: |
-            DiagramPlugin/build/libs/*.jar
-            DiagramPlugin/build/distributions/*.jar
+            build/libs/*.jar
+            build/distributions/*.jar
