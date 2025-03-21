@@ -23,6 +23,10 @@ jobs:
           java-version: 17
           cache: gradle
 
+      - name: Make gradlew executable
+        working-directory: DiagramPlugin
+        run: chmod +x gradlew
+
       - name: Build Plugin using Gradle Wrapper
         working-directory: DiagramPlugin
         run: ./gradlew clean buildPlugin
