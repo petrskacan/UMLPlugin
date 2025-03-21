@@ -24,6 +24,7 @@ jobs:
           cache: gradle
 
       - name: Build Plugin using Gradle Wrapper
+        working-directory: DiagramPlugin
         run: gradle wraper clean buildPlugin
 
       - name: Archive Plugin Artifact
