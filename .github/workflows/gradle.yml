@@ -24,6 +24,7 @@ jobs:
           cache: gradle
 
       - name: Build Plugin using Gradle Wrapper
+        working-directory: DiagramPlugin
         run: ./gradlew clean buildPlugin
 
       - name: Archive Plugin Artifact
@@ -31,5 +32,5 @@ jobs:
         with:
           name: plugin-artifact
           path: |
-            build/libs/*.jar
-            build/distributions/*.jar
+            DiagramPlugin/build/libs/*.jar
+            DiagramPlugin/build/distributions/*.jar
