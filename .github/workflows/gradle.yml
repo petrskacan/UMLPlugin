@@ -39,7 +39,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: plugin-artifact
-          working-directory: DiagramPlugin
           path: |
-            build/libs/*.jar
-            build/distributions/*.jar
+            DiagramPlugin/build/libs/*.jar
