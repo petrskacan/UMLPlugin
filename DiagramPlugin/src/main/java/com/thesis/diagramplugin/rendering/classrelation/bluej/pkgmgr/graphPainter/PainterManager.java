@@ -16,6 +16,8 @@ public class PainterManager {
     private static final UsesDependencyPainter usesDependencyPainter = new UsesDependencyPainter();
     private static final ContainmentDependencyPainter containmentDependencyPainter = new ContainmentDependencyPainter();
     private static final DependencyPainter associationDependencyPainter = new AssociationDependencyPainter();
+    private static final DependencyPainter aggregationDependencyPainter = new AggregationDependencyPainter();
+    private static final DependencyPainter compositionDependencyPainter = new CompositionDependencyPainter();
 
     public static void paint(Graphics2D g, Dependency dependency, boolean hasFocus) {
         Optional.ofNullable(getPainter(dependency)).ifPresent(painter -> painter.paint(g, dependency, hasFocus));
@@ -33,6 +35,12 @@ public class PainterManager {
         }
         else if (dependency instanceof AssociationDependency) {
             return associationDependencyPainter;
+        }
+        else if (dependency instanceof AggregationDependency) {
+            return aggregationDependencyPainter;
+        }
+        else if (dependency instanceof CompositionDependency) {
+            return compositionDependencyPainter;
         }
         else if (dependency instanceof UsesDependency) {
             return usesDependencyPainter;

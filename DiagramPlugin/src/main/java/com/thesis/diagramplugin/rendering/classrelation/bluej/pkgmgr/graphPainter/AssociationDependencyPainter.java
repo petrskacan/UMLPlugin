@@ -31,10 +31,11 @@ import java.awt.RenderingHints;
 import java.awt.Stroke;
 
 /**
- * Paints usesDependencies
+ * Paints AssociationDependencies
  * 
  * @author fisker
  * @author Michael Kolling
+ * @author Petr Skacan
  */
 public class AssociationDependencyPainter extends UsesDependencyPainter
     implements DependencyPainter
@@ -76,13 +77,6 @@ public class AssociationDependencyPainter extends UsesDependencyPainter
 
         g.setColor(normalColour);
         g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        // Draw the end arrow
-        int delta_x = d.isEndLeft() ? -10 : 10;
-
-        g.drawLine(dst_x, dst_y, dst_x + delta_x, dst_y + 4);
-        g.drawLine(dst_x, dst_y, dst_x + delta_x, dst_y - 4);
-
-        g.setStroke(normalStroke);
 
         paintLine(src_y, d, g, src_x, dst_x, dst_y, oldStroke);
     }

@@ -160,6 +160,8 @@ public class ClassDiagramViewBuilder {
             if (owner != null) {
                 pkg.addDependency(new ContainmentDependency(pkg, classes.get(el), classes.get(model.findEntity(el.getOwner()))), true);
                 dependencies.add(el.getName() + " =======> " + model.findEntity(el.getOwner()).getName() + " DEPENDENCY CONTAINMENT");
+                System.out.println(el.getName() + " =======> "+ model.findEntity(el.getOwner()).getName() +  " DEPENDENCY USES");
+                System.out.println("FIND ME CONTAINMENT");
             }
         }
     }
@@ -169,6 +171,8 @@ public class ClassDiagramViewBuilder {
             for (AClassDiagramModelClassLikeEntity en : module.getContainingClassLikeEntities()) {
                 pkg.addDependency(new ContainmentDependency(pkg, classes.get(en), classes.get(entity)), true);
                 dependencies.add(entity.getName() + " =======> " + en.getName() + " DEPENDENCY CONTAINMENT");
+                System.out.println(entity.getName() + " =======> "+ en.getName() +  " DEPENDENCY USES");
+                System.out.println("FIND ME CONTAINMENT MODULES");
                 if (en instanceof ClassDiagramModelModule) {
                     resolveModules(en, pkg);
                 }
@@ -182,9 +186,11 @@ public class ClassDiagramViewBuilder {
         for (ClassDiagramModelField field : el.getFields()) {
             for (AClassDiagramModelClassLikeEntity to : field.getRelations().values()) {
                 if (relations.add(new Relation(el, to))) {
-                    Dependency uses = new AssociationDependency(pkg, classes.get(el), classes.get(to));
+                    Dependency uses = new AggregationDependency(pkg, classes.get(el), classes.get(to));
                     pkg.addDependency(uses, true);
                     dependencies.add(el.getName() + " =======> " + to.getName() + " DEPENDENCY ASSOCIATION");
+                    System.out.println(el.getName() + " =======> "+ to.getName()+  " DEPENDENCY USES");
+                    System.out.println("FIND ME FIELDS ASSOCIATION");
                 }
             }
             if (classes.get(el) instanceof ClassTarget) {
@@ -216,9 +222,11 @@ public class ClassDiagramViewBuilder {
         for (ClassDiagramModelMethod method : el.getMethods()) {
             for (AClassDiagramModelClassLikeEntity to : method.getRelations().values()) {
                 if (relations.add(new Relation(el, to))) {
-                    Dependency uses = new UsesDependency(pkg, classes.get(el), classes.get(to));
+                    Dependency uses = new AssociationDependency(pkg, classes.get(el), classes.get(to));
                     pkg.addDependency(uses, true);
                     dependencies.add(el.getName() + " =======> " + to.getName() + " DEPENDENCY USES");
+                    System.out.println(el.getName() + " =======> " + to.getName() + " DEPENDENCY USES");
+                    System.out.println("FIND ME METHODS");
                 }
             }
             if (classes.get(el) instanceof ClassTarget) {
@@ -252,6 +260,8 @@ public class ClassDiagramViewBuilder {
             if (this.relations.add(new Relation(el, rel))) {
                 pkg.addDependency(new UsesDependency(pkg, classes.get(el), classes.get(rel)), true);
                 dependencies.add(el.getName() + " =======> " + rel.getName() + " DEPENDENCY (uses)");
+                System.out.println(el.getName() + " =======> " + rel.getName() + " DEPENDENCY USES");
+                System.out.println("FIND ME USES");
             }
         }
     }

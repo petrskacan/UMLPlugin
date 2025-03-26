@@ -23,6 +23,7 @@ package com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency
 
 
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.Package;
+import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.ConnectionSide;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.DependentTarget;
 
 import java.util.Properties;
@@ -38,6 +39,26 @@ public class UsesDependency extends Dependency
 {
     private int sourceX, sourceY, destX, destY;
     private boolean startTop, endLeft;
+    private ConnectionSide startConnectionSide;
+
+    public ConnectionSide getEndConnectionSide() {
+        return endConnectionSide;
+    }
+
+    public void setEndConnectionSide(ConnectionSide endConnectionSide) {
+        this.endConnectionSide = endConnectionSide;
+    }
+
+    private ConnectionSide endConnectionSide;
+
+    public ConnectionSide getStartConnectionSide() {
+        return startConnectionSide;
+    }
+
+    public void setStartConnectionSide(ConnectionSide connectionSide) {
+        this.startConnectionSide = connectionSide;
+    }
+
     private boolean flag;    // flag to mark some dependencies
 
     public UsesDependency(Package pkg, DependentTarget from, DependentTarget to)
@@ -51,18 +72,18 @@ public class UsesDependency extends Dependency
         this(pkg, null, null);
     }
 
-    public void setSourceCoords(int src_x, int src_y, boolean start_top)
+    public void setSourceCoords(int src_x, int src_y, ConnectionSide side)
     {
         this.sourceX = src_x;
         this.sourceY = src_y;
-        this.setStartTop(start_top);
+        this.setStartConnectionSide(side);
     }
 
-    public void setDestCoords(int dst_x, int dst_y, boolean end_left)
+    public void setDestCoords(int dst_x, int dst_y, ConnectionSide side)
     {
         this.destX = dst_x;
         this.destY = dst_y;
-        this.setEndLeft(end_left);
+        this.setEndConnectionSide(side);
     }
 
     /**
@@ -183,22 +204,32 @@ public class UsesDependency extends Dependency
         return destY;
     }
 
-    public void setStartTop(boolean startTop) {
-        this.startTop = startTop;
-    }
-
     public boolean isStartTop() {
-        return startTop;
+        return getStartConnectionSide() == ConnectionSide.TOP;
     }
-
-    public void setEndLeft(boolean endLeft) {
-        this.endLeft = endLeft;
+    public boolean isStartLeft() {
+        return getStartConnectionSide() == ConnectionSide.LEFT;
+    }
+    public boolean isStartBottom() {
+        return getStartConnectionSide() == ConnectionSide.BOTTOM;
+    }
+    public boolean isStartRight() {
+        return getStartConnectionSide() == ConnectionSide.RIGHT;
     }
 
     public boolean isEndLeft() {
-        return endLeft;
+        return getEndConnectionSide() == ConnectionSide.LEFT;
     }
-    
+    public boolean isEndRight() {
+        return getEndConnectionSide() == ConnectionSide.RIGHT;
+    }
+    public boolean isEndTop() {
+        return getEndConnectionSide() == ConnectionSide.TOP;
+    }
+    public boolean isEndBottom() {
+        return getEndConnectionSide() == ConnectionSide.BOTTOM;
+    }
+
     public boolean isResizable()
     {
         return false;

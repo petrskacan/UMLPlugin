@@ -23,12 +23,9 @@ package com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.graphPaint
 
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.Dependency;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.UsesDependency;
+import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.ConnectionSide;
 
-import java.awt.BasicStroke;
-import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
-import java.awt.Stroke;
+import java.awt.*;
 
 /**
  * Paints usesDependencies
@@ -53,6 +50,8 @@ public class UsesDependencyPainter
             BasicStroke.JOIN_MITER, 10.0f, dash1, 0.0f);
     private static final BasicStroke normalSelected = new BasicStroke(strokeWidthSelected);
     private static final BasicStroke normalUnselected = new BasicStroke(strokeWidthDefault);
+    protected boolean usesDiamond = false;
+    protected Polygon diamond;
 
     public UsesDependencyPainter()
     {
@@ -94,37 +93,179 @@ public class UsesDependencyPainter
         paintLine(src_y, d, g, src_x, dst_x, dst_y, oldStroke);
     }
 
-    protected void paintLine(int src_y, UsesDependency d, Graphics2D g, int src_x, int dst_x, int dst_y, Stroke oldStroke) {
-        // Draw the start
-        int corner_y = src_y + (d.isStartTop() ? -15 : 15);
-        g.drawLine(src_x, corner_y, src_x, src_y);
-        src_y = corner_y;
+//    protected void paintLine(int src_y, UsesDependency d, Graphics2D g, int src_x, int dst_x, int dst_y, Stroke oldStroke) {
+//        // Draw the start
+//        int corner_y = src_y + (d.isStartTop() ? -15 : 15);
+//        g.drawLine(src_x, corner_y, src_x, src_y);
+//        src_y = corner_y;
+//
+//        // Draw the last line segment
+//        int corner_x = dst_x + (d.isEndLeft() ? -15 : 15);
+//        g.drawLine(corner_x, dst_y, dst_x, dst_y);
+//        dst_x = corner_x;
+//
+//        // if arrow vertical corner, draw first segment up to corner
+//        if ((src_y != dst_y) && (d.isStartTop() == (src_y < dst_y))) {
+//            corner_x = ((src_x + dst_x) / 2) + (d.isEndLeft() ? 15 : -15);
+//            corner_x = (d.isEndLeft() ? Math.min(dst_x, corner_x) : Math.max(dst_x, corner_x));
+//            g.drawLine(src_x, src_y, corner_x, src_y);
+//            src_x = corner_x;
+//        }
+//
+//        // if arrow horiz. corner, draw first segment up to corner
+//        if ((src_x != dst_x) && (d.isEndLeft() == (src_x > dst_x))) {
+//            corner_y = ((src_y + dst_y) / 2) + (d.isStartTop() ? 15 : -15);
+//            corner_y = (d.isStartTop() ? Math.min(src_y, corner_y) : Math.max(src_y, corner_y));
+//            g.drawLine(dst_x, corner_y, dst_x, dst_y);
+//            dst_y = corner_y;
+//        }
+//
+//        // draw the middle bit
+//        g.drawLine(src_x, src_y, src_x, dst_y);
+//        g.drawLine(src_x, dst_y, dst_x, dst_y);
+//
+//        g.setStroke(oldStroke);
+//    }
+protected void paintLine(int recalcSrcY, UsesDependency d,
+                         Graphics2D g, int recalcSrcX,  int recalcDstX, int recalcDstY, Stroke oldStroke) {
+    // Determine start offset point based on side.
+    int offsetX = 16;
+    int offsetY = 16;
+    int addX = 0, addY = 0;
+//    if(usesDiamond)
+//    {
+//        offsetX = Arrays.stream(diamond.xpoints)
+//                .map(Math::abs)
+//                .max()
+//                .orElse(0);
+//        offsetY = Arrays.stream(diamond.ypoints)
+//                .map(Math::abs)
+//                .max()
+//                .orElse(0);
+//    }
+    Point startPoint = new Point(recalcSrcX, recalcSrcY);
+    if (d.isStartTop()) {
+        startPoint.y = recalcSrcY - offsetY;
+        addY-=5;
+    } else if (d.isStartBottom()) {
+        startPoint.y = recalcSrcY + offsetY;
+        addY+=5;
+    } else if (d.isStartLeft()) {
+        startPoint.x = recalcSrcX - offsetX;
+        addX-=5;
+    } else if (d.isStartRight()) {
+        startPoint.x = recalcSrcX + offsetX;
+        addX+=5;
+    }
+    if (usesDiamond)
+    {
+        g.drawLine(startPoint.x, startPoint.y,startPoint.x+addX,startPoint.y+addY);
+        startPoint.x+=addX;
+        startPoint.y+=addY;
+    }
+    else
+    {
+        g.drawLine(recalcSrcX, recalcSrcY, startPoint.x, startPoint.y);
+    }
 
-        // Draw the last line segment
-        int corner_x = dst_x + (d.isEndLeft() ? -15 : 15);
-        g.drawLine(corner_x, dst_y, dst_x, dst_y);
-        dst_x = corner_x;
+    // Determine destination offset point based on side.
+    Point destPoint = new Point(recalcDstX, recalcDstY);
+    if (d.isEndTop()) {
+        destPoint.y = recalcDstY - offsetY;
+    } else if (d.isEndBottom()) {
+        destPoint.y = recalcDstY + offsetY;
+    } else if (d.isEndLeft()) {
+        destPoint.x = recalcDstX - offsetX;
+    } else if (d.isEndRight()) {
+        destPoint.x = recalcDstX + offsetX;
+    }
+    // Draw the trailing segment from the destination port to the recalculated destination.
+    g.drawLine(destPoint.x, destPoint.y, recalcDstX, recalcDstY);
 
-        // if arrow vertical corner, draw first segment up to corner
-        if ((src_y != dst_y) && (d.isStartTop() == (src_y < dst_y))) {
-            corner_x = ((src_x + dst_x) / 2) + (d.isEndLeft() ? 15 : -15);
-            corner_x = (d.isEndLeft() ? Math.min(dst_x, corner_x) : Math.max(dst_x, corner_x));
-            g.drawLine(src_x, src_y, corner_x, src_y);
-            src_x = corner_x;
+    // Now, connect startPoint and destPoint with intermediate segments.
+    // Decide the strategy based on the orientation of the start side.
+    boolean startIsVertical = d.isStartTop() || d.isStartBottom();
+    if (startIsVertical) {
+
+        // For a vertical start, the primary offset is vertical.
+        // Compute an intermediate x-coordinate as the average.
+        int bendX = (startPoint.x + destPoint.x) / 2;
+        // Draw a horizontal segment from startPoint to the bend.
+        g.drawLine(startPoint.x, startPoint.y, bendX, startPoint.y);
+        // Then draw a vertical segment from the first bend to the level of the destination port.
+        g.drawLine(bendX, startPoint.y, bendX, destPoint.y);
+        // Finally, draw a horizontal segment to the destination port.
+        g.drawLine(bendX, destPoint.y, destPoint.x, destPoint.y);
+    } else {
+        // For a horizontal start, the primary offset is horizontal.
+        // Compute an intermediate y-coordinate as the average.
+        int bendY = (startPoint.y + destPoint.y) / 2;
+        // Draw a vertical segment from startPoint to the bend.
+        g.drawLine(startPoint.x, startPoint.y, startPoint.x, bendY);
+        // Then draw a horizontal segment from the first bend to the level of the destination port.
+        g.drawLine(startPoint.x, bendY, destPoint.x, bendY);
+        // Finally, draw a vertical segment to the destination port.
+        g.drawLine(destPoint.x, bendY, destPoint.x, destPoint.y);
+    }
+
+    g.setStroke(oldStroke);
+}
+
+    protected void drawDiamond(Graphics2D g, int x, int y, boolean filled, ConnectionSide side) {
+        int[] rawX = { -4, 0, 4, 0 };
+        int[] rawY = { 0, 8, 0, -8 };
+
+        // Arrays for the final, possibly rotated shape
+        int[] xPoints = new int[4];
+        int[] yPoints = new int[4];
+
+        switch (side) {
+            case TOP -> {
+                // No rotation needed
+                for (int i = 0; i < 4; i++) {
+                    xPoints[i] = rawX[i];
+                    yPoints[i] = rawY[i];
+                }
+                y -= 8;
+            }
+            case BOTTOM -> {
+                // Rotate 180°: (x, y) -> (-x, -y)
+                for (int i = 0; i < 4; i++) {
+                    xPoints[i] = -rawX[i];
+                    yPoints[i] = -rawY[i];
+                }
+                y += 8;
+            }
+            case LEFT -> {
+                // Rotate 90° CCW: (x, y) -> (-y, x)
+                for (int i = 0; i < 4; i++) {
+                    xPoints[i] = -rawY[i];
+                    yPoints[i] = rawX[i];
+                }
+                x -= 8;
+            }
+            case RIGHT -> {
+                // Rotate 90° CW: (x, y) -> (y, -x)
+                for (int i = 0; i < 4; i++) {
+                    xPoints[i] = rawY[i];
+                    yPoints[i] = -rawX[i];
+                }
+                x += 8;
+            }
         }
 
-        // if arrow horiz. corner, draw first segment up to corner
-        if ((src_x != dst_x) && (d.isEndLeft() == (src_x > dst_x))) {
-            corner_y = ((src_y + dst_y) / 2) + (d.isStartTop() ? 15 : -15);
-            corner_y = (d.isStartTop() ? Math.min(src_y, corner_y) : Math.max(src_y, corner_y));
-            g.drawLine(dst_x, corner_y, dst_x, dst_y);
-            dst_y = corner_y;
+        // Translate the diamond so that (x, y) is the center
+        for (int i = 0; i < 4; i++) {
+            xPoints[i] += x;
+            yPoints[i] += y;
         }
 
-        // draw the middle bit
-        g.drawLine(src_x, src_y, src_x, dst_y);
-        g.drawLine(src_x, dst_y, dst_x, dst_y);
-
-        g.setStroke(oldStroke);
+        // Draw or fill the polygon
+        diamond = new Polygon(xPoints, yPoints, 4);
+        if (filled) {
+            g.fillPolygon(diamond);
+        } else {
+            g.drawPolygon(diamond);
+        }
     }
 }

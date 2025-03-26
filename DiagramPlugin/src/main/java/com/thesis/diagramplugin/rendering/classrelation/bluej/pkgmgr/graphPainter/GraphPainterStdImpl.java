@@ -52,7 +52,9 @@ public class GraphPainterStdImpl
     private final ImplementsDependencyPainter implementsDependencyPainter = new ImplementsDependencyPainter();
     private final UsesDependencyPainter usesDependencyPainter = new UsesDependencyPainter();
     private final ContainmentDependencyPainter containmentDependencyPainter = new ContainmentDependencyPainter();
-    private DependencyPainter associationDependencyPainter = new AssociationDependencyPainter();
+    private final DependencyPainter associationDependencyPainter = new AssociationDependencyPainter();
+    private final DependencyPainter aggregationDependencyPainter = new AggregationDependencyPainter();
+    private final DependencyPainter compositionDependencyPainter = new CompositionDependencyPainter();
     private static final GraphPainterStdImpl singleton = new GraphPainterStdImpl();
 
     private GraphEditor graphEditor;
@@ -165,6 +167,12 @@ public class GraphPainterStdImpl
         }
         else if (edge instanceof AssociationDependency) {
             return associationDependencyPainter;
+        }
+        else if (edge instanceof AggregationDependency) {
+            return aggregationDependencyPainter;
+        }
+        else if (edge instanceof CompositionDependency) {
+            return compositionDependencyPainter;
         }
         else if (edge instanceof UsesDependency) {
             return usesDependencyPainter;

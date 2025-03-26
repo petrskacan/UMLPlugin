@@ -29,5 +29,7 @@ public enum Type {
         CONTAINMENT,
         
         /** Represents an association-dependency */ 
-        ASSOCIATION;
+        ASSOCIATION,
+        AGGREGATION,
+        COMPOSITION;
 }

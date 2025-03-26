@@ -21,22 +21,10 @@
  */
 package com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency;
 
-import com.thesis.diagramplugin.rendering.classrelation.bluej.graph.Vertex;
-import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.Package;
-import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.graphPainter.AssociationDependencyPainter;
-import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.graphPainter.ClassTargetPainter;
-import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.graphPainter.PackageTargetPainter;
-import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.graphPainter.PainterManager;
-import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.ClassTarget;
-import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.DependentTarget;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.graph.Edge;
-import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.PackageTarget;
-import lombok.Getter;
+import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.Package;
+import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.DependentTarget;
 
-import javax.accessibility.Accessible;
-import javax.accessibility.AccessibleContext;
-import javax.accessibility.AccessibleRole;
-import javax.swing.*;
 import java.awt.*;
 import java.util.Properties;
 
@@ -104,7 +92,7 @@ public abstract class Dependency extends Edge
      * Returns the type of this dependency. This information is used by
      * extensions to distinguish between the different types of dependencies.
      * Subclasses must implement this method and return an appropriate constant
-     * of {@link bluej.extensions.BDependency.Type}.
+     * of
      * 
      * @return The type of this dependency;
      */

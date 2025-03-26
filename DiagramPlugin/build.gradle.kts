@@ -1,7 +1,7 @@
 
 
 group = "com.thesis"
-version = "1.1.30-beta"
+version = "1.1.43-beta"
 
 plugins {
     id("java")
