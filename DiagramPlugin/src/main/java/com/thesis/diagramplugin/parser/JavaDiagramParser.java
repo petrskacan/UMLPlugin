@@ -29,6 +29,8 @@ public class  JavaDiagramParser implements IDiagramParser {
         JavaCompiler compiler = null;
         ClassRelationsProcessor processor = new ClassRelationsProcessor();
         File xmlFile = null;
+        StandardJavaFileManager fileManager = null;
+        Path tmpDir = null;
         try {
             compiler = this.getCompiler();
             File dir = new File(path);
@@ -36,8 +38,8 @@ public class  JavaDiagramParser implements IDiagramParser {
                 File[] fileArray = dir.listFiles();
                 List<File> files = Arrays.asList(fileArray).stream().filter(f -> f.getName().endsWith(".java")).collect(Collectors.toList());
 
-                StandardJavaFileManager fileManager = compiler.getStandardFileManager(null,null,null);
-                Path tmpDir = Files.createTempDirectory("compile-test-");
+                fileManager = compiler.getStandardFileManager(null,null,null);
+                tmpDir = Files.createTempDirectory("compile-test-");
                 fileManager.setLocation(StandardLocation.CLASS_OUTPUT, Collections.singleton(tmpDir.toFile()));
 
                 JavaCompiler.CompilationTask task = compiler.getTask(null, fileManager, null, null, null, fileManager.getJavaFileObjectsFromFiles(files));
@@ -52,7 +54,27 @@ public class  JavaDiagramParser implements IDiagramParser {
         } catch (ClassNotFoundException | IOException | InstantiationException | IllegalAccessException e) {
             System.out.println(e.getMessage());
             return null;
+        } finally {
+            if (fileManager != null) {
+                try {
+                    fileManager.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (tmpDir != null) {
+                try {
+                    // Recursively delete temporary directory
+                    Files.walk(tmpDir)
+                            .sorted(Comparator.reverseOrder())
+                            .map(Path::toFile)
+                            .forEach(File::delete);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
+
         return xmlFile;
     }
 

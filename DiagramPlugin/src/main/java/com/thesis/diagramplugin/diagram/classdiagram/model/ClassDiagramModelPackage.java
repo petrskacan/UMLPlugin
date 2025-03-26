@@ -43,8 +43,10 @@ public class ClassDiagramModelPackage extends AClassDiagramModelClassLikeEntityC
     public ClassDiagramModelPackage(Element element) {
         super(element);
         this.modelType = ClassDiagramModelType.PACKAGE;
-        this.packagePath = element.attribute(PATH_ATTRIBUTE).getValue();
-        this.packageName = element.attribute(NAME_ATTRIBUTE).getValue();
+        Attribute pathAttr = element.attribute(PATH_ATTRIBUTE);
+        Attribute nameAttr = element.attribute(NAME_ATTRIBUTE);
+        this.packagePath = pathAttr != null ? pathAttr.getValue() : "";
+        this.packageName = nameAttr != null ? nameAttr.getValue() : "";
         this.createClassLikeElements(element);
         this.resolveExtendsImplements();
         this.resolveTests();

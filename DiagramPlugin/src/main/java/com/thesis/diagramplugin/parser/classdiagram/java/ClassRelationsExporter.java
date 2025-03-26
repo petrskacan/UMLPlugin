@@ -47,11 +47,7 @@ public class ClassRelationsExporter {
         try {
             // maintain placement/size of existing objects if file already exists
             if (file.exists()) {
-                if (!file.delete()) {
-                    System.err.println("Warning: Failed to delete existing file: " + fileName);
-                } else {
-                    System.out.println("Deleted existing file: " + fileName);
-                }
+                file.delete();
             }
             String packageId = path + "/" + pkgModel.getPackageName();
 //            String packageId = getClassId(pkgModel);
@@ -71,7 +67,7 @@ public class ClassRelationsExporter {
             writer.write(document);
             writer.flush();
             fileOS.close();
-        } catch (IOException e) {
+        } catch (IOException e ) {
             System.out.println("IO ERROR during creation of " + fileName);
         }
 

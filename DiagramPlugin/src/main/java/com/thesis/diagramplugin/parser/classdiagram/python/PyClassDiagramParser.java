@@ -1,8 +1,10 @@
 package com.thesis.diagramplugin.parser.classdiagram.python;
 
 import com.intellij.openapi.project.Project;
-import com.intellij.openapi.vfs.VfsUtil;
-import com.intellij.psi.*;
+import com.intellij.psi.PsiDirectory;
+import com.intellij.psi.PsiElement;
+import com.intellij.psi.PsiFile;
+import com.intellij.psi.PsiRecursiveElementVisitor;
 import com.jetbrains.python.psi.*;
 import com.jetbrains.python.psi.impl.PyFunctionImpl;
 import com.jetbrains.python.psi.types.TypeEvalContext;
@@ -21,11 +23,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 import static com.thesis.diagramplugin.utils.DiagramConstants.*;
 
@@ -165,6 +165,10 @@ public class PyClassDiagramParser {
 
     private void createPackageElement(PsiDirectory psiDir, Element packageElement) {
         Map<PsiFile, List<PyClass>> moduleMap = createModuleMap(psiDir);
+        if (moduleMap.isEmpty()) {
+            System.out.println("No Python files found in directory: " + psiDir.getName());
+            return;
+        }
         String filePath = ((PsiFile)moduleMap.keySet().toArray()[0]).getContainingFile().getVirtualFile().getPath();
         String pkgPath = filePath.substring(0, filePath.lastIndexOf("/"));
         String pkgName = pkgPath.substring(pkgPath.lastIndexOf("/") + 1);
@@ -278,6 +282,7 @@ public class PyClassDiagramParser {
                         }
                     }
                 } else if (psiElement instanceof PyFunction method) {
+                    System.out.println(method);
                     Element methodElement = moduleElement.addElement(METHOD_TAG)
                             .addAttribute(NAME_ATTRIBUTE, method.getName())
                             .addAttribute(CONSTRUCTOR_ATTRIBUTE, "__init__".equals(method.getName()) ? "true" : "false")
@@ -432,6 +437,7 @@ public class PyClassDiagramParser {
     private void createMethodElements(Element pyClassElement, PyClass pyClass) {
 //        boolean protocol = determineClassType(pyClass) == ElementType.INTERFACE;
         for (PyFunction method : pyClass.getMethods()) {
+            System.out.println(method);
             Element methodElement = pyClassElement.addElement(METHOD_TAG)
                         .addAttribute(NAME_ATTRIBUTE, method.getName())
                         .addAttribute(CONSTRUCTOR_ATTRIBUTE, "__init__".equals(method.getName()) ? "true" : "false")
@@ -496,24 +502,35 @@ public class PyClassDiagramParser {
     }
 
     private String getFunctionModifiers(PyFunction method) {
-        String modifiers = "";
-        if (method.getModifier() != null) {
-            modifiers += ";" + method.getModifier().name().toLowerCase();
-        }
-        if (method.getName() != null) {
-            if (method.getName().startsWith("__")) {
-                modifiers += ";private";
-            } else if (method.getName().startsWith("-")) {
-                modifiers += ";protected";
+        StringBuilder modifiers = new StringBuilder();
+
+        // Check decorators
+        PyDecoratorList decoratorList = method.getDecoratorList();
+        if (decoratorList != null) {
+            for (PyDecorator decorator : decoratorList.getDecorators()) {
+                String name = decorator.getName();
+                if ("staticmethod".equals(name)) {
+                    modifiers.append(";static");
+                } else if ("classmethod".equals(name)) {
+                    modifiers.append(";class");
+                }
             }
         }
-        if (modifiers.startsWith(";")) {
-            modifiers = modifiers.substring(1);
+
+        // Name-based visibility guess (Python convention)
+        String methodName = method.getName();
+        if (methodName != null) {
+            if (methodName.startsWith("__") && !methodName.endsWith("__")) {
+                modifiers.append(";private");
+            } else if (methodName.startsWith("_")) {
+                modifiers.append(";protected");
+            } else {
+                modifiers.append(";public");
+            }
         }
-        if (modifiers.isEmpty()) {
-            modifiers = "public";
-        }
-        return modifiers;
+
+        String result = modifiers.toString();
+        return result.startsWith(";") ? result.substring(1) : result;
     }
 
     private boolean isClassAbstract(PyClass pyClass) {
