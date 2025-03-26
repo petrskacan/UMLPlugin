@@ -1,7 +1,7 @@
 
 
 group = "com.thesis"
-version = "1.1.17-beta"
+version = "1.1.28-beta"
 
 plugins {
     id("java")
@@ -49,6 +49,7 @@ intellij {
 dependencies {
     implementation("com.github.javaparser:javaparser-symbol-solver-core:3.25.3")
     implementation("org.dom4j:dom4j:2.1.4")
+    implementation("jaxen:jaxen:2.0.0")
     compileOnly("org.projectlombok:lombok:1.18.28")
     annotationProcessor("org.projectlombok:lombok:1.18.28")
 
@@ -62,6 +63,7 @@ tasks.shadowJar {
     dependencies {
         include(dependency("com.github.javaparser:javaparser-core:3.25.3"))
         include(dependency("org.dom4j:dom4j:2.1.4"))
+        include(dependency("jaxen:jaxen:2.0.0"))
     }
 }
 
@@ -129,5 +131,27 @@ tasks.named<Test>("test") {
 
     testLogging {
         events("passed")
+    }
+}
+tasks {
+    runPluginVerifier {
+        ideVersions.set(
+                listOf(
+                        "IC-2022.3.2", // IntelliJ IDEA Community
+                        "PS-2022.3.2", // PyCharm Professional
+                        "IC-2023.1",
+                        "PS-2023.1",
+                        "IC-2023.3",
+                        "PS-2023.3"
+                )
+        )
+        failureLevel.set(
+                setOf(
+                        org.jetbrains.intellij.tasks.RunPluginVerifierTask.FailureLevel.COMPATIBILITY_PROBLEMS,
+                        org.jetbrains.intellij.tasks.RunPluginVerifierTask.FailureLevel.MISSING_DEPENDENCIES
+                )
+        )
+
+
     }
 }

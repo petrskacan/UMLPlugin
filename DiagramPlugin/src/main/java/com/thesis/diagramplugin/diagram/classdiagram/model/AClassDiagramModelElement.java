@@ -3,6 +3,7 @@ package com.thesis.diagramplugin.diagram.classdiagram.model;
 import lombok.Getter;
 import lombok.Setter;
 import org.dom4j.Element;
+import org.dom4j.Node;
 
 import java.util.*;
 
@@ -55,6 +56,15 @@ public abstract class AClassDiagramModelElement {
         Optional.ofNullable(element.attributeValue(VISIBLE_ATTRIBUTE)).map(Boolean::parseBoolean).ifPresent(v -> { this.visible = v; });
 
         Optional.ofNullable(element.attributeValue(MODIFIERS_ATTRIBURE)).map(String::toLowerCase).ifPresent(this::setModifiers);
+
+        List<Node> nodes = element.selectNodes(".//" + RELATION_TAG);
+        for (Node node : nodes) {
+            if (node instanceof Element el) {
+                Optional.ofNullable(el.attributeValue(NAME_ATTRIBUTE))
+                        .ifPresent(this::addRelation);
+            }
+        }
+
         element.elements().stream().filter(el -> RELATION_TAG.equals(el.getName())).forEach(relElement -> {
             Optional.ofNullable(relElement.attributeValue(UNIQUE_ID_ATTRIBUTE)).ifPresent(this::addRelation);
         });

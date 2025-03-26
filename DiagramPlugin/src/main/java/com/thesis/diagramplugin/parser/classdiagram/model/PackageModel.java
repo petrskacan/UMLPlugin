@@ -1,7 +1,5 @@
 package com.thesis.diagramplugin.parser.classdiagram.model;
 
-import com.thesis.diagramplugin.parser.classdiagram.model.ClassTypePackageModel;
-import com.thesis.diagramplugin.parser.classdiagram.model.AElementPackageModel;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -51,6 +49,10 @@ public class PackageModel extends AElementPackageModel {
 
     public void addKnownIdentifier(String id) {
         this.knownIdentifiers.add(id);
+    }
+    public void clear() {
+        this.elementMap.clear();
+        this.knownIdentifiers.clear();
     }
 
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<package name="com.thesis.diagramplugin.rendering.kopenogram.treepainter" path="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter" pos_x="40" pos_y="100" size_w="917" size_h="644" visible="true"> 
-  <record name="RenderedElementInfo" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter/RenderedElementInfo" abstract="false" pos_x="111" pos_y="204" size_w="166" size_h="80" visible="true"> 
+<package name="com.thesis.diagramplugin.rendering.kopenogram.treepainter" path="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter" pos_x="10" pos_y="0" size_w="1187" size_h="1291" visible="true"> 
+  <record name="RenderedElementInfo" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter/RenderedElementInfo" abstract="false" pos_x="671" pos_y="534" size_w="171" size_h="121" visible="true"> 
     <variable name="element" type="PainterElement" modifiers="private;final"> 
       <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter/PainterElement"/> 
     </variable>  
@@ -9,7 +9,7 @@
     <variable name="dimension" type="Dimension" modifiers="private;final"/>  
     <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter/PainterElement"/> 
   </record>  
-  <class name="AbstractPainterElement" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter/AbstractPainterElement" abstract="true" pos_x="739" pos_y="524" size_w="177" size_h="80" visible="true"> 
+  <class name="AbstractPainterElement" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter/AbstractPainterElement" abstract="true" pos_x="459" pos_y="194" size_w="177" size_h="80" visible="true"> 
     <variable name="serialVersionUID" type="long" modifiers="private;static;final"/>  
     <variable name="lastPos" type="Point" modifiers="private;transient"/>  
     <variable name="lastDim" type="Dimension" modifiers="private;transient"/>  
@@ -66,7 +66,7 @@
     <relation/>  
     <relation/> 
   </class>  
-  <interface name="OverPainterElement" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter/OverPainterElement" abstract="false" pos_x="760" pos_y="194" size_w="154" size_h="80" visible="true"> 
+  <interface name="OverPainterElement" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter/OverPainterElement" abstract="false" pos_x="50" pos_y="74" size_w="154" size_h="80" visible="true"> 
     <method name="getRealPosition" return_type="Point" modifiers="public" constructor="false"/>  
     <method name="getRealDimension" return_type="Dimension" modifiers="public" constructor="false"> 
       <parameter name="config" type="PainterConfig"/>  
@@ -78,10 +78,10 @@
       <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter/PainterConfig"/> 
     </method>  
     <method name="getParentPath" return_type="String" modifiers="" constructor="false"/>  
-    <implements>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter/PainterElement</implements>  
+    <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter/PainterElement</extends>  
     <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter/PainterConfig"/> 
   </interface>  
-  <class name="Symbols" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter/Symbols" abstract="false" pos_x="527" pos_y="434" size_w="100" size_h="80" visible="true"> 
+  <class name="Symbols" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter/Symbols" abstract="false" pos_x="647" pos_y="354" size_w="100" size_h="80" visible="true"> 
     <variable name="UP" type="char" modifiers="public;static;final"/>  
     <variable name="RIGHT" type="char" modifiers="public;static;final"/>  
     <variable name="DOWN" type="char" modifiers="public;static;final"/>  
@@ -99,7 +99,7 @@
     <variable name="BLACK" type="char" modifiers="public;static;final"/>  
     <method name="Symbols" return_type="*NULL*" modifiers="private" constructor="true"/> 
   </class>  
-  <class name="RootPainter" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter/RootPainter" abstract="false" pos_x="269" pos_y="304" size_w="100" size_h="80" visible="true"> 
+  <class name="RootPainter" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter/RootPainter" abstract="false" pos_x="239" pos_y="204" size_w="100" size_h="80" visible="true"> 
     <variable name="serialVersionUID" type="long" modifiers="private;static;final"/>  
     <variable name="root" type="PainterElement" modifiers="private"> 
       <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter/PainterElement"/> 
@@ -144,7 +144,7 @@
     <relation/>  
     <relation/> 
   </class>  
-  <class name="PainterUtils" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter/PainterUtils" abstract="false" pos_x="677" pos_y="434" size_w="100" size_h="80" visible="true"> 
+  <class name="PainterUtils" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter/PainterUtils" abstract="false" pos_x="747" pos_y="334" size_w="100" size_h="80" visible="true"> 
     <variable name="GRAPHICS" type="Graphics" modifiers="private;static;final"/>  
     <method name="PainterUtils" return_type="*NULL*" modifiers="private" constructor="true"/>  
     <method name="getTextWidth" return_type="int" modifiers="public;static" constructor="false"> 
@@ -165,11 +165,11 @@
     <relation/>  
     <relation/> 
   </class>  
-  <enum name="PropertyType" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter/PropertyType" abstract="false" owner="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter/Property" pos_x="824" pos_y="344" size_w="105" size_h="80" visible="true"> 
+  <enum name="PropertyType" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter/PropertyType" abstract="false" owner="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter/Property" pos_x="374" pos_y="44" size_w="105" size_h="80" visible="true"> 
     <variable name="NUMBER" type="PropertyType" modifiers="public;static;final"/>  
     <variable name="COLOR" type="PropertyType" modifiers="public;static;final"/> 
   </enum>  
-  <class name="PainterConfig" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter/PainterConfig" abstract="false" pos_x="453" pos_y="174" size_w="108" size_h="80" visible="true"> 
+  <class name="PainterConfig" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter/PainterConfig" abstract="false" pos_x="373" pos_y="44" size_w="108" size_h="80" visible="false"> 
     <variable name="serialVersionUID" type="long" modifiers="private;static;final"/>  
     <variable name="font" type="Font" modifiers="public"/>  
     <variable name="fontColor" type="Color" modifiers="public"/>  
@@ -190,7 +190,7 @@
     </method>  
     <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter/PainterConfig"/> 
   </class>  
-  <enum name="Property" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter/Property" abstract="false" owner="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter/Settings" pos_x="611" pos_y="174" size_w="100" size_h="80" visible="true"> 
+  <enum name="Property" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter/Property" abstract="false" owner="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter/Settings" pos_x="781" pos_y="84" size_w="100" size_h="80" visible="true"> 
     <variable name="KOPENOGRAM_KEY_WORDS" type="Property" modifiers="public;static;final"/>  
     <variable name="NUMBER_OF_SYMBOLS_IN_EXPRESSION" type="Property" modifiers="public;static;final"/>  
     <variable name="VERTICAL_GAP" type="Property" modifiers="public;static;final"/>  
@@ -236,12 +236,12 @@
     <relation/>  
     <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter/PropertyType"/> 
   </enum>  
-  <class name="Settings" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter/Settings" abstract="false" pos_x="419" pos_y="304" size_w="100" size_h="80" visible="true"> 
+  <class name="Settings" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter/Settings" abstract="false" pos_x="379" pos_y="254" size_w="100" size_h="80" visible="true"> 
     <method name="decodeColorProperty" return_type="Color" modifiers="public;static" constructor="false"> 
       <parameter name="prop" type="String"/> 
     </method> 
   </class>  
-  <interface name="PainterElement" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter/PainterElement" abstract="false" pos_x="334" pos_y="574" size_w="119" size_h="80" visible="true"> 
+  <interface name="PainterElement" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter/PainterElement" abstract="false" pos_x="254" pos_y="724" size_w="119" size_h="80" visible="true"> 
     <method name="getDimension" return_type="Dimension" modifiers="public" constructor="false"> 
       <parameter name="config" type="PainterConfig"/>  
       <parameter name="pos" type="Point"/>  
@@ -262,7 +262,7 @@
     <method name="getPath" return_type="String" modifiers="public" constructor="false"/>  
     <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter/PainterConfig"/> 
   </interface>  
-  <class name="RenderedElements" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter/RenderedElements" abstract="false" pos_x="114" pos_y="434" size_w="147" size_h="80" visible="true"> 
+  <class name="RenderedElements" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter/RenderedElements" abstract="false" pos_x="84" pos_y="334" size_w="147" size_h="80" visible="true"> 
     <variable name="elements" type="Map&lt;String, RenderedElementInfo&gt;" modifiers="private;static;final"> 
       <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainter/com.thesis.diagramplugin.rendering.kopenogram.treepainter/RenderedElementInfo"/> 
     </variable>  

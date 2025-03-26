@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<package name="com.thesis.diagramplugin.testClasses" path="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses">
+  <interface name="Iface2" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Iface2" abstract="false">
+    <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Iface</extends>
+  </interface>
+  <class name="Vehicle" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Vehicle" abstract="false">
+    <variable name="brand" type="String" modifiers="protected"/>
+    <method name="honk" return_type="void" modifiers="public" constructor="false"/>
+  </class>
+  <interface name="Iface" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Iface" abstract="false">
+    <method name="hi" return_type="void" modifiers="" constructor="false"/>
+  </interface>
+  <class name="Car" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Car" abstract="false">
+    <variable name="modelName" type="String" modifiers="private"/>
+    <method name="Car" return_type="*NULL*" modifiers="private" constructor="true"/>
+    <method name="main" return_type="void" modifiers="public;static" constructor="false">
+      <parameter name="args" type="String[]"/>
+    </method>
+    <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Vehicle</extends>
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Car"/>
+  </class>
+  <class name="TestingKopenograms" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/TestingKopenograms" abstract="false">
+    <method name="testingReturnAndVeryVeryVeryExtremlyLongName" return_type="int" modifiers="private" constructor="false">
+      <parameter name="a" type="int"/>
+    </method>
+    <method name="continueTest" return_type="void" modifiers="private" constructor="false">
+      <parameter name="a" type="int"/>
+    </method>
+    <method name="breakWithLabelStatement" return_type="void" modifiers="public" constructor="false"/>
+    <method name="breakWithLabelStatemente" return_type="void" modifiers="public" constructor="false"/>
+    <method name="breaking" return_type="void" modifiers="public" constructor="false"/>
+    <method name="switchTest" return_type="void" modifiers="public" constructor="false"/>
+    <method name="abcd" return_type="int" modifiers="public" constructor="false"/>
+    <method name="hi" return_type="void" modifiers="public" constructor="false"/>
+    <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Vehicle</extends>
+    <implements>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Iface</implements>
+    <relation/>
+    <relation/>
+  </class>
+  <class name="adada" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/adada" abstract="false">
+    <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Vehicle</extends>
+  </class>
+</package>
