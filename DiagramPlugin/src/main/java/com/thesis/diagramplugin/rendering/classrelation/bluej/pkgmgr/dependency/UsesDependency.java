@@ -86,6 +86,17 @@ public class UsesDependency extends Dependency
         this.setEndConnectionSide(side);
     }
 
+    public void setCoord(int dst_x, int dst_y, ConnectionSide side, boolean isOutgoing)
+    {
+        if(isOutgoing)
+        {
+            setSourceCoords(dst_x, dst_y, side);
+        }
+        else
+        {
+            setDestCoords(dst_x, dst_y, side);
+        }
+    }
     /**
      * Test whether (x,y) is in rectangle (x0,x1,y0,y1),
      */

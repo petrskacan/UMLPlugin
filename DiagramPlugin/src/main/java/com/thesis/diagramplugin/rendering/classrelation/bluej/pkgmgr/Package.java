@@ -21,22 +21,22 @@
  */
 package com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr;
 
+import com.thesis.diagramplugin.rendering.classrelation.bluej.MultiIterator;
+import com.thesis.diagramplugin.rendering.classrelation.bluej.SortedProperties;
+import com.thesis.diagramplugin.rendering.classrelation.bluej.graph.Edge;
+import com.thesis.diagramplugin.rendering.classrelation.bluej.graph.Graph;
+import com.thesis.diagramplugin.rendering.classrelation.bluej.graph.Vertex;
+import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.ContainmentDependency;
+import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.Dependency;
+import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.UsesDependency;
+import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.*;
+import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role.ModuleRole;
+import lombok.Getter;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
-import java.util.List;
 import java.util.stream.Collectors;
-
-import com.thesis.diagramplugin.rendering.classrelation.bluej.MultiIterator;
-import com.thesis.diagramplugin.rendering.classrelation.bluej.SortedProperties;
-import com.thesis.diagramplugin.rendering.classrelation.bluej.graph.Graph;
-import com.thesis.diagramplugin.rendering.classrelation.bluej.graph.Vertex;
-import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.*;
-import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.*;
-import com.thesis.diagramplugin.rendering.classrelation.bluej.graph.Edge;
-import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.role.ModuleRole;
-import kotlinx.html.P;
-import lombok.Getter;
 
 /**
  * A Java package (collection of Java classes).

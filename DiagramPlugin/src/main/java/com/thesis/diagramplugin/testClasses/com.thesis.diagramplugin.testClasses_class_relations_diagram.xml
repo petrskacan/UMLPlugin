@@ -1,17 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<package name="com.thesis.diagramplugin.testClasses" path="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses" pos_x="70" pos_y="30" size_w="774" size_h="644" visible="true"> 
-  <interface name="Iface2" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Iface2" abstract="false" pos_x="506" pos_y="364" size_w="100" size_h="80" visible="true"> 
+<package name="com.thesis.diagramplugin.testClasses" path="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses" pos_x="60" pos_y="30" size_w="898" size_h="862" visible="true"> 
+  <class name="User" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/User" abstract="false" pos_x="774" pos_y="494" size_w="100" size_h="80" visible="true"> 
+    <variable name="name" type="String" modifiers="private"/>  
+    <method name="User" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="name" type="String"/> 
+    </method>  
+    <method name="postMessage" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="text" type="String"/>  
+      <parameter name="service" type="NotificationService"/>  
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/NotificationService"/> 
+    </method>  
+    <method name="main" return_type="void" modifiers="public;static" constructor="false"> 
+      <parameter name="args" type="String[]"/> 
+    </method>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Message"/>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/NotificationService"/> 
+  </class>  
+  <class name="Message" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Message" abstract="false" pos_x="620" pos_y="644" size_w="100" size_h="80" visible="true"> 
+    <variable name="content" type="String" modifiers="private"/>  
+    <method name="Message" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="content" type="String"/> 
+    </method>  
+    <method name="getContent" return_type="String" modifiers="public" constructor="false"/>  
+    <relation/> 
+  </class>  
+  <class name="House" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/House" abstract="false" pos_x="410" pos_y="94" size_w="100" size_h="80" visible="true"> 
+    <variable name="rooms" type="List&lt;Room&gt;" modifiers="private"> 
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Room" dependency_type="COMPOSITION"/> 
+    </variable>  
+    <method name="House" return_type="*NULL*" modifiers="public" constructor="true"/>  
+    <method name="describeHouse" return_type="void" modifiers="public" constructor="false"/>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Room"/> 
+  </class>  
+  <class name="NotificationService" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/NotificationService" abstract="false" pos_x="244" pos_y="604" size_w="270" size_h="95" visible="true"> 
+    <method name="sendNotification" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="message" type="Message"/>  
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Message"/> 
+    </method>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Message"/> 
+  </class>  
+  <class name="Student" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Student" abstract="false" pos_x="584" pos_y="234" size_w="100" size_h="80" visible="true"> 
+    <variable name="name" type="String" modifiers="private"/>  
+    <method name="Student" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="name" type="String"/> 
+    </method>  
+    <relation/> 
+  </class>  
+  <interface name="Iface2" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Iface2" abstract="false" pos_x="330" pos_y="494" size_w="100" size_h="80" visible="true"> 
     <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Iface</extends> 
   </interface>  
-  <class name="Vehicle" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Vehicle" abstract="false" pos_x="294" pos_y="234" size_w="100" size_h="80" visible="true"> 
+  <class name="Vehicle" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Vehicle" abstract="false" pos_x="496" pos_y="364" size_w="100" size_h="80" visible="true"> 
     <variable name="brand" type="String" modifiers="protected"/>  
     <method name="honk" return_type="void" modifiers="public" constructor="false"/> 
   </class>  
-  <interface name="Iface" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Iface" abstract="false" pos_x="110" pos_y="104" size_w="100" size_h="80" visible="true"> 
+  <interface name="Iface" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Iface" abstract="false" pos_x="100" pos_y="104" size_w="100" size_h="80" visible="true"> 
     <method name="hi" return_type="void" modifiers="" constructor="false"/> 
   </interface>  
-  <class name="Car" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Car" abstract="false" pos_x="560" pos_y="104" size_w="100" size_h="80" visible="true"> 
+  <class name="Car" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Car" abstract="false" pos_x="346" pos_y="364" size_w="100" size_h="80" visible="true"> 
     <variable name="brand" type="String" modifiers="private"/>  
     <variable name="engine" type="Engine" modifiers="private"> 
       <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Engine" dependency_type="AGGREGATION"/> 
@@ -26,7 +74,7 @@
     <relation/>  
     <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Engine"/> 
   </class>  
-  <class name="TestingKopenograms" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/TestingKopenograms" abstract="false" pos_x="144" pos_y="364" size_w="162" size_h="80" visible="true"> 
+  <class name="TestingKopenograms" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/TestingKopenograms" abstract="false" pos_x="134" pos_y="364" size_w="162" size_h="80" visible="true"> 
     <method name="testingReturnAndVeryVeryVeryExtremlyLongName" return_type="int" modifiers="private" constructor="false"> 
       <parameter name="a" type="int"/> 
     </method>  
@@ -44,16 +92,7 @@
     <relation/>  
     <relation/> 
   </class>  
-  <class name="House" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/House" abstract="false" pos_x="390" pos_y="554" size_w="100" size_h="80" visible="true"> 
-    <variable name="rooms" type="List&lt;Room&gt;" modifiers="private"> 
-      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Room" dependency_type="COMPOSITION"/> 
-    </variable>  
-    <method name="House" return_type="*NULL*" modifiers="public" constructor="true"/>  
-    <method name="describeHouse" return_type="void" modifiers="public" constructor="false"/>  
-    <relation/>  
-    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Room"/> 
-  </class>  
-  <class name="Course" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Course" abstract="false" pos_x="144" pos_y="234" size_w="100" size_h="80" visible="true"> 
+  <class name="Course" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Course" abstract="false" pos_x="134" pos_y="234" size_w="100" size_h="80" visible="true"> 
     <variable name="courseName" type="String" modifiers="private"/>  
     <method name="Course" return_type="*NULL*" modifiers="public" constructor="true"> 
       <parameter name="courseName" type="String"/> 
@@ -65,14 +104,7 @@
     <relation/>  
     <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Student"/> 
   </class>  
-  <class name="Student" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Student" abstract="false" pos_x="356" pos_y="364" size_w="100" size_h="80" visible="true"> 
-    <variable name="name" type="String" modifiers="private"/>  
-    <method name="Student" return_type="*NULL*" modifiers="public" constructor="true"> 
-      <parameter name="name" type="String"/> 
-    </method>  
-    <relation/> 
-  </class>  
-  <class name="Room" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Room" abstract="false" pos_x="634" pos_y="554" size_w="100" size_h="80" visible="true"> 
+  <class name="Room" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Room" abstract="false" pos_x="646" pos_y="364" size_w="100" size_h="80" visible="true"> 
     <variable name="roomName" type="String" modifiers="private"/>  
     <method name="Room" return_type="*NULL*" modifiers="public" constructor="true"> 
       <parameter name="roomName" type="String"/> 
@@ -80,10 +112,10 @@
     <method name="describe" return_type="void" modifiers="public" constructor="false"/>  
     <relation/> 
   </class>  
-  <class name="adada" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/adada" abstract="false" pos_x="410" pos_y="104" size_w="100" size_h="80" visible="true"> 
+  <class name="adada" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/adada" abstract="false" pos_x="550" pos_y="104" size_w="100" size_h="80" visible="true"> 
     <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Vehicle</extends> 
   </class>  
-  <class name="Engine" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Engine" abstract="false" pos_x="444" pos_y="234" size_w="100" size_h="80" visible="true"> 
+  <class name="Engine" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Engine" abstract="false" pos_x="434" pos_y="234" size_w="100" size_h="80" visible="true"> 
     <variable name="type" type="String" modifiers="private"/>  
     <method name="Engine" return_type="*NULL*" modifiers="public" constructor="true"> 
       <parameter name="type" type="String"/> 

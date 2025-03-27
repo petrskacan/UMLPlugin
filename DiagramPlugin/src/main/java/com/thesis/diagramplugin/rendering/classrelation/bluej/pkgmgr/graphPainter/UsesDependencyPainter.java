@@ -92,57 +92,12 @@ public class UsesDependencyPainter
 
         paintLine(src_y, d, g, src_x, dst_x, dst_y, oldStroke);
     }
-
-//    protected void paintLine(int src_y, UsesDependency d, Graphics2D g, int src_x, int dst_x, int dst_y, Stroke oldStroke) {
-//        // Draw the start
-//        int corner_y = src_y + (d.isStartTop() ? -15 : 15);
-//        g.drawLine(src_x, corner_y, src_x, src_y);
-//        src_y = corner_y;
-//
-//        // Draw the last line segment
-//        int corner_x = dst_x + (d.isEndLeft() ? -15 : 15);
-//        g.drawLine(corner_x, dst_y, dst_x, dst_y);
-//        dst_x = corner_x;
-//
-//        // if arrow vertical corner, draw first segment up to corner
-//        if ((src_y != dst_y) && (d.isStartTop() == (src_y < dst_y))) {
-//            corner_x = ((src_x + dst_x) / 2) + (d.isEndLeft() ? 15 : -15);
-//            corner_x = (d.isEndLeft() ? Math.min(dst_x, corner_x) : Math.max(dst_x, corner_x));
-//            g.drawLine(src_x, src_y, corner_x, src_y);
-//            src_x = corner_x;
-//        }
-//
-//        // if arrow horiz. corner, draw first segment up to corner
-//        if ((src_x != dst_x) && (d.isEndLeft() == (src_x > dst_x))) {
-//            corner_y = ((src_y + dst_y) / 2) + (d.isStartTop() ? 15 : -15);
-//            corner_y = (d.isStartTop() ? Math.min(src_y, corner_y) : Math.max(src_y, corner_y));
-//            g.drawLine(dst_x, corner_y, dst_x, dst_y);
-//            dst_y = corner_y;
-//        }
-//
-//        // draw the middle bit
-//        g.drawLine(src_x, src_y, src_x, dst_y);
-//        g.drawLine(src_x, dst_y, dst_x, dst_y);
-//
-//        g.setStroke(oldStroke);
-//    }
 protected void paintLine(int recalcSrcY, UsesDependency d,
                          Graphics2D g, int recalcSrcX,  int recalcDstX, int recalcDstY, Stroke oldStroke) {
     // Determine start offset point based on side.
     int offsetX = 16;
     int offsetY = 16;
     int addX = 0, addY = 0;
-//    if(usesDiamond)
-//    {
-//        offsetX = Arrays.stream(diamond.xpoints)
-//                .map(Math::abs)
-//                .max()
-//                .orElse(0);
-//        offsetY = Arrays.stream(diamond.ypoints)
-//                .map(Math::abs)
-//                .max()
-//                .orElse(0);
-//    }
     Point startPoint = new Point(recalcSrcX, recalcSrcY);
     if (d.isStartTop()) {
         startPoint.y = recalcSrcY - offsetY;
