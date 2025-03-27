@@ -184,6 +184,10 @@ public class ClassRelationsExporter {
                 AElementPackageModel rModel = pkgModel.getElement(relation);
                 if (rModel != null) {
                     rel.addAttribute(NAME_ATTRIBUTE, getClassId(rModel));
+                    if(model instanceof VariablePackageModel variable)
+                    {
+                        rel.addAttribute(DEPENDECY_TYPE, String.valueOf(variable.getDependencyType()));
+                    }
                 }
                 // this.fixReferences(element, path);
             }

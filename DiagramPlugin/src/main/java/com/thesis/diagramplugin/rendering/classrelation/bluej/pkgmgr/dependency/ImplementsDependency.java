@@ -51,7 +51,7 @@ public class ImplementsDependency extends Dependency {
     }
 
     @Override
-    public Type getType() {
-        return Type.IMPLEMENTS;
+    public DependencyType getType() {
+        return DependencyType.IMPLEMENTS;
     }
 }

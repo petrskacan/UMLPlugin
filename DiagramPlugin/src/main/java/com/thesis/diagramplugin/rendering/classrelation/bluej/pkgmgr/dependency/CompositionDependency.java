@@ -29,8 +29,8 @@ public class CompositionDependency extends UsesDependency
     }
 
     @Override
-    public Type getType()
+    public DependencyType getType()
     {
-        return Type.COMPOSITION;
+        return DependencyType.COMPOSITION;
     }
 }

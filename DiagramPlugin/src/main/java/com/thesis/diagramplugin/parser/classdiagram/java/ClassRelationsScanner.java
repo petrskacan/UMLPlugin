@@ -5,6 +5,7 @@ import com.sun.source.util.TreePath;
 import com.sun.source.util.TreePathScanner;
 import com.thesis.diagramplugin.parser.classdiagram.model.PackageModel;
 import com.thesis.diagramplugin.parser.classdiagram.model.*;
+import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.DependencyType;
 
 import java.util.HashSet;
 
@@ -66,6 +67,8 @@ public class ClassRelationsScanner extends TreePathScanner<TreePath, AElementPac
     private VariablePackageModel scanVariable(VariableTree variable, AElementPackageModel parent) {
         VariablePackageModel var = new VariablePackageModel(variable, parent);
         HashSet<String> pointers = new HashSet<>();
+        boolean isComposed = variable.getInitializer() != null && variable.getInitializer().getKind() == Tree.Kind.NEW_CLASS;
+        var.setDependencyType(isComposed ? DependencyType.COMPOSITION : DependencyType.AGGREGATION);
         for (Tree argument : scanCollections(variable.getType())) {
             if (argument.getKind().equals(Tree.Kind.IDENTIFIER)) {
                 pointers.add(((IdentifierTree)argument).getName().toString());

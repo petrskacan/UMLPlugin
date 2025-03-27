@@ -29,8 +29,8 @@ public class AggregationDependency extends UsesDependency
     }
 
     @Override
-    public Type getType()
+    public DependencyType getType()
     {
-        return Type.AGGREGATION;
+        return DependencyType.AGGREGATION;
     }
 }

@@ -56,8 +56,8 @@ public class ContainmentDependency extends UsesDependency
     }
 
     @Override
-    public Type getType()
+    public DependencyType getType()
     {
-        return Type.CONTAINMENT;
+        return DependencyType.CONTAINMENT;
     }
 }

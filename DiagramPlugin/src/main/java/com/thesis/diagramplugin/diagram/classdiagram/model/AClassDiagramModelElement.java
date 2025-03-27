@@ -1,5 +1,6 @@
 package com.thesis.diagramplugin.diagram.classdiagram.model;
 
+import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.DependencyType;
 import lombok.Getter;
 import lombok.Setter;
 import org.dom4j.Element;
@@ -26,6 +27,8 @@ public abstract class AClassDiagramModelElement {
     public boolean hasSizeAndPosSet() { return sizeAndPosSet; }
 
     protected final Map<String, AClassDiagramModelClassLikeEntity> relations = new HashMap<>();
+
+    protected DependencyType dependencyType;
 
 
     public boolean isPublic() {
@@ -62,6 +65,8 @@ public abstract class AClassDiagramModelElement {
             if (node instanceof Element el) {
                 Optional.ofNullable(el.attributeValue(NAME_ATTRIBUTE))
                         .ifPresent(this::addRelation);
+                Optional.ofNullable(el.attributeValue(DEPENDECY_TYPE))
+                        .ifPresent(this::setDependencyType);
             }
         }
 
@@ -86,6 +91,13 @@ public abstract class AClassDiagramModelElement {
         }
 
         this.getChildren().forEach(child -> child.resolveRelations(pkg));
+    }
+    public DependencyType getDependencyType() {
+        return dependencyType;
+    }
+
+    public void setDependencyType(String dependencyType) {
+        this.dependencyType = DependencyType.valueOf(dependencyType);
     }
 
     protected abstract List<AClassDiagramModelElement> getChildren();

@@ -236,8 +236,8 @@ public class UsesDependency extends Dependency
     }
 
     @Override
-    public Type getType()
+    public DependencyType getType()
     {
-        return Type.USES;
+        return DependencyType.USES;
     }
 }

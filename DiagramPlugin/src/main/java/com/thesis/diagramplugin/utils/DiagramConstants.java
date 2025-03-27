@@ -84,6 +84,7 @@ public class DiagramConstants {
     public static final String FINALLY_BLOCK = "finally_block";
     public static final String DEFAULT_CASE_LABEL = "default";
     public static final String CONSTRUCTOR_ATTRIBUTE = "constructor";
+    public static final String DEPENDECY_TYPE = "dependency_type";
 
     public static final String PUBLIC_SIGN = "+";
     public static final String PRIVATE_SIGN = "-";

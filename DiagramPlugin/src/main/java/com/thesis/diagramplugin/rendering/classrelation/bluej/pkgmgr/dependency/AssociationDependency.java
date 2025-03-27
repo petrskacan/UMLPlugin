@@ -57,8 +57,8 @@ public class AssociationDependency extends UsesDependency
     }
 
     @Override
-    public Type getType()
+    public DependencyType getType()
     {
-        return Type.ASSOCIATION;
+        return DependencyType.ASSOCIATION;
     }
 }

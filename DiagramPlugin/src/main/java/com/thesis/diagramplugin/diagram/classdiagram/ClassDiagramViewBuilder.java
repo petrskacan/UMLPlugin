@@ -186,7 +186,8 @@ public class ClassDiagramViewBuilder {
         for (ClassDiagramModelField field : el.getFields()) {
             for (AClassDiagramModelClassLikeEntity to : field.getRelations().values()) {
                 if (relations.add(new Relation(el, to))) {
-                    Dependency uses = new AggregationDependency(pkg, classes.get(el), classes.get(to));
+                    to.getUniqueId();
+                    Dependency uses = el.getDependencyType().create(pkg, classes.get(el), classes.get(to));
                     pkg.addDependency(uses, true);
                     dependencies.add(el.getName() + " =======> " + to.getName() + " DEPENDENCY ASSOCIATION");
                     System.out.println(el.getName() + " =======> "+ to.getName()+  " DEPENDENCY USES");

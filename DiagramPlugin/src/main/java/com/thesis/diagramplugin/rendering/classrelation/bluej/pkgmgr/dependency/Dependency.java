@@ -96,7 +96,7 @@ public abstract class Dependency extends Edge
      * 
      * @return The type of this dependency;
      */
-    public abstract Type getType();
+    public abstract DependencyType getType();
 
     /**
      * Determine the dependency's "to" and "from" nodes by loading their names from the

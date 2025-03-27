@@ -56,8 +56,8 @@ public class ExtendsDependency extends Dependency
     }
     
     @Override
-    public Type getType()
+    public DependencyType getType()
     {
-        return Type.EXTENDS;
+        return DependencyType.EXTENDS;
     }
 }
