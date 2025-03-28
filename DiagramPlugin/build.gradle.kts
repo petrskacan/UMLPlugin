@@ -1,7 +1,7 @@
 
 
 group = "com.thesis"
-version = "1.1.45-beta"
+version = "1.1.49-beta"
 
 plugins {
     id("java")
@@ -84,12 +84,9 @@ tasks {
         changeNotes.set("""
         <ul>
         Changes for Class Diagrams
-            <li>Dependency relationships are noW displaying.</li>            
-            <li>Fixed generation for pycharm</li>      
+            <li>Diagram reflects changes made in code</li>              
              KNOWN ISSUES
              <li></li>
-             <li>Diagram does not reflect code changes automatically (requires deleting the generated XML file and reloading the diagram).</li>
-             <li>In some cases, the diagram does not generate at all. (tbh, no idea when and why)</li>
         </ul>
     """.trimIndent())
     }
