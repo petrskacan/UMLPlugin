@@ -68,6 +68,7 @@ public class ClassDiagramViewBuilder {
         try {
 
             pkg = new Package();
+            pkg.setBaseName(model.getPackageName());
 
             PackageTarget packageTarget = new PackageTarget(pkg, model.getUniqueId());
             packageTarget.setDisplayName(model.getPackageName());

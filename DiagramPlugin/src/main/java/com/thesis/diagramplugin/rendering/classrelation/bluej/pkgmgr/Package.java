@@ -597,6 +597,7 @@ public final class Package extends Graph {
         if (identifierName == null) {
             return null;
         }
+        System.out.println(targets);
         Target t = targets.get(identifierName);
 
         if (t instanceof DependentTarget) {

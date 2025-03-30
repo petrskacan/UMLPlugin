@@ -1,7 +1,7 @@
 
 
 group = "com.thesis"
-version = "1.1.49-beta"
+version = "1.1.55-beta"
 
 plugins {
     id("java")
@@ -86,7 +86,9 @@ tasks {
         Changes for Class Diagrams
             <li>Diagram reflects changes made in code</li>              
              KNOWN ISSUES
-             <li></li>
+             <li>Arrow is not facing right direction</li>             
+             <li>Line connecting package with itself is scuffed</li>             
+             <li>Non-standard characters are displayed incorrectly</li>
         </ul>
     """.trimIndent())
     }

@@ -21,13 +21,11 @@
  */
 package com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr;
 
-import com.thesis.diagramplugin.rendering.classrelation.bluej.graph.Edge;
+import com.thesis.diagramplugin.rendering.classrelation.bluej.graph.CustomDependencyDialog;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.graph.GraphEditor;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.graph.Vertex;
-import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.Dependency;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.ClassTarget;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.PackageTarget;
-import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.Target;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -186,7 +184,13 @@ public final class PackageEditor extends GraphEditor
                 ((Package) PackageEditor.this.getGraph()).recalcArrows();
                 PackageEditor.this.graphChanged();
             });
+            JMenuItem addCustomDepItem = new JMenuItem("Add Custom Dependency...");
+            addCustomDepItem.addActionListener(e -> {
+                new CustomDependencyDialog((Package)PackageEditor.this.getGraph());
+            });
 
+            menu.add(addCustomDepItem);
+            menu.addSeparator();
             menu.add(menuExpandItem);
             menu.add(menuColapseItem);
             menu.add(menuHideItem);
