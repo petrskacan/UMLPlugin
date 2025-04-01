@@ -8,7 +8,8 @@ public enum ClassDiagramModelType {
     TEST_CLASS("unittest"),
     ABSTRACT_CLASS("abstract"),
     MODULE("module"),
-    PACKAGE("package");
+    PACKAGE("package"),
+    CUSTOMDEPENDECY("customDependency");
 
     public final String type;
 

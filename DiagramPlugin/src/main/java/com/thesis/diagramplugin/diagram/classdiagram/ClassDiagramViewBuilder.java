@@ -22,6 +22,7 @@ public class ClassDiagramViewBuilder {
 
     private final HashSet<String> identifiers = new HashSet<>();
     private final LinkedHashMap<AClassDiagramModelClassLikeEntity, DependentTarget> classes = new LinkedHashMap<>();
+    private final LinkedHashMap<String, DependentTarget> stringToClasses = new LinkedHashMap<>();
     private final LinkedHashMap<ClassDiagramModelPackage, PackageTarget> packages = new LinkedHashMap<>();
 
     private final LinkedHashMap<AClassDiagramModelClassLikeEntity, AClassDiagramModelClassLikeEntity> ownershipMap = new LinkedHashMap<>();
@@ -98,6 +99,7 @@ public class ClassDiagramViewBuilder {
 
     private void preparePackageElements(AClassDiagramModelClassLikeEntityCollection model, Package pkg) {
         for (AClassDiagramModelClassLikeEntity el : model.getContainingClassLikeEntities()) {
+            if(el instanceof ClassDiagramCustomDependency) continue;
             ownershipMap.put(el, model);
             if (el.getModelType() == ClassDiagramModelType.PACKAGE) {
                 PackageTarget packageTarget = new PackageTarget(pkg, el.getUniqueId());
@@ -125,6 +127,7 @@ public class ClassDiagramViewBuilder {
             ct.setVisible(el.isVisible());
             ct.setDisplayName(el.getName());
             this.classes.put(el, ct);
+            this.stringToClasses.put(el.getUniqueId(), ct);
 
             if (el.getModelType() == ClassDiagramModelType.MODULE) {
                 preparePackageElements((ClassDiagramModelModule) el, pkg);
@@ -135,7 +138,12 @@ public class ClassDiagramViewBuilder {
 
     private void resolveElementDetails(ClassDiagramModelPackage model, Package pkg) {
 
-        for (AClassDiagramModelClassLikeEntity el : classes.keySet()) {
+        for (AClassDiagramModelClassLikeEntity el : model.getContainingClassLikeEntities()) {
+            if(el instanceof ClassDiagramCustomDependency)
+            {
+                resolveCustomDependency(el, pkg);
+                continue;
+            }
             resolveContainment(el, model, pkg);
             resolveFields(el, pkg);
             resolveMethods(el, pkg);
@@ -144,6 +152,17 @@ public class ClassDiagramViewBuilder {
             resolveTests(el, pkg);
             resolveUses(el, pkg);
             resolveModules(el, pkg);
+        }
+    }
+
+    private void resolveCustomDependency(AClassDiagramModelClassLikeEntity el, Package pkg) {
+        if(el instanceof ClassDiagramCustomDependency customDependency)
+        {
+            DependentTarget from = stringToClasses.get(customDependency.getFrom());
+            DependentTarget to = stringToClasses.get(customDependency.getTo());
+            DependencyType type = customDependency.getDependencyType();
+            pkg.addDependency(type.create(pkg, from, to), true);
+            dependencies.add(from.getDisplayName() + " =======> " + to.getDisplayName() + " DEPENDENCY "+ type);
         }
     }
 
@@ -287,6 +306,7 @@ public class ClassDiagramViewBuilder {
 
     private void addElements(AClassDiagramModelClassLikeEntityCollection model, Package pkg) {
         for (AClassDiagramModelClassLikeEntity el : model.getContainingClassLikeEntities()) {
+            if(el instanceof ClassDiagramCustomDependency) continue;
             if (model.getModelType() == ClassDiagramModelType.MODULE) {
                 if (ownershipMap.containsKey(model)) {
                     AClassDiagramModelElement packageElement = ownershipMap.get(model);

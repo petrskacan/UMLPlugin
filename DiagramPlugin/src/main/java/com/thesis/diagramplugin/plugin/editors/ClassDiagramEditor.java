@@ -3,9 +3,10 @@ package com.thesis.diagramplugin.plugin.editors;
 import com.intellij.openapi.util.Disposer;
 import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.vfs.VirtualFile;
-import com.thesis.diagramplugin.diagram.classdiagram.model.ClassDiagramModelPackage;
 import com.thesis.diagramplugin.diagram.classdiagram.ClassDiagramView;
+import com.thesis.diagramplugin.diagram.classdiagram.model.ClassDiagramModelPackage;
 import com.thesis.diagramplugin.rendering.classrelation.FileListener;
+import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.CustomDependency;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.ClassTarget;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
@@ -15,7 +16,6 @@ import org.dom4j.io.OutputFormat;
 import org.dom4j.io.XMLWriter;
 import org.jetbrains.annotations.NotNull;
 
-import javax.annotation.OverridingMethodsMustInvokeSuper;
 import javax.swing.*;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -58,6 +58,7 @@ public class ClassDiagramEditor extends DiagramEditor implements FileListener {
         Map<String, Element> elementIdMap = new HashMap<>();
         buildElementIdMap(document.getRootElement(), elementIdMap);
         Set<ClassTarget> objects = diagramView.getObjectsToSave();
+        System.out.println(objects);
         for (ClassTarget object : objects) {
             Element element = elementIdMap.get(object.getIdentifierName());
             if (element != null) {
@@ -88,6 +89,31 @@ public class ClassDiagramEditor extends DiagramEditor implements FileListener {
                 }
             }
         }
+        for (CustomDependency customDep : CustomDependency.getCustomDependencies())
+        {
+            String expectedName = customDep.toString();
+
+            boolean alreadyExists = false;
+            // Iterate over existing customDependecy elements
+            for (Iterator<Element> it = document.getRootElement().elementIterator("customDependecy"); it.hasNext();) {
+                Element existingElement = it.next();
+                if (expectedName.equals(existingElement.attributeValue(NAME_ATTRIBUTE))) {
+                    alreadyExists = true;
+                    break;
+                }
+            }
+
+            // Only add a new element if one doesn't already exist
+            if (!alreadyExists) {
+                Element customDependency = document.getRootElement().addElement("customDependecy");
+                customDependency.addAttribute(NAME_ATTRIBUTE, expectedName);
+                customDependency.addAttribute(UNIQUE_ID_ATTRIBUTE, expectedName);
+                customDependency.addAttribute(FROM, customDep.getFrom().getIdentifierName());
+                customDependency.addAttribute(TO, customDep.getTo().getIdentifierName());
+                customDependency.addAttribute(DEPENDECY_TYPE, customDep.getType().toString());
+            }
+        }
+        CustomDependency.clearCustomDependencies();
 
         try {
             FileOutputStream fileOS = new FileOutputStream(xmlFile.getPath());

@@ -2,7 +2,7 @@ package com.thesis.diagramplugin.rendering.classrelation.bluej.graph;
 
 import com.intellij.openapi.ui.ComboBox;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.Package;
-import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.ClassDiagramCustomDependency;
+import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.CustomDependency;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.DependencyType;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.DependentTarget;
 
@@ -80,7 +80,7 @@ public class CustomDependencyDialog{
     private void createCustomDependency() {
         DependentTarget from = pkg.getDependentTarget(path + pkg.getBaseName() + "/" + packageFromCombo.getSelectedItem().toString());
         DependentTarget to = pkg.getDependentTarget(path + pkg.getBaseName() + "/" + packageToCombo.getSelectedItem().toString());
-        new ClassDiagramCustomDependency(pkg, from, to, (DependencyType) typeCombo.getSelectedItem());
+        new CustomDependency(pkg, from, to, (DependencyType) typeCombo.getSelectedItem());
     }
 
     public boolean isConfirmed() {

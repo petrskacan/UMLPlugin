@@ -1,7 +1,7 @@
 package com.thesis.diagramplugin.diagram.classdiagram;
 
-import com.thesis.diagramplugin.diagram.classdiagram.model.ClassDiagramModelPackage;
 import com.thesis.diagramplugin.diagram.DiagramView;
+import com.thesis.diagramplugin.diagram.classdiagram.model.ClassDiagramModelPackage;
 import com.thesis.diagramplugin.plugin.editors.ClassDiagramEditor;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.Package;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.PkgMgrFrame;
@@ -52,6 +52,7 @@ public class ClassDiagramView implements DiagramView {
         targets.addAll(pkg.getPackages().keySet());
         targets.addAll(pkg.getModules().keySet());
         targets.addAll(pkg.getClassTargets());
+        //targets.add((ClassTarget)Set.copyOf(pkg.getTargets().getAllTargets()));
         return targets;
     }
 }

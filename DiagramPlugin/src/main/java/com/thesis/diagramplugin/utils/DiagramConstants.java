@@ -9,6 +9,7 @@ public class DiagramConstants {
     public static final String UNKNOWN_TAG = "unknown";
     public static final String CLASS_TAG = "class";
     public static final String MODULE_TAG = "module";
+    public static final String CUSTOM_DEPENDECY_TAG = "customDependecy";
     public static final String ENUM_TAG = "enum";
     public static final String RECORD_TAG = "record";
     public static final String INTERFACE_TAG = "interface";
@@ -85,6 +86,8 @@ public class DiagramConstants {
     public static final String DEFAULT_CASE_LABEL = "default";
     public static final String CONSTRUCTOR_ATTRIBUTE = "constructor";
     public static final String DEPENDECY_TYPE = "dependency_type";
+    public static final String FROM = "from";
+    public static final String TO = "to";
 
     public static final String PUBLIC_SIGN = "+";
     public static final String PRIVATE_SIGN = "-";

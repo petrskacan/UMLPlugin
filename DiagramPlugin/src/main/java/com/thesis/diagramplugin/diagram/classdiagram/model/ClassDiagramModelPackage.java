@@ -79,6 +79,9 @@ public class ClassDiagramModelPackage extends AClassDiagramModelClassLikeEntityC
                 case PACKAGE_TAG -> {
                     entity = new ClassDiagramModelPackage(element);
                 }
+                case CUSTOM_DEPENDECY_TAG -> {
+                    entity = new ClassDiagramCustomDependency(element);
+                }
                 default -> {
                     continue;
                 }
