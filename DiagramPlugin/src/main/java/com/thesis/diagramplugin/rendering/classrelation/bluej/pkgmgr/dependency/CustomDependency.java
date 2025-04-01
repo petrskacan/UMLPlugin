@@ -10,15 +10,18 @@ public class CustomDependency {
     private final DependencyType type;
     private final DependentTarget from;
     private final DependentTarget to;
+
+    private final Dependency dependency;
     private static final List<CustomDependency> customDependencies = new ArrayList<>();
+    private static final List<CustomDependency> toRemoveDependecies = new ArrayList<>();
 
     public CustomDependency(Package pkg, DependentTarget from, DependentTarget to, DependencyType type) {
         this.type = type;
         this.from = from;
         this.to = to;
         customDependencies.add(this);
-
-        pkg.addDependency(type.create(pkg, from, to), true);
+        dependency = type.create(pkg, from, to);
+        pkg.addDependency(dependency, true);
 
     }
 
@@ -26,8 +29,18 @@ public class CustomDependency {
     {
         return customDependencies;
     }
+    public static List<CustomDependency> getToRemoveDependecies()
+    {
+        return toRemoveDependecies;
+    }
     public static void clearCustomDependencies() {
         customDependencies.clear();
+        toRemoveDependecies.clear();
+    }
+    public static void removeCustomDependency(CustomDependency toRemove)
+    {
+        customDependencies.remove(toRemove);
+        toRemoveDependecies.add(toRemove);
     }
 
 
@@ -41,6 +54,9 @@ public class CustomDependency {
 
     public DependentTarget getTo() {
         return to;
+    }
+    public Dependency getDependency() {
+        return dependency;
     }
 
     @Override

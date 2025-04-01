@@ -21,9 +21,7 @@
  */
 package com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr;
 
-import com.thesis.diagramplugin.rendering.classrelation.bluej.graph.CustomDependencyDialog;
-import com.thesis.diagramplugin.rendering.classrelation.bluej.graph.GraphEditor;
-import com.thesis.diagramplugin.rendering.classrelation.bluej.graph.Vertex;
+import com.thesis.diagramplugin.rendering.classrelation.bluej.graph.*;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.ClassTarget;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.PackageTarget;
 
@@ -189,7 +187,13 @@ public final class PackageEditor extends GraphEditor
                 new CustomDependencyDialog((Package)PackageEditor.this.getGraph());
             });
 
+            JMenuItem manageDepItem = new JMenuItem("Manage custom dependecies");
+            manageDepItem.addActionListener(e -> {
+                new CustomDependencyMultiEditDialog((Package)PackageEditor.this.getGraph());
+            });
+
             menu.add(addCustomDepItem);
+            menu.add(manageDepItem);
             menu.addSeparator();
             menu.add(menuExpandItem);
             menu.add(menuColapseItem);

@@ -113,6 +113,17 @@ public class ClassDiagramEditor extends DiagramEditor implements FileListener {
                 customDependency.addAttribute(DEPENDECY_TYPE, customDep.getType().toString());
             }
         }
+        for (CustomDependency customDep : CustomDependency.getToRemoveDependecies())
+        {
+            String expectedName = customDep.toString();
+
+            for (Iterator<Element> it = document.getRootElement().elementIterator("customDependecy"); it.hasNext();) {
+                Element removeElement = it.next();
+                if (expectedName.equals(removeElement.attributeValue(NAME_ATTRIBUTE))) {
+                    document.getRootElement().remove(removeElement);
+                }
+            }
+        }
         CustomDependency.clearCustomDependencies();
 
         try {

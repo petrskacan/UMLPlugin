@@ -161,7 +161,7 @@ public class ClassDiagramViewBuilder {
             DependentTarget from = stringToClasses.get(customDependency.getFrom());
             DependentTarget to = stringToClasses.get(customDependency.getTo());
             DependencyType type = customDependency.getDependencyType();
-            pkg.addDependency(type.create(pkg, from, to), true);
+            new CustomDependency(pkg, from, to, type);
             dependencies.add(from.getDisplayName() + " =======> " + to.getDisplayName() + " DEPENDENCY "+ type);
         }
     }

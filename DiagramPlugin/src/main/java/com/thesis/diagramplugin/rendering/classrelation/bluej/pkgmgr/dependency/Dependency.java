@@ -87,6 +87,16 @@ public abstract class Dependency extends Edge
     {
         return (DependentTarget) to;
     }
+    public void setFrom(DependentTarget from)
+    {
+        this.from = from;
+    }
+
+    public void setTo(DependentTarget to)
+    {
+        this.to = to;
+    }
+
 
     /**
      * Returns the type of this dependency. This information is used by
