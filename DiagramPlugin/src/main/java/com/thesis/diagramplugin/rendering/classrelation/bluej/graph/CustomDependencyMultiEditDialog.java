@@ -220,6 +220,7 @@ public class CustomDependencyMultiEditDialog extends JDialog {
                         {
                             dep.getDependency().setFrom(newFrom);
                             dep.getDependency().setTo(newTo);
+                            pkg.addDependency(dep.getDependency(), true);
                         }
                     }
                 }

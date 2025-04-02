@@ -34,8 +34,7 @@ import java.awt.*;
  * @author Michael Kolling
  */
 public class UsesDependencyPainter
-    implements DependencyPainter
-{
+    implements DependencyPainter {
     protected static final float strokeWidthDefault = 1.0f;
     protected static final float strokeWidthSelected = 2.0f;
     static final int ARROW_SIZE = 10; // pixels
@@ -53,12 +52,10 @@ public class UsesDependencyPainter
     protected boolean usesDiamond = false;
     protected Polygon diamond;
 
-    public UsesDependencyPainter()
-    {
+    public UsesDependencyPainter() {
     }
 
-    public void paint(Graphics2D g, Dependency dependency, boolean hasFocus)
-    {
+    public void paint(Graphics2D g, Dependency dependency, boolean hasFocus) {
         if (!(dependency instanceof UsesDependency)) {
             throw new IllegalArgumentException("Not a UsesDependency");
         }
@@ -69,8 +66,7 @@ public class UsesDependencyPainter
         if (isSelected) {
             dashedStroke = dashedSelected;
             normalStroke = normalSelected;
-        }
-        else {
+        } else {
             dashedStroke = dashedUnselected;
             normalStroke = normalUnselected;
         }
@@ -92,83 +88,88 @@ public class UsesDependencyPainter
 
         paintLine(src_y, d, g, src_x, dst_x, dst_y, oldStroke);
     }
-protected void paintLine(int recalcSrcY, UsesDependency d,
-                         Graphics2D g, int recalcSrcX,  int recalcDstX, int recalcDstY, Stroke oldStroke) {
-    // Determine start offset point based on side.
-    int offsetX = 16;
-    int offsetY = 16;
-    int addX = 0, addY = 0;
-    Point startPoint = new Point(recalcSrcX, recalcSrcY);
-    if (d.isStartTop()) {
-        startPoint.y = recalcSrcY - offsetY;
-        addY-=5;
-    } else if (d.isStartBottom()) {
-        startPoint.y = recalcSrcY + offsetY;
-        addY+=5;
-    } else if (d.isStartLeft()) {
-        startPoint.x = recalcSrcX - offsetX;
-        addX-=5;
-    } else if (d.isStartRight()) {
-        startPoint.x = recalcSrcX + offsetX;
-        addX+=5;
-    }
-    if (usesDiamond)
-    {
-        g.drawLine(startPoint.x, startPoint.y,startPoint.x+addX,startPoint.y+addY);
-        startPoint.x+=addX;
-        startPoint.y+=addY;
-    }
-    else
-    {
-        g.drawLine(recalcSrcX, recalcSrcY, startPoint.x, startPoint.y);
-    }
 
-    // Determine destination offset point based on side.
-    Point destPoint = new Point(recalcDstX, recalcDstY);
-    if (d.isEndTop()) {
-        destPoint.y = recalcDstY - offsetY;
-    } else if (d.isEndBottom()) {
-        destPoint.y = recalcDstY + offsetY;
-    } else if (d.isEndLeft()) {
-        destPoint.x = recalcDstX - offsetX;
-    } else if (d.isEndRight()) {
-        destPoint.x = recalcDstX + offsetX;
+    protected void paintLine(int recalcSrcY, UsesDependency d,
+                             Graphics2D g, int recalcSrcX, int recalcDstX, int recalcDstY, Stroke oldStroke) {
+        int offsetX = 16;
+        int offsetY = 16;
+        int addX = 0, addY = 0;
+        Point startPoint = new Point(recalcSrcX, recalcSrcY);
+        if (d.isStartTop()) {
+            startPoint.y = recalcSrcY - offsetY;
+            addY -= 5;
+        } else if (d.isStartBottom()) {
+            startPoint.y = recalcSrcY + offsetY;
+            addY += 5;
+        } else if (d.isStartLeft()) {
+            startPoint.x = recalcSrcX - offsetX;
+            addX -= 5;
+        } else if (d.isStartRight()) {
+            startPoint.x = recalcSrcX + offsetX;
+            addX += 5;
+        }
+        if (usesDiamond) {
+            g.drawLine(startPoint.x, startPoint.y, startPoint.x + addX, startPoint.y + addY);
+            startPoint.x += addX;
+            startPoint.y += addY;
+        } else {
+            g.drawLine(recalcSrcX, recalcSrcY, startPoint.x, startPoint.y);
+        }
+
+        // Determine destination offset point based on side.
+        Point destPoint = new Point(recalcDstX, recalcDstY);
+        if (d.isEndTop()) {
+            destPoint.y = recalcDstY - offsetY;
+        } else if (d.isEndBottom()) {
+            destPoint.y = recalcDstY + offsetY;
+        } else if (d.isEndLeft()) {
+            destPoint.x = recalcDstX - offsetX;
+        } else if (d.isEndRight()) {
+            destPoint.x = recalcDstX + offsetX;
+        }
+        // Draw the trailing segment from the destination port to the recalculated destination.
+        g.drawLine(destPoint.x, destPoint.y, recalcDstX, recalcDstY);
+
+        // Draw around if the dependecy points to itself
+        if(d.from == d.to)
+        {
+            g.drawLine(startPoint.x, startPoint.y, destPoint.x, startPoint.y);
+            g.drawLine(destPoint.x, startPoint.y, destPoint.x, destPoint.y);
+            g.setStroke(oldStroke);
+            return;
+        }
+        // Now, connect startPoint and destPoint with intermediate segments.
+        // Decide the strategy based on the orientation of the start side.
+        boolean startIsVertical = d.isStartTop() || d.isStartBottom();
+        if (startIsVertical) {
+
+            // For a vertical start, the primary offset is vertical.
+            // Compute an intermediate x-coordinate as the average.
+            int bendX = (startPoint.x + destPoint.x) / 2;
+            // Draw a horizontal segment from startPoint to the bend.
+            g.drawLine(startPoint.x, startPoint.y, bendX, startPoint.y);
+            // Then draw a vertical segment from the first bend to the level of the destination port.
+            g.drawLine(bendX, startPoint.y, bendX, destPoint.y);
+            // Finally, draw a horizontal segment to the destination port.
+            g.drawLine(bendX, destPoint.y, destPoint.x, destPoint.y);
+        } else {
+            // For a horizontal start, the primary offset is horizontal.
+            // Compute an intermediate y-coordinate as the average.
+            int bendY = (startPoint.y + destPoint.y) / 2;
+            // Draw a vertical segment from startPoint to the bend.
+            g.drawLine(startPoint.x, startPoint.y, startPoint.x, bendY);
+            // Then draw a horizontal segment from the first bend to the level of the destination port.
+            g.drawLine(startPoint.x, bendY, destPoint.x, bendY);
+            // Finally, draw a vertical segment to the destination port.
+            g.drawLine(destPoint.x, bendY, destPoint.x, destPoint.y);
+        }
+
+        g.setStroke(oldStroke);
     }
-    // Draw the trailing segment from the destination port to the recalculated destination.
-    g.drawLine(destPoint.x, destPoint.y, recalcDstX, recalcDstY);
-
-    // Now, connect startPoint and destPoint with intermediate segments.
-    // Decide the strategy based on the orientation of the start side.
-    boolean startIsVertical = d.isStartTop() || d.isStartBottom();
-    if (startIsVertical) {
-
-        // For a vertical start, the primary offset is vertical.
-        // Compute an intermediate x-coordinate as the average.
-        int bendX = (startPoint.x + destPoint.x) / 2;
-        // Draw a horizontal segment from startPoint to the bend.
-        g.drawLine(startPoint.x, startPoint.y, bendX, startPoint.y);
-        // Then draw a vertical segment from the first bend to the level of the destination port.
-        g.drawLine(bendX, startPoint.y, bendX, destPoint.y);
-        // Finally, draw a horizontal segment to the destination port.
-        g.drawLine(bendX, destPoint.y, destPoint.x, destPoint.y);
-    } else {
-        // For a horizontal start, the primary offset is horizontal.
-        // Compute an intermediate y-coordinate as the average.
-        int bendY = (startPoint.y + destPoint.y) / 2;
-        // Draw a vertical segment from startPoint to the bend.
-        g.drawLine(startPoint.x, startPoint.y, startPoint.x, bendY);
-        // Then draw a horizontal segment from the first bend to the level of the destination port.
-        g.drawLine(startPoint.x, bendY, destPoint.x, bendY);
-        // Finally, draw a vertical segment to the destination port.
-        g.drawLine(destPoint.x, bendY, destPoint.x, destPoint.y);
-    }
-
-    g.setStroke(oldStroke);
-}
 
     protected void drawDiamond(Graphics2D g, int x, int y, boolean filled, ConnectionSide side) {
-        int[] rawX = { -4, 0, 4, 0 };
-        int[] rawY = { 0, 8, 0, -8 };
+        int[] rawX = {-4, 0, 4, 0};
+        int[] rawY = {0, 8, 0, -8};
 
         // Arrays for the final, possibly rotated shape
         int[] xPoints = new int[4];
@@ -223,4 +224,31 @@ protected void paintLine(int recalcSrcY, UsesDependency d,
             g.drawPolygon(diamond);
         }
     }
+
+    private void drawLoop(int recalcSrcY, UsesDependency d,
+                          Graphics2D g, int recalcSrcX, int recalcDstX, int recalcDstY, Stroke oldStroke)
+    {
+            // Draw a loop around the package
+            int loopOffset = 20;
+            int width = d.from.getWidth()/2 + 20;
+            int height = d.from.getHeight()/2;
+
+            // Starting point from the top
+            int startX = recalcSrcX;
+            int startY = recalcSrcY;
+
+            // Right corner
+            int rightX = recalcSrcX + width;
+            int midY = recalcDstY - height;
+
+            // Bottom corner
+            int bottomY = recalcSrcY + height;
+
+            // Ending at right side
+            int endX = recalcSrcX + width;
+            int endY = recalcSrcY;
+
+
+    }
+
 }
