@@ -21,11 +21,14 @@
  */
 package com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.graphPainter;
 
+import com.intellij.ui.JBColor;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.Dependency;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.UsesDependency;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.ConnectionSide;
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Paints usesDependencies
@@ -91,6 +94,8 @@ public class UsesDependencyPainter
 
     protected void paintLine(int recalcSrcY, UsesDependency d,
                              Graphics2D g, int recalcSrcX, int recalcDstX, int recalcDstY, Stroke oldStroke) {
+        d.getBendPoints().clear();
+        List<Point> bendPoints = new ArrayList<>();
         int offsetX = 16;
         int offsetY = 16;
         int addX = 0, addY = 0;
@@ -115,7 +120,7 @@ public class UsesDependencyPainter
         } else {
             g.drawLine(recalcSrcX, recalcSrcY, startPoint.x, startPoint.y);
         }
-
+        d.setBendPoint(startPoint);
         // Determine destination offset point based on side.
         Point destPoint = new Point(recalcDstX, recalcDstY);
         if (d.isEndTop()) {
@@ -135,36 +140,52 @@ public class UsesDependencyPainter
         {
             g.drawLine(startPoint.x, startPoint.y, destPoint.x, startPoint.y);
             g.drawLine(destPoint.x, startPoint.y, destPoint.x, destPoint.y);
-            g.setStroke(oldStroke);
-            return;
+            bendPoints.add(new Point(destPoint.x, startPoint.y));
         }
-        // Now, connect startPoint and destPoint with intermediate segments.
-        // Decide the strategy based on the orientation of the start side.
-        boolean startIsVertical = d.isStartTop() || d.isStartBottom();
-        if (startIsVertical) {
+        else {
+            // Now, connect startPoint and destPoint with intermediate segments.
+            // Decide the strategy based on the orientation of the start side.
+            boolean startIsVertical = d.isStartTop() || d.isStartBottom();
+            if (startIsVertical) {
 
-            // For a vertical start, the primary offset is vertical.
-            // Compute an intermediate x-coordinate as the average.
-            int bendX = (startPoint.x + destPoint.x) / 2;
-            // Draw a horizontal segment from startPoint to the bend.
-            g.drawLine(startPoint.x, startPoint.y, bendX, startPoint.y);
-            // Then draw a vertical segment from the first bend to the level of the destination port.
-            g.drawLine(bendX, startPoint.y, bendX, destPoint.y);
-            // Finally, draw a horizontal segment to the destination port.
-            g.drawLine(bendX, destPoint.y, destPoint.x, destPoint.y);
-        } else {
-            // For a horizontal start, the primary offset is horizontal.
-            // Compute an intermediate y-coordinate as the average.
-            int bendY = (startPoint.y + destPoint.y) / 2;
-            // Draw a vertical segment from startPoint to the bend.
-            g.drawLine(startPoint.x, startPoint.y, startPoint.x, bendY);
-            // Then draw a horizontal segment from the first bend to the level of the destination port.
-            g.drawLine(startPoint.x, bendY, destPoint.x, bendY);
-            // Finally, draw a vertical segment to the destination port.
-            g.drawLine(destPoint.x, bendY, destPoint.x, destPoint.y);
+                // For a vertical start, the primary offset is vertical.
+                // Compute an intermediate x-coordinate as the average.
+                int bendX = (startPoint.x + destPoint.x) / 2;
+                // Draw a horizontal segment from startPoint to the bend.
+                g.drawLine(startPoint.x, startPoint.y, bendX, startPoint.y);
+                // Then draw a vertical segment from the first bend to the level of the destination port.
+                g.drawLine(bendX, startPoint.y, bendX, destPoint.y);
+                // Finally, draw a horizontal segment to the destination port.
+                g.drawLine(bendX, destPoint.y, destPoint.x, destPoint.y);
+                bendPoints.add(new Point(bendX, startPoint.y));
+                bendPoints.add(new Point(bendX, destPoint.y));
+            } else {
+                // For a horizontal start, the primary offset is horizontal.
+                // Compute an intermediate y-coordinate as the average.
+                int bendY = (startPoint.y + destPoint.y) / 2;
+                // Draw a vertical segment from startPoint to the bend.
+                g.drawLine(startPoint.x, startPoint.y, startPoint.x, bendY);
+                // Then draw a horizontal segment from the first bend to the level of the destination port.
+                g.drawLine(startPoint.x, bendY, destPoint.x, bendY);
+                // Finally, draw a vertical segment to the destination port.
+                g.drawLine(destPoint.x, bendY, destPoint.x, destPoint.y);
+                bendPoints.add(new Point(startPoint.x, bendY));
+                bendPoints.add(new Point(destPoint.x, bendY));
+            }
         }
-
+        if (d.isSelected()) {
+            drawBendHandle(g, bendPoints);
+        }
+        d.getBendPoints().addAll(bendPoints);
+        d.setBendPoint(destPoint);
         g.setStroke(oldStroke);
+    }
+    private void drawBendHandle(Graphics2D g, List<Point> points) {
+        final int r = 5;
+        g.setColor(JBColor.BLUE);
+        for(Point point : points) {
+            g.fillOval(point.x - r, point.y - r, r * 2, r * 2);
+        }
     }
 
     protected void drawDiamond(Graphics2D g, int x, int y, boolean filled, ConnectionSide side) {

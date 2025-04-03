@@ -26,8 +26,11 @@ import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.Package;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.ConnectionSide;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.DependentTarget;
 
-import java.util.Properties;
 import java.awt.*;
+import java.awt.geom.Line2D;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
 
 /**
  * A dependency between two targets in a package
@@ -40,6 +43,10 @@ public class UsesDependency extends Dependency
     private int sourceX, sourceY, destX, destY;
     private boolean startTop, endLeft;
     private ConnectionSide startConnectionSide;
+    private List<Point> bendPoints = new ArrayList<>();
+
+    public List<Point> getBendPoints() { return bendPoints; }
+    public void setBendPoint(Point point) { this.bendPoints.add(point); }
 
     public ConnectionSide getEndConnectionSide() {
         return endConnectionSide;
@@ -111,48 +118,34 @@ public class UsesDependency extends Dependency
 
     public boolean contains(int x, int y)
     {
-        int src_x = this.sourceX;
-        int src_y = this.sourceY;
-        int dst_x = this.destX;
-        int dst_y = this.destY;
-
-        // Check the first segment
-        int corner_y = src_y + (isStartTop() ? -15 : 15);
-        if(inRect(x, y, src_x - SELECT_DIST, corner_y, src_x + SELECT_DIST, src_y))
-            return true;
-
-        src_y = corner_y;
-
-        // Check the last line segment
-        int corner_x = dst_x + (isEndLeft() ? -15 : 15);
-        if(inRect(x, y, corner_x, dst_y - SELECT_DIST, dst_x, dst_y + SELECT_DIST))
-            return true;
-
-        dst_x = corner_x;
-
-        // if arrow vertical corner, check first segment up to corner
-        if((src_y != dst_y) && (isStartTop() == (src_y < dst_y))) {
-            corner_x = ((src_x + dst_x) / 2) + (isEndLeft() ? 15 : -15);
-            corner_x = (isEndLeft() ? Math.min(dst_x, corner_x) :
-                        Math.max(dst_x, corner_x));
-            if(inRect(x, y, src_x, src_y - SELECT_DIST, corner_x, src_y + SELECT_DIST))
-                return true;
-            src_x = corner_x;
+        List<Point> points = new ArrayList<>();
+        if (bendPoints != null) {
+            points.addAll(bendPoints);
         }
 
-        // if arrow horiz. corner, check first segment up to corner
-        if((src_x != dst_x) && (isEndLeft() == (src_x > dst_x))) {
-            corner_y = ((src_y + dst_y) / 2) + (isStartTop() ? 15 : -15);
-            corner_y = (isStartTop() ? Math.min(src_y, corner_y) :
-                        Math.max(src_y, corner_y));
-            if(inRect(x, y, dst_x - SELECT_DIST, corner_y, dst_x + SELECT_DIST, dst_y))
+        // Check every line segment between the points
+        for (int i = 0; i < points.size() - 1; i++) {
+            Point p1 = points.get(i);
+            Point p2 = points.get(i + 1);
+            if (lineContainsPoint(p1.x, p1.y, p2.x, p2.y, x, y, SELECT_DIST)) {
                 return true;
-            dst_y = corner_y;
+            }
         }
 
-        // Check the middle bit
-        return inRect(x, y, src_x - SELECT_DIST, src_y, src_x + SELECT_DIST, dst_y)
-            || inRect(x, y, src_x, dst_y - SELECT_DIST, dst_x, dst_y + SELECT_DIST);
+        return false;
+    }
+    private boolean lineContainsPoint(int x1, int y1, int x2, int y2, int px, int py, int tolerance) {
+        Rectangle hitBox = new Rectangle(
+                Math.min(x1, x2) - tolerance,
+                Math.min(y1, y2) - tolerance,
+                Math.abs(x1 - x2) + 2 * tolerance,
+                Math.abs(y1 - y2) + 2 * tolerance
+        );
+        if (!hitBox.contains(px, py)) {
+            return false;
+        }
+        double distance = Line2D.ptSegDist(x1, y1, x2, y2, px, py);
+        return distance <= tolerance;
     }
 
     

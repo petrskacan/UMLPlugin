@@ -22,19 +22,14 @@
 package com.thesis.diagramplugin.rendering.classrelation.bluej.graph;
 
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.Dependency;
+import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.UsesDependency;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.ClassTarget;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.DependentTarget;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.Target;
 
-import java.awt.Rectangle;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.MouseEvent;
+import java.awt.*;
+import java.awt.event.*;
 import java.util.Iterator;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
-import java.awt.event.ActionEvent;
 import java.util.List;
 
 /**
@@ -65,12 +60,15 @@ public class SelectionController
     private int currentDependencyIndex;  // for cycling through dependencies
 
     private TraverseStrategy traverseStragegiImpl = new TraverseStrategyImpl();
+    private UsesDependency selectedDependency;
+    private Point selectedBendPoint;
 
-    
+
+
     /**
      * Create the controller for a given graph editor.
      * @param graphEditor
-     * @param graph
+     * @param
      */
     public SelectionController(GraphEditor graphEditor)
     {
@@ -133,8 +131,17 @@ public class SelectionController
                     selection.selectOnly(clickedElement);
                 }
             }
+            if (clickedElement instanceof UsesDependency dep) {
+                for (Point bend : dep.getBendPoints()) {
+                    if (bend.distance(clickX, clickY) < 6) {
+                        selectedDependency = dep;
+                        selectedBendPoint = bend;
+                        break;
+                    }
+                }
+            }
 
-            if(isDrawingDependency()) {
+            if(isDrawingDependency(evt)) {
                 if (clickedElement instanceof Target)
                     rubberBand = new RubberBand(clickX, clickY, clickX, clickY);
             }
@@ -158,7 +165,8 @@ public class SelectionController
     public void mouseReleased(MouseEvent evt)
     {
         rubberBand = null;
-        
+        selectedDependency = null;
+        selectedBendPoint = null;
         SelectionSet newSelection = marquee.stop();     // may or may not have had a marquee...
         if(newSelection != null) {
             selection.addAll(newSelection);
@@ -240,6 +248,12 @@ public class SelectionController
                 }
                 graphEditor.repaint();
             }
+            if (selectedBendPoint != null) {
+                int snappedX = snapToGrid(evt.getX());
+                int snappedY = snapToGrid(evt.getY());
+                selectedBendPoint.setLocation(snappedX, snappedY);
+                graphEditor.repaint(); // redraw updated line
+            }
         }
     }
 
@@ -248,11 +262,10 @@ public class SelectionController
     /**
      * Tell whether the package is currently drawing a dependency.
      */
-    public boolean isDrawingDependency()
+    public boolean isDrawingDependency(MouseEvent evt)
     {
-//        return (((Package)graph).getState() == Package.S_CHOOSE_USES_TO)
-//                || (((Package)graph).getState() == Package.S_CHOOSE_EXT_TO);
-        return false;
+        System.out.println(evt.getSource().toString());
+        return evt.getSource() instanceof Dependency;
     }
 
     

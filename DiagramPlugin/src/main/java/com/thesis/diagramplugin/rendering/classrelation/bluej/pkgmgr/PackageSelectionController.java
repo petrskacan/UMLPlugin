@@ -1,12 +1,10 @@
 package com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr;
 
 import com.thesis.diagramplugin.rendering.classrelation.bluej.graph.*;
-import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.PackageTarget;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.Target;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
-import java.util.Optional;
 
 public class PackageSelectionController extends SelectionController {
 
@@ -17,6 +15,7 @@ public class PackageSelectionController extends SelectionController {
     @Override
     public void mousePressed(MouseEvent evt)
     {
+        System.out.println("CLICK START");
         graphEditor.requestFocus();
         int clickX = evt.getX();
         int clickY = evt.getY();
@@ -48,7 +47,7 @@ public class PackageSelectionController extends SelectionController {
                 }
             }
 
-            if(isDrawingDependency()) {
+            if(isDrawingDependency(evt)) {
                 if (clickedElement instanceof Target)
                     rubberBand = new RubberBand(clickX, clickY, clickX, clickY);
             }
@@ -64,6 +63,7 @@ public class PackageSelectionController extends SelectionController {
                 }
             }
         }
+        System.out.println("CLICK END");
     }
 
     /**

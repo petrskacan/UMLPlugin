@@ -21,41 +21,26 @@
  */
 package com.thesis.diagramplugin.rendering.classrelation.bluej.graph;
 
+import com.thesis.diagramplugin.rendering.classrelation.FileListener;
+import com.thesis.diagramplugin.rendering.classrelation.FileSubject;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.Package;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.graphPainter.GraphPainterStdImpl;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.ClassTarget;
-import com.thesis.diagramplugin.rendering.classrelation.FileListener;
-import com.thesis.diagramplugin.rendering.classrelation.FileSubject;
 
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionListener;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map.Entry;
-import javax.swing.JLayeredPane;
-
-import java.awt.Font;
-import java.awt.event.MouseAdapter;
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import java.awt.*;
+import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map.Entry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.JFileChooser;
-import javax.swing.JMenuItem;
-import javax.swing.JPopupMenu;
-import javax.swing.SwingUtilities;
-import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  * Component to allow editing of general graphs.

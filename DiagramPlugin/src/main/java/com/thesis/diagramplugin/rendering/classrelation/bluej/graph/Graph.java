@@ -136,7 +136,7 @@ public abstract class Graph
     {
         SelectableGraphElement element = findVertex(x, y);
 
-        if (element == null) {
+        if (element == null || element.toString().contains(".")) {
             element = findEdge(x, y);
         }
         return element;
