@@ -44,6 +44,15 @@ public class UsesDependency extends Dependency
     private boolean startTop, endLeft;
     private ConnectionSide startConnectionSide;
     private List<Point> bendPoints = new ArrayList<>();
+    private boolean autoLayout = true;
+
+    public boolean isAutoLayout() {
+        return autoLayout;
+    }
+
+    public void setAutoLayout(boolean autoLayout) {
+        this.autoLayout = autoLayout;
+    }
 
     public List<Point> getBendPoints() { return bendPoints; }
     public void setBendPoint(Point point) { this.bendPoints.add(point); }

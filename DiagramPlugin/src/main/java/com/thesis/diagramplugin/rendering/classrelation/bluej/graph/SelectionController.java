@@ -22,7 +22,6 @@
 package com.thesis.diagramplugin.rendering.classrelation.bluej.graph;
 
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.Dependency;
-import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.UsesDependency;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.ClassTarget;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.DependentTarget;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.Target;
@@ -60,8 +59,7 @@ public class SelectionController
     private int currentDependencyIndex;  // for cycling through dependencies
 
     private TraverseStrategy traverseStragegiImpl = new TraverseStrategyImpl();
-    private UsesDependency selectedDependency;
-    private Point selectedBendPoint;
+
 
 
 
@@ -131,15 +129,6 @@ public class SelectionController
                     selection.selectOnly(clickedElement);
                 }
             }
-            if (clickedElement instanceof UsesDependency dep) {
-                for (Point bend : dep.getBendPoints()) {
-                    if (bend.distance(clickX, clickY) < 6) {
-                        selectedDependency = dep;
-                        selectedBendPoint = bend;
-                        break;
-                    }
-                }
-            }
 
             if(isDrawingDependency(evt)) {
                 if (clickedElement instanceof Target)
@@ -165,8 +154,6 @@ public class SelectionController
     public void mouseReleased(MouseEvent evt)
     {
         rubberBand = null;
-        selectedDependency = null;
-        selectedBendPoint = null;
         SelectionSet newSelection = marquee.stop();     // may or may not have had a marquee...
         if(newSelection != null) {
             selection.addAll(newSelection);
@@ -248,12 +235,7 @@ public class SelectionController
                 }
                 graphEditor.repaint();
             }
-            if (selectedBendPoint != null) {
-                int snappedX = snapToGrid(evt.getX());
-                int snappedY = snapToGrid(evt.getY());
-                selectedBendPoint.setLocation(snappedX, snappedY);
-                graphEditor.repaint(); // redraw updated line
-            }
+
         }
     }
 
@@ -264,7 +246,6 @@ public class SelectionController
      */
     public boolean isDrawingDependency(MouseEvent evt)
     {
-        System.out.println(evt.getSource().toString());
         return evt.getSource() instanceof Dependency;
     }
 

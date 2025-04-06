@@ -1,12 +1,16 @@
 package com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr;
 
 import com.thesis.diagramplugin.rendering.classrelation.bluej.graph.*;
+import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.UsesDependency;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.Target;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
+import java.util.List;
 
 public class PackageSelectionController extends SelectionController {
+    private UsesDependency selectedDependency;
+    private Point selectedBendPoint;
 
     public PackageSelectionController(GraphEditor editor) {
         super(editor);
@@ -15,7 +19,6 @@ public class PackageSelectionController extends SelectionController {
     @Override
     public void mousePressed(MouseEvent evt)
     {
-        System.out.println("CLICK START");
         graphEditor.requestFocus();
         int clickX = evt.getX();
         int clickY = evt.getY();
@@ -62,8 +65,18 @@ public class PackageSelectionController extends SelectionController {
                     moving = true;
                 }
             }
+            if (clickedElement instanceof UsesDependency dep) {
+                for (Point bend : dep.getBendPoints()) {
+                    if (bend.distance(evt.getPoint()) < 6) {
+                        System.out.println("Well awell well");
+                        selectedDependency = dep;
+                        selectedBendPoint = bend;
+                        dep.setAutoLayout(false); // switch to manual mode
+                        break;
+                    }
+                }
+            }
         }
-        System.out.println("CLICK END");
     }
 
     /**
@@ -73,7 +86,8 @@ public class PackageSelectionController extends SelectionController {
     public void mouseReleased(MouseEvent evt)
     {
         rubberBand = null;
-
+        selectedDependency = null;
+        selectedBendPoint = null;
         SelectionSet newSelection = marquee.stop();     // may or may not have had a marquee...
         if(newSelection != null) {
             selection.addAll(newSelection);
@@ -120,6 +134,22 @@ public class PackageSelectionController extends SelectionController {
                     }
                 }
                 graphEditor.repaint();
+            }
+            if (selectedBendPoint != null && selectedDependency != null) {
+                System.out.println("Maybe baby");
+                List<Point> bends = selectedDependency.getBendPoints();
+                if (bends.size() == 2) {
+                    Point p1 = bends.get(0);
+                    Point p2 = bends.get(1);
+
+                    if (selectedBendPoint == p1) {
+                        selectedBendPoint.setLocation(evt.getX(), evt.getY()); // horizontal
+                    } else if (selectedBendPoint == p2) {
+                        selectedBendPoint.setLocation(evt.getX(), evt.getY()); // vertical
+                    }
+
+                    graphEditor.repaint();
+                }
             }
         }
     }
