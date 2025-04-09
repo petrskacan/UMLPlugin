@@ -5,38 +5,34 @@ import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.Package;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.CustomDependency;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.DependencyType;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.DependentTarget;
+import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.Target;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Arrays;
+import java.util.*;
 
 public class CustomDependencyDialog{
     private final JComboBox<String> packageFromCombo;
     private final JComboBox<String> packageToCombo;
     private final JComboBox<DependencyType> typeCombo;
+    private static final Map<String, String> TARGET2TARGET = new HashMap<>();
     private final Package pkg;
-    private String path = "";
-    private boolean confirmed = false;
 
     public CustomDependencyDialog(Package pkg) {
         this.pkg = pkg;
-
-        // Initialize components
-        packageFromCombo = new ComboBox<>();
-        packageToCombo = new ComboBox<>();
         typeCombo = new ComboBox<>(DependencyType.values());
-        String[] split = new String[0];
-        for(String pack : pkg.getAllClassnames())
+
+        Set<String> packageNamesSet = new LinkedHashSet<>();
+        for(Target target :  pkg.getTargets().getAllTargets())
         {
-            split = pack.split("/");
-            if(!split[split.length -1].contains("."))
-            {
-                packageFromCombo.addItem(split[split.length-1]);
-                packageToCombo.addItem(split[split.length-1]);
+            if(!target.getDisplayName().equals(pkg.getBaseName())) {
+                TARGET2TARGET.put(target.getDisplayName(), target.getIdentifierName());
+                packageNamesSet.add(target.getDisplayName());
             }
         }
-
-        this.path = String.join("/", Arrays.copyOfRange(split, 0, split.length - 2)) + "/";
+        String[] packageNames = packageNamesSet.toArray(new String[0]);
+        packageFromCombo = new ComboBox<>(packageNames);
+        packageToCombo = new ComboBox<>(packageNames);
 
         // Build the form layout
         JPanel formPanel = new JPanel(new GridLayout(3, 2));
@@ -69,7 +65,6 @@ public class CustomDependencyDialog{
 
         // Button actions
         okButton.addActionListener(e -> {
-            confirmed = true;
             createCustomDependency();
             frame.dispose();
         });
@@ -78,13 +73,9 @@ public class CustomDependencyDialog{
     }
 
     private void createCustomDependency() {
-        DependentTarget from = pkg.getDependentTarget(path + pkg.getBaseName() + "/" + packageFromCombo.getSelectedItem().toString());
-        DependentTarget to = pkg.getDependentTarget(path + pkg.getBaseName() + "/" + packageToCombo.getSelectedItem().toString());
-        new CustomDependency(pkg, from, to, (DependencyType) typeCombo.getSelectedItem());
-    }
-
-    public boolean isConfirmed() {
-        return confirmed;
+        DependentTarget from = pkg.getDependentTarget(TARGET2TARGET.get(Objects.requireNonNull(packageFromCombo.getSelectedItem()).toString()));
+        DependentTarget to = pkg.getDependentTarget(TARGET2TARGET.get(Objects.requireNonNull(packageToCombo.getSelectedItem()).toString()));
+        new CustomDependency(pkg, from, to, (DependencyType) Objects.requireNonNull(typeCombo.getSelectedItem()));
     }
 
 }

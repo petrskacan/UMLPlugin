@@ -1,7 +1,7 @@
 
 
 group = "com.thesis"
-version = "1.1.71-beta"
+version = "1.1.77-beta"
 
 plugins {
     id("java")
@@ -84,10 +84,10 @@ tasks {
         changeNotes.set("""
         <ul>
         Changes for Class Diagrams
-            <li>Diagram reflects changes made in code</li>              
-             KNOWN ISSUES
-             <li>Arrow is not facing right direction</li>             
-             <li>Line connecting package with itself is scuffed</li>             
+            <li>Added bend points</li>
+            <li>Fixed custom dependencies for PyCharm</li>
+            <li>Arrow is now facing right direction</li> 
+             KNOWN ISSUES          
              <li>Non-standard characters are displayed incorrectly</li>
         </ul>
     """.trimIndent())

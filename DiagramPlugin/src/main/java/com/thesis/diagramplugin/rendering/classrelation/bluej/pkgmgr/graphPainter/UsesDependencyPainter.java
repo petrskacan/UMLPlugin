@@ -82,11 +82,8 @@ public class UsesDependencyPainter
 
         g.setColor(normalColour);
         g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        // Draw the end arrow
-        int delta_x = d.isEndLeft() ? -10 : 10;
 
-        g.drawLine(dst_x, dst_y, dst_x + delta_x, dst_y + 4);
-        g.drawLine(dst_x, dst_y, dst_x + delta_x, dst_y - 4);
+        drawArrow(g, dst_x, dst_y,d.getEndConnectionSide());
         g.setStroke(dashedStroke);
 
         paintLine(src_y, d, g, src_x, dst_x, dst_y, oldStroke);
@@ -105,12 +102,14 @@ public class UsesDependencyPainter
         else if (d.isStartBottom()) startPoint.y += offsetY;
         else if (d.isStartLeft()) startPoint.x -= offsetX;
         else if (d.isStartRight()) startPoint.x += offsetX;
+        d.setRecalcStart(startPoint);
 
         Point endPoint = new Point(recalcDstX, recalcDstY);
         if (d.isEndTop()) endPoint.y -= offsetY;
         else if (d.isEndBottom()) endPoint.y += offsetY;
         else if (d.isEndLeft()) endPoint.x -= offsetX;
         else if (d.isEndRight()) endPoint.x += offsetX;
+        d.setRecalcEnd(endPoint);
 
         if (d.from == d.to) {
             // Handle self-loop with 2 editable bend points
@@ -118,9 +117,6 @@ public class UsesDependencyPainter
 
             if (bends.size() != 2 || d.isAutoLayout()) {
                 bends.clear();
-
-                int loopOffsetX = 40;
-                int loopOffsetY = 30;
 
                 Point topRight = new Point(endPoint.x, startPoint.y);
                 Point bottomRight = new Point(endPoint.x, endPoint.y);
@@ -133,6 +129,7 @@ public class UsesDependencyPainter
             Point bend1 = bends.get(0);
             Point bend2 = bends.get(1);
 
+            if(!usesDiamond)
             g.drawLine(recalcSrcX, recalcSrcY, startPoint.x, startPoint.y);
             g.drawLine(startPoint.x, startPoint.y, bend1.x, bend1.y);
             g.drawLine(bend1.x, bend1.y, bend2.x, bend2.y);
@@ -170,6 +167,7 @@ public class UsesDependencyPainter
         Point bend1 = bends.get(0);
         Point bend2 = bends.get(1);
 
+        if(!usesDiamond)
         g.drawLine(recalcSrcX, recalcSrcY, startPoint.x, startPoint.y);
         g.drawLine(startPoint.x, startPoint.y, bend1.x, bend1.y);
         g.drawLine(bend1.x, bend1.y, bend2.x, bend2.y);
@@ -190,6 +188,42 @@ public class UsesDependencyPainter
         for(Point point : points) {
             g.fillOval(point.x - r, point.y - r, r * 2, r * 2);
         }
+    }
+
+    private void drawArrow(Graphics2D g, int x, int y, ConnectionSide side)
+    {
+        int arrowLength = 10;
+        int arrowWidth  = 4;
+        int endX1 = 0, endY1 = 0, endX2 = 0, endY2 = 0;
+
+        switch (side) {
+            case TOP -> {
+                endX1 = x - arrowWidth;
+                endY1 = y - arrowLength;
+                endX2 = x + arrowWidth;
+                endY2 = y - arrowLength;
+            }
+            case BOTTOM -> {
+                endX1 = x - arrowWidth;
+                endY1 = y + arrowLength;
+                endX2 = x + arrowWidth;
+                endY2 = y + arrowLength;
+            }
+            case LEFT -> {
+                endX1 = x - arrowLength;
+                endY1 = y + arrowWidth;
+                endX2 = x - arrowLength;
+                endY2 = y - arrowWidth;
+            }
+            case RIGHT -> {
+                endX1 = x + arrowLength;
+                endY1 = y - arrowWidth;
+                endX2 = x + arrowLength;
+                endY2 = y + arrowWidth;
+            }
+        }
+        g.drawLine(x, y, endX1, endY1);
+        g.drawLine(x, y, endX2, endY2);
     }
 
     protected void drawDiamond(Graphics2D g, int x, int y, boolean filled, ConnectionSide side) {
@@ -248,32 +282,6 @@ public class UsesDependencyPainter
         } else {
             g.drawPolygon(diamond);
         }
-    }
-
-    private void drawLoop(int recalcSrcY, UsesDependency d,
-                          Graphics2D g, int recalcSrcX, int recalcDstX, int recalcDstY, Stroke oldStroke)
-    {
-            // Draw a loop around the package
-            int loopOffset = 20;
-            int width = d.from.getWidth()/2 + 20;
-            int height = d.from.getHeight()/2;
-
-            // Starting point from the top
-            int startX = recalcSrcX;
-            int startY = recalcSrcY;
-
-            // Right corner
-            int rightX = recalcSrcX + width;
-            int midY = recalcDstY - height;
-
-            // Bottom corner
-            int bottomY = recalcSrcY + height;
-
-            // Ending at right side
-            int endX = recalcSrcX + width;
-            int endY = recalcSrcY;
-
-
     }
 
 }

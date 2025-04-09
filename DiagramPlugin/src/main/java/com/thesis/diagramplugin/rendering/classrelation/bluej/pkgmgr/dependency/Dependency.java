@@ -43,6 +43,8 @@ public abstract class Dependency extends Edge
 
     static final int SELECT_DIST = 4;
 
+    private Point recalcStart, recalcEnd;
+
     public Dependency(Package pkg, DependentTarget from, DependentTarget to)
     {
         super(from, to);
@@ -269,7 +271,22 @@ public abstract class Dependency extends Edge
     
     public void singleSelected() { }
 
-//    @Getter
+    public Point getRecalcStart() {
+        return recalcStart;
+    }
+
+    public void setRecalcStart(Point recalcStart) {
+        this.recalcStart = recalcStart;
+    }
+
+    public Point getRecalcEnd() {
+        return recalcEnd;
+    }
+
+    public void setRecalcEnd(Point recalcEnd) {
+        this.recalcEnd = recalcEnd;
+    }
+    //    @Getter
 //    JComponent component;
 //
 //    public class EdgeJComponent extends JComponent implements Accessible {

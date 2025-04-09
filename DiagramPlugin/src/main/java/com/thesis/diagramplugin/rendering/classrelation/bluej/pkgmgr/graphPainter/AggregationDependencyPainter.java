@@ -38,7 +38,6 @@ public class AggregationDependencyPainter extends UsesDependencyPainter implemen
         int src_y = aggregation.getSourceY();
         int dst_x = aggregation.getDestX();
         int dst_y = aggregation.getDestY();
-        ;
 
         g.setColor(normalColour);
         g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);

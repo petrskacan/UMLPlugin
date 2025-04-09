@@ -23,6 +23,7 @@ package com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.graphPaint
 
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.ContainmentDependency;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.Dependency;
+import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.ConnectionSide;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -56,11 +57,10 @@ public class ContainmentDependencyPainter extends UsesDependencyPainter
 
     public void paint(Graphics2D g, Dependency dependency, boolean hasFocus)
     {
-        if (!(dependency instanceof ContainmentDependency)) {
+        if (!(dependency instanceof ContainmentDependency d)) {
             throw new IllegalArgumentException("Not a ContainmentDependency");
         }
         Stroke oldStroke = g.getStroke();
-        ContainmentDependency d = (ContainmentDependency) dependency;
         Stroke normalStroke;
         boolean isSelected = d.isSelected() && hasFocus;
         if (isSelected) {
@@ -74,18 +74,42 @@ public class ContainmentDependencyPainter extends UsesDependencyPainter
         int src_y = d.getSourceY();
         int dst_x = d.getDestX();
         int dst_y = d.getDestY();
-        ;
 
         g.setColor(normalColour);
         g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        // Draw the end arrow
-        int delta_x = d.isEndLeft() ? -10 : 0;
 
-        g.drawOval(dst_x + delta_x, dst_y - 5, 10, 10);
-        g.drawLine(dst_x + delta_x + 5, dst_y - 5, dst_x + delta_x + 5, dst_y + 5);
-        g.drawLine(dst_x + delta_x, dst_y, dst_x + delta_x + 10, dst_y);
+        paintOval(g, src_x, src_y, d.getEndConnectionSide());
         g.setStroke(normalStroke);
 
         paintLine(src_y, d, g, src_x, dst_x, dst_y, oldStroke);
+    }
+
+    private void paintOval(Graphics2D g,int x, int y, ConnectionSide side)
+    {
+        int circleDiameter = 10;
+        int circleRadius = circleDiameter / 2;
+
+        int offsetX = 0;
+        int offsetY = 0;
+
+        switch (side) {
+            case TOP -> offsetY = -10;
+            case BOTTOM -> offsetY = 10;
+            case LEFT -> offsetX = -10;
+            case RIGHT -> offsetX = 10;
+        }
+
+        int ovalX = x + offsetX - circleRadius;
+        int ovalY = y + offsetY - circleRadius;
+
+        g.drawOval(ovalX, ovalY, circleDiameter, circleDiameter);
+
+        int centerX = ovalX + circleRadius;
+        int centerY = ovalY + circleRadius;
+
+        g.drawLine(centerX, centerY - circleRadius, centerX, centerY + circleRadius);
+        g.drawLine(centerX - circleRadius, centerY, centerX + circleRadius, centerY);
+
+
     }
 }

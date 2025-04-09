@@ -222,8 +222,9 @@ public class ClassDiagramViewBuilder {
                 fields.add(fieldExp);
             }
         }
-
-        ((ClassTarget) classes.get(el)).putFields(fields);
+        if(classes.get(el) != null) {
+            ((ClassTarget) classes.get(el)).putFields(fields);
+        }
     }
 
     private String getVisibilityModifierSign(AClassDiagramModelElement el) {
@@ -262,8 +263,9 @@ public class ClassDiagramViewBuilder {
                 methods.add(methodExp);
             }
         }
-
-        ((ClassTarget) classes.get(el)).putMethods(methods);
+        if(classes.get(el) != null) {
+            ((ClassTarget) classes.get(el)).putMethods(methods);
+        }
     }
 
     private void resolveImplementations(AClassDiagramModelClassLikeEntity el, Package pkg) {

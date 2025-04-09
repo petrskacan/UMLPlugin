@@ -19,7 +19,7 @@ import java.util.*;
 public class CustomDependencyMultiEditDialog extends JDialog {
     private JTable dependencyTable;
     private final DependencyTableModel tableModel;
-    private static final HashMap<String, String> TARGET2TARGET = new HashMap<>();
+    private static final Map<String, String> TARGET2TARGET = new HashMap<>();
     private Package pkg;
     private String path;
     private String[] packageNames; // Array of package names for the combo boxes.
@@ -33,7 +33,7 @@ public class CustomDependencyMultiEditDialog extends JDialog {
         Set<String> packageNamesSet = new LinkedHashSet<>();
         for(Target target :  pkg.getTargets().getAllTargets())
         {
-            if(!target.getDisplayName().contains(".")) {
+            if(!target.getDisplayName().equals(pkg.getBaseName())) {
                 TARGET2TARGET.put(target.getDisplayName(), target.getIdentifierName());
                 packageNamesSet.add(target.getDisplayName());
             }

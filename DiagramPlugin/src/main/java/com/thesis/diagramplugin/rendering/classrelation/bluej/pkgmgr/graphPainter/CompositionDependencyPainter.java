@@ -19,12 +19,12 @@ public class CompositionDependencyPainter extends UsesDependencyPainter implemen
 
     @Override
     public void paint(Graphics2D g, Dependency dependency, boolean hasFocus) {
-        if (!(dependency instanceof CompositionDependency aggregation)) {
+        if (!(dependency instanceof CompositionDependency composition)) {
             throw new IllegalArgumentException("Not a CompositionDependency");
         }
         Stroke oldStroke = g.getStroke();
         Stroke normalStroke;
-        boolean isSelected = aggregation.isSelected() && hasFocus;
+        boolean isSelected = composition.isSelected() && hasFocus;
         if (isSelected) {
             normalStroke = normalSelected;
         }
@@ -32,16 +32,15 @@ public class CompositionDependencyPainter extends UsesDependencyPainter implemen
             normalStroke = normalUnselected;
         }
         g.setStroke(normalStroke);
-        int src_x = aggregation.getSourceX();
-        int src_y = aggregation.getSourceY();
-        int dst_x = aggregation.getDestX();
-        int dst_y = aggregation.getDestY();
-        ;
+        int src_x = composition.getSourceX();
+        int src_y = composition.getSourceY();
+        int dst_x = composition.getDestX();
+        int dst_y = composition.getDestY();
 
         g.setColor(normalColour);
         g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-        drawDiamond(g, src_x, src_y, true, aggregation.getStartConnectionSide());
-        paintLine(src_y, aggregation, g, src_x, dst_x, dst_y, oldStroke);
+        drawDiamond(g, src_x, src_y, false, composition.getStartConnectionSide());
+        paintLine(src_y, composition, g, src_x, dst_x, dst_y, oldStroke);
     }
 }

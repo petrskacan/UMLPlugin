@@ -68,7 +68,6 @@ public class PackageSelectionController extends SelectionController {
             if (clickedElement instanceof UsesDependency dep) {
                 for (Point bend : dep.getBendPoints()) {
                     if (bend.distance(evt.getPoint()) < 6) {
-                        System.out.println("Well awell well");
                         selectedDependency = dep;
                         selectedBendPoint = bend;
                         dep.setAutoLayout(false); // switch to manual mode
@@ -136,7 +135,6 @@ public class PackageSelectionController extends SelectionController {
                 graphEditor.repaint();
             }
             if (selectedBendPoint != null && selectedDependency != null) {
-                System.out.println("Maybe baby");
                 List<Point> bends = selectedDependency.getBendPoints();
                 if (bends.size() == 2) {
                     Point p1 = bends.get(0);
