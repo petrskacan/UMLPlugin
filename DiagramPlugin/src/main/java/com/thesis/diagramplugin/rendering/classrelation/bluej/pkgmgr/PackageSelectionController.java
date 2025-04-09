@@ -78,6 +78,63 @@ public class PackageSelectionController extends SelectionController {
         }
     }
 
+//    @Override
+//    public void mouseClicked(MouseEvent evt) {
+//        POKUS O NOVOU VĚC, EXPERIMENT, KTERÝ SE NEVYDARIL
+//        It should create a new bend point when double clicking
+//        int x = evt.getX();
+//        int y = evt.getY();
+//
+//        if (evt.getClickCount() == 2) {
+//            SelectableGraphElement clicked = graph.findGraphElement(x, y);
+//
+//            if (clicked instanceof UsesDependency dep) {
+//                dep.setAutoLayout(false); // make sure custom bends are used
+//                // Check if clicked near an existing bend point
+//                Point toRemove = null;
+//                for (Point p : dep.getBendPoints()) {
+//                    if (p.distance(x, y) < 6) {
+//                        toRemove = p;
+//                        break;
+//                    }
+//                }
+//
+//                if (toRemove != null) {
+//                    dep.getBendPoints().remove(toRemove); // remove nearby point
+//                } else {
+//                    List<Point> bends = dep.getBendPoints();
+//                    List<Point> allPoints = new ArrayList<>();
+//                    allPoints.add(new Point(dep.getSourceX(), dep.getSourceY()));
+//                    allPoints.addAll(bends);
+//                    allPoints.add(new Point(dep.getDestX(), dep.getDestY()));
+//                    int insertAt = -1;
+//                    for (int i = 0; i < allPoints.size() - 1; i++) {
+//                        Point a = allPoints.get(i);
+//                        Point b = allPoints.get(i + 1);
+//
+//                        // Check if click is near the segment
+//                        double dist = Line2D.ptSegDist(a.x, a.y, b.x, b.y, x, y);
+//                        System.out.println(dist);
+//                        if (dist < 6) {
+//                            insertAt = i;
+//                            break;
+//                        }
+//                    }
+//
+//                    if (insertAt != -1) {
+//                        Point insert = new Point(snapToGrid(x), snapToGrid(y));
+//                        // insert into actual bend list (offset by +1 because it starts after source)
+//                        dep.getBendPoints().add(insert);
+//                    }
+//                }
+//
+//                graphEditor.repaint();
+//            } else {
+//
+//            }
+//        }
+//    }
+
     /**
      * The mouse was released.
      */

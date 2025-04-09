@@ -125,6 +125,7 @@ public class UsesDependency extends Dependency
         return (xmin <= x) && (ymin <= y) && (x < xmax) && (y < ymax);
     }
 
+    @Override
     public boolean contains(int x, int y)
     {
         List<Point> points = new ArrayList<>();
@@ -133,8 +134,8 @@ public class UsesDependency extends Dependency
         if (bendPoints != null) {
             points.addAll(bendPoints);
         }
-        points.add(new Point(getDestX(), getDestY()));
         points.add(getRecalcEnd());
+        points.add(new Point(getDestX(), getDestY()));
 
         // Check every line segment between the points
         for (int i = 0; i < points.size() - 1; i++) {

@@ -13,17 +13,6 @@ import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.Depe
  * @author vojta
  */
 public enum DependencyType {
-        /**
-         * The type of the dependency could not be determined. This usually
-         * happens if the represented dependency does not exists anymore.
-         */
-        UNKNOWN{
-                @Override
-                public Dependency create(Package pkg, DependentTarget from, DependentTarget to) {
-                        return null;
-                }
-        },
-
         /** Represents a uses-dependency */
         USES{
                 @Override

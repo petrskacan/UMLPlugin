@@ -163,15 +163,17 @@ public class UsesDependencyPainter
             d.setAutoLayout(true); // still in auto mode
         }
 
-        // 3. Draw: src ➝ bend1 ➝ bend2 ➝ end
-        Point bend1 = bends.get(0);
-        Point bend2 = bends.get(1);
-
+        Point current = new Point(recalcSrcX, recalcSrcY);
         if(!usesDiamond)
-        g.drawLine(recalcSrcX, recalcSrcY, startPoint.x, startPoint.y);
-        g.drawLine(startPoint.x, startPoint.y, bend1.x, bend1.y);
-        g.drawLine(bend1.x, bend1.y, bend2.x, bend2.y);
-        g.drawLine(bend2.x, bend2.y, endPoint.x, endPoint.y);
+        g.drawLine(current.x, current.y, startPoint.x, startPoint.y);
+        current = startPoint;
+
+        for (Point bend : bends) {
+            g.drawLine(current.x, current.y, bend.x, bend.y);
+            current = bend;
+        }
+
+        g.drawLine(current.x, current.y, endPoint.x, endPoint.y);
         g.drawLine(endPoint.x, endPoint.y, recalcDstX, recalcDstY);
 
         // 4. Draw handles if selected
