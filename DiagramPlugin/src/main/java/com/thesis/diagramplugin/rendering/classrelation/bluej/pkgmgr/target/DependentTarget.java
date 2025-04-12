@@ -24,10 +24,7 @@ package com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.MultiIterator;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.graph.Moveable;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.Package;
-import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.Dependency;
-import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.ExtendsDependency;
-import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.ImplementsDependency;
-import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.UsesDependency;
+import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -216,7 +213,7 @@ public abstract class DependentTarget extends Target
             if(isOutgoing)
             {
                 target = d.getTo();
-                ConnectionSide[] best = determineBestConnection(currentRect, getSecondRectangle(target));
+                ConnectionSide[] best = determineBestConnection(currentRect, getSecondRectangle(target), d.getBendPoints());
                 ConnectionSide bestSourceSide = best[0];
                 d.setStartConnectionSide(best[1]);
                 groups.get(bestSourceSide).add(d);
@@ -224,7 +221,7 @@ public abstract class DependentTarget extends Target
             else
             {
                 target = d.getFrom();
-                ConnectionSide bestSide = determineBestConnection(getSecondRectangle(target), currentRect)[1];
+                ConnectionSide bestSide = determineBestConnection(getSecondRectangle(target), currentRect, d.getBendPoints())[1];
                 d.setEndConnectionSide(bestSide);
                 groups.get(bestSide).add(d);
             }
@@ -300,6 +297,37 @@ public abstract class DependentTarget extends Target
 
         return new ConnectionSide[]{bestSourceSide, bestTargetSide};
     }
+
+    public ConnectionSide[] determineBestConnection(Rectangle source, Rectangle target, List<BendPoint> bendPoints) {
+        if (bendPoints != null && bendPoints.size() >= 1) {
+            Point first = bendPoints.get(0);
+            Point last = bendPoints.get(bendPoints.size() - 1);
+
+            ConnectionSide bestSourceSide = getClosestSide(source, first);
+            ConnectionSide bestTargetSide = getClosestSide(target, last);
+
+            return new ConnectionSide[]{bestSourceSide, bestTargetSide};
+        } else {
+            return determineBestConnection(source, target);
+        }
+    }
+
+    private ConnectionSide getClosestSide(Rectangle rect, Point p) {
+        ConnectionSide bestSide = null;
+        double bestDist = Double.MAX_VALUE;
+
+        for (ConnectionSide side : ConnectionSide.values()) {
+            Point edgePoint = getConnectionPoint(rect, side);
+            double dist = edgePoint.distance(p);
+            if (dist < bestDist) {
+                bestDist = dist;
+                bestSide = side;
+            }
+        }
+        return bestSide;
+    }
+
+
     private static Rectangle getSecondRectangle(Target target) {
         return new Rectangle(target.getX(), target.getY(), target.getWidth(), target.getHeight());
     }

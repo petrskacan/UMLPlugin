@@ -1,17 +1,17 @@
 package com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr;
 
 import com.thesis.diagramplugin.rendering.classrelation.bluej.graph.*;
+import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.BendPoint;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.UsesDependency;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.Target;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
+import java.awt.geom.Line2D;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PackageSelectionController extends SelectionController {
-    private UsesDependency selectedDependency;
-    private Point selectedBendPoint;
-
     public PackageSelectionController(GraphEditor editor) {
         super(editor);
     }
@@ -19,6 +19,8 @@ public class PackageSelectionController extends SelectionController {
     @Override
     public void mousePressed(MouseEvent evt)
     {
+        selectedBendPoint = null;
+        selectedDependency = null;
         graphEditor.requestFocus();
         int clickX = evt.getX();
         int clickY = evt.getY();
@@ -66,11 +68,12 @@ public class PackageSelectionController extends SelectionController {
                 }
             }
             if (clickedElement instanceof UsesDependency dep) {
-                for (Point bend : dep.getBendPoints()) {
+                selectedDependency = dep;
+                dep.setAutoLayout(false);
+                for (BendPoint bend : dep.getBendPoints()) {
                     if (bend.distance(evt.getPoint()) < 6) {
-                        selectedDependency = dep;
                         selectedBendPoint = bend;
-                        dep.setAutoLayout(false); // switch to manual mode
+                        selectedBendPoint.setSelected(true);
                         break;
                     }
                 }
@@ -78,62 +81,6 @@ public class PackageSelectionController extends SelectionController {
         }
     }
 
-//    @Override
-//    public void mouseClicked(MouseEvent evt) {
-//        POKUS O NOVOU VĚC, EXPERIMENT, KTERÝ SE NEVYDARIL
-//        It should create a new bend point when double clicking
-//        int x = evt.getX();
-//        int y = evt.getY();
-//
-//        if (evt.getClickCount() == 2) {
-//            SelectableGraphElement clicked = graph.findGraphElement(x, y);
-//
-//            if (clicked instanceof UsesDependency dep) {
-//                dep.setAutoLayout(false); // make sure custom bends are used
-//                // Check if clicked near an existing bend point
-//                Point toRemove = null;
-//                for (Point p : dep.getBendPoints()) {
-//                    if (p.distance(x, y) < 6) {
-//                        toRemove = p;
-//                        break;
-//                    }
-//                }
-//
-//                if (toRemove != null) {
-//                    dep.getBendPoints().remove(toRemove); // remove nearby point
-//                } else {
-//                    List<Point> bends = dep.getBendPoints();
-//                    List<Point> allPoints = new ArrayList<>();
-//                    allPoints.add(new Point(dep.getSourceX(), dep.getSourceY()));
-//                    allPoints.addAll(bends);
-//                    allPoints.add(new Point(dep.getDestX(), dep.getDestY()));
-//                    int insertAt = -1;
-//                    for (int i = 0; i < allPoints.size() - 1; i++) {
-//                        Point a = allPoints.get(i);
-//                        Point b = allPoints.get(i + 1);
-//
-//                        // Check if click is near the segment
-//                        double dist = Line2D.ptSegDist(a.x, a.y, b.x, b.y, x, y);
-//                        System.out.println(dist);
-//                        if (dist < 6) {
-//                            insertAt = i;
-//                            break;
-//                        }
-//                    }
-//
-//                    if (insertAt != -1) {
-//                        Point insert = new Point(snapToGrid(x), snapToGrid(y));
-//                        // insert into actual bend list (offset by +1 because it starts after source)
-//                        dep.getBendPoints().add(insert);
-//                    }
-//                }
-//
-//                graphEditor.repaint();
-//            } else {
-//
-//            }
-//        }
-//    }
 
     /**
      * The mouse was released.
@@ -142,8 +89,6 @@ public class PackageSelectionController extends SelectionController {
     public void mouseReleased(MouseEvent evt)
     {
         rubberBand = null;
-        selectedDependency = null;
-        selectedBendPoint = null;
         SelectionSet newSelection = marquee.stop();     // may or may not have had a marquee...
         if(newSelection != null) {
             selection.addAll(newSelection);
@@ -155,6 +100,9 @@ public class PackageSelectionController extends SelectionController {
             graphEditor.revalidate();
             graphEditor.repaint();
         }
+
+        if(selectedBendPoint != null)
+        selectedBendPoint.setSelected(false);
     }
 
     @Override
@@ -191,22 +139,44 @@ public class PackageSelectionController extends SelectionController {
                 }
                 graphEditor.repaint();
             }
-            if (selectedBendPoint != null && selectedDependency != null) {
-                List<Point> bends = selectedDependency.getBendPoints();
-                if (bends.size() == 2) {
-                    Point p1 = bends.get(0);
-                    Point p2 = bends.get(1);
-
-                    if (selectedBendPoint == p1) {
-                        selectedBendPoint.setLocation(evt.getX(), evt.getY()); // horizontal
-                    } else if (selectedBendPoint == p2) {
-                        selectedBendPoint.setLocation(evt.getX(), evt.getY()); // vertical
-                    }
-
-                    graphEditor.repaint();
+            if (selectedBendPoint != null || selectedDependency != null) {
+                if (selectedBendPoint == null) {
+                    insertPoint(evt.getX(), evt.getY());
                 }
+                selectedBendPoint.setLocation(evt.getX(), evt.getY());
+                ((Package)super.graph).recalcArrows();
+                graphEditor.repaint();
+            }
+
+        }
+    }
+
+    private void insertPoint(int x, int y)
+    {
+        // 1. Zjisti celkovou trasu: start → bends → end
+        List<BendPoint> bends = selectedDependency.getBendPoints();
+        List<Point> allPoints = new ArrayList<>();
+        allPoints.add(new Point(selectedDependency.getSourceX(), selectedDependency.getSourceY()));
+        allPoints.addAll(bends);
+        allPoints.add(new Point(selectedDependency.getDestX(), selectedDependency.getDestY()));
+
+        BendPoint newBendPoint = new BendPoint(x,y);
+        double closestDist = Double.MAX_VALUE;
+        int insertIndex = bends.size();
+
+        for (int i = 0; i < allPoints.size() - 1; i++) {
+            Point a = allPoints.get(i);
+            Point b = allPoints.get(i + 1);
+            double dist = Line2D.ptSegDist(a.x, a.y, b.x, b.y, newBendPoint.x, newBendPoint.y);
+            if (dist < closestDist) {
+                closestDist = dist;
+                insertIndex = i;
             }
         }
+
+        selectedDependency.getBendPoints().add(insertIndex, newBendPoint);
+        selectedBendPoint = newBendPoint;
+
     }
 
 }

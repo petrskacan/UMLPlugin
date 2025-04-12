@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<package name="com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency" path="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency" pos_x="30" pos_y="30" size_w="988" size_h="684" visible="true"> 
+  <class name="CustomDependency" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/CustomDependency" abstract="false" pos_x="220" pos_y="104" size_w="153" size_h="80" visible="true"> 
+    <variable name="type" type="DependencyType" modifiers="private;final"> 
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/DependencyType" dependency_type="AGGREGATION"/> 
+    </variable>  
+    <variable name="from" type="DependentTarget" modifiers="private;final"/>  
+    <variable name="to" type="DependentTarget" modifiers="private;final"/>  
+    <variable name="dependency" type="Dependency" modifiers="private;final"> 
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/Dependency" dependency_type="AGGREGATION"/> 
+    </variable>  
+    <variable name="customDependencies" type="List&lt;CustomDependency&gt;" modifiers="private;static;final"> 
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/CustomDependency" dependency_type="COMPOSITION"/> 
+    </variable>  
+    <variable name="toRemoveDependecies" type="List&lt;CustomDependency&gt;" modifiers="private;static;final"> 
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/CustomDependency" dependency_type="COMPOSITION"/> 
+    </variable>  
+    <method name="CustomDependency" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="pkg" type="Package"/>  
+      <parameter name="from" type="DependentTarget"/>  
+      <parameter name="to" type="DependentTarget"/>  
+      <parameter name="type" type="DependencyType"/>  
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/DependencyType"/> 
+    </method>  
+    <method name="getCustomDependencies" return_type="List&lt;CustomDependency&gt;" modifiers="public;static" constructor="false"/>  
+    <method name="getToRemoveDependecies" return_type="List&lt;CustomDependency&gt;" modifiers="public;static" constructor="false"/>  
+    <method name="clearCustomDependencies" return_type="void" modifiers="public;static" constructor="false"/>  
+    <method name="removeCustomDependency" return_type="void" modifiers="public;static" constructor="false"> 
+      <parameter name="toRemove" type="CustomDependency"/>  
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/CustomDependency"/> 
+    </method>  
+    <method name="getType" return_type="DependencyType" modifiers="public" constructor="false"/>  
+    <method name="getFrom" return_type="DependentTarget" modifiers="public" constructor="false"/>  
+    <method name="getTo" return_type="DependentTarget" modifiers="public" constructor="false"/>  
+    <method name="getDependency" return_type="Dependency" modifiers="public" constructor="false"/>  
+    <method name="toString" return_type="String" modifiers="public" constructor="false"/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/CustomDependency"/>  
+    <relation/>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/Dependency"/>  
+    <relation/>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/DependencyType"/>  
+    <relation/>  
+    <relation/>  
+    <relation/> 
+  </class>  
+  <class name="Line" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/Line" abstract="false" owner="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/Dependency" pos_x="70" pos_y="104" size_w="100" size_h="80" visible="true"> 
+    <variable name="from" type="Point" modifiers="public"/>  
+    <variable name="to" type="Point" modifiers="public"/>  
+    <variable name="angle" type="double" modifiers=""/>  
+    <method name="Line" return_type="*NULL*" modifiers="" constructor="true"> 
+      <parameter name="from" type="Point"/>  
+      <parameter name="to" type="Point"/>  
+      <parameter name="angle" type="double"/> 
+    </method>  
+    <relation/>  
+    <relation/>  
+    <relation/> 
+  </class>  
+  <class name="UsesDependency" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/UsesDependency" abstract="false" pos_x="573" pos_y="104" size_w="135" size_h="80" visible="true"> 
+    <variable name="sourceX" type="int" modifiers="private"/>  
+    <variable name="sourceY" type="int" modifiers="private"/>  
+    <variable name="destX" type="int" modifiers="private"/>  
+    <variable name="destY" type="int" modifiers="private"/>  
+    <variable name="startTop" type="boolean" modifiers="private"/>  
+    <variable name="endLeft" type="boolean" modifiers="private"/>  
+    <variable name="startConnectionSide" type="ConnectionSide" modifiers="private"/>  
+    <variable name="bendPoints" type="List&lt;BendPoint&gt;" modifiers="private"> 
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/BendPoint" dependency_type="COMPOSITION"/> 
+    </variable>  
+    <variable name="autoLayout" type="boolean" modifiers="private"/>  
+    <variable name="endConnectionSide" type="ConnectionSide" modifiers="private"/>  
+    <variable name="flag" type="boolean" modifiers="private"/>  
+    <method name="isAutoLayout" return_type="boolean" modifiers="public" constructor="false"/>  
+    <method name="setAutoLayout" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="autoLayout" type="boolean"/> 
+    </method>  
+    <method name="getBendPoints" return_type="List&lt;BendPoint&gt;" modifiers="public" constructor="false"/>  
+    <method name="setBendPoint" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="point" type="BendPoint"/>  
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/BendPoint"/> 
+    </method>  
+    <method name="getEndConnectionSide" return_type="ConnectionSide" modifiers="public" constructor="false"/>  
+    <method name="setEndConnectionSide" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="endConnectionSide" type="ConnectionSide"/> 
+    </method>  
+    <method name="getStartConnectionSide" return_type="ConnectionSide" modifiers="public" constructor="false"/>  
+    <method name="setStartConnectionSide" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="connectionSide" type="ConnectionSide"/> 
+    </method>  
+    <method name="UsesDependency" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="pkg" type="Package"/>  
+      <parameter name="from" type="DependentTarget"/>  
+      <parameter name="to" type="DependentTarget"/> 
+    </method>  
+    <method name="UsesDependency" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="pkg" type="Package"/> 
+    </method>  
+    <method name="setSourceCoords" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="src_x" type="int"/>  
+      <parameter name="src_y" type="int"/>  
+      <parameter name="side" type="ConnectionSide"/> 
+    </method>  
+    <method name="setDestCoords" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="dst_x" type="int"/>  
+      <parameter name="dst_y" type="int"/>  
+      <parameter name="side" type="ConnectionSide"/> 
+    </method>  
+    <method name="setCoord" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="dst_x" type="int"/>  
+      <parameter name="dst_y" type="int"/>  
+      <parameter name="side" type="ConnectionSide"/>  
+      <parameter name="isOutgoing" type="boolean"/> 
+    </method>  
+    <method name="inRect" return_type="boolean" modifiers="static;final" constructor="false"> 
+      <parameter name="x" type="int"/>  
+      <parameter name="y" type="int"/>  
+      <parameter name="x0" type="int"/>  
+      <parameter name="y0" type="int"/>  
+      <parameter name="x1" type="int"/>  
+      <parameter name="y1" type="int"/> 
+    </method>  
+    <method name="contains" return_type="boolean" modifiers="public" constructor="false"> 
+      <parameter name="x" type="int"/>  
+      <parameter name="y" type="int"/> 
+    </method>  
+    <method name="lineContainsPoint" return_type="boolean" modifiers="private" constructor="false"> 
+      <parameter name="x1" type="int"/>  
+      <parameter name="y1" type="int"/>  
+      <parameter name="x2" type="int"/>  
+      <parameter name="y2" type="int"/>  
+      <parameter name="px" type="int"/>  
+      <parameter name="py" type="int"/>  
+      <parameter name="tolerance" type="int"/> 
+    </method>  
+    <method name="computeLine" return_type="Line" modifiers="public" constructor="false"/>  
+    <method name="save" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="props" type="Properties"/>  
+      <parameter name="prefix" type="String"/> 
+    </method>  
+    <method name="setFlag" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="value" type="boolean"/> 
+    </method>  
+    <method name="isFlagged" return_type="boolean" modifiers="public" constructor="false"/>  
+    <method name="getSourceX" return_type="int" modifiers="public" constructor="false"/>  
+    <method name="getSourceY" return_type="int" modifiers="public" constructor="false"/>  
+    <method name="setSourceY" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="sourceY" type="int"/> 
+    </method>  
+    <method name="getDestX" return_type="int" modifiers="public" constructor="false"/>  
+    <method name="getDestY" return_type="int" modifiers="public" constructor="false"/>  
+    <method name="isStartTop" return_type="boolean" modifiers="public" constructor="false"/>  
+    <method name="isStartLeft" return_type="boolean" modifiers="public" constructor="false"/>  
+    <method name="isStartBottom" return_type="boolean" modifiers="public" constructor="false"/>  
+    <method name="isStartRight" return_type="boolean" modifiers="public" constructor="false"/>  
+    <method name="isEndLeft" return_type="boolean" modifiers="public" constructor="false"/>  
+    <method name="isEndRight" return_type="boolean" modifiers="public" constructor="false"/>  
+    <method name="isEndTop" return_type="boolean" modifiers="public" constructor="false"/>  
+    <method name="isEndBottom" return_type="boolean" modifiers="public" constructor="false"/>  
+    <method name="isResizable" return_type="boolean" modifiers="public" constructor="false"/>  
+    <method name="getType" return_type="DependencyType" modifiers="public" constructor="false"/>  
+    <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/Dependency</extends>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/DependencyType"/>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/BendPoint"/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/Line"/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/> 
+  </class>  
+  <class name="AggregationDependency" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/AggregationDependency" abstract="false" pos_x="104" pos_y="364" size_w="186" size_h="80" visible="true"> 
+    <method name="AggregationDependency" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="pkg" type="Package"/>  
+      <parameter name="from" type="DependentTarget"/>  
+      <parameter name="to" type="DependentTarget"/> 
+    </method>  
+    <method name="AggregationDependency" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="pkg" type="Package"/> 
+    </method>  
+    <method name="save" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="props" type="Properties"/>  
+      <parameter name="prefix" type="String"/> 
+    </method>  
+    <method name="getType" return_type="DependencyType" modifiers="public" constructor="false"/>  
+    <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/UsesDependency</extends>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/DependencyType"/>  
+    <relation/>  
+    <relation/> 
+  </class>  
+  <class name="ExtendsDependency" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/ExtendsDependency" abstract="false" pos_x="340" pos_y="364" size_w="157" size_h="80" visible="true"> 
+    <method name="ExtendsDependency" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="pkg" type="Package"/>  
+      <parameter name="from" type="DependentTarget"/>  
+      <parameter name="to" type="DependentTarget"/> 
+    </method>  
+    <method name="ExtendsDependency" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="pkg" type="Package"/> 
+    </method>  
+    <method name="save" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="props" type="Properties"/>  
+      <parameter name="prefix" type="String"/> 
+    </method>  
+    <method name="isResizable" return_type="boolean" modifiers="public" constructor="false"/>  
+    <method name="getType" return_type="DependencyType" modifiers="public" constructor="false"/>  
+    <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/Dependency</extends>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/DependencyType"/>  
+    <relation/>  
+    <relation/> 
+  </class>  
+  <enum name="DependencyType" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/DependencyType" abstract="false" pos_x="785" pos_y="364" size_w="133" size_h="80" visible="true"> 
+    <variable name="USES" type="DependencyType" modifiers="public;static;final"/>  
+    <variable name="EXTENDS" type="DependencyType" modifiers="public;static;final"/>  
+    <variable name="IMPLEMENTS" type="DependencyType" modifiers="public;static;final"/>  
+    <variable name="CONTAINMENT" type="DependencyType" modifiers="public;static;final"/>  
+    <variable name="ASSOCIATION" type="DependencyType" modifiers="public;static;final"/>  
+    <variable name="AGGREGATION" type="DependencyType" modifiers="public;static;final"/>  
+    <variable name="COMPOSITION" type="DependencyType" modifiers="public;static;final"/>  
+    <method name="create" return_type="Dependency" modifiers="public;abstract" constructor="false"> 
+      <parameter name="pkg" type="Package"/>  
+      <parameter name="from" type="DependentTarget"/>  
+      <parameter name="to" type="DependentTarget"/> 
+    </method>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/Dependency"/> 
+  </enum>  
+  <class name="AssociationDependency" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/AssociationDependency" abstract="false" pos_x="335" pos_y="234" size_w="181" size_h="80" visible="true"> 
+    <method name="AssociationDependency" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="pkg" type="Package"/>  
+      <parameter name="from" type="DependentTarget"/>  
+      <parameter name="to" type="DependentTarget"/> 
+    </method>  
+    <method name="AssociationDependency" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="pkg" type="Package"/> 
+    </method>  
+    <method name="save" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="props" type="Properties"/>  
+      <parameter name="prefix" type="String"/> 
+    </method>  
+    <method name="getType" return_type="DependencyType" modifiers="public" constructor="false"/>  
+    <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/UsesDependency</extends>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/DependencyType"/>  
+    <relation/>  
+    <relation/> 
+  </class>  
+  <class name="ContainmentDependency" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/ContainmentDependency" abstract="false" pos_x="716" pos_y="234" size_w="189" size_h="80" visible="true"> 
+    <method name="ContainmentDependency" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="pkg" type="Package"/>  
+      <parameter name="from" type="DependentTarget"/>  
+      <parameter name="to" type="DependentTarget"/> 
+    </method>  
+    <method name="ContainmentDependency" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="pkg" type="Package"/> 
+    </method>  
+    <method name="save" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="props" type="Properties"/>  
+      <parameter name="prefix" type="String"/> 
+    </method>  
+    <method name="getType" return_type="DependencyType" modifiers="public" constructor="false"/>  
+    <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/UsesDependency</extends>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/DependencyType"/>  
+    <relation/>  
+    <relation/> 
+  </class>  
+  <class name="Dependency" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/Dependency" abstract="true" pos_x="566" pos_y="234" size_w="100" size_h="80" visible="true"> 
+    <variable name="pkg" type="Package" modifiers=""/>  
+    <variable name="selected" type="boolean" modifiers="protected"/>  
+    <variable name="SELECT_DIST" type="int" modifiers="static;final"/>  
+    <variable name="recalcStart" type="Point" modifiers="private"/>  
+    <variable name="recalcEnd" type="Point" modifiers="private"/>  
+    <method name="Dependency" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="pkg" type="Package"/>  
+      <parameter name="from" type="DependentTarget"/>  
+      <parameter name="to" type="DependentTarget"/> 
+    </method>  
+    <method name="Dependency" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="pkg" type="Package"/> 
+    </method>  
+    <method name="equals" return_type="boolean" modifiers="public" constructor="false"> 
+      <parameter name="other" type="Object"/> 
+    </method>  
+    <method name="hashCode" return_type="int" modifiers="public" constructor="false"/>  
+    <method name="repaint" return_type="void" modifiers="public" constructor="false"/>  
+    <method name="getFrom" return_type="DependentTarget" modifiers="public" constructor="false"/>  
+    <method name="getTo" return_type="DependentTarget" modifiers="public" constructor="false"/>  
+    <method name="setFrom" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="from" type="DependentTarget"/> 
+    </method>  
+    <method name="setTo" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="to" type="DependentTarget"/> 
+    </method>  
+    <method name="getType" return_type="DependencyType" modifiers="public;abstract" constructor="false"/>  
+    <method name="load" return_type="boolean" modifiers="public" constructor="false"> 
+      <parameter name="props" type="Properties"/>  
+      <parameter name="prefix" type="String"/> 
+    </method>  
+    <method name="save" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="props" type="Properties"/>  
+      <parameter name="prefix" type="String"/> 
+    </method>  
+    <method name="toString" return_type="String" modifiers="public" constructor="false"/>  
+    <method name="setVisible" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="visible" type="boolean"/> 
+    </method>  
+    <method name="isVisible" return_type="boolean" modifiers="public" constructor="false"/>  
+    <method name="setSelected" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="selected" type="boolean"/> 
+    </method>  
+    <method name="isSelected" return_type="boolean" modifiers="public" constructor="false"/>  
+    <method name="isHandle" return_type="boolean" modifiers="public" constructor="false"> 
+      <parameter name="x" type="int"/>  
+      <parameter name="y" type="int"/> 
+    </method>  
+    <method name="contains" return_type="boolean" modifiers="public" constructor="false"> 
+      <parameter name="x" type="int"/>  
+      <parameter name="y" type="int"/> 
+    </method>  
+    <method name="normDist" return_type="double" modifiers="static;final" constructor="false"> 
+      <parameter name="ax" type="int"/>  
+      <parameter name="ay" type="int"/>  
+      <parameter name="bx" type="int"/>  
+      <parameter name="by" type="int"/>  
+      <parameter name="scale" type="double"/> 
+    </method>  
+    <method name="getBoxFromLine" return_type="Rectangle" modifiers="protected" constructor="false"> 
+      <parameter name="line" type="Line"/>  
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/Line"/> 
+    </method>  
+    <method name="computeLine" return_type="Line" modifiers="public" constructor="false"/>  
+    <method name="singleSelected" return_type="void" modifiers="public" constructor="false"/>  
+    <method name="getRecalcStart" return_type="Point" modifiers="public" constructor="false"/>  
+    <method name="setRecalcStart" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="recalcStart" type="Point"/> 
+    </method>  
+    <method name="getRecalcEnd" return_type="Point" modifiers="public" constructor="false"/>  
+    <method name="setRecalcEnd" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="recalcEnd" type="Point"/> 
+    </method>  
+    <relation/>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/DependencyType"/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/Dependency"/>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/Line"/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/> 
+  </class>  
+  <class name="ImplementsDependency" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/ImplementsDependency" abstract="false" pos_x="104" pos_y="234" size_w="181" size_h="80" visible="true"> 
+    <method name="ImplementsDependency" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="pkg" type="Package"/>  
+      <parameter name="from" type="DependentTarget"/>  
+      <parameter name="to" type="DependentTarget"/> 
+    </method>  
+    <method name="ImplementsDependency" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="pkg" type="Package"/> 
+    </method>  
+    <method name="save" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="props" type="Properties"/>  
+      <parameter name="prefix" type="String"/> 
+    </method>  
+    <method name="isResizable" return_type="boolean" modifiers="public" constructor="false"/>  
+    <method name="getType" return_type="DependencyType" modifiers="public" constructor="false"/>  
+    <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/Dependency</extends>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/DependencyType"/>  
+    <relation/>  
+    <relation/> 
+  </class>  
+  <class name="CompositionDependency" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/CompositionDependency" abstract="false" pos_x="257" pos_y="574" size_w="188" size_h="80" visible="true"> 
+    <method name="CompositionDependency" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="pkg" type="Package"/>  
+      <parameter name="from" type="DependentTarget"/>  
+      <parameter name="to" type="DependentTarget"/> 
+    </method>  
+    <method name="CompositionDependency" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="pkg" type="Package"/> 
+    </method>  
+    <method name="save" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="props" type="Properties"/>  
+      <parameter name="prefix" type="String"/> 
+    </method>  
+    <method name="getType" return_type="DependencyType" modifiers="public" constructor="false"/>  
+    <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/UsesDependency</extends>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/DependencyType"/>  
+    <relation/>  
+    <relation/> 
+  </class>  
+  <class name="BendPoint" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/pkgmgr/dependency/com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency/BendPoint" abstract="false" pos_x="423" pos_y="104" size_w="100" size_h="80" visible="true"> 
+    <variable name="unselected" type="Color" modifiers="private;final"/>  
+    <variable name="selected" type="Color" modifiers="private;final"/>  
+    <variable name="fill" type="Color" modifiers="private"/>  
+    <variable name="isSelected" type="boolean" modifiers="private"/>  
+    <method name="BendPoint" return_type="*NULL*" modifiers="public" constructor="true"/>  
+    <method name="BendPoint" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="p" type="Point"/> 
+    </method>  
+    <method name="BendPoint" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="x" type="int"/>  
+      <parameter name="y" type="int"/> 
+    </method>  
+    <method name="isSelected" return_type="boolean" modifiers="public" constructor="false"/>  
+    <method name="setSelected" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="selected" type="boolean"/> 
+    </method>  
+    <method name="getFill" return_type="Color" modifiers="public" constructor="false"/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/> 
+  </class>  
+  <customDependecy name="Message-&gt;NotificationService as CONTAINMENT" unique_id="Message-&gt;NotificationService as CONTAINMENT" from="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Message" to="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/NotificationService" dependency_type="CONTAINMENT"/>
+</package>

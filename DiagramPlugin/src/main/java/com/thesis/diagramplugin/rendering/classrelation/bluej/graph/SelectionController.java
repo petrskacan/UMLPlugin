@@ -21,7 +21,9 @@
  */
 package com.thesis.diagramplugin.rendering.classrelation.bluej.graph;
 
+import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.BendPoint;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.Dependency;
+import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.UsesDependency;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.ClassTarget;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.DependentTarget;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.Target;
@@ -55,6 +57,9 @@ public class SelectionController
 
     private int keyDeltaX;
     private int keyDeltaY;
+    protected UsesDependency selectedDependency;
+    protected BendPoint selectedBendPoint;
+
 
     private int currentDependencyIndex;  // for cycling through dependencies
 
@@ -444,7 +449,7 @@ public class SelectionController
     /**
      * Modify the given point to be one of the deined grid points.
      * 
-     * @param point  The original point
+     *   The original point
      * @return      A point close to the original which is on the grid.
      */
     protected int snapToGrid(int x)
@@ -488,5 +493,20 @@ public class SelectionController
     
     public void colapse(ActionEvent e) {
         selection.colapse(e);
+    }
+
+    public UsesDependency getSelectedDependency() {
+        return selectedDependency;
+    }
+
+    public Point getSelectedBendPoint() {
+        return selectedBendPoint;
+    }
+
+    public void setSelectedBendPoint(BendPoint selectedBendPoint) {
+        this.selectedBendPoint = selectedBendPoint;
+        if (selectedBendPoint != null) {
+            this.selectedBendPoint.setSelected(true);
+        }
     }
 }

@@ -21,7 +21,10 @@
  */
 package com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr;
 
-import com.thesis.diagramplugin.rendering.classrelation.bluej.graph.*;
+import com.thesis.diagramplugin.rendering.classrelation.bluej.graph.CustomDependencyDialog;
+import com.thesis.diagramplugin.rendering.classrelation.bluej.graph.CustomDependencyMultiEditDialog;
+import com.thesis.diagramplugin.rendering.classrelation.bluej.graph.GraphEditor;
+import com.thesis.diagramplugin.rendering.classrelation.bluej.graph.Vertex;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.ClassTarget;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.PackageTarget;
 
@@ -29,6 +32,8 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
@@ -126,7 +131,7 @@ public final class PackageEditor extends GraphEditor
     }
 
 
-    private class PopClickListener extends MouseAdapter {
+    private class PopClickListener extends MouseAdapter implements KeyListener {
 
         @Override
         public void mouseClicked(MouseEvent e) {
@@ -192,6 +197,23 @@ public final class PackageEditor extends GraphEditor
                 new CustomDependencyMultiEditDialog((Package)PackageEditor.this.getGraph());
             });
 
+            if(selectionController.getSelectedBendPoint() != null)
+            {
+                JMenuItem deleteSelectedBendPoint = new JMenuItem("Delete Selected Bend Point");
+                deleteSelectedBendPoint.setFont(new Font("Arial", Font.PLAIN, 12));
+                deleteSelectedBendPoint.addActionListener((e) -> {
+                    deleteBendPoint();
+                });
+                JMenuItem manageBendPoints = new JMenuItem("Manage Bend Points");
+                manageBendPoints.setFont(new Font("Arial", Font.PLAIN, 12));
+                manageBendPoints.addActionListener((e) -> {
+                });
+
+                menu.add(deleteSelectedBendPoint);
+                menu.add(manageBendPoints);
+                menu.addSeparator();
+            }
+
             menu.add(addCustomDepItem);
             menu.add(manageDepItem);
             menu.addSeparator();
@@ -250,6 +272,50 @@ public final class PackageEditor extends GraphEditor
             });
             return menuItem;
         }
+
+        /**
+         * Invoked when a key has been typed.
+         * See the class description for {@link KeyEvent} for a definition of
+         * a key typed event.
+         *
+         * @param e the event to be processed
+         */
+        @Override
+        public void keyTyped(KeyEvent e) {
+
+        }
+
+        /**
+         * Invoked when a key has been pressed.
+         * See the class description for {@link KeyEvent} for a definition of
+         * a key pressed event.
+         *
+         * @param e the event to be processed
+         */
+        @Override
+        public void keyPressed(KeyEvent e) {
+            if(e.getKeyCode() == KeyEvent.VK_DELETE && selectionController.getSelectedBendPoint() != null)
+            {
+                deleteBendPoint();
+            }
+        }
+
+        /**
+         * Invoked when a key has been released.
+         * See the class description for {@link KeyEvent} for a definition of
+         * a key released event.
+         *
+         * @param e the event to be processed
+         */
+        @Override
+        public void keyReleased(KeyEvent e) {
+        }
+    }
+
+    private void deleteBendPoint() {
+        selectionController.getSelectedDependency().getBendPoints().remove(selectionController.getSelectedBendPoint());
+        selectionController.setSelectedBendPoint(null);
+        repaint();
     }
 
     private void showHidden(ClassTarget ct) {

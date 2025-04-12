@@ -21,7 +21,7 @@
  */
 package com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.graphPainter;
 
-import com.intellij.ui.JBColor;
+import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.BendPoint;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.Dependency;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.UsesDependency;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.ConnectionSide;
@@ -113,13 +113,13 @@ public class UsesDependencyPainter
 
         if (d.from == d.to) {
             // Handle self-loop with 2 editable bend points
-            List<Point> bends = d.getBendPoints();
+            List<BendPoint> bends = d.getBendPoints();
 
             if (bends.size() != 2 || d.isAutoLayout()) {
                 bends.clear();
 
-                Point topRight = new Point(endPoint.x, startPoint.y);
-                Point bottomRight = new Point(endPoint.x, endPoint.y);
+                BendPoint topRight = new BendPoint(endPoint.x, startPoint.y);
+                BendPoint bottomRight = new BendPoint(endPoint.x, endPoint.y);
 
                 bends.add(topRight);
                 bends.add(bottomRight);
@@ -140,40 +140,43 @@ public class UsesDependencyPainter
             }
 
             g.setStroke(oldStroke);
-            return; // skip the rest of the normal path logic
+            return;
         }
 
         // 2. Use bendPoints (if manually edited), otherwise regenerate
-        List<Point> bends = d.getBendPoints();
-
-        if (bends.size() != 2 || d.isAutoLayout()) {
-            bends.clear(); // regen from geometry
-            boolean startVertical = d.isStartTop() || d.isStartBottom();
-
-            if (startVertical) {
-                int bendX = (startPoint.x + endPoint.x) / 2;
-                bends.add(new Point(bendX, startPoint.y));
-                bends.add(new Point(bendX, endPoint.y));
-            } else {
-                int bendY = (startPoint.y + endPoint.y) / 2;
-                bends.add(new Point(startPoint.x, bendY));
-                bends.add(new Point(endPoint.x, bendY));
-            }
-
-            d.setAutoLayout(true); // still in auto mode
-        }
+        List<BendPoint> bends = d.getBendPoints();
+//
+//        if (bends.size() != 2 || d.isAutoLayout()) {
+//            bends.clear(); // regen from geometry
+//            boolean startVertical = d.isStartTop() || d.isStartBottom();
+//
+//            if (startVertical) {
+//                int bendX = (startPoint.x + endPoint.x) / 2;
+//                bends.add(new Point(bendX, startPoint.y));
+//                bends.add(new Point(bendX, endPoint.y));
+//            } else {
+//                int bendY = (startPoint.y + endPoint.y) / 2;
+//                bends.add(new Point(startPoint.x, bendY));
+//                bends.add(new Point(endPoint.x, bendY));
+//            }
+//
+//            d.setAutoLayout(true); // still in auto mode
+//        }
 
         Point current = new Point(recalcSrcX, recalcSrcY);
-        if(!usesDiamond)
-        g.drawLine(current.x, current.y, startPoint.x, startPoint.y);
-        current = startPoint;
-
-        for (Point bend : bends) {
-            g.drawLine(current.x, current.y, bend.x, bend.y);
-            current = bend;
+        if(!usesDiamond) {
+            g.drawLine(current.x, current.y, startPoint.x, startPoint.y);
         }
-
-        g.drawLine(current.x, current.y, endPoint.x, endPoint.y);
+        if (bends.isEmpty()) {
+            g.drawLine(startPoint.x, startPoint.y, endPoint.x, endPoint.y);
+        } else {
+            current = startPoint;
+            for (Point bend : bends) {
+                g.drawLine(current.x, current.y, bend.x, bend.y);
+                current = bend;
+            }
+            g.drawLine(current.x, current.y, endPoint.x, endPoint.y);
+        }
         g.drawLine(endPoint.x, endPoint.y, recalcDstX, recalcDstY);
 
         // 4. Draw handles if selected
@@ -184,10 +187,10 @@ public class UsesDependencyPainter
         g.setStroke(oldStroke);
     }
 
-    private void drawBendHandle(Graphics2D g, List<Point> points) {
+    private void drawBendHandle(Graphics2D g, List<BendPoint> points) {
         final int r = 5;
-        g.setColor(JBColor.BLUE);
-        for(Point point : points) {
+        for(BendPoint point : points) {
+            g.setColor(point.getFill());
             g.fillOval(point.x - r, point.y - r, r * 2, r * 2);
         }
     }
