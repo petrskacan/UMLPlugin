@@ -21,12 +21,14 @@
  */
 package com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.graphPainter;
 
+import com.thesis.diagramplugin.rendering.classrelation.bluej.graph.GraphEditor;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.BendPoint;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.Dependency;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.UsesDependency;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.ConnectionSide;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -53,6 +55,7 @@ public class UsesDependencyPainter
     private static final BasicStroke normalUnselected = new BasicStroke(strokeWidthDefault);
     protected boolean usesDiamond = false;
     protected Polygon diamond;
+    private LineStyle style = GraphEditor.getLineStyle();
 
 
     public UsesDependencyPainter() {
@@ -62,6 +65,7 @@ public class UsesDependencyPainter
         if (!(dependency instanceof UsesDependency)) {
             throw new IllegalArgumentException("Not a UsesDependency");
         }
+        style = GraphEditor.getLineStyle();
         Stroke oldStroke = g.getStroke();
         UsesDependency d = (UsesDependency) dependency;
         Stroke dashedStroke, normalStroke;
@@ -89,102 +93,168 @@ public class UsesDependencyPainter
         paintLine(src_y, d, g, src_x, dst_x, dst_y, oldStroke);
     }
 
-    protected void paintLine(int recalcSrcY, UsesDependency d,
-                             Graphics2D g, int recalcSrcX, int recalcDstX, int recalcDstY, Stroke oldStroke) {
-
+    protected void paintOrthogonalLineAlternative(int recalcSrcX, int recalcSrcY, UsesDependency d,
+                                                  Graphics2D g, int recalcDstX, int recalcDstY, Stroke oldStroke) {
+        // Offsets to adjust the starting/ending positions relative to the node
         int offsetX = 16;
         int offsetY = 16;
 
-
-        // 1. Compute source and target "exit" points
+        // 1. Compute adjusted exit points at the nodes
         Point startPoint = new Point(recalcSrcX, recalcSrcY);
-        if (d.isStartTop()) startPoint.y -= offsetY;
-        else if (d.isStartBottom()) startPoint.y += offsetY;
-        else if (d.isStartLeft()) startPoint.x -= offsetX;
-        else if (d.isStartRight()) startPoint.x += offsetX;
+        if (d.isStartTop()) {
+            startPoint.y -= offsetY;
+        } else if (d.isStartBottom()) {
+            startPoint.y += offsetY;
+        } else if (d.isStartLeft()) {
+            startPoint.x -= offsetX;
+        } else if (d.isStartRight()) {
+            startPoint.x += offsetX;
+        }
         d.setRecalcStart(startPoint);
 
         Point endPoint = new Point(recalcDstX, recalcDstY);
-        if (d.isEndTop()) endPoint.y -= offsetY;
-        else if (d.isEndBottom()) endPoint.y += offsetY;
-        else if (d.isEndLeft()) endPoint.x -= offsetX;
-        else if (d.isEndRight()) endPoint.x += offsetX;
+        if (d.isEndTop()) {
+            endPoint.y -= offsetY;
+        } else if (d.isEndBottom()) {
+            endPoint.y += offsetY;
+        } else if (d.isEndLeft()) {
+            endPoint.x -= offsetX;
+        } else if (d.isEndRight()) {
+            endPoint.x += offsetX;
+        }
         d.setRecalcEnd(endPoint);
 
+        // Save the current stroke and use the provided stroke during drawing.
+        Stroke previousStroke = g.getStroke();
+        g.setStroke(oldStroke);
+
+        // 2. Handle self-loop separately:
         if (d.from == d.to) {
-            // Handle self-loop with 2 editable bend points
-            List<BendPoint> bends = d.getBendPoints();
+            // For a self-loop, create a simple loop shape using two bend points.
+            List<BendPoint> loopBendPoints = new ArrayList<>();
+            // Option: go upward first then sideways (you may adjust the multipliers as needed)
+            BendPoint bend1 = new BendPoint(startPoint.x, startPoint.y - 2 * offsetY);
+            BendPoint bend2 = new BendPoint(endPoint.x + 2 * offsetX, startPoint.y - 2 * offsetY);
+            loopBendPoints.add(bend1);
+            loopBendPoints.add(bend2);
 
-            if (bends.size() != 2 || d.isAutoLayout()) {
-                bends.clear();
-
-                BendPoint topRight = new BendPoint(endPoint.x, startPoint.y);
-                BendPoint bottomRight = new BendPoint(endPoint.x, endPoint.y);
-
-                bends.add(topRight);
-                bends.add(bottomRight);
-                d.setAutoLayout(true);
-            }
-
-            Point bend1 = bends.get(0);
-            Point bend2 = bends.get(1);
-
-            if(!usesDiamond)
+            // Draw the self-loop segments:
+            // From the original source coordinate to the adjusted start point
             g.drawLine(recalcSrcX, recalcSrcY, startPoint.x, startPoint.y);
+            // From the start point to the first bend point
             g.drawLine(startPoint.x, startPoint.y, bend1.x, bend1.y);
+            // From the first to the second bend point
             g.drawLine(bend1.x, bend1.y, bend2.x, bend2.y);
-            g.drawLine(bend2.x, bend2.y, recalcDstX, recalcDstY);
+            // From the second bend point to the adjusted end point
+            g.drawLine(bend2.x, bend2.y, endPoint.x, endPoint.y);
+            // Finally, if needed, draw a short line from endPoint to the true destination
+            g.drawLine(endPoint.x, endPoint.y, recalcDstX, recalcDstY);
 
+            // If dependency is selected, draw handles on the loop bend points.
             if (d.isSelected()) {
-                drawBendHandle(g, bends);
+                drawBendHandle(g, loopBendPoints);
             }
-
-            g.setStroke(oldStroke);
+            g.setStroke(previousStroke);
             return;
         }
 
-        // 2. Use bendPoints (if manually edited), otherwise regenerate
-        List<BendPoint> bends = d.getBendPoints();
-//
-//        if (bends.size() != 2 || d.isAutoLayout()) {
-//            bends.clear(); // regen from geometry
-//            boolean startVertical = d.isStartTop() || d.isStartBottom();
-//
-//            if (startVertical) {
-//                int bendX = (startPoint.x + endPoint.x) / 2;
-//                bends.add(new Point(bendX, startPoint.y));
-//                bends.add(new Point(bendX, endPoint.y));
-//            } else {
-//                int bendY = (startPoint.y + endPoint.y) / 2;
-//                bends.add(new Point(startPoint.x, bendY));
-//                bends.add(new Point(endPoint.x, bendY));
-//            }
-//
-//            d.setAutoLayout(true); // still in auto mode
-//        }
+        // 3. Compute two-bend orthogonal route for non-self-loop connectors.
+        List<BendPoint> bendPoints = new ArrayList<>();
+        int dx = endPoint.x - startPoint.x;
+        int dy = endPoint.y - startPoint.y;
 
-        Point current = new Point(recalcSrcX, recalcSrcY);
-        if(!usesDiamond) {
-            g.drawLine(current.x, current.y, startPoint.x, startPoint.y);
-        }
-        if (bends.isEmpty()) {
-            g.drawLine(startPoint.x, startPoint.y, endPoint.x, endPoint.y);
+        // Choose the route based on which distance is larger
+        if (Math.abs(dx) > Math.abs(dy)) {
+            // If horizontal distance is greater, go horizontally halfway first, then vertically.
+            int midX = startPoint.x + dx / 2;
+            bendPoints.add(new BendPoint(midX, startPoint.y));
+            bendPoints.add(new BendPoint(midX, endPoint.y));
         } else {
-            current = startPoint;
-            for (Point bend : bends) {
+            // Otherwise, move vertically halfway first, then horizontally.
+            int midY = startPoint.y + dy / 2;
+            bendPoints.add(new BendPoint(startPoint.x, midY));
+            bendPoints.add(new BendPoint(endPoint.x, midY));
+        }
+
+        // Optionally update the dependency's stored bend points.
+        d.getBendPoints().addAll(bendPoints);
+
+        // 4. Draw the connector in segments:
+        // Start: from the original coordinate to the start point.
+        g.drawLine(recalcSrcX, recalcSrcY, startPoint.x, startPoint.y);
+        // Then, connect each bend point sequentially.
+        Point current = startPoint;
+        for (Point bend : bendPoints) {
+            g.drawLine(current.x, current.y, bend.x, bend.y);
+            current = bend;
+        }
+        // Connect the last bend to the adjusted end point.
+        g.drawLine(current.x, current.y, endPoint.x, endPoint.y);
+        // Finally, draw from the adjusted end point to the destination coordinate.
+        g.drawLine(endPoint.x, endPoint.y, recalcDstX, recalcDstY);
+
+        // 5. Draw selection handles if the dependency is selected.
+        if (d.isSelected()) {
+            drawBendHandle(g, bendPoints);
+        }
+
+        // Restore the original stroke.
+        g.setStroke(previousStroke);
+    }
+
+
+
+
+    protected void paintLine(int recalcSrcY, UsesDependency d,
+                             Graphics2D g, int recalcSrcX, int recalcDstX, int recalcDstY, Stroke oldStroke) {
+            // Assume that d.getRecalcStart() and d.getRecalcEnd() have been computed with offsets.
+        int offsetX = 16;
+        int offsetY = 16;
+        Point startPoint = new Point(recalcSrcX, recalcSrcY);
+        if (d.isStartTop()) {
+            startPoint.y -= offsetY;
+        } else if (d.isStartBottom()) {
+            startPoint.y += offsetY;
+        } else if (d.isStartLeft()) {
+            startPoint.x -= offsetX;
+        } else if (d.isStartRight()) {
+            startPoint.x += offsetX;
+        }
+        d.setRecalcStart(startPoint);
+
+        Point endPoint = new Point(recalcDstX, recalcDstY);
+        if (d.isEndTop()) {
+            endPoint.y -= offsetY;
+        } else if (d.isEndBottom()) {
+            endPoint.y += offsetY;
+        } else if (d.isEndLeft()) {
+            endPoint.x -= offsetX;
+        } else if (d.isEndRight()) {
+            endPoint.x += offsetX;
+        }
+        d.setRecalcEnd(endPoint);
+
+            // Draw from the original source coordinate to the adjusted start point.
+            g.drawLine(recalcSrcX, recalcSrcY, startPoint.x, startPoint.y);
+
+            // Draw each segment between bend points.
+            Point current = startPoint;
+            for (Point bend : d.getBendPoints()) {
                 g.drawLine(current.x, current.y, bend.x, bend.y);
                 current = bend;
             }
+
+            // Draw from the last bend point to the adjusted end point, then to the real destination.
             g.drawLine(current.x, current.y, endPoint.x, endPoint.y);
-        }
-        g.drawLine(endPoint.x, endPoint.y, recalcDstX, recalcDstY);
+            g.drawLine(endPoint.x, endPoint.y, recalcDstX, recalcDstY);
 
-        // 4. Draw handles if selected
-        if (d.isSelected()) {
-            drawBendHandle(g, bends);
-        }
+            // (Optionally, draw handles if selected, etc.)
+            if (d.isSelected()) {
+                drawBendHandle(g, d.getBendPoints());
+            }
 
-        g.setStroke(oldStroke);
+            // Restore the original stroke if needed.
+            g.setStroke(oldStroke);
     }
 
     private void drawBendHandle(Graphics2D g, List<BendPoint> points) {
@@ -288,5 +358,21 @@ public class UsesDependencyPainter
             g.drawPolygon(diamond);
         }
     }
+
+    private List<BendPoint> generateOrthogonalBendPoints(Point start, Point end) {
+        List<BendPoint> bendPoints = new ArrayList<>();
+
+        // Možný L-tvar se zalomením jen v jednom bodě
+        boolean preferHorizontal = Math.abs(end.x - start.x) > Math.abs(end.y - start.y);
+
+        if (preferHorizontal) {
+            bendPoints.add(new BendPoint(end.x, start.y)); // L-tvar
+        } else {
+            bendPoints.add(new BendPoint(start.x, end.y));
+        }
+
+        return bendPoints;
+    }
+
 
 }

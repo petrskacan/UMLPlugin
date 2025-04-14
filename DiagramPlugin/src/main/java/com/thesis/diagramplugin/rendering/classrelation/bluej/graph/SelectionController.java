@@ -59,6 +59,9 @@ public class SelectionController
     private int keyDeltaY;
     protected UsesDependency selectedDependency;
     protected BendPoint selectedBendPoint;
+    protected Point selectedSegmentStart = null;
+    protected Point selectedSegmentEnd = null;
+    protected boolean draggingSegment = false;
 
 
     private int currentDependencyIndex;  // for cycling through dependencies

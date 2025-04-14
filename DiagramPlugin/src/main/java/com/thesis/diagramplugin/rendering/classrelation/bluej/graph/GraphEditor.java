@@ -25,6 +25,7 @@ import com.thesis.diagramplugin.rendering.classrelation.FileListener;
 import com.thesis.diagramplugin.rendering.classrelation.FileSubject;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.Package;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.graphPainter.GraphPainterStdImpl;
+import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.graphPainter.LineStyle;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.ClassTarget;
 
 import javax.imageio.ImageIO;
@@ -70,6 +71,7 @@ public class GraphEditor extends JLayeredPane
     private Cursor currentCursor = defaultCursor;  // currently shown cursor
 
     protected FocusListener focusListener;
+    protected static LineStyle lineStyle = LineStyle.ORTHOGONAL;
 
     /**
      * Create a graph editor.
@@ -429,5 +431,13 @@ public class GraphEditor extends JLayeredPane
     @Override
     public void removeListener(FileListener listener) {
         listeners.remove(listener);
+    }
+
+    public static LineStyle getLineStyle() {
+        return lineStyle;
+    }
+
+    public void setLineStyle(LineStyle lineStyle) {
+        this.lineStyle = lineStyle;
     }
 }
