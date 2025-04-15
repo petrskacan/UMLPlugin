@@ -3,6 +3,7 @@ package com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.graph.*;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.BendPoint;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.UsesDependency;
+import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.graphPainter.GhostPainter;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.graphPainter.LineStyle;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.Target;
 
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PackageSelectionController extends SelectionController {
+    private GhostPainter ghost;
     public PackageSelectionController(GraphEditor editor) {
         super(editor);
     }
@@ -74,10 +76,7 @@ public class PackageSelectionController extends SelectionController {
 
                 if(GraphEditor.getLineStyle() == LineStyle.ORTHOGONAL)
                 {
-                    List<Point> allPoints = new ArrayList<>();
-                    allPoints.add(dep.getRecalcStart());
-                    allPoints.addAll(dep.getBendPoints());
-                    allPoints.add(dep.getRecalcEnd());
+                    List<Point> allPoints = new ArrayList<>(dep.getBendPoints());
 
                     Point click = evt.getPoint();
                     for (int i = 0; i < allPoints.size() - 1; i++) {
@@ -115,6 +114,10 @@ public class PackageSelectionController extends SelectionController {
     @Override
     public void mouseReleased(MouseEvent evt)
     {
+        if(selectedDependency != null) {
+            selectedDependency.removeRedundantPoints();
+            selectedDependency.repaint();
+        }
         rubberBand = null;
         draggingSegment = false;
         selectedSegmentStart = null;
@@ -126,6 +129,7 @@ public class PackageSelectionController extends SelectionController {
         }
 
         if(moving || resizing) {
+            System.out.println("DONE MOVING FIRST TIME");
             endMove();
             graphEditor.revalidate();
             graphEditor.repaint();
@@ -171,35 +175,47 @@ public class PackageSelectionController extends SelectionController {
             }
             if (selectedBendPoint != null || selectedDependency != null || selectedSegmentStart != null ) {
                 if (selectedSegmentStart != null && selectedDependency != null && selectedSegmentEnd != null) {
+//                    GhostPainter ghost = new GhostPainter(selectedDependency);
                     // Calculate the move delta.
                     int dx = evt.getX() - selectedSegmentStart.x;
                     int dy = evt.getY() - selectedSegmentStart.y;
                     int indexStart = selectedDependency.getBendPoints().indexOf(selectedSegmentStart);
                     int indexEnd = selectedDependency.getBendPoints().indexOf(selectedSegmentEnd);
-
-                    // Adjust only if the segment is perfectly horizontal or vertical.
-                    if (selectedSegmentStart.y == selectedSegmentEnd.y) {  // Horizontal segment
-                        selectedDependency.getBendPoints().get(indexStart).translate(0, dy);
-                        selectedDependency.getBendPoints().get(indexEnd).translate(0, dy);
-                    } else if (selectedSegmentStart.x == selectedSegmentEnd.x) { // Vertical segment
-                        selectedDependency.getBendPoints().get(indexStart).translate(dx, 0);
-                        selectedDependency.getBendPoints().get(indexEnd).translate(dx, 0);
+                    if(indexEnd == selectedDependency.getBendPoints().size() - 1 || indexEnd == 0 || indexStart == selectedDependency.getBendPoints().size() - 1 || indexStart == 0)
+                    {
+                        return;
                     }
 
-                    // After manual adjustment, extract the manually updated bend points.
-                    // (Depending on your design, you might store these in a separate list.)
-                    // For this example, assume the whole bend point list reflects manual adjustments.
-                    List<BendPoint> manualBends = selectedDependency.getBendPoints();
+                    // Adjust only if the segment is perfectly horizontal or vertical.
+                    if (selectedSegmentStart.y == selectedSegmentEnd.y) {
+                        selectedSegmentStart.translate(0,dy);
+                        selectedSegmentEnd.translate(0,dy);
+                    } else if (selectedSegmentStart.x == selectedSegmentEnd.x) {
+                        selectedSegmentStart.translate(dx,0);
+                        selectedSegmentEnd.translate(dx, 0);
+                    }
+//                    if(indexStart == 0 || indexStart == selectedDependency.getBendPoints().size() - 1)
+//                    {
+//                        selectedDependency.getBendPoints().add(indexStart, new BendPoint(selectedDependency.getRecalcStart()));
+//                    } else if (indexEnd == selectedDependency.getBendPoints().size() - 1 || indexEnd == 0 ) {
+//                        selectedDependency.getBendPoints().add(indexEnd, new BendPoint(selectedDependency.getRecalcStart()));
+//                    }
 
-                    // Get adjusted start and end points used in routing (these may have been
-                    // calculated with the offsets already).
-                    Point adjustedStart = selectedDependency.getRecalcStart();
-                    Point adjustedEnd = selectedDependency.getRecalcEnd();
-
-                    // Merge the manual adjustments into the routing.
-                    updateRoutingWithManualAdjustments(selectedDependency, (BendPoint) adjustedStart, (BendPoint) adjustedEnd, manualBends);
+//                    // After manual adjustment, extract the manually updated bend points.
+//                    // (Depending on your design, you might store these in a separate list.)
+//                    // For this example, assume the whole bend point list reflects manual adjustments.
+//                    List<BendPoint> manualBends = selectedDependency.getBendPoints();
+//
+//                    // Get adjusted start and end points used in routing (these may have been
+//                    // calculated with the offsets already).
+//                    Point adjustedStart = selectedDependency.getRecalcStart();
+//                    Point adjustedEnd = selectedDependency.getRecalcEnd();
+//
+//                    // Merge the manual adjustments into the routing.
+//                    updateRoutingWithManualAdjustments(selectedDependency, (BendPoint) adjustedStart, (BendPoint) adjustedEnd, manualBends);
 
                     // Repaint the updated diagram.
+                    ((Package)super.graph).recalcArrows();
                     graphEditor.repaint();
                     return;
                 }

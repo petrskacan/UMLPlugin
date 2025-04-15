@@ -100,7 +100,7 @@ public class UsesDependencyPainter
         int offsetY = 16;
 
         // 1. Compute adjusted exit points at the nodes
-        Point startPoint = new Point(recalcSrcX, recalcSrcY);
+        BendPoint startPoint = new BendPoint(recalcSrcX, recalcSrcY);
         if (d.isStartTop()) {
             startPoint.y -= offsetY;
         } else if (d.isStartBottom()) {
@@ -112,7 +112,7 @@ public class UsesDependencyPainter
         }
         d.setRecalcStart(startPoint);
 
-        Point endPoint = new Point(recalcDstX, recalcDstY);
+        BendPoint endPoint = new BendPoint(recalcDstX, recalcDstY);
         if (d.isEndTop()) {
             endPoint.y -= offsetY;
         } else if (d.isEndBottom()) {
@@ -210,7 +210,7 @@ public class UsesDependencyPainter
             // Assume that d.getRecalcStart() and d.getRecalcEnd() have been computed with offsets.
         int offsetX = 16;
         int offsetY = 16;
-        Point startPoint = new Point(recalcSrcX, recalcSrcY);
+        BendPoint startPoint = new BendPoint(recalcSrcX, recalcSrcY);
         if (d.isStartTop()) {
             startPoint.y -= offsetY;
         } else if (d.isStartBottom()) {
@@ -222,7 +222,7 @@ public class UsesDependencyPainter
         }
         d.setRecalcStart(startPoint);
 
-        Point endPoint = new Point(recalcDstX, recalcDstY);
+        BendPoint endPoint = new BendPoint(recalcDstX, recalcDstY);
         if (d.isEndTop()) {
             endPoint.y -= offsetY;
         } else if (d.isEndBottom()) {
@@ -233,28 +233,85 @@ public class UsesDependencyPainter
             endPoint.x += offsetX;
         }
         d.setRecalcEnd(endPoint);
+        // Vypočítáme kontrolní (ohybové) body – metoda zajistí i odstranění redundantních bodů.
 
-            // Draw from the original source coordinate to the adjusted start point.
-            g.drawLine(recalcSrcX, recalcSrcY, startPoint.x, startPoint.y);
+        if(d.getBendPoints().isEmpty())
+        {
+            d.getBendPoints().add(d.getSourcePoint());
+            d.getBendPoints().add(d.getRecalcStart());
+            d.getBendPoints().add(new BendPoint(d.getRecalcStart().x, d.getRecalcEnd().y));
+            d.getBendPoints().add(d.getRecalcEnd());
+            d.getBendPoints().add(d.getDestPoint());
+        }
+        d.recalculatePoints();
+        List<BendPoint> bendPoints = d.getBendPoints();
 
-            // Draw each segment between bend points.
-            Point current = startPoint;
-            for (Point bend : d.getBendPoints()) {
+        // Vykreslíme jednotlivé segmenty mezi ohybovými (kontrolními) body.
+        Point current = null;
+        for (Point bend : bendPoints) {
+            if(current != null) {
                 g.drawLine(current.x, current.y, bend.x, bend.y);
-                current = bend;
             }
+            current = bend;
+        }
 
-            // Draw from the last bend point to the adjusted end point, then to the real destination.
-            g.drawLine(current.x, current.y, endPoint.x, endPoint.y);
-            g.drawLine(endPoint.x, endPoint.y, recalcDstX, recalcDstY);
+        // (Volitelně) vykreslíme ovládací (handle) prvky, pokud je objekt vybrán.
+        if (d.isSelected()) {
+            drawBendHandle(g, bendPoints);
+        }
 
-            // (Optionally, draw handles if selected, etc.)
-            if (d.isSelected()) {
-                drawBendHandle(g, d.getBendPoints());
+        // Obnovíme původní stroke, pokud se měnil.
+        g.setStroke(oldStroke);
+    }
+
+    public List<BendPoint> calculateControlPoints(BendPoint start, BendPoint end) {
+        List<BendPoint> points = new ArrayList<>();
+        // Přidáme počáteční bod.
+        points.add(start);
+
+        // Pokud jsou body na stejné horizontální nebo vertikální čáře, není třeba vytvářet ohyb.
+        if (start.getX() == end.getX() || start.getY() == end.getY()) {
+            points.add(end);
+        } else {
+            // Vytvoříme kontrolní bod, který zajistí pravý úhel.
+            // Zde zvolíme bod (end.x, start.y) – alternativou by byl např. (start.x, end.y).
+            BendPoint controlPoint = new BendPoint((int)end.getX(), (int)start.getY());
+            points.add(controlPoint);
+            points.add(end);
+        }
+
+        // Odstraníme případné redundantní body (např. ohyby, kdy se přímočaře spojují dva segmenty).
+        return removeRedundantPoints(points);
+    }
+
+    public static List<BendPoint> removeRedundantPoints(List<BendPoint> points) {
+        if (points.size() < 3) {
+            return points;
+        }
+
+        List<BendPoint> result = new ArrayList<>();
+        // Vždy zachováme první bod.
+        result.add(points.get(0));
+
+        // Projdeme seznam od druhého bodu do předposledního.
+        for (int i = 1; i < points.size() - 1; i++) {
+            BendPoint prev = result.get(result.size() - 1);
+            BendPoint curr = points.get(i);
+            BendPoint next = points.get(i + 1);
+
+            // Pokud jsou všechny tři body (prev, curr, next) na stejné vertikální nebo horizontální linii,
+            // středový bod (curr) je redundantní a nebudeme jej přidávat.
+            if ((prev.getX() == curr.getX() && curr.getX() == next.getX()) ||
+                    (prev.getY() == curr.getY() && curr.getY() == next.getY())) {
+                continue;
+            } else {
+                result.add(curr);
             }
+        }
+        // Přidáme poslední bod.
+        result.add(points.get(points.size() - 1));
 
-            // Restore the original stroke if needed.
-            g.setStroke(oldStroke);
+        return result;
     }
 
     private void drawBendHandle(Graphics2D g, List<BendPoint> points) {

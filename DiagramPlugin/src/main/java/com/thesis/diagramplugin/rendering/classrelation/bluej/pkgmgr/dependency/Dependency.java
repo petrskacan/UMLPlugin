@@ -38,12 +38,13 @@ public abstract class Dependency extends Edge
 {
     Package pkg;
     protected boolean selected = false;
+    protected boolean doneMoving = false;
     //    protected static final float strokeWithDefault = 1.0f;
     //    protected static final float strokeWithSelected = 2.0f;
 
     static final int SELECT_DIST = 4;
 
-    private Point recalcStart, recalcEnd;
+    private BendPoint recalcStart, recalcEnd;
 
     public Dependency(Package pkg, DependentTarget from, DependentTarget to)
     {
@@ -271,20 +272,24 @@ public abstract class Dependency extends Edge
     
     public void singleSelected() { }
 
-    public Point getRecalcStart() {
+    public BendPoint getRecalcStart() {
         return recalcStart;
     }
 
-    public void setRecalcStart(Point recalcStart) {
+    public void setRecalcStart(BendPoint recalcStart) {
         this.recalcStart = recalcStart;
     }
 
-    public Point getRecalcEnd() {
+    public BendPoint getRecalcEnd() {
         return recalcEnd;
     }
 
-    public void setRecalcEnd(Point recalcEnd) {
+    public void setRecalcEnd(BendPoint recalcEnd) {
         this.recalcEnd = recalcEnd;
+    }
+
+    public void setDoneMoving(boolean doneMoving) {
+        this.doneMoving = doneMoving;
     }
     //    @Getter
 //    JComponent component;

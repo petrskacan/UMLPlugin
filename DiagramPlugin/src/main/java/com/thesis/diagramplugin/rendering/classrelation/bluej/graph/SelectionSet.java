@@ -21,18 +21,16 @@
  */
 package com.thesis.diagramplugin.rendering.classrelation.bluej.graph;
 
-import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.Package;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.Dependency;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.ClassTarget;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.DependentTarget;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.PackageTarget;
-import org.apache.tools.ant.taskdefs.Move;
 
-import java.awt.Point;
+import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.util.*;
-import java.awt.event.ActionEvent;
-import java.util.stream.Collectors;
+import java.util.List;
 
 /**
  * SelectionSet holds a set of selected graph elements. By inserting an
@@ -200,14 +198,37 @@ public final class SelectionSet
      */
     public void moveStopped()
     {
+        System.out.println("IN MOVE STOPPED METHOD");
         for (GraphElement element : elements) {
+            System.out.println("FIRST" + element);
             if(element instanceof Moveable) {
+                System.out.println("SECOND" + element);
                 Moveable moveable = (Moveable) element;
                 moveable.setPositionToGhost();
-                if (moveable instanceof PackageTarget packageTarget && packageTarget.getPackage() != null) {;
+                System.out.println(element.getClass());
+                if(element instanceof ClassTarget ct)
+                {
+                    System.out.println("BEFORE LOOP" + ct);
+                    for (Iterator<? extends Dependency> it = ct.dependencies(); it.hasNext(); ) {
+                        Dependency dep = it.next();
+                        dep.setDoneMoving(true);
+                        System.out.println(dep);
+                        System.out.println("DONE MOVING");
+                    }
+                    for (Iterator<? extends Dependency> it = ct.dependents(); it.hasNext(); ) {
+                        Dependency dep = it.next();
+                        dep.setDoneMoving(true);
+                        System.out.println(dep);
+                        System.out.println("DONE MOVING");
+                    }
+                }
+                if (moveable instanceof PackageTarget packageTarget && packageTarget.getPackage() != null) {
+                    System.out.println("THIRD" + element);
                     for (DependentTarget dt : packageTarget.getPackage().getPackages().get(packageTarget)) {
+                        System.out.println("FOURTH" + dt);
                         if (dt instanceof Moveable mt) {
                             mt.setPositionToGhost();
+
                         }
                     }
                 }

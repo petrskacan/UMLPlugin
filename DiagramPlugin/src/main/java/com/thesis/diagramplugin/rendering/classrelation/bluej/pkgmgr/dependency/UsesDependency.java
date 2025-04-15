@@ -41,9 +41,13 @@ import java.util.Properties;
 public class UsesDependency extends Dependency
 {
     private int sourceX, sourceY, destX, destY;
+    private BendPoint sourcePoint = new BendPoint(sourceX,sourceY);
+    private BendPoint destPoint = new BendPoint(destX,destY);
     private boolean startTop, endLeft;
     private ConnectionSide startConnectionSide;
     private List<BendPoint> bendPoints = new ArrayList<>();
+    private BendPoint secondPoint = null;
+    private BendPoint secondToLastPoint = null;
     private boolean autoLayout = true;
 
     public boolean isAutoLayout() {
@@ -56,6 +60,134 @@ public class UsesDependency extends Dependency
 
     public List<BendPoint> getBendPoints() { return bendPoints; }
     public void setBendPoint(BendPoint point) { this.bendPoints.add(point); }
+    public void setBendPoints(List<BendPoint> points)
+    {
+        bendPoints.clear();
+        bendPoints = points;
+//        insertPoints(points);
+    }
+    public void recalculatePoints()
+    {
+        boolean first = false, last = false;
+        if(!bendPoints.contains(getRecalcStart()))
+        {
+            bendPoints.add(1, getRecalcStart());
+            first = true;
+        }
+        if (!bendPoints.contains(getRecalcEnd())) {
+            bendPoints.add(bendPoints.size() - 1, getRecalcEnd());
+            last=true;
+        }
+        if(doneMoving)
+        {
+            System.out.println("DONE MOVING");
+            if(first) {
+                if (secondPoint == null) {
+                    secondPoint = bendPoints.get(2);
+                }
+                System.out.println("FIRST POINT");
+                // Odstraníme starý ohybový bod z pozice indexu 2
+
+                // Po odstranění by měl seznam v levé části vypadat např. takto:
+                // Index 0: přichycený bod
+                // Index 1: řídící bod
+                // Index 2: další (fixovaný) bod – středový řídící bod
+                //
+                // Pro výpočet nového ohybového bodu využijeme body na indexu 1 a 2.
+                BendPoint leftControl = bendPoints.get(1);  // bod vlevo
+                BendPoint centerControl = bendPoints.get(2);  // bod vpravo
+
+                // Vypočteme kandidáty:
+                // Kandidát 1: x = leftControl.getX(), y = centerControl.getY()
+                // Kandidát 2: x = centerControl.getX(), y = leftControl.getY()
+                BendPoint candidate1 = new BendPoint((int)leftControl.getX(), (int) centerControl.getY());
+                BendPoint candidate2 = new BendPoint((int)centerControl.getX(), (int)leftControl.getY());
+
+                // Vybereme toho, který je blíže původní pozici uloženého bodu (secondPoint)
+                if (distance(candidate1, secondPoint) < distance(candidate2, secondPoint)) {
+                    secondPoint.x = candidate1.x;
+                    secondPoint.y = candidate1.y;
+                } else {
+                    secondPoint.x = candidate2.x;
+                    secondPoint.y = candidate2.y;
+                }
+            }
+            if(last) {
+
+                System.out.println("SECOND POINT");
+
+                if (secondToLastPoint == null) {
+                    int idx = bendPoints.size() - 2;
+                    secondToLastPoint = new BendPoint(bendPoints.get(idx));
+                }
+                // Odstraníme původní ohybový bod z předposlední pozice
+
+
+
+                // Po odstranění má pravá část seznamu následující strukturu:
+                // Index (size-2): řídící bod (např. středový)
+                // Index (size-1): poslední přichycený bod
+                BendPoint rightControl = bendPoints.get(bendPoints.size() - 3); // bod vlevo
+                BendPoint lastFixed = bendPoints.get(bendPoints.size() - 1);      // bod vpravo
+
+                // Vypočteme kandidáty:
+                // Kandidát 1: x = leftControl.getX(), y = centerControl.getY()
+                // Kandidát 2: x = centerControl.getX(), y = leftControl.getY()
+                BendPoint candidate1 = new BendPoint((int)rightControl.getX(), (int) rightControl.getY());
+                BendPoint candidate2 = new BendPoint((int)lastFixed.getX(), (int)lastFixed.getY());
+
+                // Vybereme toho, který je blíže původní pozici uloženého bodu (secondPoint)
+                if (distance(candidate1, secondToLastPoint) < distance(candidate2, secondToLastPoint)) {
+                    secondToLastPoint.x = candidate1.x;
+                    secondToLastPoint.y = candidate1.y;
+                } else {
+                    secondToLastPoint.x = candidate2.x;
+                    secondToLastPoint.y = candidate2.y;
+                }
+            }
+
+            doneMoving = false;
+            removeRedundantPoints();
+            System.out.println(bendPoints);
+        }
+    }
+
+    private double distance(BendPoint a, BendPoint b) {
+        double dx = a.getX() - b.getX();
+        double dy = a.getY() - b.getY();
+        return Math.sqrt(dx * dx + dy * dy);
+    }
+
+    private void insertPoints(List<BendPoint> points)
+    {
+        // 1. Zjisti celkovou trasu: start → bends → end
+        List<BendPoint> bends = points;
+        List<Point> allPoints = new ArrayList<>();
+        allPoints.add(new Point(getSourceX(), getSourceY()));
+        allPoints.addAll(bends);
+        allPoints.add(new Point(getDestX(), getDestY()));
+
+        double closestDist;
+        int insertIndex = bendPoints.size();
+
+        for(BendPoint bend : bends) {
+            if(!bendPoints.contains(bend)) {
+                closestDist = Double.MAX_VALUE;
+                for (int i = 0; i < allPoints.size() - 1; i++) {
+                    Point a = allPoints.get(i);
+                    Point b = allPoints.get(i + 1);
+                    double dist = Line2D.ptSegDist(a.x, a.y, b.x, b.y, bend.x, bend.y);
+                    if (dist < closestDist) {
+                        closestDist = dist;
+                        insertIndex = i;
+                    }
+                }
+                getBendPoints().add(insertIndex, bend);
+            }
+        }
+
+
+    }
 
     public ConnectionSide getEndConnectionSide() {
         return endConnectionSide;
@@ -92,6 +224,8 @@ public class UsesDependency extends Dependency
     {
         this.sourceX = src_x;
         this.sourceY = src_y;
+        sourcePoint.x = src_x;
+        sourcePoint.y = src_y;
         this.setStartConnectionSide(side);
     }
 
@@ -99,6 +233,8 @@ public class UsesDependency extends Dependency
     {
         this.destX = dst_x;
         this.destY = dst_y;
+        destPoint.x = dst_x;
+        destPoint.y = dst_y;
         this.setEndConnectionSide(side);
     }
 
@@ -257,5 +393,56 @@ public class UsesDependency extends Dependency
     public DependencyType getType()
     {
         return DependencyType.USES;
+    }
+
+    public void removeRedundantPoints()
+    {
+        if (bendPoints.size() <= 5) {
+            return;
+        }
+        BendPoint prev = bendPoints.get(1);
+
+        // Projdeme seznam od druhého bodu do předposledního.
+        for (int i = 2; i < bendPoints.size() - 2; i++) {
+            BendPoint curr = bendPoints.get(i);
+            BendPoint next = bendPoints.get(i + 1);
+
+            // Pokud jsou všechny tři body (prev, curr, next) na stejné vertikální nebo horizontální linii,
+            // středový bod (curr) je redundantní a nebudeme jej přidávat.
+            if ((prev.getX() == curr.getX() && curr.getX() == next.getX()) ||
+                    (prev.getY() == curr.getY() && curr.getY() == next.getY())) {
+                bendPoints.remove(curr);
+            }
+            prev = curr;
+        }
+    }
+    public void removeRedundantPoints(List<BendPoint> points)
+    {
+        if (points.size() < 3) {
+            return;
+        }
+        BendPoint prev = points.get(0);
+
+        // Projdeme seznam od druhého bodu do předposledního.
+        for (int i = 1; i < points.size() - 1; i++) {
+            BendPoint curr = points.get(i);
+            BendPoint next = points.get(i + 1);
+
+            // Pokud jsou všechny tři body (prev, curr, next) na stejné vertikální nebo horizontální linii,
+            // středový bod (curr) je redundantní a nebudeme jej přidávat.
+            if ((prev.getX() == curr.getX() && curr.getX() == next.getX()) ||
+                    (prev.getY() == curr.getY() && curr.getY() == next.getY())) {
+                points.remove(curr);
+            }
+            prev = curr;
+        }
+    }
+
+    public BendPoint getSourcePoint() {
+        return sourcePoint;
+    }
+
+    public BendPoint getDestPoint() {
+        return destPoint;
     }
 }

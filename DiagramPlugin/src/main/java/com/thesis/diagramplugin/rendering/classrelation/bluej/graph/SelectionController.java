@@ -291,6 +291,7 @@ public class SelectionController
      */
     protected void endMove()
     {
+        System.out.println("IN END MOVE METHOD");
         selection.moveStopped();
         moving = false;
         resizing = false;
