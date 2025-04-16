@@ -188,84 +188,118 @@ public abstract class DependentTarget extends Target
     }
 
     public void recalcOutUses() {
-        List<UsesDependency> visibleOutUses = getVisibleUsesDependencies(outUses);
-        recalcUses(visibleOutUses, true);
+        recalcAllUses();
     }
     public void recalcInUses() {
-        List<UsesDependency> visibleInUses = getVisibleUsesDependencies(inUses);
-        recalcUses(visibleInUses, false);
+        recalcAllUses();
     }
 
-    private void recalcUses(List<UsesDependency> visibleUses, boolean isOutgoing)
-    {
-        int offset = isOutgoing ? 0 : 4;
-        Rectangle currentRect = new Rectangle(getX(), getY(), getWidth(), getHeight());
-        Target target;
+    // Pomocná třídka k uchování závislosti a informace o směru.
+    private static class DependencyWrapper {
+        UsesDependency dependency;
+        boolean isOutgoing;
 
-        // Group dependencies by the best side to connect.
-        Map<ConnectionSide, List<UsesDependency>> groups = new EnumMap<>(ConnectionSide.class);
-        // Initialize groups.
+        DependencyWrapper(UsesDependency dependency, boolean isOutgoing) {
+            this.dependency = dependency;
+            this.isOutgoing = isOutgoing;
+        }
+    }
+
+    public void recalcAllUses() {
+        // Získání viditelných závislostí pro obě skupiny.
+        List<UsesDependency> visibleOutUses = getVisibleUsesDependencies(outUses);
+        List<UsesDependency> visibleInUses = getVisibleUsesDependencies(inUses);
+
+        // Sloučení obou seznamů do jednoho, přičemž se uchová informace o směru.
+        List<DependencyWrapper> allDependencies = new ArrayList<>();
+        for (UsesDependency d : visibleOutUses) {
+            allDependencies.add(new DependencyWrapper(d, true));
+        }
+        for (UsesDependency d : visibleInUses) {
+            allDependencies.add(new DependencyWrapper(d, false));
+        }
+
+        // Zavolání metody, která zpracuje všechny závislosti najednou.
+        recalcUsesCombined(allDependencies);
+    }
+
+    private void recalcUsesCombined(List<DependencyWrapper> allDependencies) {
+        Rectangle currentRect = new Rectangle(getX(), getY(), getWidth(), getHeight());
+        // Skupiny podle strany, na které bude konečné umístění.
+        Map<ConnectionSide, List<DependencyWrapper>> groups = new EnumMap<>(ConnectionSide.class);
         for (ConnectionSide side : ConnectionSide.values()) {
             groups.put(side, new ArrayList<>());
         }
 
-        for (UsesDependency d : visibleUses) {
-            if(isOutgoing)
-            {
+        // Projdeme všechny závislosti a podle jejich směru určíme, ke které straně patří.
+        for (DependencyWrapper wrapper : allDependencies) {
+            UsesDependency d = wrapper.dependency;
+            Target target;
+            if (wrapper.isOutgoing) {
                 target = d.getTo();
+                // determineBestConnection vrací pole, kde:
+                // - index 0: strana, kam se má spojení kreslit (skutečná strana objektu)
+                // - index 1: strana, která bude u závislosti nastavena jako start (pro outgoing)
                 ConnectionSide[] best = determineBestConnection(currentRect, getSecondRectangle(target), d.getBendPoints());
                 ConnectionSide bestSourceSide = best[0];
                 d.setStartConnectionSide(best[1]);
-                groups.get(bestSourceSide).add(d);
-            }
-            else
-            {
+                groups.get(bestSourceSide).add(wrapper);
+            } else {
                 target = d.getFrom();
+                // U příchozích závislostí použijeme obrácené pořadí obdélníků.
                 ConnectionSide bestSide = determineBestConnection(getSecondRectangle(target), currentRect, d.getBendPoints())[1];
                 d.setEndConnectionSide(bestSide);
-                groups.get(bestSide).add(d);
+                groups.get(bestSide).add(wrapper);
             }
-
         }
 
-        for (Map.Entry<ConnectionSide, List<UsesDependency>> entry : groups.entrySet()) {
+        // Pro každou stranu vypočítáme počáteční pozici, přičemž vezmeme v úvahu celkový počet závislostí na té straně.
+        for (Map.Entry<ConnectionSide, List<DependencyWrapper>> entry : groups.entrySet()) {
             ConnectionSide side = entry.getKey();
-            List<UsesDependency> group = entry.getValue();
+            List<DependencyWrapper> group = entry.getValue();
             int count = group.size();
             if (count == 0) continue;
 
+            // Vzorec pro výpočet počáteční pozice (v horizontálním či vertikálním směru)
             switch (side) {
                 case TOP -> {
                     int startX = getX() + (getWidth() - (count - 1) * ARR_HORIZ_DIST) / 2;
-                    for (UsesDependency d : group) {
-                        d.setCoord(startX, getY() - offset, ConnectionSide.TOP, isOutgoing);
+                    for (DependencyWrapper wrapper : group) {
+                        // Každému prvku nastavíme offset podle směru
+                        int offset = wrapper.isOutgoing ? 0 : 4;
+                        // U outgoing se nastaví start koordináta, u příchozích end – záleží na logice setCoord
+                        wrapper.dependency.setCoord(startX, getY() - offset, ConnectionSide.TOP, wrapper.isOutgoing);
                         startX += ARR_HORIZ_DIST;
                     }
                 }
                 case BOTTOM -> {
                     int startX = getX() + (getWidth() - (count - 1) * ARR_HORIZ_DIST) / 2;
-                    for (UsesDependency d : group) {
-                        d.setCoord(startX, getY() + getHeight() + offset, ConnectionSide.BOTTOM, isOutgoing);
+                    for (DependencyWrapper wrapper : group) {
+                        int offset = wrapper.isOutgoing ? 0 : 4;
+                        wrapper.dependency.setCoord(startX, getY() + getHeight() + offset, ConnectionSide.BOTTOM, wrapper.isOutgoing);
                         startX += ARR_HORIZ_DIST;
                     }
                 }
                 case LEFT -> {
                     int startY = getY() + (getHeight() - (count - 1) * ARR_VERT_DIST) / 2;
-                    for (UsesDependency d : group) {
-                        d.setCoord(getX() - offset, startY, ConnectionSide.LEFT, isOutgoing);
+                    for (DependencyWrapper wrapper : group) {
+                        int offset = wrapper.isOutgoing ? 0 : 4;
+                        wrapper.dependency.setCoord(getX() - offset, startY, ConnectionSide.LEFT, wrapper.isOutgoing);
                         startY += ARR_VERT_DIST;
                     }
                 }
                 case RIGHT -> {
                     int startY = getY() + (getHeight() - (count - 1) * ARR_VERT_DIST) / 2;
-                    for (UsesDependency d : group) {
-                        d.setCoord(getX() + getWidth() + offset, startY, ConnectionSide.RIGHT, isOutgoing);
+                    for (DependencyWrapper wrapper : group) {
+                        int offset = wrapper.isOutgoing ? 0 : 4;
+                        wrapper.dependency.setCoord(getX() + getWidth() + offset, startY, ConnectionSide.RIGHT, wrapper.isOutgoing);
                         startY += ARR_VERT_DIST;
                     }
                 }
             }
         }
     }
+
     public Point getConnectionPoint(Rectangle rect, ConnectionSide side) {
         return switch (side) {
             case TOP -> new Point(rect.x + rect.width / 2, rect.y);

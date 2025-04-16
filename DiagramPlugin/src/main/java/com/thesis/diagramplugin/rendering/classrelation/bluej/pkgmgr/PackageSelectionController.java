@@ -174,6 +174,10 @@ public class PackageSelectionController extends SelectionController {
             }
             if (selectedBendPoint != null || selectedDependency != null || selectedSegmentStart != null ) {
                 if (selectedSegmentStart != null && selectedDependency != null && selectedSegmentEnd != null) {
+                    if(selectedDependency.from == selectedDependency.to)
+                    {
+                        return;
+                    }
 //                    GhostPainter ghost = new GhostPainter(selectedDependency);
                     // Calculate the move delta.
                     int dx = evt.getX() - selectedSegmentStart.x;

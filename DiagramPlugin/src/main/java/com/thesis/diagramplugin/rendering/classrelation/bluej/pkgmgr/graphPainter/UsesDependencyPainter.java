@@ -82,7 +82,6 @@ public class UsesDependencyPainter
         int src_y = d.getSourceY();
         int dst_x = d.getDestX();
         int dst_y = d.getDestY();
-        ;
 
         g.setColor(normalColour);
         g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -208,6 +207,7 @@ public class UsesDependencyPainter
     protected void paintLine(int recalcSrcY, UsesDependency d,
                              Graphics2D g, int recalcSrcX, int recalcDstX, int recalcDstY, Stroke oldStroke) {
             // Assume that d.getRecalcStart() and d.getRecalcEnd() have been computed with offsets.
+        boolean selfDep = d.from == d.to;
         int offsetX = 16;
         int offsetY = 16;
         BendPoint startPoint = new BendPoint(recalcSrcX, recalcSrcY);
@@ -239,24 +239,31 @@ public class UsesDependencyPainter
         {
             d.getBendPoints().add(d.getSourcePoint());
             d.getBendPoints().add(d.getRecalcStart());
-            d.getBendPoints().add(new BendPoint(d.getRecalcStart().x, d.getRecalcEnd().y));
+            d.getBendPoints().add(new BendPoint(d.getRecalcEnd().x, d.getRecalcStart().y));
             d.getBendPoints().add(d.getRecalcEnd());
             d.getBendPoints().add(d.getDestPoint());
         }
         d.recalculatePoints();
+        if(selfDep)
+        {
+            d.getBendPoints().get(2).move(endPoint.x, startPoint.y);
+        }
         List<BendPoint> bendPoints = d.getBendPoints();
 
         // Vykreslíme jednotlivé segmenty mezi ohybovými (kontrolními) body.
         Point current = null;
         for (Point bend : bendPoints) {
+            if(usesDiamond && bendPoints.indexOf(bend) == 0)
+            {
+                continue;
+            }
             if(current != null) {
                 g.drawLine(current.x, current.y, bend.x, bend.y);
             }
             current = bend;
         }
-
         // (Volitelně) vykreslíme ovládací (handle) prvky, pokud je objekt vybrán.
-        if (d.isSelected()) {
+        if (d.isSelected() && !selfDep) {
             drawBendHandle(g, bendPoints);
         }
 
@@ -316,7 +323,8 @@ public class UsesDependencyPainter
 
     private void drawBendHandle(Graphics2D g, List<BendPoint> points) {
         final int r = 5;
-        for(BendPoint point : points) {
+        for (int i = 1; i < points.size()-1; i++) {
+            BendPoint point = points.get(i);
             g.setColor(point.getFill());
             g.fillOval(point.x - r, point.y - r, r * 2, r * 2);
         }

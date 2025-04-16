@@ -21,15 +21,15 @@
  */
 package com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target;
 
-import java.util.Properties;
-import java.awt.*;
-import java.awt.font.*;
-import java.awt.geom.*;
-
-import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.Package;
-import com.thesis.diagramplugin.rendering.classrelation.bluej.graph.Vertex;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.graph.GraphEditor;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.graph.IExpandable;
+import com.thesis.diagramplugin.rendering.classrelation.bluej.graph.Vertex;
+import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.Package;
+
+import java.awt.*;
+import java.awt.font.FontRenderContext;
+import java.awt.geom.AffineTransform;
+import java.util.Properties;
 
 /**
  * A general target in a package
@@ -41,8 +41,8 @@ public abstract class Target extends Vertex
 
     static final int DEF_WIDTH = 80;
     static final int DEF_HEIGHT = 50;
-    static final int ARR_HORIZ_DIST = 5;
-    static final int ARR_VERT_DIST = 10;
+    static final int ARR_HORIZ_DIST = 8;
+    static final int ARR_VERT_DIST = 8;
     static final int HANDLE_SIZE = 20;
     static final int TEXT_HEIGHT = 16;
     static final int TEXT_BORDER = 4;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<package name="com.thesis.diagramplugin.rendering.classrelation.bluej.graph" path="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph" pos_x="30" pos_y="30" size_w="1171" size_h="774" visible="true"> 
+<package name="com.thesis.diagramplugin.rendering.classrelation.bluej.graph" path="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph" pos_x="30" pos_y="30" size_w="1071" size_h="714" visible="true"> 
   <class name="Vertex" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Vertex" abstract="true" pos_x="266" pos_y="364" size_w="100" size_h="80" visible="true"> 
     <variable name="component" type="JComponent" modifiers="private;final"/>  
     <method name="Vertex" return_type="*NULL*" modifiers="public" constructor="true"> 
@@ -554,12 +554,12 @@
     <relation/>  
     <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/SelectableGraphElement"/> 
   </class>  
-  <interface name="SelectableGraphElement" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/SelectableGraphElement" abstract="true" pos_x="962" pos_y="644" size_w="186" size_h="80" visible="true"> 
+  <interface name="SelectableGraphElement" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/SelectableGraphElement" abstract="true" pos_x="602" pos_y="104" size_w="186" size_h="80" visible="true"> 
     <method name="singleSelected" return_type="void" modifiers="public;abstract" constructor="false"/>  
     <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/GraphElement</extends>  
     <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/Selectable</extends> 
   </interface>  
-  <interface name="GraphElement" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/GraphElement" abstract="false" pos_x="44" pos_y="364" size_w="112" size_h="80" visible="true"> 
+  <interface name="GraphElement" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/GraphElement" abstract="false" pos_x="104" pos_y="364" size_w="112" size_h="80" visible="true"> 
     <method name="contains" return_type="boolean" modifiers="public;abstract" constructor="false"> 
       <parameter name="x" type="int"/>  
       <parameter name="y" type="int"/> 
@@ -573,7 +573,7 @@
       <parameter name="visible" type="boolean"/> 
     </method> 
   </interface>  
-  <class name="CustomDependencyDialog" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/CustomDependencyDialog" abstract="false" pos_x="888" pos_y="104" size_w="197" size_h="80" visible="true"> 
+  <class name="CustomDependencyDialog" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/CustomDependencyDialog" abstract="false" pos_x="838" pos_y="104" size_w="197" size_h="80" visible="true"> 
     <variable name="packageFromCombo" type="JComboBox&lt;String&gt;" modifiers="private;final"/>  
     <variable name="packageToCombo" type="JComboBox&lt;String&gt;" modifiers="private;final"/>  
     <variable name="typeCombo" type="JComboBox&lt;DependencyType&gt;" modifiers="private;final"/>  
@@ -781,7 +781,5 @@
     </method>  
     <method name="graphChanged" return_type="void" modifiers="public" constructor="false"/>  
     <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/SelectableGraphElement"/> 
-  </interface>  
-  <customDependecy name="House-&gt;User as AGGREGATION" unique_id="House-&gt;User as AGGREGATION" from="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/House" to="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/User" dependency_type="AGGREGATION"/>
-  <customDependecy name="Iface-&gt;Iface2 as USES" unique_id="Iface-&gt;Iface2 as USES" from="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Iface" to="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Iface2" dependency_type="USES"/>
+  </interface> 
 </package>
