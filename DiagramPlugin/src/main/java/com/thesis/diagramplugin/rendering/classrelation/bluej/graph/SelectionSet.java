@@ -225,10 +225,20 @@ public final class SelectionSet
                 if (moveable instanceof PackageTarget packageTarget && packageTarget.getPackage() != null) {
                     System.out.println("THIRD" + element);
                     for (DependentTarget dt : packageTarget.getPackage().getPackages().get(packageTarget)) {
-                        System.out.println("FOURTH" + dt);
+                        for (Iterator<? extends Dependency> it = dt.dependencies(); it.hasNext(); ) {
+                            Dependency dep = it.next();
+                            dep.setDoneMoving(true);
+                            System.out.println(dep);
+                            System.out.println("DONE MOVING");
+                        }
+                        for (Iterator<? extends Dependency> it = dt.dependents(); it.hasNext(); ) {
+                            Dependency dep = it.next();
+                            dep.setDoneMoving(true);
+                            System.out.println(dep);
+                            System.out.println("DONE MOVING");
+                        }
                         if (dt instanceof Moveable mt) {
                             mt.setPositionToGhost();
-
                         }
                     }
                 }

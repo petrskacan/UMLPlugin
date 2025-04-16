@@ -3,7 +3,6 @@ package com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.graph.*;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.BendPoint;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency.UsesDependency;
-import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.graphPainter.GhostPainter;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.graphPainter.LineStyle;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.Target;
 
@@ -14,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PackageSelectionController extends SelectionController {
-    private GhostPainter ghost;
     public PackageSelectionController(GraphEditor editor) {
         super(editor);
     }
@@ -131,6 +129,7 @@ public class PackageSelectionController extends SelectionController {
         if(moving || resizing) {
             System.out.println("DONE MOVING FIRST TIME");
             endMove();
+            ((Package)super.graph).recalcArrows();
             graphEditor.revalidate();
             graphEditor.repaint();
         }

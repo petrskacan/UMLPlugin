@@ -31,6 +31,7 @@ import java.awt.geom.Line2D;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * A dependency between two targets in a package
@@ -49,6 +50,7 @@ public class UsesDependency extends Dependency
     private BendPoint secondPoint = null;
     private BendPoint secondToLastPoint = null;
     private boolean autoLayout = true;
+    private boolean firstTime = false, firstSecondTime;
 
     public boolean isAutoLayout() {
         return autoLayout;
@@ -80,13 +82,25 @@ public class UsesDependency extends Dependency
         }
         if(doneMoving)
         {
+            System.out.println("BEFORE EDITING POINT");
+            AtomicInteger index = new AtomicInteger(1);
+            bendPoints.forEach(point ->
+                    System.out.println(index.getAndIncrement() + ". Bod ohybu: " + point)
+            );
             System.out.println("DONE MOVING");
             if(first) {
                 if (secondPoint == null) {
                     secondPoint = bendPoints.get(2);
+                    firstTime = true;
                 }
                 System.out.println("FIRST POINT");
                 // Odstraníme starý ohybový bod z pozice indexu 2
+                if(!firstTime) {
+                    bendPoints.remove(2);
+                }
+                else{
+                    firstTime = false;
+                }
 
                 // Po odstranění by měl seznam v levé části vypadat např. takto:
                 // Index 0: přichycený bod
@@ -95,7 +109,7 @@ public class UsesDependency extends Dependency
                 //
                 // Pro výpočet nového ohybového bodu využijeme body na indexu 1 a 2.
                 BendPoint leftControl = bendPoints.get(1);  // bod vlevo
-                BendPoint centerControl = bendPoints.get(2);  // bod vpravo
+                BendPoint centerControl = bendPoints.get(3);  // bod vpravo
 
                 // Vypočteme kandidáty:
                 // Kandidát 1: x = leftControl.getX(), y = centerControl.getY()
@@ -111,30 +125,39 @@ public class UsesDependency extends Dependency
                     secondPoint.x = candidate2.x;
                     secondPoint.y = candidate2.y;
                 }
+                System.out.println(secondPoint);
+                bendPoints.get(2).move(secondPoint.x, secondPoint.y);
             }
             if(last) {
 
                 System.out.println("SECOND POINT");
 
                 if (secondToLastPoint == null) {
-                    int idx = bendPoints.size() - 2;
-                    secondToLastPoint = new BendPoint(bendPoints.get(idx));
+                    int idx = bendPoints.size() - 3;
+                    secondToLastPoint = bendPoints.get(idx);
+                    firstSecondTime = true;
                 }
                 // Odstraníme původní ohybový bod z předposlední pozice
+                if(!firstSecondTime) {
+                    bendPoints.remove(bendPoints.size() - 3);
+                }
+                else{
+                    firstSecondTime = false;
+                }
 
 
 
                 // Po odstranění má pravá část seznamu následující strukturu:
                 // Index (size-2): řídící bod (např. středový)
                 // Index (size-1): poslední přichycený bod
-                BendPoint rightControl = bendPoints.get(bendPoints.size() - 3); // bod vlevo
-                BendPoint lastFixed = bendPoints.get(bendPoints.size() - 1);      // bod vpravo
+                BendPoint rightControl = bendPoints.get(bendPoints.size() - 4); // bod vlevo
+                BendPoint lastFixed = bendPoints.get(bendPoints.size() - 2);      // bod vpravo
 
                 // Vypočteme kandidáty:
                 // Kandidát 1: x = leftControl.getX(), y = centerControl.getY()
                 // Kandidát 2: x = centerControl.getX(), y = leftControl.getY()
-                BendPoint candidate1 = new BendPoint((int)rightControl.getX(), (int) rightControl.getY());
-                BendPoint candidate2 = new BendPoint((int)lastFixed.getX(), (int)lastFixed.getY());
+                BendPoint candidate1 = new BendPoint((int)rightControl.getX(), (int)lastFixed.getY());
+                BendPoint candidate2 = new BendPoint((int)lastFixed.getX(), (int)rightControl.getY());
 
                 // Vybereme toho, který je blíže původní pozici uloženého bodu (secondPoint)
                 if (distance(candidate1, secondToLastPoint) < distance(candidate2, secondToLastPoint)) {
@@ -144,11 +167,16 @@ public class UsesDependency extends Dependency
                     secondToLastPoint.x = candidate2.x;
                     secondToLastPoint.y = candidate2.y;
                 }
+                System.out.println(secondToLastPoint);
+                bendPoints.get(bendPoints.size() - 3).move(secondToLastPoint.x, secondToLastPoint.y);
             }
 
             doneMoving = false;
             removeRedundantPoints();
-            System.out.println(bendPoints);
+            AtomicInteger index1 = new AtomicInteger(1);
+            bendPoints.forEach(point ->
+                    System.out.println(index1.getAndIncrement() + ". Bod ohybu: " + point)
+            );
         }
     }
 
