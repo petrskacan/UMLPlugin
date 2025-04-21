@@ -178,7 +178,6 @@ public class PackageSelectionController extends SelectionController {
                     {
                         return;
                     }
-//                    GhostPainter ghost = new GhostPainter(selectedDependency);
                     // Calculate the move delta.
                     int dx = evt.getX() - selectedSegmentStart.x;
                     int dy = evt.getY() - selectedSegmentStart.y;
@@ -197,27 +196,6 @@ public class PackageSelectionController extends SelectionController {
                         selectedSegmentStart.translate(dx,0);
                         selectedSegmentEnd.translate(dx, 0);
                     }
-//                    if(indexStart == 0 || indexStart == selectedDependency.getBendPoints().size() - 1)
-//                    {
-//                        selectedDependency.getBendPoints().add(indexStart, new BendPoint(selectedDependency.getRecalcStart()));
-//                    } else if (indexEnd == selectedDependency.getBendPoints().size() - 1 || indexEnd == 0 ) {
-//                        selectedDependency.getBendPoints().add(indexEnd, new BendPoint(selectedDependency.getRecalcStart()));
-//                    }
-
-//                    // After manual adjustment, extract the manually updated bend points.
-//                    // (Depending on your design, you might store these in a separate list.)
-//                    // For this example, assume the whole bend point list reflects manual adjustments.
-//                    List<BendPoint> manualBends = selectedDependency.getBendPoints();
-//
-//                    // Get adjusted start and end points used in routing (these may have been
-//                    // calculated with the offsets already).
-//                    Point adjustedStart = selectedDependency.getRecalcStart();
-//                    Point adjustedEnd = selectedDependency.getRecalcEnd();
-//
-//                    // Merge the manual adjustments into the routing.
-//                    updateRoutingWithManualAdjustments(selectedDependency, (BendPoint) adjustedStart, (BendPoint) adjustedEnd, manualBends);
-
-                    // Repaint the updated diagram.
                     ((Package)super.graph).recalcArrows();
                     graphEditor.repaint();
                     return;

@@ -198,44 +198,30 @@ public final class SelectionSet
      */
     public void moveStopped()
     {
-        System.out.println("IN MOVE STOPPED METHOD");
         for (GraphElement element : elements) {
-            System.out.println("FIRST" + element);
             if(element instanceof Moveable) {
-                System.out.println("SECOND" + element);
                 Moveable moveable = (Moveable) element;
                 moveable.setPositionToGhost();
-                System.out.println(element.getClass());
                 if(element instanceof ClassTarget ct)
                 {
-                    System.out.println("BEFORE LOOP" + ct);
                     for (Iterator<? extends Dependency> it = ct.dependencies(); it.hasNext(); ) {
                         Dependency dep = it.next();
                         dep.setDoneMoving(true);
-                        System.out.println(dep);
-                        System.out.println("DONE MOVING");
                     }
                     for (Iterator<? extends Dependency> it = ct.dependents(); it.hasNext(); ) {
                         Dependency dep = it.next();
                         dep.setDoneMoving(true);
-                        System.out.println(dep);
-                        System.out.println("DONE MOVING");
                     }
                 }
                 if (moveable instanceof PackageTarget packageTarget && packageTarget.getPackage() != null) {
-                    System.out.println("THIRD" + element);
                     for (DependentTarget dt : packageTarget.getPackage().getPackages().get(packageTarget)) {
                         for (Iterator<? extends Dependency> it = dt.dependencies(); it.hasNext(); ) {
                             Dependency dep = it.next();
                             dep.setDoneMoving(true);
-                            System.out.println(dep);
-                            System.out.println("DONE MOVING");
                         }
                         for (Iterator<? extends Dependency> it = dt.dependents(); it.hasNext(); ) {
                             Dependency dep = it.next();
                             dep.setDoneMoving(true);
-                            System.out.println(dep);
-                            System.out.println("DONE MOVING");
                         }
                         if (dt instanceof Moveable mt) {
                             mt.setPositionToGhost();

@@ -22,7 +22,9 @@
 package com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.dependency;
 
 
+import com.thesis.diagramplugin.rendering.classrelation.bluej.graph.GraphEditor;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.Package;
+import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.graphPainter.LineStyle;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.ConnectionSide;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.DependentTarget;
 
@@ -50,6 +52,7 @@ public class UsesDependency extends Dependency
     private BendPoint secondToLastPoint = null;
     private boolean autoLayout = true;
     private boolean firstTime = false, firstSecondTime;
+    protected LineStyle style = GraphEditor.getLineStyle();
 
     public boolean isAutoLayout() {
         return autoLayout;
@@ -70,16 +73,16 @@ public class UsesDependency extends Dependency
     public void recalculatePoints()
     {
         boolean first = false, last = false;
-        if(!bendPoints.contains(getRecalcStart()))
+        if(!bendPoints.contains(getRecalcStart())  && GraphEditor.getLineStyle() == LineStyle.ORTHOGONAL)
         {
             bendPoints.add(1, getRecalcStart());
             first = true;
         }
-        if (!bendPoints.contains(getRecalcEnd())) {
+        if (!bendPoints.contains(getRecalcEnd())  && GraphEditor.getLineStyle() == LineStyle.ORTHOGONAL) {
             bendPoints.add(bendPoints.size() - 1, getRecalcEnd());
             last=true;
         }
-        if(doneMoving)
+        if(doneMoving && GraphEditor.getLineStyle() == LineStyle.ORTHOGONAL)
         {
             if(first) {
                 if (secondPoint == null) {
@@ -152,6 +155,11 @@ public class UsesDependency extends Dependency
 
             doneMoving = false;
             removeRedundantPoints();
+        }
+        if(GraphEditor.getLineStyle() == LineStyle.STRAIGHT)
+        {
+            bendPoints.get(1).move(getRecalcStart().x, getRecalcStart().y);
+            bendPoints.get(bendPoints.size() - 2).move(getRecalcEnd().x, getRecalcEnd().y);
         }
     }
 
@@ -280,7 +288,7 @@ public class UsesDependency extends Dependency
         for (int i = 0; i < points.size() - 1; i++) {
             Point p1 = points.get(i);
             Point p2 = points.get(i + 1);
-            if (lineContainsPoint(p1.x, p1.y, p2.x, p2.y, x, y, SELECT_DIST)) {
+            if (p1 != null && p2 != null && lineContainsPoint(p1.x, p1.y, p2.x, p2.y, x, y, SELECT_DIST)) {
                 return true;
             }
         }
@@ -444,5 +452,13 @@ public class UsesDependency extends Dependency
 
     public BendPoint getDestPoint() {
         return destPoint;
+    }
+
+    public LineStyle getStyle() {
+        return style;
+    }
+
+    public void setStyle(LineStyle style) {
+        this.style = style;
     }
 }

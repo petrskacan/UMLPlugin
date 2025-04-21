@@ -53,15 +53,15 @@ public class AssociationDependencyPainter extends UsesDependencyPainter
     {
     }
 
+    @Override
     public void paint(Graphics2D g, Dependency dependency, boolean hasFocus)
     {
-        if (!(dependency instanceof AssociationDependency)) {
+        if (!(dependency instanceof AssociationDependency association)) {
             throw new IllegalArgumentException("Not a AssociationDependency");
         }
         Stroke oldStroke = g.getStroke();
-        AssociationDependency d = (AssociationDependency) dependency;
         Stroke normalStroke;
-        boolean isSelected = d.isSelected() && hasFocus;
+        boolean isSelected = association.isSelected() && hasFocus;
         if (isSelected) {
             normalStroke = normalSelected;
         }
@@ -69,15 +69,15 @@ public class AssociationDependencyPainter extends UsesDependencyPainter
             normalStroke = normalUnselected;
         }
         g.setStroke(normalStroke);
-        int src_x = d.getSourceX();
-        int src_y = d.getSourceY();
-        int dst_x = d.getDestX();
-        int dst_y = d.getDestY();
+        int src_x = association.getSourceX();
+        int src_y = association.getSourceY();
+        int dst_x = association.getDestX();
+        int dst_y = association.getDestY();
         ;
 
         g.setColor(normalColour);
         g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-        paintLine(src_y, d, g, src_x, dst_x, dst_y, oldStroke);
+        paintLine(src_y, association, g, src_x, dst_x, dst_y, oldStroke);
     }
 }

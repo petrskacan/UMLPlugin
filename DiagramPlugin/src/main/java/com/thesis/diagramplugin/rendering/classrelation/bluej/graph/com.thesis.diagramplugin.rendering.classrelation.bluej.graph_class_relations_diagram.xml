@@ -236,7 +236,7 @@
     <relation/>  
     <relation/> 
   </class>  
-  <class name="CustomDependencyMultiEditDialog" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/CustomDependencyMultiEditDialog" abstract="false" pos_x="605" pos_y="494" size_w="259" size_h="80" visible="true"> 
+  <class name="CustomDependencyMultiEditDialog" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/CustomDependencyMultiEditDialog" abstract="false" pos_x="745" pos_y="624" size_w="259" size_h="80" visible="true"> 
     <variable name="dependencyTable" type="JTable" modifiers="private"/>  
     <variable name="tableModel" type="DependencyTableModel" modifiers="private;final"> 
       <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/DependencyTableModel" dependency_type="AGGREGATION"/> 
@@ -781,5 +781,6 @@
     </method>  
     <method name="graphChanged" return_type="void" modifiers="public" constructor="false"/>  
     <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/classrelation/bluej/graph/com.thesis.diagramplugin.rendering.classrelation.bluej.graph/SelectableGraphElement"/> 
-  </interface> 
+  </interface>  
+  <customDependecy name="Iface-&gt;Iface2 as CONTAINMENT" unique_id="Iface-&gt;Iface2 as CONTAINMENT" from="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Iface" to="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/testClasses/com.thesis.diagramplugin.testClasses/Iface2" dependency_type="CONTAINMENT"/>
 </package>

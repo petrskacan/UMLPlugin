@@ -55,19 +55,16 @@ public class UsesDependencyPainter
     private static final BasicStroke normalUnselected = new BasicStroke(strokeWidthDefault);
     protected boolean usesDiamond = false;
     protected Polygon diamond;
-    private LineStyle style = GraphEditor.getLineStyle();
 
 
     public UsesDependencyPainter() {
     }
 
     public void paint(Graphics2D g, Dependency dependency, boolean hasFocus) {
-        if (!(dependency instanceof UsesDependency)) {
+        if (!(dependency instanceof UsesDependency d)) {
             throw new IllegalArgumentException("Not a UsesDependency");
         }
-        style = GraphEditor.getLineStyle();
         Stroke oldStroke = g.getStroke();
-        UsesDependency d = (UsesDependency) dependency;
         Stroke dashedStroke, normalStroke;
         boolean isSelected = d.isSelected() && hasFocus;
         if (isSelected) {
@@ -207,9 +204,23 @@ public class UsesDependencyPainter
     protected void paintLine(int recalcSrcY, UsesDependency d,
                              Graphics2D g, int recalcSrcX, int recalcDstX, int recalcDstY, Stroke oldStroke) {
             // Assume that d.getRecalcStart() and d.getRecalcEnd() have been computed with offsets.
+        if(d.getStyle() != GraphEditor.getLineStyle())
+        {
+            d.setStyle(GraphEditor.getLineStyle());
+            d.getBendPoints().clear();
+            System.out.println(d.getType() + " has changes style " + d.getBendPoints());
+            System.out.println(d.from + " -> " + d.to);
+        }
         boolean selfDep = d.from == d.to;
         int offsetX = 16;
         int offsetY = 16;
+
+        if(selfDep)
+        {
+            d.setStartConnectionSide(ConnectionSide.TOP);
+            d.setEndConnectionSide(ConnectionSide.RIGHT);
+        }
+
         BendPoint startPoint = new BendPoint(recalcSrcX, recalcSrcY);
         if (d.isStartTop()) {
             startPoint.y -= offsetY;
@@ -239,6 +250,7 @@ public class UsesDependencyPainter
         {
             d.getBendPoints().add(d.getSourcePoint());
             d.getBendPoints().add(d.getRecalcStart());
+            if(d.getStyle() == LineStyle.ORTHOGONAL)
             d.getBendPoints().add(new BendPoint(d.getRecalcEnd().x, d.getRecalcStart().y));
             d.getBendPoints().add(d.getRecalcEnd());
             d.getBendPoints().add(d.getDestPoint());
@@ -246,7 +258,12 @@ public class UsesDependencyPainter
         d.recalculatePoints();
         if(selfDep)
         {
-            d.getBendPoints().get(2).move(endPoint.x, startPoint.y);
+            d.getBendPoints().clear();
+            d.getBendPoints().add(d.getSourcePoint());
+            d.getBendPoints().add(d.getRecalcStart());
+            d.getBendPoints().add(new BendPoint(d.getRecalcEnd().x, d.getRecalcStart().y));
+            d.getBendPoints().add(d.getRecalcEnd());
+            d.getBendPoints().add(d.getDestPoint());
         }
         List<BendPoint> bendPoints = d.getBendPoints();
 
@@ -271,56 +288,6 @@ public class UsesDependencyPainter
         g.setStroke(oldStroke);
     }
 
-    public List<BendPoint> calculateControlPoints(BendPoint start, BendPoint end) {
-        List<BendPoint> points = new ArrayList<>();
-        // Přidáme počáteční bod.
-        points.add(start);
-
-        // Pokud jsou body na stejné horizontální nebo vertikální čáře, není třeba vytvářet ohyb.
-        if (start.getX() == end.getX() || start.getY() == end.getY()) {
-            points.add(end);
-        } else {
-            // Vytvoříme kontrolní bod, který zajistí pravý úhel.
-            // Zde zvolíme bod (end.x, start.y) – alternativou by byl např. (start.x, end.y).
-            BendPoint controlPoint = new BendPoint((int)end.getX(), (int)start.getY());
-            points.add(controlPoint);
-            points.add(end);
-        }
-
-        // Odstraníme případné redundantní body (např. ohyby, kdy se přímočaře spojují dva segmenty).
-        return removeRedundantPoints(points);
-    }
-
-    public static List<BendPoint> removeRedundantPoints(List<BendPoint> points) {
-        if (points.size() < 3) {
-            return points;
-        }
-
-        List<BendPoint> result = new ArrayList<>();
-        // Vždy zachováme první bod.
-        result.add(points.get(0));
-
-        // Projdeme seznam od druhého bodu do předposledního.
-        for (int i = 1; i < points.size() - 1; i++) {
-            BendPoint prev = result.get(result.size() - 1);
-            BendPoint curr = points.get(i);
-            BendPoint next = points.get(i + 1);
-
-            // Pokud jsou všechny tři body (prev, curr, next) na stejné vertikální nebo horizontální linii,
-            // středový bod (curr) je redundantní a nebudeme jej přidávat.
-            if ((prev.getX() == curr.getX() && curr.getX() == next.getX()) ||
-                    (prev.getY() == curr.getY() && curr.getY() == next.getY())) {
-                continue;
-            } else {
-                result.add(curr);
-            }
-        }
-        // Přidáme poslední bod.
-        result.add(points.get(points.size() - 1));
-
-        return result;
-    }
-
     private void drawBendHandle(Graphics2D g, List<BendPoint> points) {
         final int r = 5;
         for (int i = 1; i < points.size()-1; i++) {
@@ -330,7 +297,7 @@ public class UsesDependencyPainter
         }
     }
 
-    private void drawArrow(Graphics2D g, int x, int y, ConnectionSide side)
+    protected void drawArrow(Graphics2D g, int x, int y, ConnectionSide side)
     {
         int arrowLength = 10;
         int arrowWidth  = 4;

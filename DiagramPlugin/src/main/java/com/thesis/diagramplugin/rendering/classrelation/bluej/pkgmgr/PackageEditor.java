@@ -25,6 +25,7 @@ import com.thesis.diagramplugin.rendering.classrelation.bluej.graph.CustomDepend
 import com.thesis.diagramplugin.rendering.classrelation.bluej.graph.CustomDependencyMultiEditDialog;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.graph.GraphEditor;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.graph.Vertex;
+import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.graphPainter.LineStyle;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.ClassTarget;
 import com.thesis.diagramplugin.rendering.classrelation.bluej.pkgmgr.target.PackageTarget;
 
@@ -197,6 +198,18 @@ public final class PackageEditor extends GraphEditor
                 new CustomDependencyMultiEditDialog((Package)PackageEditor.this.getGraph());
             });
 
+            JMenu lineStyleMenu = new JMenu("Change Line Style");
+            ButtonGroup group = new ButtonGroup();
+            for (LineStyle style : LineStyle.values()) {
+                JCheckBoxMenuItem item = new JCheckBoxMenuItem(style.name());
+                group.add(item);
+                item.setSelected(style == getLineStyle());
+                item.addActionListener(e -> {
+                    setLineStyle(style);
+                });
+                lineStyleMenu.add(item);
+            }
+
             if(selectionController.getSelectedBendPoint() != null)
             {
                 JMenuItem deleteSelectedBendPoint = new JMenuItem("Delete Selected Bend Point");
@@ -204,13 +217,13 @@ public final class PackageEditor extends GraphEditor
                 deleteSelectedBendPoint.addActionListener((e) -> {
                     deleteBendPoint();
                 });
-                JMenuItem manageBendPoints = new JMenuItem("Manage Bend Points");
-                manageBendPoints.setFont(new Font("Arial", Font.PLAIN, 12));
-                manageBendPoints.addActionListener((e) -> {
-                });
+//                JMenuItem manageBendPoints = new JMenuItem("Manage Bend Points");
+//                manageBendPoints.setFont(new Font("Arial", Font.PLAIN, 12));
+//                manageBendPoints.addActionListener((e) -> {
+//                });
 
                 menu.add(deleteSelectedBendPoint);
-                menu.add(manageBendPoints);
+//                menu.add(manageBendPoints);
                 menu.addSeparator();
             }
 
@@ -222,6 +235,7 @@ public final class PackageEditor extends GraphEditor
             menu.add(menuHideItem);
             menu.add(menuShowHidden);
             menu.add(createShowHiddenItemMenu());
+            menu.add(lineStyleMenu);
             menu.addSeparator();
             menu.add(menuImageItem);
             return menu;

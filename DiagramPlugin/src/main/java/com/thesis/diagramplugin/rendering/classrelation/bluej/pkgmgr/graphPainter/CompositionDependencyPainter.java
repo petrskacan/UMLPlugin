@@ -40,7 +40,9 @@ public class CompositionDependencyPainter extends UsesDependencyPainter implemen
         g.setColor(normalColour);
         g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-        drawDiamond(g, src_x, src_y, false, composition.getStartConnectionSide());
+        drawDiamond(g, src_x, src_y, true, composition.getStartConnectionSide());
         paintLine(src_y, composition, g, src_x, dst_x, dst_y, oldStroke);
+
+        drawArrow(g, dst_x, dst_y,composition.getEndConnectionSide());
     }
 }

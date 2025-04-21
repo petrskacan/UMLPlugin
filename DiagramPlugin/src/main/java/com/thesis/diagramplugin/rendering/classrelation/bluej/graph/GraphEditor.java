@@ -438,6 +438,7 @@ public class GraphEditor extends JLayeredPane
     }
 
     public void setLineStyle(LineStyle lineStyle) {
-        this.lineStyle = lineStyle;
+        GraphEditor.lineStyle = lineStyle;
+        repaint();
     }
 }

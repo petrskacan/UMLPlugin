@@ -32,5 +32,5 @@ import java.awt.Graphics2D;
  */
 public interface DependencyPainter
 {
-    public void paint(Graphics2D g, Dependency d, boolean hasFocus);
+    void paint(Graphics2D g, Dependency d, boolean hasFocus);
 }

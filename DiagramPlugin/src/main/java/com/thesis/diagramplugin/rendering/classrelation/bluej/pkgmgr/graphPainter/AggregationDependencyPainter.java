@@ -44,5 +44,7 @@ public class AggregationDependencyPainter extends UsesDependencyPainter implemen
 
         drawDiamond(g, src_x, src_y, false, aggregation.getStartConnectionSide());
         paintLine(src_y, aggregation, g, src_x, dst_x, dst_y, oldStroke);
+
+        drawArrow(g, dst_x, dst_y,aggregation.getEndConnectionSide());
     }
 }

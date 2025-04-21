@@ -55,14 +55,15 @@ public class ContainmentDependencyPainter extends UsesDependencyPainter
     {
     }
 
+    @Override
     public void paint(Graphics2D g, Dependency dependency, boolean hasFocus)
     {
-        if (!(dependency instanceof ContainmentDependency d)) {
+        if (!(dependency instanceof ContainmentDependency containment)) {
             throw new IllegalArgumentException("Not a ContainmentDependency");
         }
         Stroke oldStroke = g.getStroke();
         Stroke normalStroke;
-        boolean isSelected = d.isSelected() && hasFocus;
+        boolean isSelected = containment.isSelected() && hasFocus;
         if (isSelected) {
             normalStroke = normalSelected;
         }
@@ -70,46 +71,46 @@ public class ContainmentDependencyPainter extends UsesDependencyPainter
             normalStroke = normalUnselected;
         }
         g.setStroke(normalStroke);
-        int src_x = d.getSourceX();
-        int src_y = d.getSourceY();
-        int dst_x = d.getDestX();
-        int dst_y = d.getDestY();
+        int src_x = containment.getSourceX();
+        int src_y = containment.getSourceY();
+        int dst_x = containment.getDestX();
+        int dst_y = containment.getDestY();
 
         g.setColor(normalColour);
         g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-        paintOval(g, src_x, src_y, d.getEndConnectionSide());
+        paintOval(g, src_x, src_y, containment.getStartConnectionSide());
         g.setStroke(normalStroke);
 
-        paintLine(src_y, d, g, src_x, dst_x, dst_y, oldStroke);
+        paintLine(src_y, containment, g, src_x, dst_x, dst_y, oldStroke);
     }
 
-    private void paintOval(Graphics2D g,int x, int y, ConnectionSide side)
-    {
-        int circleDiameter = 10;
-        int circleRadius = circleDiameter / 2;
+    private void paintOval(Graphics2D g, int x, int y, ConnectionSide side) {
+        int diameter = 10;
+        int radius   = diameter / 2;
 
-        int offsetX = 0;
-        int offsetY = 0;
-
+        // spočítáme, kde bude střed kruhu
+        int centerX = x;
+        int centerY = y;
         switch (side) {
-            case TOP -> offsetY = -10;
-            case BOTTOM -> offsetY = 10;
-            case LEFT -> offsetX = -10;
-            case RIGHT -> offsetX = 10;
+            case TOP    -> centerY -= radius;  // = 5px
+            case BOTTOM -> centerY += radius;  // = 5px
+            case LEFT   -> centerX -= radius;  // = 5px
+            case RIGHT  -> centerX += radius;  // = 5px
         }
 
-        int ovalX = x + offsetX - circleRadius;
-        int ovalY = y + offsetY - circleRadius;
+        // teď zkreslíme kruh tak, aby měl průměr 10px a byl
+        // vycentrovaný na centerX/centerY
+        int ovalX = centerX - radius;
+        int ovalY = centerY - radius;
+        g.drawOval(ovalX, ovalY, diameter, diameter);
 
-        g.drawOval(ovalX, ovalY, circleDiameter, circleDiameter);
-
-        int centerX = ovalX + circleRadius;
-        int centerY = ovalY + circleRadius;
-
-        g.drawLine(centerX, centerY - circleRadius, centerX, centerY + circleRadius);
-        g.drawLine(centerX - circleRadius, centerY, centerX + circleRadius, centerY);
-
-
+        // nakreslíme kříž uvnitř
+        g.drawLine(centerX,         centerY - radius,
+                centerX,         centerY + radius);
+        g.drawLine(centerX - radius, centerY,
+                centerX + radius, centerY);
     }
+
+
 }
