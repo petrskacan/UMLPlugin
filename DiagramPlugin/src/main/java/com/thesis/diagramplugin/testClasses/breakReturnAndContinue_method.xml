@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<method name="breakReturnAndContinue" return_type="boolean">
+  <parameters>
+    <parameter name="k" type="int"/>
+  </parameters>
+  <body>
+    <for condition="i &lt;= 3" init="int i = 1;" update="i++">
+      <block>
+        <for condition="j &lt;= 3" init="int j = 1;" update="j++">
+          <block>
+            <expression>System.out.println("i=" + i + ", j=" + j);</expression>
+            <if condition="i * j == 4">
+              <then>
+                <block>
+                  <expression>System.out.println("Nalezena 4 – ukončuji oba cykly pomocí break s labelem");</expression>
+                </block>
+              </then>
+              <else>
+                <block>
+                  <expression>System.out.println("4 se zatím nenašla.");</expression>
+                </block>
+              </else>
+            </if>
+          </block>
+        </for>
+      </block>
+    </for>
+    <for condition="j &lt;= k" init="int j = 1;" update="j++">
+      <block>
+        <if condition="j % 2 == 0">
+          <then>
+            <block>
+              <expression>System.out.println("Číslo " + j + " je sudé, pokračuji pomocí continue");</expression>
+              <continue/>
+            </block>
+          </then>
+        </if>
+        <expression>System.out.println("Číslo " + j + " je liché");</expression>
+      </block>
+    </for>
+    <switch expression="k">
+      <case label="1">
+        <if condition="true">
+          <then>
+            <block>
+              <expression>breakWithLabelStatement();</expression>
+              <expression>breakWithLabelStatemente();</expression>
+            </block>
+          </then>
+        </if>
+        <break/>
+      </case>
+      <case label="2">
+        <expression>System.out.println("Zvolil jsi 2");</expression>
+        <break/>
+      </case>
+      <case label="3">
+        <expression>System.out.println("Zvolil jsi 3");</expression>
+        <break/>
+      </case>
+      <case label="default">
+        <expression>System.out.println("Zvolil jsi něco jiného");</expression>
+        <break/>
+      </case>
+    </switch>
+    <return>false</return>
+  </body>
+</method>

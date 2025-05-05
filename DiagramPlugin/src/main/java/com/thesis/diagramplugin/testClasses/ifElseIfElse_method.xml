@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<method name="ifElseIfElse" return_type="void">
+  <parameters/>
+  <body>
+    <declaration>int cislo = 0</declaration>
+    <if condition="cislo &gt; 0">
+      <then>
+        <block>
+          <expression>System.out.println("Číslo je kladné");</expression>
+        </block>
+      </then>
+      <else>
+        <if condition="cislo &lt; 0">
+          <then>
+            <block>
+              <expression>System.out.println("Číslo je záporné");</expression>
+            </block>
+          </then>
+          <else>
+            <block>
+              <expression>System.out.println("Číslo je nula");</expression>
+            </block>
+          </else>
+        </if>
+      </else>
+    </if>
+  </body>
+</method>

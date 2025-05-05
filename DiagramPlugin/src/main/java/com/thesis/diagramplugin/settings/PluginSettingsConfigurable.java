@@ -12,7 +12,7 @@ public class PluginSettingsConfigurable implements Configurable {
     @Nls(capitalization = Nls.Capitalization.Title)
     @Override
     public String getDisplayName() {
-        return "UML Plugin";
+        return "Diagram Plugin";
     }
 
     @Nullable

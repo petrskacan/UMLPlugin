@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<method name="factorial" return_type="long">
+  <parameters>
+    <parameter name="n" type="int"/>
+  </parameters>
+  <body>
+    <if condition="n &lt;= 1">
+      <then>
+        <block>
+          <return>1</return>
+        </block>
+      </then>
+    </if>
+    <return>n * factorial(n - 1)</return>
+  </body>
+</method>

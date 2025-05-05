@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<package name="com.thesis.diagramplugin.parser" path="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/com.thesis.diagramplugin.parser">
+  <class name="PythonDiagramParser" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/com.thesis.diagramplugin.parser/PythonDiagramParser" abstract="false">
+    <method name="parseDirectory" return_type="File" modifiers="public" constructor="false">
+      <parameter name="project" type="Project"/>
+      <parameter name="psiDir" type="PsiDirectory"/>
+    </method>
+    <method name="parseMethod" return_type="File" modifiers="public" constructor="false">
+      <parameter name="function" type="PsiElement"/>
+    </method>
+  </class>
+  <interface name="IDiagramParser" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/com.thesis.diagramplugin.parser/IDiagramParser" abstract="false">
+    <method name="parseDirectory" return_type="File" modifiers="public" constructor="false">
+      <parameter name="path" type="String"/>
+    </method>
+    <method name="parseMethod" return_type="File" modifiers="public" constructor="false">
+      <parameter name="method" type="PsiElement"/>
+    </method>
+  </interface>
+  <class name="JavaDiagramParser" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/com.thesis.diagramplugin.parser/JavaDiagramParser" abstract="false">
+    <method name="parseMethod" return_type="File" modifiers="public" constructor="false">
+      <parameter name="method" type="PsiElement"/>
+    </method>
+    <method name="parseDirectory" return_type="File" modifiers="public" constructor="false">
+      <parameter name="path" type="String"/>
+    </method>
+    <method name="getCompiler" return_type="JavaCompiler" modifiers="private" constructor="false"/>
+    <implements>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/com.thesis.diagramplugin.parser/IDiagramParser</implements>
+  </class>
+</package>

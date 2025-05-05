@@ -1,15 +1,13 @@
 package com.thesis.diagramplugin.parser;
 
 import com.intellij.openapi.project.Project;
-import com.intellij.psi.*;
-import com.jetbrains.python.psi.PyClass;
+import com.intellij.psi.PsiDirectory;
+import com.intellij.psi.PsiElement;
 import com.jetbrains.python.psi.PyFunction;
 import com.thesis.diagramplugin.parser.classdiagram.python.PyClassDiagramParser;
 import com.thesis.diagramplugin.parser.kopenogram.python.PyFunctionParser;
 
 import java.io.File;
-import java.util.HashSet;
-import java.util.Set;
 
 public class PythonDiagramParser {
 

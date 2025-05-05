@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<method name="tatoMetodaMaNazevDelsiJakDvacetPetZnaku" return_type="void">
+  <parameters/>
+  <body>
+    <declaration>int promennaKteraMaNazevDelsiJakDvacetPetZnaku = 0</declaration>
+  </body>
+</method>

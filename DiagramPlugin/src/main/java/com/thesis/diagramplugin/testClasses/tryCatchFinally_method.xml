@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<method name="tryCatchFinally" return_type="void">
+  <parameters/>
+  <body>
+    <declaration>java.lang.String s = "ABC"</declaration>
+    <try>
+      <try_block>
+        <declaration>int x = Integer.parseInt(s)</declaration>
+        <expression>System.out.println("Parsed number: " + x);</expression>
+      </try_block>
+      <catch exceptions="java.lang.NumberFormatException">
+        <catch_block>
+          <expression>System.out.println("Chyba: '" + s + "' není platné číslo.");</expression>
+        </catch_block>
+      </catch>
+      <finally>
+        <finally_block>
+          <expression>System.out.println("Konec pokusu o parsování.");</expression>
+        </finally_block>
+      </finally>
+    </try>
+  </body>
+</method>

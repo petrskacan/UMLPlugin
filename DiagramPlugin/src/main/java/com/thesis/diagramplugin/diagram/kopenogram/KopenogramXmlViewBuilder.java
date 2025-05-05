@@ -1,19 +1,24 @@
 package com.thesis.diagramplugin.diagram.kopenogram;
 
 import com.intellij.ui.components.JBScrollPane;
-import com.sun.source.tree.*;
+import com.sun.source.tree.LabeledStatementTree;
 import com.thesis.diagramplugin.rendering.kopenogram.PaintedNode;
 import com.thesis.diagramplugin.rendering.kopenogram.treepainter.*;
 import com.thesis.diagramplugin.rendering.kopenogram.treepainterElement.*;
 import com.thesis.diagramplugin.rendering.kopenogram.treepainterElement.Container;
 import com.thesis.diagramplugin.rendering.kopenogram.treeprinter.Surface;
 import lombok.Getter;
-import org.dom4j.*;
+import org.dom4j.Document;
+import org.dom4j.DocumentException;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
-
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.*;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -697,5 +702,23 @@ public class KopenogramXmlViewBuilder {
 
     public void open() {
 
+    }
+    public void saveAsImage(String outputPath) {
+        try {
+            PainterConfig config = new PainterConfig();
+            config.font = new Font("Arial", Font.PLAIN, Integer.parseInt(Settings.Property.FONT_SIZE.getValue()));
+            config.verticalGap = Integer.parseInt(Settings.Property.VERTICAL_GAP.getValue());
+            config.horizontalGap = Integer.parseInt(Settings.Property.HORIZONTAL_GAP.getValue());
+            config.textMaxChars = Integer.parseInt(Settings.Property.NUMBER_OF_SYMBOLS_IN_EXPRESSION.getValue());
+
+            Dimension dim = root.getDimension(config, new Point(0, 0));
+            BufferedImage img = new BufferedImage(dim.width + 1, dim.height + 1, BufferedImage.TYPE_3BYTE_BGR);
+            Graphics g = img.createGraphics();
+            root.paint(g, config, new Point(0, 0), dim);
+
+            ImageIO.write(img, "png", new File(outputPath));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

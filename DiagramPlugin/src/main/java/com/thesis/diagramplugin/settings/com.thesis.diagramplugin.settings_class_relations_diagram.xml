@@ -5,7 +5,7 @@
     <variable name="panel" type="JPanel" modifiers="private"/>  
     <variable name="colorButtons" type="Map&lt;RoleColor, JButton&gt;" modifiers="private"/>  
     <variable name="settingsService" type="PluginSettingsService" modifiers="private"> 
-      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/settings/com.thesis.diagramplugin.settings/PluginSettingsService"/> 
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/settings/com.thesis.diagramplugin.settings/PluginSettingsService" dependency_type="AGGREGATION"/> 
     </variable>  
     <method name="PluginSettingsPanel" return_type="*NULL*" modifiers="public" constructor="true"/>  
     <method name="getPanel" return_type="JPanel" modifiers="public" constructor="false"/>  
@@ -50,7 +50,7 @@
   </class>  
   <class name="PluginSettingsConfigurable" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/settings/com.thesis.diagramplugin.settings/PluginSettingsConfigurable" abstract="false" pos_x="70" pos_y="104" size_w="205" size_h="80" visible="true"> 
     <variable name="settingsPanel" type="PluginSettingsPanel" modifiers="private"> 
-      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/settings/com.thesis.diagramplugin.settings/PluginSettingsPanel"/> 
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/settings/com.thesis.diagramplugin.settings/PluginSettingsPanel" dependency_type="AGGREGATION"/> 
     </variable>  
     <method name="getDisplayName" return_type="String" modifiers="public" constructor="false"/>  
     <method name="createComponent" return_type="JComponent" modifiers="public" constructor="false"/>  

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<method name="pouzijPredmet" return_type="java.lang.String">
+  <parameters>
+    <parameter name="predmet" type="Predmet"/>
+  </parameters>
+  <body>
+    <declaration>java.lang.String lokace = plan.getAktualniLokace().getNazev()</declaration>
+    <switch expression="predmet.getNazev()">
+      <case label="&quot;reprak&quot;">
+        <if condition="lokace.equals(&quot;motor&quot;)">
+          <then>
+            <block>
+              <return>"Inzenyr te vyhani, protoze ho hudba rusi."</return>
+            </block>
+          </then>
+          <else>
+            <if condition="lokace.equals(&quot;jidelna&quot;)">
+              <then>
+                <block>
+                  <return>"Poslouchas s kapitanem hudbu."</return>
+                </block>
+              </then>
+              <else>
+                <block>
+                  <return>"Slysis hudbu, jak hraje."</return>
+                </block>
+              </else>
+            </if>
+          </else>
+        </if>
+      </case>
+      <case label="&quot;baterka&quot;">
+        <if condition="lokace.equals(&quot;motor&quot;)">
+          <then>
+            <block>
+              <return>"Zkusil jsi inzenyra sokovat baterkou. Neni prekvapeny, ale je otraveny."</return>
+            </block>
+          </then>
+          <else>
+            <if condition="lokace.equals(&quot;jidelna&quot;)">
+              <then>
+                <block>
+                  <return>"Kapitan se pta, proc se ho snazis sokovat baterkou."</return>
+                </block>
+              </then>
+              <else>
+                <if condition="lokace.equals(&quot;kajuta&quot;)">
+                  <then>
+                    <block>
+                      <return>"*Kocka si te divne prohlizi.*"</return>
+                    </block>
+                  </then>
+                  <else>
+                    <block>
+                      <return>"Skoda, ze nemam pristroj, kam to dat."</return>
+                    </block>
+                  </else>
+                </if>
+              </else>
+            </if>
+          </else>
+        </if>
+      </case>
+      <case label="&quot;antena&quot;">
+        <if condition="lokace.equals(&quot;motor&quot;)">
+          <then>
+            <block>
+              <return>"Zkusil jsi vyzvat inzenyra na souboj v sermu. Probodl te pohledem."</return>
+            </block>
+          </then>
+          <else>
+            <if condition="lokace.equals(&quot;jidelna&quot;)">
+              <then>
+                <block>
+                  <expression>aktualniHra.setHraSkoncila(true);</expression>
+                  <return>"Vyzval jsi kapitana na souboj v sermu. Tvoje antena nema proti jeho berli sanci. Prohral jsi."</return>
+                </block>
+              </then>
+              <else>
+                <if condition="lokace.equals(&quot;kajuta&quot;)">
+                  <then>
+                    <block>
+                      <return>"Hrajes si chvilku s kockou, nez ji zacnes nudit."</return>
+                    </block>
+                  </then>
+                  <else>
+                    <block>
+                      <return>"Nezapomen svihnout a mavnout. Vilgardium Leviosa."</return>
+                    </block>
+                  </else>
+                </if>
+              </else>
+            </if>
+          </else>
+        </if>
+      </case>
+      <case label="&quot;banan&quot;">
+        <if condition="lokace.equals(&quot;jidelna&quot;)">
+          <then>
+            <block>
+              <return>"Kapitan hraje mrtveho. Zastrelil jsi ho bananem."</return>
+            </block>
+          </then>
+          <else>
+            <if condition="lokace.equals(&quot;motor&quot;)">
+              <then>
+                <block>
+                  <return>"Inzenyr je nastvany. Ted vis, ze hodit po nem banan nebyl dobry napad."</return>
+                </block>
+              </then>
+              <else>
+                <if condition="lokace.equals(&quot;kajuta&quot;)">
+                  <then>
+                    <block>
+                      <return>"Hisssss *Kocka asi nema rada banany.*"</return>
+                    </block>
+                  </then>
+                  <else>
+                    <block>
+                      <return>"Bang! Bang! BANG! Banan je tvuj novy revolver."</return>
+                    </block>
+                  </else>
+                </if>
+              </else>
+            </if>
+          </else>
+        </if>
+      </case>
+      <case label="&quot;nuz&quot;">
+        <if condition="lokace.equals(&quot;jidelna&quot;)">
+          <then>
+            <block>
+              <expression>aktualniHra.setHraSkoncila(true);</expression>
+              <return>"Pobodal jsi kapitana. Proc?"</return>
+            </block>
+          </then>
+          <else>
+            <if condition="lokace.equals(&quot;motor&quot;)">
+              <then>
+                <block>
+                  <expression>aktualniHra.setHraSkoncila(true);</expression>
+                  <return>"Pobodal jsi inzenyra. Proc?"</return>
+                </block>
+              </then>
+              <else>
+                <if condition="lokace.equals(&quot;kajuta&quot;)">
+                  <then>
+                    <block>
+                      <expression>aktualniHra.setHraSkoncila(true);</expression>
+                      <return>"Pobodal jsi kocku! Proc???"</return>
+                    </block>
+                  </then>
+                  <else>
+                    <block>
+                      <return>"Machas nozem jako s machetou."</return>
+                    </block>
+                  </else>
+                </if>
+              </else>
+            </if>
+          </else>
+        </if>
+      </case>
+      <case label="&quot;zachrany_kruh&quot;">
+        <return>"Nemam jak ho vyuzit."</return>
+      </case>
+      <case label="&quot;vysilacka&quot;">
+        <if condition="lokace.equals(&quot;paluba&quot;)">
+          <then>
+            <block>
+              <expression>plan.setVyhra(true);</expression>
+              <expression>aktualniHra.setHraSkoncila(true);</expression>
+              <return>"Zavolal jsi pobrezni, hlidku."</return>
+            </block>
+          </then>
+          <else>
+            <block>
+              <return>"Tady nemas signal."</return>
+            </block>
+          </else>
+        </if>
+      </case>
+      <case label="default">
+        <return>"Tento predmet nelze pouzit."</return>
+      </case>
+    </switch>
+  </body>
+</method>

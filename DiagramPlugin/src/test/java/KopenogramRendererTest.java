@@ -32,4 +32,9 @@ public class KopenogramRendererTest {
 
 
     }
+
+    public void tatoMetodaMaNazevDelsiJakTricetPetZnaku()
+    {
+        int promennaKteraMaNazevDelsiJakTriceetPetZnaku = 35;
+    }
 }

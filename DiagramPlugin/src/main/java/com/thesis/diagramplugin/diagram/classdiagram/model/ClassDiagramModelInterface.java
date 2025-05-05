@@ -18,10 +18,10 @@ public class ClassDiagramModelInterface extends AClassDiagramModelClassLikeEntit
     }
 
     private void readExtendedInterfaces(Element element) {
-        element.elements().stream().filter(el -> EXTENDS_TAG.equals(el.getName())).forEach(el -> {
+        element.elements().stream().filter(el ->
+        EXTENDS_TAG.equals(el.getName())).forEach(el -> {
             this.extIds.add(el.getText());
         });
     }
-
 
 }

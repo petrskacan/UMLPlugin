@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<method name="countdown" return_type="void">
+  <parameters>
+    <parameter name="n" type="int"/>
+  </parameters>
+  <body>
+    <if condition="n &lt;= 0">
+      <then>
+        <block>
+          <return/>
+        </block>
+      </then>
+    </if>
+    <expression>System.out.println(n);</expression>
+    <expression>countdown(n - 1);</expression>
+  </body>
+</method>

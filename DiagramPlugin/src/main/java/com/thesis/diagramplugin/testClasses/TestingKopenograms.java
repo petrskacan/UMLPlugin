@@ -121,4 +121,87 @@ public class TestingKopenograms extends Vehicle implements Iface{
     public void hi() {
 
     }
+
+    public boolean breakReturnAndContinue(int k)
+    {
+        for (int i = 1; i <= 3; i++) {
+            for (int j = 1; j <= 3; j++) {
+                System.out.println("i=" + i + ", j=" + j);
+                if (i * j == 4) {
+                    System.out.println("Nalezena 4 – ukončuji oba cykly pomocí break s labelem");
+                }
+                else
+                {
+                    System.out.println("4 se zatím nenašla.");
+                }
+            }
+        }
+
+        for (int j = 1; j <= k; j++) {
+            if (j % 2 == 0) {
+                System.out.println("Číslo " + j + " je sudé, pokračuji pomocí continue");
+                continue;
+            }
+            System.out.println("Číslo " + j + " je liché");
+        }
+
+        switch (k) {
+            case 1:
+                if(true)
+                {
+                    breakWithLabelStatement();
+                    breakWithLabelStatemente();
+
+                }
+                break;
+            case 2:
+                System.out.println("Zvolil jsi 2");
+                break;
+            case 3:
+                System.out.println("Zvolil jsi 3");
+                break;
+            default:
+                System.out.println("Zvolil jsi něco jiného");
+                break;
+        }
+        return false;
+    }
+    public static void countdown(int n) {
+        if (n <= 0) {
+            return;
+        }
+        System.out.println(n);
+        countdown(n - 1);
+    }
+    public void ifElseIfElse()
+    {
+        int cislo = 0;
+        if (cislo > 0) {
+            // první větev: číslo je kladné
+            System.out.println("Číslo je kladné");
+        } else if (cislo < 0) {
+            // druhá větev: číslo je záporné
+            System.out.println("Číslo je záporné");
+        } else {
+            // fallback: číslo je nula
+            System.out.println("Číslo je nula");
+        }
+    }
+
+    public void tryCatchFinally()
+    {
+        String s = "ABC";  // špatný formát čísla
+
+        try {
+            int x = Integer.parseInt(s);            // může vyvolat NumberFormatException
+            System.out.println("Parsed number: " + x);
+        } catch (NumberFormatException e) {
+            System.out.println("Chyba: '" + s + "' není platné číslo.");
+        } finally {
+            System.out.println("Konec pokusu o parsování.");
+        }
+    }
+
+
+
 }

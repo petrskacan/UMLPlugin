@@ -13,6 +13,7 @@ import com.intellij.openapi.vfs.VirtualFileManager;
 import com.intellij.psi.PsiDirectory;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiManager;
+import com.intellij.psi.xml.XmlFile;
 import com.thesis.diagramplugin.parser.JavaDiagramParser;
 import com.thesis.diagramplugin.plugin.editors.ClassDiagramEditor;
 import org.jetbrains.annotations.NotNull;
@@ -20,6 +21,8 @@ import org.jetbrains.annotations.NotNull;
 import java.io.File;
 import java.util.Arrays;
 import java.util.Optional;
+
+import static com.thesis.diagramplugin.utils.DiagramConstants.XML_FILE_NAME_POSTFIX_CLASS_DIAGRAM;
 
 public class GenerateClassDiagramAction extends ADiagramAction {
 
@@ -34,14 +37,23 @@ public class GenerateClassDiagramAction extends ADiagramAction {
         if (element == null) {
             return;
         }
+
         String dir = this.getDirectory(element).getVirtualFile().getPath();
-        //CLOSING XML BEFORE IT IS PROCESSED
-        String pathToFileToCloseFirst = dir.split("/src/main/java/")[1].replaceAll("/", ".");
-        File toClose = new File(dir+"/"+ pathToFileToCloseFirst + "_class_relations_diagram.xml");
-        VirtualFile vToClose = LocalFileSystem.getInstance().findFileByIoFile(toClose);
-        FileEditorManager editorManager = FileEditorManager.getInstance(project);
-        if (vToClose != null && editorManager.isFileOpen(vToClose)) {
-            editorManager.closeFile(vToClose);
+
+        XmlFile diagramXml = null;
+        for (PsiElement child : element.getChildren()) {
+            if (child instanceof XmlFile) {
+                XmlFile xml = (XmlFile) child;
+                String name = xml.getName();
+                if (name.endsWith(XML_FILE_NAME_POSTFIX_CLASS_DIAGRAM)) {
+                    diagramXml = xml;
+                    break;
+                }
+            }
+        }
+        if (diagramXml != null) {
+            VirtualFile vFile = diagramXml.getVirtualFile();
+            FileEditorManager.getInstance(project).closeFile(vFile);
         }
 
         JavaDiagramParser parser = new JavaDiagramParser();

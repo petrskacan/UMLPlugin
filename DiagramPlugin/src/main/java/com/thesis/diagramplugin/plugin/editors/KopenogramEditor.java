@@ -3,6 +3,7 @@ package com.thesis.diagramplugin.plugin.editors;
 import com.intellij.openapi.util.Disposer;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.thesis.diagramplugin.diagram.kopenogram.KopenogramView;
+import com.thesis.diagramplugin.diagram.kopenogram.KopenogramXmlViewBuilder;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
@@ -36,5 +37,9 @@ public class KopenogramEditor extends DiagramEditor {
     @Override
     public @NotNull JComponent getComponent() {
         return this.diagramView.getView();
+    }
+
+    public KopenogramXmlViewBuilder getBuilder() {
+        return diagramView.getBuilder();
     }
 }

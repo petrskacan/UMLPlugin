@@ -1,3 +1,3 @@
 package com.thesis.diagramplugin.testClasses;
 
-public interface Iface2{}
+public interface Iface2 extends Iface{}

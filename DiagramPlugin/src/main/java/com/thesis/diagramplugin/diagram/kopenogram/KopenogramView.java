@@ -11,6 +11,7 @@ public class KopenogramView implements DiagramView {
     @Getter
     private final String name;
 
+    @Getter
     private final KopenogramXmlViewBuilder builder;
 
     public KopenogramView(String diagramXml) {
@@ -23,5 +24,6 @@ public class KopenogramView implements DiagramView {
     public JComponent getView() {
         return this.frame;
     }
+
 
 }

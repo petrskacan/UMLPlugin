@@ -9,6 +9,16 @@
     <depends optional="true" config-file="java-plugin.xml">com.intellij.modules.java</depends>
     <depends optional="true" config-file="python-plugin.xml">com.intellij.modules.python</depends>
 
+    <actions>
+        <action id="SaveKopenogramImageEditor"
+                class="com.thesis.diagramplugin.plugin.actions.SaveKopenogramAction"
+                text="Save as Image"
+                description="Export this kopenogram as PNG">
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+        </action>
+
+    </actions>
+
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">

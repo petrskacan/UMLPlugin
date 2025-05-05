@@ -78,6 +78,7 @@ public class AssociationDependencyPainter extends UsesDependencyPainter
         g.setColor(normalColour);
         g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
+        drawArrow(g, dst_x, dst_y,association.getEndConnectionSide());
         paintLine(src_y, association, g, src_x, dst_x, dst_y, oldStroke);
     }
 }
