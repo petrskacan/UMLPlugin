@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<package name="com.thesis.diagramplugin.parser.classdiagram.model" path="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model" pos_x="100" pos_y="50" size_w="890" size_h="596" visible="true"> 
-  <class name="MethodPackageModel" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/MethodPackageModel" abstract="false" pos_x="339" pos_y="474" size_w="169" size_h="80" visible="true"> 
+<package name="com.thesis.diagramplugin.parser.classdiagram.model" path="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model" pos_x="30" pos_y="30" size_w="1324" size_h="774" visible="true"> 
+  <class name="MethodPackageModel" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/MethodPackageModel" abstract="false" pos_x="859" pos_y="234" size_w="169" size_h="80" visible="true"> 
     <variable name="parameters" type="Set&lt;VariablePackageModel&gt;" modifiers="private;final"> 
-      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/VariablePackageModel"/> 
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/VariablePackageModel" dependency_type="COMPOSITION"/> 
     </variable>  
     <variable name="returnType" type="String" modifiers="private;final"/>  
     <variable name="owner" type="ClassTypePackageModel" modifiers="private;final"> 
-      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/ClassTypePackageModel"/> 
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/ClassTypePackageModel" dependency_type="AGGREGATION"/> 
     </variable>  
     <variable name="constructor" type="boolean" modifiers="private;final"/>  
     <variable name="isTest" type="boolean" modifiers="private"/>  
@@ -32,7 +32,7 @@
     <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/VariablePackageModel"/>  
     <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/ClassTypePackageModel"/> 
   </class>  
-  <enum name="ElementType" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/ElementType" abstract="false" pos_x="371" pos_y="104" size_w="102" size_h="80" visible="true"> 
+  <enum name="ElementType" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/ElementType" abstract="false" pos_x="301" pos_y="104" size_w="102" size_h="80" visible="true"> 
     <variable name="CLASS" type="ElementType" modifiers="public;static;final"/>  
     <variable name="ENUM" type="ElementType" modifiers="public;static;final"/>  
     <variable name="RECORD" type="ElementType" modifiers="public;static;final"/>  
@@ -54,14 +54,14 @@
     <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/ElementType"/>  
     <relation/> 
   </enum>  
-  <interface name="OwnedPackageModel" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/OwnedPackageModel" abstract="false" pos_x="513" pos_y="104" size_w="164" size_h="80" visible="true"> 
+  <interface name="OwnedPackageModel" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/OwnedPackageModel" abstract="false" pos_x="753" pos_y="104" size_w="164" size_h="80" visible="true"> 
     <method name="getOwner" return_type="AElementPackageModel" modifiers="public" constructor="false"/>  
     <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/AElementPackageModel"/> 
   </interface>  
-  <class name="AElementPackageModel" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/AElementPackageModel" abstract="true" pos_x="140" pos_y="104" size_w="181" size_h="80" visible="true"> 
+  <class name="AElementPackageModel" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/AElementPackageModel" abstract="true" pos_x="580" pos_y="374" size_w="181" size_h="80" visible="true"> 
     <variable name="name" type="String" modifiers="private"/>  
     <variable name="type" type="ElementType" modifiers="protected"> 
-      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/ElementType"/> 
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/ElementType" dependency_type="AGGREGATION"/> 
     </variable>  
     <variable name="relations" type="Set&lt;String&gt;" modifiers="protected;final"/>  
     <variable name="modifiers" type="LinkedHashSet&lt;String&gt;" modifiers="protected;final"/>  
@@ -76,10 +76,10 @@
     </method>  
     <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/ElementType"/> 
   </class>  
-  <class name="PackageModel" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/PackageModel" abstract="false" pos_x="114" pos_y="264" size_w="115" size_h="80" visible="true"> 
+  <class name="PackageModel" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/PackageModel" abstract="false" pos_x="104" pos_y="234" size_w="115" size_h="80" visible="true"> 
     <variable name="packageName" type="String" modifiers="private"/>  
     <variable name="elementMap" type="Map&lt;String, AElementPackageModel&gt;" modifiers="private;final"> 
-      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/AElementPackageModel"/> 
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/AElementPackageModel" dependency_type="COMPOSITION"/> 
     </variable>  
     <variable name="knownIdentifiers" type="Set&lt;String&gt;" modifiers="private;final"/>  
     <method name="PackageModel" return_type="*NULL*" modifiers="public" constructor="true"/>  
@@ -95,6 +95,7 @@
     <method name="addKnownIdentifier" return_type="void" modifiers="public" constructor="false"> 
       <parameter name="id" type="String"/> 
     </method>  
+    <method name="clear" return_type="void" modifiers="public" constructor="false"/>  
     <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/AElementPackageModel</extends>  
     <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/ElementType"/>  
     <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/AElementPackageModel"/>  
@@ -103,20 +104,20 @@
     <relation/>  
     <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/ClassTypePackageModel"/> 
   </class>  
-  <class name="ClassTypePackageModel" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/ClassTypePackageModel" abstract="false" pos_x="618" pos_y="304" size_w="276" size_h="130" visible="true"> 
+  <class name="ClassTypePackageModel" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/ClassTypePackageModel" abstract="false" pos_x="858" pos_y="584" size_w="186" size_h="80" visible="true"> 
     <variable name="owner" type="ClassTypePackageModel" modifiers="private"> 
-      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/ClassTypePackageModel"/> 
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/ClassTypePackageModel" dependency_type="AGGREGATION"/> 
     </variable>  
     <variable name="variables" type="LinkedList&lt;VariablePackageModel&gt;" modifiers="private"> 
-      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/VariablePackageModel"/> 
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/VariablePackageModel" dependency_type="COMPOSITION"/> 
     </variable>  
     <variable name="methods" type="LinkedList&lt;MethodPackageModel&gt;" modifiers="private"> 
-      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/MethodPackageModel"/> 
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/MethodPackageModel" dependency_type="COMPOSITION"/> 
     </variable>  
     <variable name="test" type="boolean" modifiers="private"/>  
     <variable name="isAbstract" type="boolean" modifiers="private"/>  
     <variable name="testedClasses" type="HashSet&lt;ClassTypePackageModel&gt;" modifiers="private"> 
-      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/ClassTypePackageModel"/> 
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/ClassTypePackageModel" dependency_type="COMPOSITION"/> 
     </variable>  
     <variable name="extendedClass" type="String" modifiers="private"/>  
     <variable name="implementedInterfaces" type="LinkedHashSet&lt;String&gt;" modifiers="private"/>  
@@ -158,11 +159,16 @@
     <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/ClassTypePackageModel"/>  
     <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/VariablePackageModel"/> 
   </class>  
-  <class name="VariablePackageModel" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/VariablePackageModel" abstract="false" pos_x="134" pos_y="414" size_w="172" size_h="80" visible="true"> 
+  <class name="VariablePackageModel" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/VariablePackageModel" abstract="false" pos_x="44" pos_y="594" size_w="172" size_h="80" visible="true"> 
     <variable name="variableType" type="String" modifiers="private;final"/>  
     <variable name="owner" type="AElementPackageModel" modifiers="private;final"> 
-      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/AElementPackageModel"/> 
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/AElementPackageModel" dependency_type="AGGREGATION"/> 
     </variable>  
+    <variable name="dependencyType" type="DependencyType" modifiers="private"/>  
+    <method name="getDependencyType" return_type="DependencyType" modifiers="public" constructor="false"/>  
+    <method name="setDependencyType" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="dependencyType" type="DependencyType"/> 
+    </method>  
     <method name="VariablePackageModel" return_type="*NULL*" modifiers="public" constructor="true"> 
       <parameter name="var" type="VariableTree"/>  
       <parameter name="owner" type="AElementPackageModel"/>  
@@ -173,6 +179,7 @@
     <implements>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/OwnedPackageModel</implements>  
     <relation/>  
     <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/ElementType"/>  
+    <relation/>  
     <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/model/com.thesis.diagramplugin.parser.classdiagram.model/AElementPackageModel"/> 
   </class> 
 </package>

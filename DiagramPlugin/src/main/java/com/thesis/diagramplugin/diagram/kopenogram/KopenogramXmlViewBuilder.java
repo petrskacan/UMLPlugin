@@ -85,9 +85,6 @@ public class KopenogramXmlViewBuilder {
 
 
     private PainterElement processElement(Element element) {
-
-        if(maxChars < element.getText().length()) maxChars = element.getText().length(); //TODO - EDIT
-
         PaintedNode paintedNode = new PaintedNode(element);
         parents.add(paintedNode);
 
@@ -221,10 +218,18 @@ public class KopenogramXmlViewBuilder {
                 vContainer.addChild(catchBody);
             }
         }
+
+        //else (only in Python
+        Optional.ofNullable(tryElement.element(ELSE_TAG)).ifPresent(elseElement -> {
+            BarWithBody finallyBody = new BarWithBody(ELSE_TAG, fhc, fbc, Color.BLACK, Color.BLACK, elseElement.getPath());
+            finallyBody.addChild(processBlock(elseElement.element(ELSE_BLOCK)));
+            vContainer.addChild(finallyBody);
+        });
+
         // Finally
         Optional.ofNullable(tryElement.element(FINALLY_TAG)).ifPresent(finallyElement -> {
-            BarWithBody finallyBody = new BarWithBody("finally", fhc, fbc, Color.BLACK, Color.BLACK, finallyElement.getPath());
-            finallyBody.addChild(processBlock(finallyElement.element("finally_block")));
+            BarWithBody finallyBody = new BarWithBody(FINALLY_TAG, fhc, fbc, Color.BLACK, Color.BLACK, finallyElement.getPath());
+            finallyBody.addChild(processBlock(finallyElement.element(FINALLY_BLOCK)));
             vContainer.addChild(finallyBody);
         });
 

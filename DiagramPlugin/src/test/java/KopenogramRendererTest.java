@@ -1,8 +1,6 @@
-import com.thesis.diagramplugin.diagram.classdiagram.ClassDiagramView;
-import com.thesis.diagramplugin.diagram.classdiagram.model.ClassDiagramModelPackage;
+import com.thesis.diagramplugin.diagram.kopenogram.KopenogramView;
 import com.thesis.diagramplugin.parser.JavaDiagramParser;
 import com.thesis.diagramplugin.parser.PythonDiagramParser;
-import org.dom4j.DocumentHelper;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -14,9 +12,9 @@ public class KopenogramRendererTest {
     @Test
     public void testBreakElementRendering() throws Exception {
         // Load test XML
-        File xmlFile = new File("C:\\Users\\peska\\OneDrive\\Dokumenty\\GitHub\\UMLPlugin\\DiagramPlugin\\src\\main\\java\\com\\thesis\\diagramplugin\\testClasses\\com.thesis.diagramplugin.testClasses_class_relations_diagram.xml");
-        // Create the Kopenogram view builder
-        ClassDiagramView builder = new ClassDiagramView(new ClassDiagramModelPackage(DocumentHelper.parseText(new String(Files.readAllBytes(Paths.get(xmlFile.getPath())))).getRootElement()));
+        File xmlFile = new File("C:\\Users\\peska\\OneDrive\\Dokumenty\\001BP\\2025-03-25_75_INP\\75_INP\\util\\divide_method.xml");
+        //Create the Kopenogram view builder
+        KopenogramView builder = new KopenogramView(new String(Files.readAllBytes(Paths.get(xmlFile.getPath()))));
     }
     @Test
     public void testUML() throws Exception{

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<package name="com.thesis.diagramplugin.parser.classdiagram.java" path="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/java" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/java/com.thesis.diagramplugin.parser.classdiagram.java" pos_x="30" pos_y="30" size_w="481" size_h="324" visible="true"> 
+  <class name="ClassRelationsScanner" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/java/com.thesis.diagramplugin.parser.classdiagram.java/ClassRelationsScanner" abstract="false" pos_x="70" pos_y="104" size_w="174" size_h="80" visible="true"> 
+    <variable name="model" type="PackageModel" modifiers="private;final"/>  
+    <method name="ClassRelationsScanner" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="model" type="PackageModel"/> 
+    </method>  
+    <method name="visitClass" return_type="TreePath" modifiers="public" constructor="false"> 
+      <parameter name="node" type="ClassTree"/>  
+      <parameter name="parent" type="AElementPackageModel"/> 
+    </method>  
+    <method name="scanCollections" return_type="HashSet&lt;Tree&gt;" modifiers="private" constructor="false"> 
+      <parameter name="fieldType" type="Tree"/> 
+    </method>  
+    <method name="scanVariable" return_type="VariablePackageModel" modifiers="private" constructor="false"> 
+      <parameter name="variable" type="VariableTree"/>  
+      <parameter name="parent" type="AElementPackageModel"/> 
+    </method>  
+    <method name="visitMethod" return_type="TreePath" modifiers="public" constructor="false"> 
+      <parameter name="node" type="MethodTree"/>  
+      <parameter name="parent" type="AElementPackageModel"/> 
+    </method>  
+    <method name="visitVariable" return_type="TreePath" modifiers="public" constructor="false"> 
+      <parameter name="node" type="VariableTree"/>  
+      <parameter name="parent" type="AElementPackageModel"/> 
+    </method>  
+    <method name="visitIdentifier" return_type="TreePath" modifiers="public" constructor="false"> 
+      <parameter name="node" type="IdentifierTree"/>  
+      <parameter name="parent" type="AElementPackageModel"/> 
+    </method>  
+    <method name="getTopOwner" return_type="AElementPackageModel" modifiers="protected" constructor="false"> 
+      <parameter name="owned" type="OwnedPackageModel"/> 
+    </method>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/> 
+  </class>  
+  <class name="ClassRelationsProcessor" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/java/com.thesis.diagramplugin.parser.classdiagram.java/ClassRelationsProcessor" abstract="false" pos_x="265" pos_y="234" size_w="188" size_h="80" visible="true"> 
+    <variable name="trees" type="Trees" modifiers="private"/>  
+    <variable name="scanner" type="ClassRelationsScanner" modifiers="private"> 
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/java/com.thesis.diagramplugin.parser.classdiagram.java/ClassRelationsScanner" dependency_type="AGGREGATION"/> 
+    </variable>  
+    <variable name="packageModel" type="PackageModel" modifiers="private"/>  
+    <method name="init" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="pEnv" type="ProcessingEnvironment"/> 
+    </method>  
+    <method name="process" return_type="boolean" modifiers="public" constructor="false"> 
+      <parameter name="annotations" type="Set&lt;? extends TypeElement&gt;"/>  
+      <parameter name="roundEnv" type="RoundEnvironment"/> 
+    </method>  
+    <method name="getPackageModel" return_type="PackageModel" modifiers="public" constructor="false"/>  
+    <relation/>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/java/com.thesis.diagramplugin.parser.classdiagram.java/ClassRelationsScanner"/>  
+    <relation/> 
+  </class>  
+  <class name="PosPlacement" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/java/com.thesis.diagramplugin.parser.classdiagram.java/PosPlacement" abstract="false" owner="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/java/com.thesis.diagramplugin.parser.classdiagram.java/ClassRelationsExporter" pos_x="104" pos_y="234" size_w="111" size_h="80" visible="true"> 
+    <variable name="x" type="int" modifiers="public"/>  
+    <variable name="y" type="int" modifiers="public"/>  
+    <variable name="w" type="int" modifiers="public"/>  
+    <variable name="h" type="int" modifiers="public"/>  
+    <variable name="visible" type="boolean" modifiers="public"/> 
+  </class>  
+  <class name="ClassRelationsExporter" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/java/com.thesis.diagramplugin.parser.classdiagram.java/ClassRelationsExporter" abstract="false" pos_x="294" pos_y="104" size_w="177" size_h="80" visible="true"> 
+    <variable name="pkgModel" type="PackageModel" modifiers="private;final"/>  
+    <variable name="path" type="String" modifiers="private;final"/>  
+    <variable name="existingElements" type="Map&lt;String, ClassRelationsExporter.PosPlacement&gt;" modifiers="private;final"/>  
+    <variable name="knownIdentifiers" type="Map&lt;String, List&lt;String&gt;&gt;" modifiers="private;final"/>  
+    <method name="ClassRelationsExporter" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="model" type="PackageModel"/>  
+      <parameter name="path" type="String"/> 
+    </method>  
+    <method name="export" return_type="File" modifiers="public" constructor="false"/>  
+    <method name="exportToXMLFile" return_type="File" modifiers="private" constructor="false"/>  
+    <method name="copyExistingSizePosAttributes" return_type="void" modifiers="private" constructor="false"> 
+      <parameter name="packageId" type="String"/>  
+      <parameter name="packageElement" type="Element"/> 
+    </method>  
+    <method name="buildSizePositionMap" return_type="void" modifiers="private" constructor="false"> 
+      <parameter name="el" type="Element"/>  
+      <parameter name="existingElements" type="Map&lt;String, ClassRelationsExporter.PosPlacement&gt;"/> 
+    </method>  
+    <method name="getClassId" return_type="String" modifiers="private" constructor="false"> 
+      <parameter name="cls" type="AElementPackageModel"/> 
+    </method>  
+    <method name="createClassElements" return_type="void" modifiers="private" constructor="false"> 
+      <parameter name="packageElement" type="Element"/> 
+    </method>  
+    <method name="createClassMethodElements" return_type="void" modifiers="private" constructor="false"> 
+      <parameter name="classPackageModel" type="ClassTypePackageModel"/>  
+      <parameter name="classElement" type="Element"/> 
+    </method>  
+    <method name="createRelations" return_type="void" modifiers="private" constructor="false"> 
+      <parameter name="model" type="AElementPackageModel"/>  
+      <parameter name="element" type="Element"/> 
+    </method>  
+    <method name="fixReferences" return_type="void" modifiers="private" constructor="false"> 
+      <parameter name="element" type="Element"/>  
+      <parameter name="pkgPath" type="String"/> 
+    </method>  
+    <method name="createMethodParameters" return_type="void" modifiers="private" constructor="false"> 
+      <parameter name="method" type="MethodPackageModel"/>  
+      <parameter name="methodElement" type="Element"/> 
+    </method>  
+    <method name="createClassVariableElements" return_type="void" modifiers="private" constructor="false"> 
+      <parameter name="model" type="ClassTypePackageModel"/>  
+      <parameter name="classElement" type="Element"/> 
+    </method>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/parser/classdiagram/java/com.thesis.diagramplugin.parser.classdiagram.java/ClassRelationsExporter"/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/> 
+  </class> 
+</package>

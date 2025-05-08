@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<package name="com.thesis.diagramplugin.settings" path="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/settings" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/settings/com.thesis.diagramplugin.settings" pos_x="30" pos_y="30" size_w="485" size_h="324" visible="true"> 
-  <class name="PluginSettingsPanel" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/settings/com.thesis.diagramplugin.settings/PluginSettingsPanel" abstract="false" pos_x="322" pos_y="234" size_w="153" size_h="80" visible="true"> 
+<package name="com.thesis.diagramplugin.settings" path="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/settings" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/settings/com.thesis.diagramplugin.settings" pos_x="30" pos_y="30" size_w="584" size_h="477" visible="true"> 
+  <class name="PluginSettingsPanel" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/settings/com.thesis.diagramplugin.settings/PluginSettingsPanel" abstract="false" pos_x="342" pos_y="264" size_w="153" size_h="203" visible="true"> 
     <variable name="panel" type="JPanel" modifiers="private"/>  
     <variable name="colorButtons" type="Map&lt;RoleColor, JButton&gt;" modifiers="private"/>  
     <variable name="settingsService" type="PluginSettingsService" modifiers="private"> 

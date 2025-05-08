@@ -13,11 +13,4 @@ public class User {
         Message msg = new Message(text);  // Vzniká objekt Message
         service.sendNotification(msg);    // Odeslání notifikace
     }
-
-    public static void main(String[] args) {
-        User user = new User("Alice");
-        NotificationService service = new NotificationService();
-
-        user.postMessage("Hello!", service);
-    }
 }

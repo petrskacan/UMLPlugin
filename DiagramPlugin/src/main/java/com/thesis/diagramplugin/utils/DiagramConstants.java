@@ -83,6 +83,8 @@ public class DiagramConstants {
     public static final String FOREACH_ITERATED_VALUE = "iter_value";
     public static final String CATCH_BLOCK = "catch_block";
     public static final String FINALLY_BLOCK = "finally_block";
+
+    public static final String ELSE_BLOCK = "else_block";
     public static final String DEFAULT_CASE_LABEL = "default";
     public static final String CONSTRUCTOR_ATTRIBUTE = "constructor";
     public static final String DEPENDECY_TYPE = "dependency_type";

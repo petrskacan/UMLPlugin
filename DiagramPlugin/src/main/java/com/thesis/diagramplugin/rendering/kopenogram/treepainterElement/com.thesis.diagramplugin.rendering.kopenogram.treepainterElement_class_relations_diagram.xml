@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<package name="com.thesis.diagramplugin.rendering.kopenogram.treepainterElement" path="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/com.thesis.diagramplugin.rendering.kopenogram.treepainterElement" pos_x="30" pos_y="30" size_w="1073" size_h="550" visible="true"> 
+  <class name="ExtendedBar" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/com.thesis.diagramplugin.rendering.kopenogram.treepainterElement/ExtendedBar" abstract="false" pos_x="571" pos_y="104" size_w="103" size_h="80" visible="true"> 
+    <variable name="serialVersionUID" type="long" modifiers="private;static;final"/>  
+    <method name="ExtendedBar" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="text" type="String"/>  
+      <parameter name="color" type="Color"/>  
+      <parameter name="borderColor" type="Color"/>  
+      <parameter name="lineColor" type="Color"/>  
+      <parameter name="path" type="String"/> 
+    </method>  
+    <method name="ExtendedBar" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="text" type="String"/>  
+      <parameter name="color" type="Color"/>  
+      <parameter name="borderColor" type="Color"/>  
+      <parameter name="lineColor" type="Color"/>  
+      <parameter name="fontColor" type="Color"/>  
+      <parameter name="path" type="String"/> 
+    </method>  
+    <method name="computeDimension" return_type="Dimension" modifiers="protected" constructor="false"> 
+      <parameter name="config" type="PainterConfig"/>  
+      <parameter name="pos" type="Point"/> 
+    </method>  
+    <method name="getWidth" return_type="int" modifiers="public" constructor="false"> 
+      <parameter name="config" type="PainterConfig"/> 
+    </method>  
+    <method name="paintGraphics" return_type="void" modifiers="protected" constructor="false"> 
+      <parameter name="g" type="Graphics"/>  
+      <parameter name="config" type="PainterConfig"/>  
+      <parameter name="pos" type="Point"/>  
+      <parameter name="dim" type="Dimension"/> 
+    </method>  
+    <method name="toString" return_type="String" modifiers="public" constructor="false"/>  
+    <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/com.thesis.diagramplugin.rendering.kopenogram.treepainterElement/Bar</extends>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/> 
+  </class>  
+  <class name="Bar" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/com.thesis.diagramplugin.rendering.kopenogram.treepainterElement/Bar" abstract="false" pos_x="104" pos_y="364" size_w="100" size_h="80" visible="true"> 
+    <variable name="serialVersionUID" type="long" modifiers="private;static;final"/>  
+    <variable name="text" type="String" modifiers="protected;final"/>  
+    <variable name="color" type="Color" modifiers="protected;final"/>  
+    <variable name="borderColor" type="Color" modifiers="protected;final"/>  
+    <variable name="lineColor" type="Color" modifiers="protected;final"/>  
+    <variable name="fontColor" type="Color" modifiers="protected;final"/>  
+    <variable name="path" type="String" modifiers="protected;final"/>  
+    <method name="Bar" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="text" type="String"/>  
+      <parameter name="color" type="Color"/>  
+      <parameter name="path" type="String"/> 
+    </method>  
+    <method name="Bar" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="text" type="String"/>  
+      <parameter name="color" type="Color"/>  
+      <parameter name="borderColor" type="Color"/>  
+      <parameter name="lineColor" type="Color"/>  
+      <parameter name="path" type="String"/> 
+    </method>  
+    <method name="Bar" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="text" type="String"/>  
+      <parameter name="color" type="Color"/>  
+      <parameter name="borderColor" type="Color"/>  
+      <parameter name="lineColor" type="Color"/>  
+      <parameter name="fontColor" type="Color"/>  
+      <parameter name="path" type="String"/> 
+    </method>  
+    <method name="Bar" return_type="*NULL*" modifiers="public" constructor="true"/>  
+    <method name="computeDimension" return_type="Dimension" modifiers="protected" constructor="false"> 
+      <parameter name="config" type="PainterConfig"/>  
+      <parameter name="pos" type="Point"/> 
+    </method>  
+    <method name="getWidth" return_type="int" modifiers="public" constructor="false"> 
+      <parameter name="config" type="PainterConfig"/> 
+    </method>  
+    <method name="paintGraphics" return_type="void" modifiers="protected" constructor="false"> 
+      <parameter name="g" type="Graphics"/>  
+      <parameter name="config" type="PainterConfig"/>  
+      <parameter name="pos" type="Point"/>  
+      <parameter name="dim" type="Dimension"/> 
+    </method>  
+    <method name="drawText" return_type="int" modifiers="protected" constructor="false"> 
+      <parameter name="text" type="String"/>  
+      <parameter name="g" type="Graphics"/>  
+      <parameter name="config" type="PainterConfig"/>  
+      <parameter name="pos" type="Point"/> 
+    </method>  
+    <method name="getText" return_type="String" modifiers="public" constructor="false"> 
+      <parameter name="config" type="PainterConfig"/> 
+    </method>  
+    <method name="toString" return_type="String" modifiers="public" constructor="false"/>  
+    <method name="getPath" return_type="String" modifiers="public" constructor="false"/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/> 
+  </class>  
+  <interface name="Container" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/com.thesis.diagramplugin.rendering.kopenogram.treepainterElement/Container" abstract="false" pos_x="220" pos_y="104" size_w="100" size_h="80" visible="true"> 
+    <method name="addChild" return_type="Container" modifiers="public" constructor="false"> 
+      <parameter name="element" type="PainterElement"/> 
+    </method>  
+    <method name="getChildren" return_type="List&lt;PainterElement&gt;" modifiers="public" constructor="false"/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/com.thesis.diagramplugin.rendering.kopenogram.treepainterElement/Container"/> 
+  </interface>  
+  <class name="Empty" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/com.thesis.diagramplugin.rendering.kopenogram.treepainterElement/Empty" abstract="false" pos_x="254" pos_y="364" size_w="100" size_h="80" visible="true"> 
+    <variable name="serialVersionUID" type="long" modifiers="private;static;final"/>  
+    <variable name="SPACE" type="PainterElement" modifiers="public;static;final"/>  
+    <method name="Empty" return_type="*NULL*" modifiers="private" constructor="true"/>  
+    <method name="computeDimension" return_type="Dimension" modifiers="protected" constructor="false"> 
+      <parameter name="config" type="PainterConfig"/>  
+      <parameter name="pos" type="Point"/> 
+    </method>  
+    <method name="getWidth" return_type="int" modifiers="public" constructor="false"> 
+      <parameter name="config" type="PainterConfig"/> 
+    </method>  
+    <method name="getPath" return_type="String" modifiers="public" constructor="false"/>  
+    <method name="paintGraphics" return_type="void" modifiers="protected" constructor="false"> 
+      <parameter name="g" type="Graphics"/>  
+      <parameter name="config" type="PainterConfig"/>  
+      <parameter name="pos" type="Point"/>  
+      <parameter name="dim" type="Dimension"/> 
+    </method>  
+    <method name="toString" return_type="String" modifiers="public" constructor="false"/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/com.thesis.diagramplugin.rendering.kopenogram.treepainterElement/Empty"/>  
+    <relation/> 
+  </class>  
+  <class name="VerticalContainer" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/com.thesis.diagramplugin.rendering.kopenogram.treepainterElement/VerticalContainer" abstract="false" pos_x="442" pos_y="234" size_w="134" size_h="80" visible="true"> 
+    <variable name="serialVersionUID" type="long" modifiers="private;static;final"/>  
+    <variable name="avoidElements" type="List&lt;? extends OverPainterElement&gt;" modifiers="private"/>  
+    <variable name="cachedPositions" type="List&lt;Point&gt;" modifiers="private"/>  
+    <variable name="path" type="String" modifiers="private;final"/>  
+    <method name="setAvoidElements" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="avoidElements" type="List&lt;? extends OverPainterElement&gt;"/> 
+    </method>  
+    <method name="VerticalContainer" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="path" type="String"/> 
+    </method>  
+    <method name="computeDimension" return_type="Dimension" modifiers="protected" constructor="false"> 
+      <parameter name="config" type="PainterConfig"/>  
+      <parameter name="pos" type="Point"/> 
+    </method>  
+    <method name="getWidth" return_type="int" modifiers="public" constructor="false"> 
+      <parameter name="config" type="PainterConfig"/> 
+    </method>  
+    <method name="getPath" return_type="String" modifiers="public" constructor="false"/>  
+    <method name="paintGraphics" return_type="void" modifiers="protected" constructor="false"> 
+      <parameter name="g" type="Graphics"/>  
+      <parameter name="config" type="PainterConfig"/>  
+      <parameter name="pos" type="Point"/>  
+      <parameter name="dim" type="Dimension"/> 
+    </method>  
+    <method name="intersects" return_type="boolean" modifiers="private" constructor="false"> 
+      <parameter name="pos" type="Point"/>  
+      <parameter name="dim" type="Dimension"/>  
+      <parameter name="element" type="OverPainterElement"/>  
+      <parameter name="config" type="PainterConfig"/> 
+    </method>  
+    <method name="getToAvoid" return_type="List&lt;? extends OverPainterElement&gt;" modifiers="private" constructor="false"/>  
+    <method name="toString" return_type="String" modifiers="public" constructor="false"/>  
+    <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/com.thesis.diagramplugin.rendering.kopenogram.treepainterElement/AbstractContainer</extends>  
+    <implements>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/com.thesis.diagramplugin.rendering.kopenogram.treepainterElement/AvoidableContainer</implements>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/com.thesis.diagramplugin.rendering.kopenogram.treepainterElement/Separator"/>  
+    <relation/> 
+  </class>  
+  <class name="AbstractContainer" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/com.thesis.diagramplugin.rendering.kopenogram.treepainterElement/AbstractContainer" abstract="true" pos_x="404" pos_y="364" size_w="139" size_h="80" visible="true"> 
+    <variable name="serialVersionUID" type="long" modifiers="private;static;final"/>  
+    <variable name="children" type="List&lt;PainterElement&gt;" modifiers="private;final"/>  
+    <method name="addChild" return_type="AbstractContainer" modifiers="public" constructor="false"> 
+      <parameter name="element" type="PainterElement"/> 
+    </method>  
+    <method name="getChildren" return_type="List&lt;PainterElement&gt;" modifiers="public" constructor="false"/>  
+    <implements>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/com.thesis.diagramplugin.rendering.kopenogram.treepainterElement/Container</implements>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/com.thesis.diagramplugin.rendering.kopenogram.treepainterElement/Empty"/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/com.thesis.diagramplugin.rendering.kopenogram.treepainterElement/AbstractContainer"/>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/com.thesis.diagramplugin.rendering.kopenogram.treepainterElement/Separator"/> 
+  </class>  
+  <interface name="AvoidableContainer" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/com.thesis.diagramplugin.rendering.kopenogram.treepainterElement/AvoidableContainer" abstract="false" pos_x="370" pos_y="104" size_w="151" size_h="80" visible="true"> 
+    <method name="setAvoidElements" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="avoid" type="List&lt;? extends OverPainterElement&gt;"/> 
+    </method>  
+    <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/com.thesis.diagramplugin.rendering.kopenogram.treepainterElement/Container</extends> 
+  </interface>  
+  <class name="FootBar" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/com.thesis.diagramplugin.rendering.kopenogram.treepainterElement/FootBar" abstract="false" pos_x="104" pos_y="234" size_w="100" size_h="80" visible="true"> 
+    <variable name="serialVersionUID" type="long" modifiers="private;static;final"/>  
+    <method name="FootBar" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="text" type="String"/>  
+      <parameter name="color" type="Color"/>  
+      <parameter name="borderColor" type="Color"/>  
+      <parameter name="lineColor" type="Color"/> 
+    </method>  
+    <method name="computeDimension" return_type="Dimension" modifiers="protected" constructor="false"> 
+      <parameter name="config" type="PainterConfig"/>  
+      <parameter name="pos" type="Point"/> 
+    </method>  
+    <method name="paintGraphics" return_type="void" modifiers="protected" constructor="false"> 
+      <parameter name="g" type="Graphics"/>  
+      <parameter name="config" type="PainterConfig"/>  
+      <parameter name="pos" type="Point"/>  
+      <parameter name="dim" type="Dimension"/> 
+    </method>  
+    <method name="toString" return_type="String" modifiers="public" constructor="false"/>  
+    <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/com.thesis.diagramplugin.rendering.kopenogram.treepainterElement/ExtendedBar</extends>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/> 
+  </class>  
+  <class name="BarWithBody" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/com.thesis.diagramplugin.rendering.kopenogram.treepainterElement/BarWithBody" abstract="false" pos_x="626" pos_y="234" size_w="102" size_h="80" visible="true"> 
+    <variable name="serialVersionUID" type="long" modifiers="private;static;final"/>  
+    <variable name="bodyColor" type="Color" modifiers="protected;final"/>  
+    <variable name="lineColor" type="Color" modifiers="protected;final"/>  
+    <variable name="noBorderLineColorRight" type="Color" modifiers="protected;final"/>  
+    <variable name="head" type="Bar" modifiers="protected;final"> 
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/com.thesis.diagramplugin.rendering.kopenogram.treepainterElement/Bar" dependency_type="AGGREGATION"/> 
+    </variable>  
+    <variable name="container" type="VerticalContainer" modifiers="protected;final"> 
+      <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/com.thesis.diagramplugin.rendering.kopenogram.treepainterElement/VerticalContainer" dependency_type="AGGREGATION"/> 
+    </variable>  
+    <variable name="path" type="String" modifiers="private;final"/>  
+    <method name="BarWithBody" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="text" type="String"/>  
+      <parameter name="headColor" type="Color"/>  
+      <parameter name="bodyColor" type="Color"/>  
+      <parameter name="lineColor" type="Color"/>  
+      <parameter name="noBorderLineColorRight" type="Color"/>  
+      <parameter name="path" type="String"/> 
+    </method>  
+    <method name="setAvoidElements" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="avoidElements" type="List&lt;? extends OverPainterElement&gt;"/> 
+    </method>  
+    <method name="computeDimension" return_type="Dimension" modifiers="protected" constructor="false"> 
+      <parameter name="config" type="PainterConfig"/>  
+      <parameter name="pos" type="Point"/> 
+    </method>  
+    <method name="getWidth" return_type="int" modifiers="public" constructor="false"> 
+      <parameter name="config" type="PainterConfig"/> 
+    </method>  
+    <method name="getName" return_type="String" modifiers="public" constructor="false"/>  
+    <method name="paintGraphics" return_type="void" modifiers="protected" constructor="false"> 
+      <parameter name="g" type="Graphics"/>  
+      <parameter name="config" type="PainterConfig"/>  
+      <parameter name="pos" type="Point"/>  
+      <parameter name="dim" type="Dimension"/> 
+    </method>  
+    <method name="addChild" return_type="Container" modifiers="public" constructor="false"> 
+      <parameter name="element" type="PainterElement"/> 
+    </method>  
+    <method name="getChildren" return_type="List&lt;PainterElement&gt;" modifiers="public" constructor="false"/>  
+    <method name="toString" return_type="String" modifiers="public" constructor="false"/>  
+    <method name="getPath" return_type="String" modifiers="public" constructor="false"/>  
+    <implements>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/com.thesis.diagramplugin.rendering.kopenogram.treepainterElement/AvoidableContainer</implements>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/com.thesis.diagramplugin.rendering.kopenogram.treepainterElement/VerticalContainer"/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/com.thesis.diagramplugin.rendering.kopenogram.treepainterElement/Container"/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/com.thesis.diagramplugin.rendering.kopenogram.treepainterElement/FootBar"/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/com.thesis.diagramplugin.rendering.kopenogram.treepainterElement/Bar"/>  
+    <relation/>  
+    <relation/> 
+  </class>  
+  <class name="ExtendedBarOver" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/com.thesis.diagramplugin.rendering.kopenogram.treepainterElement/ExtendedBarOver" abstract="false" pos_x="254" pos_y="234" size_w="138" size_h="80" visible="true"> 
+    <variable name="serialVersionUID" type="long" modifiers="private;static;final"/>  
+    <variable name="realDim" type="Dimension" modifiers="private;transient"/>  
+    <variable name="pathParent" type="String" modifiers="private;final"/>  
+    <method name="ExtendedBarOver" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="text" type="String"/>  
+      <parameter name="color" type="Color"/>  
+      <parameter name="borderColor" type="Color"/>  
+      <parameter name="lineColor" type="Color"/>  
+      <parameter name="fontColor" type="Color"/>  
+      <parameter name="parentPath" type="String"/>  
+      <parameter name="elementPath" type="String"/> 
+    </method>  
+    <method name="computeDimension" return_type="Dimension" modifiers="protected" constructor="false"> 
+      <parameter name="config" type="PainterConfig"/>  
+      <parameter name="pos" type="Point"/> 
+    </method>  
+    <method name="paintGraphics" return_type="void" modifiers="protected" constructor="false"> 
+      <parameter name="g" type="Graphics"/>  
+      <parameter name="config" type="PainterConfig"/>  
+      <parameter name="pos" type="Point"/>  
+      <parameter name="dim" type="Dimension"/> 
+    </method>  
+    <method name="getRealPosition" return_type="Point" modifiers="public" constructor="false"/>  
+    <method name="getRealDimension" return_type="Dimension" modifiers="public" constructor="false"> 
+      <parameter name="config" type="PainterConfig"/> 
+    </method>  
+    <method name="computeRealDim" return_type="Dimension" modifiers="public" constructor="false"> 
+      <parameter name="config" type="PainterConfig"/> 
+    </method>  
+    <method name="paintOver" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="g" type="Graphics"/>  
+      <parameter name="config" type="PainterConfig"/> 
+    </method>  
+    <method name="toString" return_type="String" modifiers="public" constructor="false"/>  
+    <method name="getPath" return_type="String" modifiers="public" constructor="false"/>  
+    <method name="getParentPath" return_type="String" modifiers="public" constructor="false"/>  
+    <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/com.thesis.diagramplugin.rendering.kopenogram.treepainterElement/Bar</extends>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/> 
+  </class>  
+  <class name="HorizontalContainer" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/com.thesis.diagramplugin.rendering.kopenogram.treepainterElement/HorizontalContainer" abstract="false" pos_x="593" pos_y="364" size_w="152" size_h="80" visible="true"> 
+    <variable name="serialVersionUID" type="long" modifiers="private;static;final"/>  
+    <variable name="path" type="String" modifiers="private;final"/>  
+    <method name="HorizontalContainer" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="path" type="String"/> 
+    </method>  
+    <method name="computeDimension" return_type="Dimension" modifiers="protected" constructor="false"> 
+      <parameter name="config" type="PainterConfig"/>  
+      <parameter name="pos" type="Point"/> 
+    </method>  
+    <method name="getWidth" return_type="int" modifiers="public" constructor="false"> 
+      <parameter name="config" type="PainterConfig"/> 
+    </method>  
+    <method name="getPath" return_type="String" modifiers="public" constructor="false"/>  
+    <method name="paintGraphics" return_type="void" modifiers="protected" constructor="false"> 
+      <parameter name="g" type="Graphics"/>  
+      <parameter name="config" type="PainterConfig"/>  
+      <parameter name="pos" type="Point"/>  
+      <parameter name="dim" type="Dimension"/> 
+    </method>  
+    <method name="toString" return_type="String" modifiers="public" constructor="false"/>  
+    <extends>C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/com.thesis.diagramplugin.rendering.kopenogram.treepainterElement/AbstractContainer</extends>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/>  
+    <relation/> 
+  </class>  
+  <class name="Separator" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/com.thesis.diagramplugin.rendering.kopenogram.treepainterElement/Separator" abstract="false" pos_x="70" pos_y="104" size_w="100" size_h="80" visible="true"> 
+    <variable name="serialVersionUID" type="long" modifiers="private;static;final"/>  
+    <variable name="HORIZONTAL" type="PainterElement" modifiers="public;static;final"/>  
+    <variable name="VERTICAL" type="PainterElement" modifiers="public;static;final"/>  
+    <variable name="BOTH" type="PainterElement" modifiers="public;static;final"/>  
+    <variable name="width" type="int" modifiers="private;final"/>  
+    <variable name="height" type="int" modifiers="private;final"/>  
+    <method name="Separator" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="width" type="int"/>  
+      <parameter name="height" type="int"/> 
+    </method>  
+    <method name="computeDimension" return_type="Dimension" modifiers="protected" constructor="false"> 
+      <parameter name="config" type="PainterConfig"/>  
+      <parameter name="pos" type="Point"/> 
+    </method>  
+    <method name="getWidth" return_type="int" modifiers="public" constructor="false"> 
+      <parameter name="config" type="PainterConfig"/> 
+    </method>  
+    <method name="getPath" return_type="String" modifiers="public" constructor="false"/>  
+    <method name="paintGraphics" return_type="void" modifiers="protected" constructor="false"> 
+      <parameter name="g" type="Graphics"/>  
+      <parameter name="config" type="PainterConfig"/>  
+      <parameter name="pos" type="Point"/>  
+      <parameter name="dim" type="Dimension"/> 
+    </method>  
+    <method name="toString" return_type="String" modifiers="public" constructor="false"/>  
+    <relation/>  
+    <relation/>  
+    <relation name="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/treepainterElement/com.thesis.diagramplugin.rendering.kopenogram.treepainterElement/Separator"/>  
+    <relation/> 
+  </class> 
+</package>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<method name="processElement" return_type="com.thesis.diagramplugin.rendering.kopenogram.treepainter.PainterElement">
+  <parameters>
+    <parameter name="element" type="org.dom4j.Element"/>
+  </parameters>
+  <body>
+    <declaration>com.thesis.diagramplugin.rendering.kopenogram.PaintedNode paintedNode = new PaintedNode(element)</declaration>
+    <expression>parents.add(paintedNode);</expression>
+    <declaration>com.thesis.diagramplugin.rendering.kopenogram.treepainter.PainterElement ret = new Bar("not resolved", Color.RED, element.getPath())</declaration>
+    <if condition="element == null">
+      <then>
+        <block>
+          <return>ret</return>
+        </block>
+      </then>
+    </if>
+    <expression>ret = this.processTag(element);</expression>
+    <if condition="ret instanceof OverPainterElement">
+      <then>
+        <block>
+          <expression>root.addOverElement((OverPainterElement) ret);</expression>
+        </block>
+      </then>
+      <else>
+        <if condition="!(ret instanceof HorizontalContainer) &amp;&amp; !(ret instanceof ExtendedBar)">
+          <then>
+            <block>
+              <expression>ret = new HorizontalContainer(element.getPath()).addChild(ret);</expression>
+            </block>
+          </then>
+        </if>
+      </else>
+    </if>
+    <expression>paintedNode.setElement(ret);</expression>
+    <expression>parents.remove(parents.size() - 1);</expression>
+    <return>ret</return>
+  </body>
+</method>

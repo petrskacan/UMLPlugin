@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<package name="com.thesis.diagramplugin.rendering.kopenogram" path="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/com.thesis.diagramplugin.rendering.kopenogram" pos_x="30" pos_y="30" size_w="390" size_h="293" visible="true"> 
+  <class name="PaintedNode" unique_id="C:/Users/peska/OneDrive/Dokumenty/GitHub/UMLPlugin/DiagramPlugin/src/main/java/com/thesis/diagramplugin/rendering/kopenogram/com.thesis.diagramplugin.rendering.kopenogram/PaintedNode" abstract="false" pos_x="80" pos_y="104" size_w="102" size_h="169" visible="true"> 
+    <variable name="serialVersionUID" type="long" modifiers="private;static;final"/>  
+    <variable name="node" type="Object" modifiers="private;final;transient"/>  
+    <variable name="element" type="PainterElement" modifiers="private"/>  
+    <method name="PaintedNode" return_type="*NULL*" modifiers="public" constructor="true"> 
+      <parameter name="node" type="Object"/> 
+    </method>  
+    <method name="setElement" return_type="void" modifiers="public" constructor="false"> 
+      <parameter name="element" type="PainterElement"/> 
+    </method>  
+    <method name="getNode" return_type="Object" modifiers="public" constructor="false"/>  
+    <method name="getElement" return_type="PainterElement" modifiers="public" constructor="false"/>  
+    <relation/>  
+    <relation/> 
+  </class> 
+</package>

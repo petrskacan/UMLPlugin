@@ -140,18 +140,18 @@ public class PyFunctionParser {
 
         for (PyExceptPart exceptPart : tryStatement.getExceptParts()) {
             Element exceptElement = tryElement.addElement(CATCH_TAG);
-            exceptElement.addAttribute(CATCH_TYPE_ATTRIBUTE, exceptPart.getText());
+            exceptElement.addAttribute(CATCH_TYPE_ATTRIBUTE, exceptPart.getText().split(":")[0]);
             parseStatementList(exceptPart.getStatementList(), exceptElement.addElement(CATCH_BLOCK));
         }
 
         Optional.ofNullable(tryStatement.getElsePart()).map(PyStatementListContainer::getStatementList).ifPresent(statementList -> {
             Element elseElement = tryElement.addElement(ELSE_TAG);
-            parseStatementList(statementList, elseElement);
+            parseStatementList(statementList, elseElement.addElement(ELSE_BLOCK));
         });
 
         Optional.ofNullable(tryStatement.getFinallyPart()).map(PyStatementListContainer::getStatementList).ifPresent(statementList -> {
             Element finallyElement = tryElement.addElement(FINALLY_TAG);
-            parseStatementList(statementList, finallyElement);
+            parseStatementList(statementList, finallyElement.addElement(FINALLY_BLOCK));
         });
 
     }
